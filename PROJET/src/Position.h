@@ -11,7 +11,8 @@ struct Position{
      @param x position y
      @return retourne la position (x,y)
     */
-    Position (float x, float y);
+   Position();
+   Position (float x, float y);
 };
 
 #endif
