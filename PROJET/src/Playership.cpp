@@ -1,4 +1,3 @@
-#include <SDL2/SDL.h>
 #include <Playership.h>
 
 class Player {
@@ -34,32 +33,17 @@ public:
 
     void Player::movement()
     {
-        if (evenement.type == SDL_KEYDOWN)
-        {
-            pos.y+=speed;
-        }
-        if (evenement.type == SDL_KEYUP)
-        {
-            pos.y-=speed;
-        }
-        if (evenement.type == SDL_KEYLEFT)
-        {
-            pos.x-=speed;
-        }
-        if (evenement.type == SDL_KEYRIGHT)
-        {
-            pos.x+=speed;
-        }
+        //SDL2 pour le mvt
     }
 
-    bool Invader::CheckCollision(Projectile P){
-        Position position =P.getpos();
+    bool Player::CheckCollision(Projectile P){
+        Position position = P.getpos();
         if (position.x >= pos.x && position.x <= pos.x+taille && position.y >= pos.y && position.y <= pos.y+taille)
             return true;
         return false;
     }
 
-        void Invader::DamageTaken(bool b, Projectile P)
+        void Player::DamageTaken(bool b, Projectile P)
     {
         int dmg=P.getDamage();
         if (b)

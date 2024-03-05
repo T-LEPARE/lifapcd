@@ -41,7 +41,7 @@ public :
     /**
      * @return renvoie la position du projectile 
     */
-   float getpos();
+   Position getpos();
 
     /**
      * @brief met à jour le projectile (position) 

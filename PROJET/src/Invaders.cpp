@@ -1,4 +1,3 @@
-#include <SDL2/SDL.h>
 #include <Invaders.h>
 
 class Invader {
@@ -38,7 +37,7 @@ public:
     }
 
     bool Invader::CheckCollision(Projectile P){
-        Position position =P.getpos();
+        Position position = P.getpos();
         if (position.x >= pos.x && position.x <= pos.x+taille && position.y >= pos.y && position.y <= pos.y+taille)
             return true;
         return false;
