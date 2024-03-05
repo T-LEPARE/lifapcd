@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-#include "./scoreSystem.h"
-=======
 #include "ScoreSystem.h";
->>>>>>> 63755c6 (modif player.h et Invaders.h)
 
 class scoreSystem {
 public:
