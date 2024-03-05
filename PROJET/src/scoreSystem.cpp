@@ -1,4 +1,4 @@
-#include "scoreSystem.h";
+#include "./scoreSystem.h"
 
 class scoreSystem {
 public:
@@ -11,12 +11,12 @@ public:
 
     void init() {
     };
-    
+
     void update(){
 
     };
     void draw() {
-        // Affichage du score
+        // Affichage du score avec SDL
     };
     void incrementScore(int newscore){
         score += newscore;
