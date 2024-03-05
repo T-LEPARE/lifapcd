@@ -9,7 +9,6 @@ struct Position{
      @brief constructeur de position
      @param x position x
      @param x position y
-     @return retourne la position (x,y)
     */
    Position();
    Position (float x, float y);
