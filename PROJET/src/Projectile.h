@@ -1,12 +1,12 @@
 #ifndef PROJECTILE_H
 #define PROJECTILE_H
+#include "Position.h"
 
 
 class Projectile {
 
 private :
-    float x;
-    float y;
+    Position pos;
     float speed;
     int damage;
 
@@ -27,14 +27,11 @@ public :
     void move();
 
     /**
-     * @return renvoie la position X du projectile
+     * @return renvoie la position du projectile 
     */
-   float getx();
+   float getpos();
 
-   /**
-     * @return renvoie la position y du projectile
-    */
-   float gety();
+   
 
    /**
      * @return renvoie le degats de l'arme 

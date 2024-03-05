@@ -1,4 +1,4 @@
-#include "ScoreSystem.h";
+#include "ScoreSystem.h"
 
 class scoreSystem {
 public:
