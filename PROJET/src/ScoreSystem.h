@@ -4,10 +4,10 @@
 #include "Position.h"
 
 
-class scoreSystem {
+class ScoreSystem {
 public:
-    scoreSystem();
-    ~scoreSystem();
+    ScoreSystem();
+    ~ScoreSystem();
     void init();
     void update();
     void draw();

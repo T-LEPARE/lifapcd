@@ -1,11 +1,11 @@
 #include "ScoreSystem.h"
 
-class scoreSystem {
+class ScoreSystem {
 public:
-    scoreSystem() {
+    ScoreSystem() {
         score = 0;
     };
-    ~scoreSystem() {
+    ~ScoreSystem() {
         score = 0;
     };
 
