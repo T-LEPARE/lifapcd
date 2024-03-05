@@ -7,7 +7,8 @@ class Player {
 private:
     Position pos;
     float speed;
-
+    float taille;
+    float HP;
 public:
     /**
      @brief constructeur de Player
@@ -44,11 +45,17 @@ public:
 
     /**
      @brief Vérifie si le joueur a été touché ou non
-     @param  P position d'un invader ou d'un projectile
+     @param  P Un projectile
     */
-    bool CheckCollision(Position P);
-};
+    bool CheckCollision(Projectile P);
 
+    /**
+     @brief Si le joueur a été touché par un projectile alors on lui enlève de la vie
+     @param  b le booléen exprimant la collision
+     @param  P Un projectile 
+    */
+    void DamageTaken(bool b, Projectile P)
+};
 
 
 #endif

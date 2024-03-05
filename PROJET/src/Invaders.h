@@ -1,6 +1,6 @@
 #ifndef INVADERS_H
 #define INVADERS_H
-
+#include <Projectile.h>
 #include <Position.h>
 
 class Invader {
@@ -41,15 +41,21 @@ public:
      @brief les déplacements de l'Invader selon un pattern
      @param le point d'arrivé de l'invader 
     */
-    void movement(Position pointFinal);
+    void movement();
 
     /**
      @brief Vérifie si l'invader a été touché par un projectile
-     @param  P position d'un projectile
+     @param  P Un projectile 
     */
-    bool CheckCollision(Position P);
-};
+    bool CheckCollision(Projectile P);
 
+     /**
+     @brief Si l'invader a été touché par un projectile alors on lui enlève de la vie
+     @param  b le booléen exprimant la collision
+     @param  P Un projectile 
+    */
+    void DamageTaken(bool b, Projectile P)
+};
 
 
 #endif
