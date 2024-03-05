@@ -10,7 +10,17 @@ private:
 
 public:
     /**
-     @brief constructeur du joueur (vaisseau)
+     @brief constructeur de Player
+    */
+    Player();
+
+    /**
+     @brief destructeur de Player
+    */
+    ~Player();
+
+    /**
+     @brief initialisation du joueur (vaisseau)
      @param x  position x 
      @param y  position y
      @param HP vie du joueur 
