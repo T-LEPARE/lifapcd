@@ -11,6 +11,7 @@ std::map<std::string, weapon> weapons {
 
 
 Projectile::Projectile(){
+    // celui-là je suis pas sûr qu'il ai un intérêt, on utilisera jamais le constructeur par défaut d'un projectile comme ça
     speed = 1;
     damage = 1;
     pos = Position();  
