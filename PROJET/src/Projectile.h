@@ -1,10 +1,16 @@
 #ifndef PROJECTILE_H
 #define PROJECTILE_H
 #include "Position.h"
+#include <map>
+#include <string>
 #include <vector>
 
+struct weapon {
+    float speed;
+    float damage;
+};
 
-std::vector<Projectile> weapon;
+std::map<std::string, weapon> weapons;
 
 class Projectile {
 
@@ -19,7 +25,7 @@ public :
      * @brief constructeur par defaut du projectiles 
     */
     Projectile();
-    Projectile(Position pos,std::vector<Projectile> weapon,int indice);
+    Projectile(Position pos,std::map<std::string, weapon> weapons, std::string weaponName);
 
     /**
      * @brief destructeur de projectile 

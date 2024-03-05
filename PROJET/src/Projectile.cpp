@@ -1,8 +1,13 @@
 #include "Projectile.h"
 
-std::vector<Projectile> weapon {
-    {speed=}
+std::map<std::string, weapon> weapons {
+    // {nom,{vitesse,damage}}
+    {"mitraillette",{1, 1}},
+    {"railgun", {10,100}},
 };
+
+
+
 
 
 Projectile::Projectile(){
@@ -11,8 +16,8 @@ Projectile::Projectile(){
     pos = Position();  
 }
 
-Projectile::Projectile(Position pos,std::vector<Projectile> weapon,int indice){
-    this->pos = pos;
-    this->damage = weapon[indice].damage;
-    this->speed = weapon[indice].speed;
+Projectile::Projectile(Position pos,std::map<std::string, weapon> weapons,std::string weaponName){
+    this->pos = pos; // Ici il faudra faire un getPos() soit pour l'invader soit pour le Playership
+    this->damage = weapons[weaponName].damage;
+    this->speed = weapons[weaponName].speed;
 }
