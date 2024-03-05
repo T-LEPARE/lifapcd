@@ -12,6 +12,7 @@ class Position{
   private:
   positions xy;
 
+  public:
   /**
    * @brief constructeur de position
    * @param x position x
@@ -20,7 +21,6 @@ class Position{
   Position();
   Position (float x, float y);
 
-  public:
   /**
    * @return renvoie la position X
    */
@@ -30,6 +30,18 @@ class Position{
    * @return renvoie la position Y
    */
   float getY();
+
+ /**
+   * Définit la position X
+   * @param x la nouvelle position X
+   */
+  void setX(float x);
+
+  /**
+   * Définit la position Y
+   * @param y la nouvelle position Y
+   */
+  void setY(float y);
 
   /**
    * @return renvoie une position 

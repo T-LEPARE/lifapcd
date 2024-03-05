@@ -1,3 +1,4 @@
+#include "Position.h"
 #include "Projectile.h"
 
 float dt = 0.1;
@@ -23,8 +24,8 @@ Projectile::Projectile(Position pos,std::map<std::string, weapon> weapons,std::s
     this->direction = Position(0,-1); // la direction initiale du tir, vers le bas
 }
 
-void Projectile::update(){
-    // Il faudra pondérer par un coefficient en fonction de la vitesse d'update du jeu : dt
-    this->pos.x += direction.x*this->speed*dt;
-    this->pos.y += direction.y*this->speed*dt;
+void Projectile::update() {
+  // Use getters to access x and y from direction
+  this->pos.setX(this->pos.getX() + direction.getX() * this->speed * dt);
+  this->pos.setY(this->pos.getY() + direction.getY() * this->speed * dt);
 }
