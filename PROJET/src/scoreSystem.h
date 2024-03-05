@@ -1,5 +1,5 @@
-#ifndef SCORE_SYSTEME_H
-#define SCORE_SYSTEME_H
+#ifndef SCORE_SYSTEM_H
+#define SCORE_SYSTEM_H
 
 class scoreSystem {
 public:
