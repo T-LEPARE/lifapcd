@@ -24,7 +24,7 @@ Projectile::Projectile(Position pos,std::map<std::string, weapon> weapons,std::s
 }
 
 void Projectile::update(){
-    // Il faudra pondérer par un coefficient en fonction de la vitesse d'update du jeu
+    // Il faudra pondérer par un coefficient en fonction de la vitesse d'update du jeu : dt
     this->pos.x += direction.x*this->speed*dt;
     this->pos.y += direction.y*this->speed*dt;
 }

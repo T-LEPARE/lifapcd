@@ -10,7 +10,7 @@ public:
     Player::Player()
     {
         pos=Position();
-        HP=10;
+        HP=100;
     }
 
     ~Player(){}
