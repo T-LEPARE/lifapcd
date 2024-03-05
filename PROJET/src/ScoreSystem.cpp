@@ -10,10 +10,11 @@ public:
     };
 
     void init() {
+        score = 0; // Remet le score à zéro à l'initialisation
     };
 
     void update(){
-
+        // logique du score dans le jeu, à définir
     };
     void draw() {
         // Affichage du score avec SDL

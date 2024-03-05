@@ -10,14 +10,19 @@ struct weapon {
     float damage;
 };
 
+//Le delta temps pour modifier la vitesse des projectiles
+float dt;
+
 std::map<std::string, weapon> weapons;
 
 class Projectile {
 
 private :
     Position pos;
+    Position direction;
     float speed;
     int damage;
+    
     
 
 public :
@@ -32,17 +37,16 @@ public :
     */
     ~Projectile();
 
-    /**
-     * @brief permet au joueur de bouger sur l'écran
-    */
-    void move();
 
     /**
      * @return renvoie la position du projectile 
     */
    float getpos();
 
-   
+    /**
+     * @brief met à jour le projectile (position) 
+    */
+   void update();
 
    /**
      * @return renvoie le degats de l'arme 
