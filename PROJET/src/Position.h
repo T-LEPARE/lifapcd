@@ -12,6 +12,11 @@ struct Position{
     */
    Position();
    Position (float x, float y);
+    
+    /**
+     * @return renvoie une position 
+    */
+   Position getpos();
 };
 
 #endif

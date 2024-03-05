@@ -39,11 +39,6 @@ public :
 
 
     /**
-     * @return renvoie la position du projectile 
-    */
-   Position getpos();
-
-    /**
      * @brief met à jour le projectile (position) 
     */
    void update();
