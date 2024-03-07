@@ -1,4 +1,3 @@
-#include "Position.h"
 #include "Projectile.h"
 
 float const dt = 0.1;
