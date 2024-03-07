@@ -1,5 +1,5 @@
 #include <Invaders.h>
-#include <Starblitzgame.h>
+#include <StarblitzGameDisplay.h>
 
 class Invader {
 private:
@@ -43,13 +43,12 @@ public:
 
     void Invader::movement()
     {
-        //pattern
-        float a;
-        if (pos.x >=DIMX)
-            a=-1.;
+        //pattern à modifier plus tard
+        if (pos.x >=DIMW)
+            speed*-1.;
         if (pos.x <=0)
-            a=1.;
-        pos.x+=a;
+            speed*-1;
+        pos.x+=speed;
     }
 
     bool Invader::CheckCollision(Projectile P){
