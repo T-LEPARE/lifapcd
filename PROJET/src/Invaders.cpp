@@ -37,7 +37,7 @@ public:
     }
 
     bool Invader::CheckCollision(Projectile P){
-        Position position = P.getpos();
+        Position position = P.pos.getPos();
         if (position.x >= pos.x && position.x <= pos.x+taille && position.y >= pos.y && position.y <= pos.y+taille)
             return true;
         return false;
