@@ -62,6 +62,19 @@ class Player {
         @param  P Un projectile 
         */
         void DamageTaken(bool b, Projectile P);
+
+        /**
+         @brief Vérifie si le joueur a été touché ou non
+        @param  P Un Invader
+        */
+        bool CheckCollision(Invader P);
+
+        /**
+         @brief Si le joueur a été touché par un Invader alors on lui enlève de la vie
+        @param  b le booléen exprimant la collision
+        @param  P Un Invader 
+        */
+        void DamageTaken(bool b, Invader P);
 };
 
 
