@@ -10,6 +10,10 @@ struct Position
   Position();
 };
 
+  Position operator+ (Position, Position);
+  Position operator* (float, Position);
+  Position operator* (Position, float);
+
 
 // class Position{
 //   private:

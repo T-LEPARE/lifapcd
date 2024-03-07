@@ -24,10 +24,10 @@ Projectile::Projectile(Position pos,std::map<std::string, weapon> weapons,std::s
     this->direction = Position(0,-1); // la direction initiale du tir, vers le bas
 }
 
+
+
 void Projectile::update() {
   // Use getters to access x and y from direction
-  this->pos.setX(this->pos.getX() + direction.getX() * this->speed * dt);
-  this->pos.setY(this->pos.getY() + direction.getY() * this->speed * dt);
   this->setPos(this->getPos() + this->getDir() * this->speed * dt);
 }
 
