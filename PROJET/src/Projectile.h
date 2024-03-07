@@ -30,6 +30,14 @@ public :
          * @brief constructeur par defaut du projectiles 
         */
         Projectile();
+
+        /**
+         * @brief Construct a new Projectile object
+         * 
+         * @param pos 
+         * @param weapons 
+         * @param weaponName 
+         */
         Projectile(Position pos,std::map<std::string, weapon> weapons, std::string weaponName);
 
         /**
@@ -41,24 +49,56 @@ public :
         /**
          * @brief met à jour le projectile (position) 
         */
-    void update();
+         void update();
 
-    /**
-      * @return renvoie le degats de l'arme 
-     */
-    float getDamage();
+        /**
+        * @return renvoie le degats de l'arme 
+        */
+        float getDamage();
+       
+        /**
+         * @brief Get the Pos object
+         * 
+         * @return Position 
+         */
+        Position getPos();
 
-    Position getPos();
+        /**
+         * @brief Set the Pos object
+         * 
+         * @param x 
+         * @param y 
+         */
+        void setPos(float x,float y);
 
-    void setPos(float x,float y);
+        /**
+         * @brief Set the Pos object
+         * 
+         * @param p 
+         */
+        void setPos(Position p);
 
-    void setPos(Position p);
+        /**
+         * @brief Get the Dir object
+         * 
+         * @return Position 
+         */
+        Position getDir();
 
-    Position getDir();
+        /**
+         * @brief Set the Dir object
+         * 
+         * @param x 
+         * @param y 
+         */
+        void setDir(float x,float y);
 
-    void setDir(float x,float y);
-
-    void setDir(Position p);
+        /**
+         * @brief Set the Dir object
+         * 
+         * @param p 
+         */
+        void setDir(Position p);
   
 
 
