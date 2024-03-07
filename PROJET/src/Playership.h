@@ -2,6 +2,7 @@
 #define PLAYERSHIP_H
 #include <Projectile.h>
 #include <Position.h>
+#include <Invaders.h>
 
 class Player {
     private:
