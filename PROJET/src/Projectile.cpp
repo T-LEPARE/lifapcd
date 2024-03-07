@@ -5,8 +5,8 @@ float const dt = 0.1;
 
 std::map<std::string, weapon> weapons {
     // {nom,{vitesse,damage}}
-    {"mitraillette",{1, 1}},
-    {"railgun", {10,100}},
+    {"mitraillette",{100, 1}},
+    {"railgun", {1,100}},
 };
 
 Projectile::Projectile(){
@@ -23,7 +23,6 @@ Projectile::Projectile(Position pos,std::map<std::string, weapon> weapons,std::s
     this->speed = weapons[weaponName].speed;
     this->direction = Position(0,-1); // la direction initiale du tir, vers le bas
 }
-
 
 
 void Projectile::update() {
