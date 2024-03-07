@@ -1,7 +1,7 @@
 #include "Position.h"
 #include "Projectile.h"
 
-float dt = 0.1;
+float const dt = 0.1;
 
 std::map<std::string, weapon> weapons {
     // {nom,{vitesse,damage}}
@@ -28,7 +28,7 @@ Projectile::Projectile(Position pos,std::map<std::string, weapon> weapons,std::s
 
 void Projectile::update() {
   // Use getters to access x and y from direction
-  this->setPos(this->getPos() + this->getDir() * this->speed * dt);
+  setPos(getPos() + getDir() * speed * dt);
 }
 
 float Projectile::getDamage(){
