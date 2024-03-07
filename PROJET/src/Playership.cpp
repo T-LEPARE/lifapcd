@@ -42,23 +42,24 @@ public:
 
     void Player::movement()
     {
-        SDL_Event event;                                                 
-        while( SDL_PollEvent( &event ) ){
-            switch( event.type ){
-            case SDL_KEYDOWN:
-                
+        SDL_Event event; 
+        int SDL_EnableKeyRepeat(100);
+        while( SDL_PollEvent(&event) ){
+            switch( event.key.keysym.sym ){
+            case SDLK_DOWN:
+                pos.y+=speed;
                 break;
 
-            case SDL_KEYUP:
-                
+            case SDLK_UP:
+                pos.y-=speed;
                 break;
 
-            case SDL_KEYRIGHT:
-                
+            case SDLK_RIGHT:
+                pos.x+=speed;
                 break;
 
-            case SDL_KEYLEFT:
-                
+            case SDLK_LEFT:
+                pos.x-=speed;
                 break;
             default:
                 break;

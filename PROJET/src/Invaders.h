@@ -40,6 +40,11 @@ public:
     Position getPos();
 
     /**
+     * @return renvoie le degats de l'arme 
+    */
+    float getDamage();
+
+    /**
      @return retourne le nombre de point de vie de l'invader
     */
     int getHP();
