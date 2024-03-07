@@ -7,6 +7,7 @@ struct Position
   float y;
 
   Position(float _x, float _y);
+  Position();
 };
 
 
