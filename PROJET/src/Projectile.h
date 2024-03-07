@@ -26,27 +26,39 @@ private :
     
 
 public :
-    /**
-     * @brief constructeur par defaut du projectiles 
-    */
-    Projectile();
-    Projectile(Position pos,std::map<std::string, weapon> weapons, std::string weaponName);
+        /**
+         * @brief constructeur par defaut du projectiles 
+        */
+        Projectile();
+        Projectile(Position pos,std::map<std::string, weapon> weapons, std::string weaponName);
+
+        /**
+         * @brief destructeur de projectile 
+        */
+        ~Projectile();
+
+
+        /**
+         * @brief met à jour le projectile (position) 
+        */
+    void update();
 
     /**
-     * @brief destructeur de projectile 
-    */
-    ~Projectile();
+      * @return renvoie le degats de l'arme 
+     */
+    float getDamage();
 
+    Position getPos();
 
-    /**
-     * @brief met à jour le projectile (position) 
-    */
-   void update();
+    void setPos(float x,float y);
 
-   /**
-     * @return renvoie le degats de l'arme 
-    */
-   float getDamage();
+    void setPos(Position p);
+
+    Position getDir();
+
+    void setDir(float x,float y);
+
+    void setDir(Position p);
   
 
 

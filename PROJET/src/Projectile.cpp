@@ -28,6 +28,7 @@ void Projectile::update() {
   // Use getters to access x and y from direction
   this->pos.setX(this->pos.getX() + direction.getX() * this->speed * dt);
   this->pos.setY(this->pos.getY() + direction.getY() * this->speed * dt);
+  this->setPos(this->getPos() + this->getDir() * this->speed * dt);
 }
 
 float Projectile::getDamage(){
@@ -37,4 +38,34 @@ float Projectile::getDamage(){
 Projectile::~Projectile(){
     this->damage = 0;
 
+}
+
+Position Projectile::getPos(){
+    return pos;
+
+}
+
+void Projectile::setPos(float x,float y){
+    this->pos.x=x;
+    this->pos.y=y;
+}
+
+void Projectile::setPos(Position p){
+    this->pos.x=p.x;
+    this->pos.y=p.y;
+}
+
+Position Projectile::getDir(){
+    return pos;
+
+}
+
+void Projectile::setDir(float x,float y){
+    this->pos.x=x;
+    this->pos.y=y;
+}
+
+void Projectile::setDir(Position p){
+    this->pos.x=p.x;
+    this->pos.y=p.y;
 }

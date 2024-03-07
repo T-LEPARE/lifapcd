@@ -1,5 +1,6 @@
 #include "Position.h"
 
+/*
 Position::Position(){
 }
 
@@ -32,3 +33,6 @@ void Position::setPos(float x,float y){
   setX(x);
   setY(y);
 }
+*/
+
+Position::Position(float _x, float _y) : x(_x), y(_y) {}
