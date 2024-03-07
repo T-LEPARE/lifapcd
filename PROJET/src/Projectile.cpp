@@ -29,3 +29,12 @@ void Projectile::update() {
   this->pos.setX(this->pos.getX() + direction.getX() * this->speed * dt);
   this->pos.setY(this->pos.getY() + direction.getY() * this->speed * dt);
 }
+
+float Projectile::getDamage(){
+    return damage;
+}
+
+Projectile::~Projectile(){
+    this->damage = 0;
+
+}
