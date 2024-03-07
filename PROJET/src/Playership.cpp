@@ -9,17 +9,25 @@ private:
 public:
     Player::Player()
     {
-        pos=Position();
+        pos=Position(0,0);
         HP=100;
     }
 
-    ~Player(){}
+    ~Player()
+    {
+        Player();
+    }
 
     Player Player::InitPlayer(float x, float y, int HealthPoint)
     {
         pos=Position(x,y);
         HP=HealthPoint;         
     }
+
+    void Player::setPos(float x,float y){
+    this->pos.x=x;
+    this->pos.y=y;
+}
 
     Position Player::getPos()
     {
@@ -37,7 +45,7 @@ public:
     }
 
     bool Player::CheckCollision(Projectile P){
-        Position position = P.getpos();
+        Position position = P.getPos();
         if (position.x >= pos.x && position.x <= pos.x+taille && position.y >= pos.y && position.y <= pos.y+taille)
             return true;
         return false;

@@ -28,6 +28,13 @@ public:
     Invader InitInvader(float x, float y, int HP);
 
     /**
+     @brief Donne une position a l'invader
+     @param x position x
+     @param y position y
+    */
+    void setPos(float x,float y);
+
+    /**
      @return retourne la position de l'Invader
     */
     Position getPos();
