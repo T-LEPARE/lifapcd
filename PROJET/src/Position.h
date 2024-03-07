@@ -47,6 +47,11 @@ class Position{
    * @return renvoie une position 
    */
   positions getPos();
+
+  /**
+   * @return defini une position
+   */
+  void setPos(float x,float y);
 };
 
 #endif

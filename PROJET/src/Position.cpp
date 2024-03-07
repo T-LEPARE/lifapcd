@@ -19,3 +19,16 @@ float Position::getY() {
 positions Position::getPos(){
   return xy;
 }
+
+void Position::setX(float x){
+  this->xy.x = x ;
+}
+
+void Position::setY(float y){
+  this->xy.y = y ;
+}
+
+void Position::setPos(float x,float y){
+  setX(x);
+  setY(y);
+}
