@@ -1,10 +1,6 @@
 #include "Projectile.h"
 
-const std::map<std::string, weapon> weapons {
-    // {nom,{vitesse,damage}}
-    {"mitraillette",{100, 1}},
-    {"railgun", {1,100}},
-};
+
 
 Projectile::Projectile(){
     // celui-là je suis pas sûr qu'il ai un intérêt, on utilisera jamais le constructeur par défaut d'un projectile comme ça
