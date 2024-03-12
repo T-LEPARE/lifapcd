@@ -1,12 +1,5 @@
 #include "Playership.h"
 
-class Player {
-private:
-    Position pos;
-    float speed;
-    float taille;
-    float HP;
-public:
     Player::Player()
     {
         pos=Position(0,0);
@@ -14,12 +7,12 @@ public:
     }
 
     Player::Player(float x, float y, int healthPoint, float playerSpeed) { 
-        setPos(x, y);
-        setHP(healthPoint); 
-        setSpeed(playerSpeed);
+        this->setPos(x, y);
+        this->setHP(healthPoint); 
+        this->setSpeed(playerSpeed);
     }
 
-    ~Player()
+    Player::~Player()
     {
         Player();
     }
@@ -48,11 +41,11 @@ public:
     {
         return HP;
     }
-    void Player::setSpeed(int speed)
+    void Player::setSpeed(float speed)
     {
         this->speed = speed;
     }
-        int Player::getSpeed()
+        float Player::getSpeed()
     {
         return this->speed;
     }
@@ -84,32 +77,31 @@ public:
   }
     }
 
-    bool Player::CheckCollision(Projectile P){
+    bool Player::CheckCollisionP(Projectile P){
         Position position = P.getPos();
         if (position.x >= pos.x && position.x <= pos.x+taille && position.y >= pos.y && position.y <= pos.y+taille)
             return true;
         return false;
     }
 
-        void Player::DamageTaken(bool b, Projectile P)
+    void Player::DamageTaken(bool b,Projectile P)
     {
         int dmg=P.getDamage();
         if (b)
             HP-=dmg;
     }
 
-        bool Player::CheckCollision(Invader i){
+    bool Player::CheckCollisionI(Invader i){
         Position position = i.getPos();
         if (position.x >= pos.x && position.x <= pos.x+taille && position.y >= pos.y && position.y <= pos.y+taille)
             return true;
         return false;
     }
 
-        void Player::DamageTaken(bool b, Invader i)
+    void Player::DamageTaken(bool b,Invader i)
     {
         int dmg=i.getDamage();
         if (b)
             HP-=dmg;
     }
-};
 

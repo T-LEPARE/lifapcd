@@ -14,10 +14,13 @@ private:
     int HP;
 
 public:
+
+    Player();
+
     /**
      * Constructeur de Player
      */
-    Player();
+    Player(float x, float y, int healthPoint, float playerSpeed);
 
     /**
      * Destructeur de Player
@@ -41,14 +44,31 @@ public:
     void setPos(float x, float y);
 
     /**
+     * Donne une position au joueur
+     * @param x HealthPoint
+     */
+    void setHP(int x);
+
+    /**
+     * Donne une position au joueur
+     * @param x  speed
+     */
+    void setSpeed(float x);
+
+    /**
      * @return Retourne la position du joueur
      */
-    Position getPos() const;
+    Position getPos();
 
     /**
      * @return Retourne le nombre de points de vie du joueur
      */
-    int getHP() const;
+    int getHP();
+
+    /**
+     * @return Retourne la speed du joueur
+     */
+    float getSpeed();
 
     /**
      * Déplace le joueur
@@ -60,28 +80,28 @@ public:
      * @param P Un projectile
      * @return Vrai si collision, faux sinon
      */
-    bool CheckCollision(const Projectile& P) const;
+    bool CheckCollisionP(Projectile P);
 
     /**
      * Si le joueur a été touché par un projectile, lui enlève de la vie
      * @param b Booléen indiquant la collision
      * @param P Un projectile
      */
-    void DamageTaken(bool b, const Projectile& P);
+    void DamageTaken(bool b,Projectile P);
 
     /**
      * Vérifie si le joueur a été touché par un envahisseur
      * @param I Un envahisseur
      * @return Vrai si collision, faux sinon
      */
-    bool CheckCollision(const Invader& I) const;
+    bool CheckCollisionI(Invader I);
 
     /**
      * Si le joueur a été touché par un envahisseur, lui enlève de la vie
      * @param b Booléen indiquant la collision
      * @param I Un envahisseur
      */
-    void DamageTaken(bool b, const Invader& I);
+    void DamageTaken(bool b,Invader I);
 };
 
 #endif // PLAYERSHIP_H

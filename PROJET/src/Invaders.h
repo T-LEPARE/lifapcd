@@ -9,6 +9,7 @@ private:
     float speed;
     float taille;
     float HP;
+    int dmg;
 
 public:
     /**
@@ -26,8 +27,10 @@ public:
      @param x  position x 
      @param y  position y
      @param HP vie de l'Invader 
+     @param spd speed de l'invader
+     @param damage damage de l'invader
     */
-    Invader InitInvader(float x, float y, int HP);
+    Invader InitInvader(float x, float y, int HP,float spd,int damage);
 
     /**
      @brief Donne une position a l'invader
@@ -44,7 +47,7 @@ public:
     /**
      * @return renvoie le degats de l'arme 
     */
-    float getDamage();
+    int getDamage();
 
     /**
      @return retourne le nombre de point de vie de l'invader
