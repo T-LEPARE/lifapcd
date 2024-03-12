@@ -13,11 +13,7 @@ struct weapon {
 //Le delta temps pour modifier la vitesse des projectiles
 const float dt = 0.1;
 
-std::map<std::string, weapon> weapons {
-    // {nom,{vitesse,damage}}
-    {"mitraillette",{100, 1}},
-    {"railgun", {1,100}},
-};
+const std::map<std::string, weapon> weapons;
 
 class Projectile {
 
