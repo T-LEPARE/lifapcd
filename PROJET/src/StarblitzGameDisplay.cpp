@@ -1,8 +1,9 @@
 #include "StarblitzGameDisplay.h"
+#include <SDL2/SDL.h>
 
 int main() {
   // Initialisation de SDL
-  if (SDL_Init(SDL_INIT_VIDEO) != 0) {
+  if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
     SDL_Log("Échec de l'initialisation de SDL : %s", SDL_GetError());
     return 1;
   }

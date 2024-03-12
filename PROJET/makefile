@@ -1,13 +1,16 @@
-all :
+all :./bin/StarblitzGame
+
+./bin/StarblitzGame : ./obj/StarblitzGameDisplay.o ./obj/StarblitzGameLogic.o ./obj/ScoreSystem.o ./obj/Projectile.o ./obj/Position.o ./obj/Playership.o
+			g++ -g ./obj/StarblitzGameDisplay.o ./obj/StarblitzGameLogic.o ./obj/ScoreSystem.o ./obj/Projectile.o ./obj/Position.o ./obj/Playership.o -o ./bin/StarblitzGame -lSDL2
 
 
 ./obj/StarblitzGameLogic.o : ./src/StarblitzGameLogic.cpp ./src/StarblitzGameLogic.h
-			g++ -Wall -c ./src/StarblitzGameLogic.cpp -o .obj/StarblitzGameLogic.o
+			g++ -Wall -c ./src/StarblitzGameLogic.cpp -o ./obj/StarblitzGameLogic.o
 
 
 
 ./obj/StarblitzGameDisplay.o : ./src/StarblitzGameDisplay.cpp ./src/StarblitzGameDisplay.h
-			g++ -Wall -c ./src/StarblitzGameDisplay.cpp -o .obj/StarblitzGameDisplay.o
+			g++ -Wall -c ./src/StarblitzGameDisplay.cpp -o ./obj/StarblitzGameDisplay.o -lSDL2
 
 
 
@@ -26,7 +29,7 @@ all :
 
 
 ./obj/Playership.o : ./src/Playership.cpp ./src/Playership.h
-			g++ -g -Wall -c ./src/Playership.cpp -o ./obj/Playership.o
+			g++ -g -Wall -c ./src/Playership.cpp -o ./obj/Playership.o -lSDL2
 
 
 ./obj/Invaders.o : ./src/Invaders.cpp ./src/Invaders.h 
