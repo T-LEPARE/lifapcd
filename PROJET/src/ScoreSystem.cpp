@@ -1,30 +1,26 @@
 #include "ScoreSystem.h"
 
-class ScoreSystem {
-public:
-    ScoreSystem() {
+
+    ScoreSystem::ScoreSystem() {
         score = 0;
     };
-    ~ScoreSystem() {
+    ScoreSystem::~ScoreSystem() {
         score = 0;
     };
 
-    void init() {
+    void ScoreSystem::init() {
         score = 0; // Remet le score à zéro à l'initialisation
     };
 
-    void update(){
+    void ScoreSystem::update(){
         // logique du score dans le jeu, à définir
     };
-    void draw() {
+    void ScoreSystem::draw() {
         // Affichage du score avec SDL
     };
-    void incrementScore(int newscore){
+    void ScoreSystem::incrementScore(int newscore){
         score += newscore;
     };
-    int getScore() {
+    int ScoreSystem::getScore() {
         return score;
     };
-private:
-    int score;
-};

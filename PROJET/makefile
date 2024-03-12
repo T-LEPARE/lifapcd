@@ -1,11 +1,13 @@
 all :
 
 
+./obj/StarblitzGameLogic.o : ./src/StarblitzGameLogic.cpp ./src/StarblitzGameLogic.h
+			g++ -Wall -c ./src/StarblitzGameLogic.cpp -o .obj/StarblitzGameLogic.o
 
 
 
-
-
+./obj/StarblitzGameDisplay.o : ./src/StarblitzGameDisplay.cpp ./src/StarblitzGameDisplay.h
+			g++ -Wall -c ./src/StarblitzGameDisplay.cpp -o .obj/StarblitzGameDisplay.o
 
 
 
@@ -29,3 +31,9 @@ all :
 
 ./obj/Invaders.o : ./src/Invaders.cpp ./src/Invaders.h 
 			g++ -g -Wall -c ./src/Invaders.cpp -o ./obj/Invaders.o
+
+clean : 
+		rm ./obj/*.o 
+
+veryclean :
+		rm ./bin/*
