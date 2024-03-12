@@ -1,9 +1,9 @@
 #ifndef PLAYERSHIP_H
 #define PLAYERSHIP_H
 
+#include "Invaders.h"
 #include "Projectile.h"
 #include "Position.h"
-#include "Invaders.h"
 #include <SDL2/SDL.h>
 
 class Player {
@@ -103,18 +103,18 @@ public:
     void DamageTakenP(bool b,Projectile P);
 
     /**
-     * Vérifie si le joueur a été touché par un envahisseur
+     * Vérifie si le joueur a été touché par un Invader
      * @param I Un envahisseur
      * @return Vrai si collision, faux sinon
      */
-    bool CheckCollisionI(Invader I);
+    bool CheckCollisionI(Invader Invader);
 
     /**
      * Si le joueur a été touché par un envahisseur, lui enlève de la vie
      * @param b Booléen indiquant la collision
-     * @param I Un envahisseur
+     * @param I Un Invader
      */
-    void DamageTakenI(bool b,Invader I);
+    void DamageTakenI(bool b,Invader Invader);
 };
 
 #endif // PLAYERSHIP_H

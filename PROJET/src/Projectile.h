@@ -7,7 +7,7 @@
 
 struct weapon {
     float speed;
-    float damage;
+    int damage;
 };
 
 //Le delta temps pour modifier la vitesse des projectiles
@@ -58,7 +58,7 @@ public :
         /**
         * @return renvoie le degats de l'arme 
         */
-        float getDamage();
+        int getDamage();
        
         /**
          * @brief Get the Pos object

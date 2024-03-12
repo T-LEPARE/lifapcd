@@ -23,7 +23,7 @@ void Projectile::update() {
   setPos(getPos() + getDir() * speed * dt);
 }
 
-float Projectile::getDamage(){
+int Projectile::getDamage(){
     return damage;
 }
 
