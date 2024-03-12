@@ -29,6 +29,21 @@
     this->pos.y=y;
     }
 
+    void Invader::setHP(int HealthPoint)
+    {
+        HP=HealthPoint;
+    }
+
+    void Invader::setSpeed(float spd)
+    {
+        speed=spd;
+    }
+
+    void Invader::setDamage(int damage)
+    {
+        dmg=damage;
+    }
+
     Position Invader::getPos()
     {
         return pos;

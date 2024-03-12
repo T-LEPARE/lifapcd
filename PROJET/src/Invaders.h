@@ -32,12 +32,34 @@ public:
     */
     Invader InitInvader(float x, float y, int HP,float spd,int damage);
 
+
+
+
     /**
      @brief Donne une position a l'invader
      @param x position x
      @param y position y
     */
     void setPos(float x,float y);
+
+    /**
+     @brief Donne des Healthpoint a l'invader
+     @param x HP
+    */
+    void setHP(int x);
+    /**
+     @brief Donne une vitesse a l'invader
+     @param x speed
+    */
+    void setSpeed(float x);
+    /**
+     @brief Donne des damages a l'invader
+     @param x damage
+    */
+    void setDamage(int x);
+
+
+
 
     /**
      @return retourne la position de l'Invader
