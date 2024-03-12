@@ -91,28 +91,28 @@
         }
     }
 
-    bool Player::CheckCollisionP(Projectile Projectile){
+    bool Player::CheckCollisionProjectile(Projectile Projectile){
         Position position = Projectile.getPos();
         if (position.x >= pos.x && position.x <= pos.x+taille && position.y >= pos.y && position.y <= pos.y+taille)
             return true;
         return false;
     }
 
-    void Player::DamageTakenP(bool b,Projectile Projectile)
+    void Player::DamageTakenProjectile(bool b,Projectile Projectile)
     {
         int dmg=Projectile.getDamage();
         if (b)
             HP-=dmg;
     }
 
-    bool Player::CheckCollisionI(Invader Invader){
+    bool Player::CheckCollisionInvader(Invader Invader){
         Position position = Invader.getPos();
         if (position.x >= pos.x && position.x <= pos.x+taille && position.y >= pos.y && position.y <= pos.y+taille)
             return true;
         return false;
     }
 
-    void Player::DamageTakenI(bool b,Invader Invader)
+    void Player::DamageTakenInvader(bool b,Invader Invader)
     {
         int dmg=Invader.getDamage();
         if (b)

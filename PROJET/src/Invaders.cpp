@@ -72,10 +72,7 @@
     {
         return this->HP;
     }
-    float Invader::Invader::getTaille()
-    {
-        return this->taille;
-    }
+
 
     void Invader::movement()
     {

@@ -93,28 +93,28 @@ public:
      * @param P Un projectile
      * @return Vrai si collision, faux sinon
      */
-    bool CheckCollisionP(Projectile P);
+    bool CheckCollisionProjectile(Projectile Projectile);
 
     /**
      * Si le joueur a été touché par un projectile, lui enlève de la vie
      * @param b Booléen indiquant la collision
      * @param P Un projectile
      */
-    void DamageTakenP(bool b,Projectile P);
+    void DamageTakenProjectile(bool b,Projectile Projectile);
 
     /**
      * Vérifie si le joueur a été touché par un Invader
      * @param I Un envahisseur
      * @return Vrai si collision, faux sinon
      */
-    bool CheckCollisionI(Invader Invader);
+    bool CheckCollisionInvader(Invader Invader);
 
     /**
      * Si le joueur a été touché par un envahisseur, lui enlève de la vie
      * @param b Booléen indiquant la collision
      * @param I Un Invader
      */
-    void DamageTakenI(bool b,Invader Invader);
+    void DamageTakenInvader(bool b,Invader Invader);
 };
 
 #endif // PLAYERSHIP_H

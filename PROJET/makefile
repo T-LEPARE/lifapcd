@@ -1,7 +1,7 @@
 all :./bin/StarblitzGame
 
 ./bin/StarblitzGame : ./obj/StarblitzGameDisplay.o ./obj/StarblitzGameLogic.o ./obj/ScoreSystem.o ./obj/Projectile.o ./obj/Position.o ./obj/Playership.o
-			g++ -g ./obj/StarblitzGameDisplay.o ./obj/StarblitzGameLogic.o ./obj/ScoreSystem.o ./obj/Projectile.o ./obj/Position.o ./obj/Playership.o -o ./bin/StarblitzGame -lSDL2
+			g++ -g ./obj/StarblitzGameDisplay.o ./obj/StarblitzGameLogic.o ./obj/ScoreSystem.o ./obj/Projectile.o ./obj/Position.o ./obj/Playership.o ./obj/Invaders.o -o ./bin/StarblitzGame -lSDL2
 
 
 ./obj/StarblitzGameLogic.o : ./src/StarblitzGameLogic.cpp ./src/StarblitzGameLogic.h
