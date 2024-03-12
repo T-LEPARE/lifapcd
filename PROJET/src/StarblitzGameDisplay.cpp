@@ -38,19 +38,30 @@ int main() {
   SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
   SDL_FreeSurface(surface);  // Libération de la surface après création de la texture
 
-  // Effacement de l'écran avec une couleur
-  SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-  SDL_RenderClear(renderer);
+  // Début de la boucle de jeu
+  bool running = true;
+  while (running) {
+    // Gestion des événements
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {
+      if (event.type == SDL_QUIT) {
+        running = false;
+      }
+    }
 
-  // Affichage de l'image
-  SDL_Rect dstrect = { 0, 0, 640, 480 };  // Position et taille de l'image à l'écran
-  SDL_RenderCopy(renderer, texture, NULL, &dstrect);
+    // Mise à jour de la logique du jeu (déplacement des personnages, etc.)
 
-  // Mise à jour de l'écran
-  SDL_RenderPresent(renderer);
+    // Effacement de l'écran avec une couleur
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_RenderClear(renderer);
 
-  // Attente de 2 secondes
-  SDL_Delay(2000);
+    // Affichage de l'image
+    SDL_Rect dstrect = { 0, 0, 640, 480 };  // Position et taille de l'image à l'écran
+    SDL_RenderCopy(renderer, texture, NULL, &dstrect);
+
+    // Mise à jour de l'écran
+    SDL_RenderPresent(renderer);
+  }
 
   // Nettoyage
   SDL_DestroyTexture(texture);
