@@ -1,5 +1,4 @@
-#include <Playership.h>
-#include <SDL2/SDL.h>
+#include "Playership.h"
 
 class Player {
 private:

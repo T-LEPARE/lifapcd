@@ -1,9 +1,10 @@
 #ifndef PLAYERSHIP_H
 #define PLAYERSHIP_H
 
-#include <Projectile.h>
-#include <Position.h>
-#include <Invaders.h>
+#include "Projectile.h"
+#include "Position.h"
+#include "Invaders.h"
+#include <SDL2/SDL.h>
 
 class Player {
 private:

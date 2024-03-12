@@ -1,20 +1,14 @@
-#include <Invaders.h>
-#include <StarblitzGameDisplay.h>
+#include "Invaders.h"
+#include "StarblitzGameDisplay.h"
 
-class Invader {
-private:
-    Position pos;
-    float speed;
-    float taille;
-    float HP;
-public:
+
     Invader::Invader()
     {
         pos=Position(0,0);
         HP=10;
     }
 
-    ~Invader()
+    Invader::~Invader()
     {
         Invader();
     }
@@ -44,11 +38,11 @@ public:
     void Invader::movement()
     {
         //pattern à modifier plus tard
-        if (pos.x >=DIMW)
+        if (this->pos.x >=DIMW)
             speed*-1.;
-        if (pos.x <=0)
+        if (this->pos.x <=0)
             speed*-1;
-        pos.x+=speed;
+        this->pos.x+=speed;
     }
 
     bool Invader::CheckCollision(Projectile P){
@@ -64,5 +58,5 @@ public:
         if (b)
             HP-=dmg;
     }
-};
+
 

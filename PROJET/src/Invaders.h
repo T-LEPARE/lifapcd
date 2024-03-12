@@ -1,12 +1,14 @@
 #ifndef INVADERS_H
 #define INVADERS_H
-#include <Projectile.h>
-#include <Position.h>
+#include "Projectile.h"
+#include "Position.h"
 
 class Invader {
 private:
     Position pos;
     float speed;
+    float taille;
+    float HP;
 
 public:
     /**
