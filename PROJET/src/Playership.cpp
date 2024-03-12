@@ -18,9 +18,7 @@
     }
 
     Player Player::InitPlayer(float x, float y, int healthPoint)
-    {
-        //pos=Position(x,y);
-        //HP=HealthPoint;   
+    {   
         return Player(x, y, healthPoint, speed);      
     }
 
