@@ -1,82 +1,86 @@
 #ifndef PLAYERSHIP_H
 #define PLAYERSHIP_H
+
 #include <Projectile.h>
 #include <Position.h>
 #include <Invaders.h>
 
 class Player {
-    private:
-        Position pos;
-        float speed;
-        float taille;
-        float HP;
-    public:
-        /**
-         @brief constructeur de Player
-        */
-        Player();
+private:
+    Position pos;
+    float speed;
+    float taille;
+    int HP;
 
-        /**
-         @brief destructeur de Player
-        */
-        ~Player();
+public:
+    /**
+     * Constructeur de Player
+     */
+    Player();
 
-        /**
-         @brief initialisation du joueur (vaisseau)
-        @param x  position x 
-        @param y  position y
-        @param HP vie du joueur 
-        */
-        Player InitPlayer(float x, float y, int HP);
+    /**
+     * Destructeur de Player
+     */
+    ~Player();
 
-        /**
-        @brief Donne une position a l'invader
-        @param x position x
-        @param y position y
-        */
-        void setPos(float x,float y);
+    /**
+     * Initialise le joueur (vaisseau)
+     * @param x Position x
+     * @param y Position y
+     * @param HP Vie du joueur
+     * @return Le joueur initialisé
+     */
+    Player InitPlayer(float x, float y, int HP);
 
-        /**
-         @return retourne la position du joueur
-        */
-        Position getPos();
+    /**
+     * Donne une position au joueur
+     * @param x Position x
+     * @param y Position y
+     */
+    void setPos(float x, float y);
 
-        /**
-         @return retourne le nombre de point de vie du joueur
-        */
-        int getHP();
+    /**
+     * @return Retourne la position du joueur
+     */
+    Position getPos() const;
 
-        /**
-         @brief les déplacements du joueur 
-        */
-        void movement();
+    /**
+     * @return Retourne le nombre de points de vie du joueur
+     */
+    int getHP() const;
 
-        /**
-         @brief Vérifie si le joueur a été touché ou non
-        @param  P Un projectile
-        */
-        bool CheckCollision(Projectile P);
+    /**
+     * Déplace le joueur
+     */
+    void movement();
 
-        /**
-         @brief Si le joueur a été touché par un projectile alors on lui enlève de la vie
-        @param  b le booléen exprimant la collision
-        @param  P Un projectile 
-        */
-        void DamageTaken(bool b, Projectile P);
+    /**
+     * Vérifie si le joueur a été touché par un projectile
+     * @param P Un projectile
+     * @return Vrai si collision, faux sinon
+     */
+    bool CheckCollision(const Projectile& P) const;
 
-        /**
-         @brief Vérifie si le joueur a été touché ou non
-        @param  P Un Invader
-        */
-        bool CheckCollision(Invader P);
+    /**
+     * Si le joueur a été touché par un projectile, lui enlève de la vie
+     * @param b Booléen indiquant la collision
+     * @param P Un projectile
+     */
+    void DamageTaken(bool b, const Projectile& P);
 
-        /**
-         @brief Si le joueur a été touché par un Invader alors on lui enlève de la vie
-        @param  b le booléen exprimant la collision
-        @param  P Un Invader 
-        */
-        void DamageTaken(bool b, Invader P);
+    /**
+     * Vérifie si le joueur a été touché par un envahisseur
+     * @param I Un envahisseur
+     * @return Vrai si collision, faux sinon
+     */
+    bool CheckCollision(const Invader& I) const;
+
+    /**
+     * Si le joueur a été touché par un envahisseur, lui enlève de la vie
+     * @param b Booléen indiquant la collision
+     * @param I Un envahisseur
+     */
+    void DamageTaken(bool b, const Invader& I);
 };
 
-
-#endif
+#endif // PLAYERSHIP_H

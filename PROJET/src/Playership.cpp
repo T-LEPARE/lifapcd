@@ -14,15 +14,22 @@ public:
         HP=100;
     }
 
+    Player::Player(float x, float y, int healthPoint, float playerSpeed) { 
+        setPos(x, y);
+        setHP(healthPoint); 
+        setSpeed(playerSpeed);
+    }
+
     ~Player()
     {
         Player();
     }
 
-    Player Player::InitPlayer(float x, float y, int HealthPoint)
+    Player Player::InitPlayer(float x, float y, int healthPoint)
     {
-        pos=Position(x,y);
-        HP=HealthPoint;         
+        //pos=Position(x,y);
+        //HP=HealthPoint;   
+        return Player(x, y, healthPoint, speed);      
     }
 
     void Player::setPos(float x,float y){
@@ -35,9 +42,20 @@ public:
         return pos;
     }
 
+    void Player::setHP(int healthPoint){
+    this->HP = healthPoint;
+}
     int Player::getHP()
     {
         return HP;
+    }
+    void Player::setSpeed(int speed)
+    {
+        this->speed = speed;
+    }
+        int Player::getSpeed()
+    {
+        return this->speed;
     }
 
     void Player::movement()
