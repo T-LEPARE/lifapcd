@@ -43,20 +43,38 @@
     {
         dmg=damage;
     }
+    void Invader::setTaille(float TailleInvader)
+    {
+        taille=TailleInvader;
+    }
+
+
+    float Invader::getTaille()
+    {
+        return this->taille;
+    }
 
     Position Invader::getPos()
     {
-        return pos;
+        return this->pos;
     }
 
     int Invader::getDamage(){
-        return dmg;
+        return this->dmg;
     }
 
+    float Invader::getSpeed()
+    {
+        return this->speed;
+    }
 
     int Invader::getHP()
     {
-        return HP;
+        return this->HP;
+    }
+    float Invader::Invader::getTaille()
+    {
+        return this->taille;
     }
 
     void Invader::movement()

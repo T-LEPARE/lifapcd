@@ -58,6 +58,12 @@ public:
     */
     void setDamage(int x);
 
+    /**
+     * Donne une taille à l'Invader
+     * @param TailleInvader  taille en pixel
+     */
+    void setTaille(float TailleInvader);
+
 
 
 
@@ -77,8 +83,19 @@ public:
     int getHP();
 
     /**
-     @brief les déplacements de l'Invader selon un pattern
-     @param le point d'arrivé de l'invader 
+     * @return Retourne la speed de l'Invader
+     */
+    float getSpeed();
+
+    /**
+     * @return Retourne la taille de l'Invader
+     */
+    float getTaille();
+
+
+
+    /**
+     @brief les déplacements de l'Invader selon un pattern 
     */
     void movement();
 

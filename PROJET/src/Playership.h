@@ -20,7 +20,7 @@ public:
     /**
      * Constructeur de Player
      */
-    Player(float x, float y, int healthPoint, float playerSpeed);
+    Player(float x, float y, int healthPoint, float playerSpeed, float TaillePlayer);
 
     /**
      * Destructeur de Player
@@ -34,7 +34,7 @@ public:
      * @param HP Vie du joueur
      * @return Le joueur initialisé
      */
-    Player InitPlayer(float x, float y, int HP);
+    Player InitPlayer(float x, float y, int HP, float playerSpeed, float TaillePlayer);
 
     /**
      * Donne une position au joueur
@@ -56,6 +56,14 @@ public:
     void setSpeed(float x);
 
     /**
+     * Donne une taille au joueur
+     * @param x  taille en pixel
+     */
+    void setTaille(int t);
+   
+   
+   
+    /**
      * @return Retourne la position du joueur
      */
     Position getPos();
@@ -69,6 +77,11 @@ public:
      * @return Retourne la speed du joueur
      */
     float getSpeed();
+
+    /**
+     * @return Retourne la taille du joueur
+     */
+    float getTaille();
 
     /**
      * Déplace le joueur
@@ -87,7 +100,7 @@ public:
      * @param b Booléen indiquant la collision
      * @param P Un projectile
      */
-    void DamageTaken(bool b,Projectile P);
+    void DamageTakenP(bool b,Projectile P);
 
     /**
      * Vérifie si le joueur a été touché par un envahisseur
@@ -101,7 +114,7 @@ public:
      * @param b Booléen indiquant la collision
      * @param I Un envahisseur
      */
-    void DamageTaken(bool b,Invader I);
+    void DamageTakenI(bool b,Invader I);
 };
 
 #endif // PLAYERSHIP_H

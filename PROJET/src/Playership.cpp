@@ -1,15 +1,21 @@
 #include "Playership.h"
+#include "Invaders.h"
+#include "Projectile.h"
+#include "Position.h"
 
     Player::Player()
     {
         pos=Position(0,0);
         HP=100;
+        speed=2.0;
+        taille=10;
     }
 
-    Player::Player(float x, float y, int healthPoint, float playerSpeed) { 
+    Player::Player(float x, float y, int healthPoint, float playerSpeed, float TaillePlayer) { 
         this->setPos(x, y);
         this->setHP(healthPoint); 
         this->setSpeed(playerSpeed);
+        this->setTaille(TaillePlayer);
     }
 
     Player::~Player()
@@ -17,35 +23,47 @@
         Player();
     }
 
-    Player Player::InitPlayer(float x, float y, int healthPoint)
+    Player Player::InitPlayer(float x, float y, int healthPoint,float spd,float TaillePlayer)
     {   
-        return Player(x, y, healthPoint, speed);      
+        return Player(x, y, healthPoint, spd, TaillePlayer);      
     }
 
     void Player::setPos(float x,float y){
     this->pos.x=x;
     this->pos.y=y;
-}
-
-    Position Player::getPos()
-    {
-        return pos;
     }
 
     void Player::setHP(int healthPoint){
     this->HP = healthPoint;
-}
-    int Player::getHP()
-    {
-        return HP;
     }
+
     void Player::setSpeed(float speed)
     {
         this->speed = speed;
     }
-        float Player::getSpeed()
+    void Player::setTaille(int t)
+    {
+        this->taille=t;
+    }
+
+    int Player::getHP()
+    {
+        return HP;
+    }
+
+    float Player::getSpeed()
     {
         return this->speed;
+    }
+
+    Position Player::getPos()
+    {
+        return this->pos;
+    }
+
+    float Player::getTaille()
+    {
+        return this->taille;
     }
 
     void Player::movement()
@@ -71,8 +89,8 @@
                 break;
             default:
                 break;
-    }
-  }
+             }   
+        }
     }
 
     bool Player::CheckCollisionP(Projectile P){
@@ -82,7 +100,7 @@
         return false;
     }
 
-    void Player::DamageTaken(bool b,Projectile P)
+    void Player::DamageTakenP(bool b,Projectile P)
     {
         int dmg=P.getDamage();
         if (b)
@@ -96,7 +114,7 @@
         return false;
     }
 
-    void Player::DamageTaken(bool b,Invader i)
+    void Player::DamageTakenI(bool b,Invader i)
     {
         int dmg=i.getDamage();
         if (b)
