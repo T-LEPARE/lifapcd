@@ -1,4 +1,4 @@
-#include <SDL2/SDL.h>
+#include "StarblitzGameDisplay.h"
 
 int main() {
   // Initialisation de SDL
@@ -8,7 +8,7 @@ int main() {
   }
 
   // Création d'une fenêtre
-  SDL_Window* window = SDL_CreateWindow("Affichage simple avec SDL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
+  SDL_Window* window = SDL_CreateWindow("Affichage simple avec SDL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, DIMW, DIMH, SDL_WINDOW_SHOWN);
   if (window == nullptr) {
     SDL_Log("Échec de la création de la fenêtre : %s", SDL_GetError());
     SDL_Quit();
