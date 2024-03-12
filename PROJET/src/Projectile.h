@@ -6,17 +6,19 @@
 #include <vector>
 
 struct weapon {
-    float speed;
+    float projectileSpeed;
     int damage;
+    float fireRate;
 };
 
 //Le delta temps pour modifier la vitesse des projectiles
 const float dt = 0.1;
 
 const std::map<std::string, weapon> weapons {
-    // {nom,{vitesse,damage}}
-    {"mitraillette",{100, 1}},
-    {"railgun", {1,100}},
+    // {nom,{projectile speed projectile,damage, fire rate}}
+    {"mitraillette",{2, 1, 50}},
+    {"railgun", {50, 50, 1}},
+    {"roquettes", {20, 25, 2}},
 };
 
 class Projectile {
@@ -24,8 +26,9 @@ class Projectile {
 private :
     Position pos;
     Position direction;
-    float speed;
+    float projectileSpeed; 
     int damage;
+    float fireRate;
     
     
 
@@ -51,7 +54,7 @@ public :
 
 
         /**
-         * @brief met à jour le projectile (position) 
+         * @brief met à jour le projectile (position)
         */
          void update();
 
@@ -70,17 +73,27 @@ public :
         /**
          * @brief Set the Pos object
          * 
-         * @param x 
-         * @param y 
-         */
-        void setPos(float x,float y);
-
-        /**
-         * @brief Set the Pos object
-         * 
          * @param p 
          */
         void setPos(Position p);
+
+                /**
+         * @brief Set the Pos object
+         * 
+         * @param x
+         * @param y 
+         */
+        void setPos(float x, float y);
+
+        /**
+         * @brief Set the fireRate object
+         */
+        void setFireRate();
+
+        /**
+         * @brief Get the fireRate object
+         */
+        float getFireRate();
 
         /**
          * @brief Get the Dir object

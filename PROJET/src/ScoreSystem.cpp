@@ -18,8 +18,8 @@
     void ScoreSystem::draw() {
         // Affichage du score avec SDL
     };
-    void ScoreSystem::incrementScore(int newscore){
-        score += newscore;
+    void ScoreSystem::incrementScore(int bonus){
+        score += bonus;
     };
     int ScoreSystem::getScore() {
         return score;

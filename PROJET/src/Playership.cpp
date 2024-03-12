@@ -23,7 +23,7 @@
 
     Player Player::InitPlayer(float x, float y, int healthPoint,float spd,float TaillePlayer)
     {   
-        return Player(x, y, healthPoint, spd, TaillePlayer);      
+        return Player(x, y, healthPoint, spd, TaillePlayer);
     }
 
     void Player::setPos(float x,float y){
