@@ -39,4 +39,4 @@ clean :
 		rm ./obj/*.o 
 
 veryclean :
-		rm ./bin/*
+		rm ./bin/* && rm ./obj/*.o 
