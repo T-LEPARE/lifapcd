@@ -92,7 +92,7 @@
     void Invader::movement()
     {
         //pattern à modifier plus tard
-        if (pos.x >=960)
+        if (pos.x >=DIMW)
             speed*-1.;
         if (pos.x <=0)
             speed*-1;

@@ -2,6 +2,8 @@
 #define INVADERS_H
 #include "Projectile.h"
 #include "Position.h"
+#include "StarblitzGameDisplay.h"
+
 
 class Invader {
 private:

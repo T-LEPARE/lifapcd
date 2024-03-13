@@ -1,7 +1,9 @@
 #ifndef STARBLITZGAMEDISPLAY_H
 #define STARBLITZGAMEDISPLAY_H
 
-int DIMW=960;
-int DIMH=540;
+int DIMW;
+int DIMH;
+
+
 
 #endif

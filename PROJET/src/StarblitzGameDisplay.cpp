@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
+
 int main() {
     // Initialisation de SDL
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
