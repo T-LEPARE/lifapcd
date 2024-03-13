@@ -1,7 +1,6 @@
 #include "Invaders.h"
 #include "StarblitzGameDisplay.h"
 
-
     Invader::Invader()
     {
         pos=Position(0,0);

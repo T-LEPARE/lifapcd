@@ -3,7 +3,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
-const int DIMH = 540;
-const int DIMW = 960;
+int DIMW = 960;
+int DIMH = 540;
 
 #endif
