@@ -24,57 +24,52 @@ int main() {
     return 1;
   }
 
-// Chargement d'une image (remplacer "image.png" par notre fichier)
-SDL_Surface* surface = IMG_Load("./data/SpaceInvaders_Background.png");
-if (surface == nullptr) {
-  SDL_Log("Échec du chargement de l'image : %s", SDL_GetError());
-  SDL_DestroyRenderer(renderer);
-  SDL_DestroyWindow(window);
-  SDL_Quit();
-  return 1;
-}
+  // Chargement d'une image (remplacer "image.png" par votre fichier)
+  SDL_Surface* surface = IMG_Load("./data/SpaceInvaders_Background.png");
+  if (surface == nullptr) {
+    SDL_Log("Échec du chargement de l'image : %s", SDL_GetError());
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    return 1;
+  }
 
-// Création d'une texture à partir de l'image - Pass const surface pointer
-SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+  // Création d'une texture à partir de l'image
+  SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
 
-// Libération de la surface après création de la texture
-SDL_FreeSurface(surface);
-
+  // Libération de la surface après création de la texture
+  SDL_FreeSurface(surface);
 
   // Début de la boucle de jeu
-  bool running = true;
-  while (running) {
+bool running = true;
+while (running) {
     // Gestion des événements
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
-      if (event.type == SDL_QUIT) {
-        running = false;
-      }
-    }
+        // Sortie de la boucle et fermeture de la fenêtre lorsque l'utilisateur quitte le jeu
+        if (event.type == SDL_QUIT) {
+            running = false;
+        }
 
-    // Mise à jour de la logique du jeu (déplacement des personnages, etc.)
+        // ... (Traitement des autres événements)
+    }
 
     // Effacement de l'écran avec une couleur
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderClear(renderer);
 
     // Affichage de l'image
-for (int x = 0; x < DIMW; x += surface->w) {
-  for (int y = 0; y < DIMH; y += surface->h) {
-    SDL_Rect dstRect = { x, y, surface->w, surface->h };
-    SDL_RenderCopy(renderer, texture, NULL, &dstRect);
-  }
-}
+    SDL_RenderCopy(renderer, texture, NULL, NULL);
 
     // Mise à jour de l'écran
     SDL_RenderPresent(renderer);
-  }
+}
 
-  // Nettoyage
-  SDL_DestroyTexture(texture);
-  SDL_DestroyRenderer(renderer);
-  SDL_DestroyWindow(window);
-  SDL_Quit();
+// Nettoyage
+SDL_DestroyTexture(texture);
+SDL_DestroyRenderer(renderer);
+SDL_DestroyWindow(window);
+SDL_Quit();
 
   return 0;
 }

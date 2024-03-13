@@ -7,7 +7,7 @@
 #include "Position.h"
 #include "ScoreSystem.h"
 
-const int DIMH = 1080;
-const int DIMW = 1920;
+const int DIMH = 540;
+const int DIMW = 960;
 
 #endif
