@@ -1,5 +1,4 @@
 #include "Invaders.h"
-#include "StarblitzGameDisplay.h"
 
     Invader::Invader()
     {
@@ -93,7 +92,7 @@
     void Invader::movement()
     {
         //pattern à modifier plus tard
-        if (pos.x >=DIMW)
+        if (pos.x >=960)
             speed*-1.;
         if (pos.x <=0)
             speed*-1;

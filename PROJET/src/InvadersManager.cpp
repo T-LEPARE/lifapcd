@@ -1,5 +1,6 @@
 #include "InvadersManager.h"
 
+
 InvadersManager::InvadersManager() {}
 
 void InvadersManager::AddInvader(const Invader& invader) {

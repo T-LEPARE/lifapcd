@@ -2,6 +2,7 @@
 
 
 
+
 Projectile::Projectile(){
     projectileSpeed = 1; //vitesse du projectile
     damage = 1; //dégats d'un projectile de l'arme

@@ -1,9 +1,9 @@
 #ifndef PROJECTILE_H
 #define PROJECTILE_H
-#include "Position.h"
 #include <map>
 #include <string>
 #include <vector>
+#include "Position.h"
 
 struct weapon {
     float projectileSpeed;
