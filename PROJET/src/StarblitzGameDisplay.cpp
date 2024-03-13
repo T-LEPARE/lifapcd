@@ -1,5 +1,4 @@
 #include "StarblitzGameDisplay.h"
-#include <SDL2/SDL.h>
 
 int main() {
   // Initialisation de SDL
@@ -25,19 +24,21 @@ int main() {
     return 1;
   }
 
-  // Chargement d'une image (remplacer "image.png" par notre fichier)
-  SDL_Surface* surface = SDL_LoadBMP("image.png");
-  if (surface == nullptr) {
-    SDL_Log("Échec du chargement de l'image : %s", SDL_GetError());
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-    return 1;
-  }
+// Chargement d'une image (remplacer "image.png" par notre fichier)
+SDL_Surface* surface = IMG_Load("./data/SpaceInvaders_Background.png");
+if (surface == nullptr) {
+  SDL_Log("Échec du chargement de l'image : %s", SDL_GetError());
+  SDL_DestroyRenderer(renderer);
+  SDL_DestroyWindow(window);
+  SDL_Quit();
+  return 1;
+}
 
-  // Création d'une texture à partir de l'image
-  SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-  SDL_FreeSurface(surface);  // Libération de la surface après création de la texture
+// Création d'une texture à partir de l'image - Pass const surface pointer
+SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+
+// Libération de la surface après création de la texture
+SDL_FreeSurface(surface);
 
   // Début de la boucle de jeu
   bool running = true;
