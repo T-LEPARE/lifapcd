@@ -2,8 +2,38 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
+int Display::DIMW;
+int Display::DIMH;
+
+Display::Display(){
+    DIMW=960;
+    DIMH=540;
+}
+
+Display::~Display(){
+    
+}
+
+int Display::getDIMW(){
+    return DIMW;
+}
+
+int Display::getDIMH(){
+    return DIMH;
+}
+
+void Display::setDIMW(int _DIMW){
+    DIMW = _DIMW;
+}
+
+void Display::setDIMH(int _DIMH){
+    DIMH = _DIMH;
+}
 
 int main() {
+
+    Display();
+
     // Initialisation de SDL
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
         SDL_Log("Échec de l'initialisation de SDL : %s", SDL_GetError());
@@ -12,7 +42,7 @@ int main() {
     SDL_Log("SDL initialisé avec succès.");
 
     // Création d'une fenêtre
-    SDL_Window* window = SDL_CreateWindow("Space Invaders", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, DIMW, DIMH, SDL_WINDOW_SHOWN);
+    SDL_Window* window = SDL_CreateWindow("Space Invaders", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Display::getDIMH(), Display::getDIMW(), SDL_WINDOW_SHOWN);
     if (window == nullptr) {
         SDL_Log("Échec de la création de la fenêtre : %s", SDL_GetError());
         SDL_Quit();
@@ -77,8 +107,8 @@ int main() {
         // Vérification que la largeur et la hauteur de la surface ne sont pas nulles
         if (surface->w != 0 && surface->h != 0) {
             // Calcul du nombre de répétitions horizontales et verticales
-            int numHorizontalRepeats = (DIMW / surface->w) + 1;
-            int numVerticalRepeats = (DIMH / surface->h) + 1;
+            int numHorizontalRepeats = (Display::getDIMW() / surface->w) + 1;
+            int numVerticalRepeats = (Display::getDIMH() / surface->h) + 1;
             SDL_Log("Nombre de répétitions horizontales : %d", numHorizontalRepeats);
             SDL_Log("Nombre de répétitions verticales : %d", numVerticalRepeats);
 
