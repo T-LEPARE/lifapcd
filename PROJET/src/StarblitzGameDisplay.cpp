@@ -40,6 +40,7 @@ SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
 // Libération de la surface après création de la texture
 SDL_FreeSurface(surface);
 
+
   // Début de la boucle de jeu
   bool running = true;
   while (running) {
@@ -58,8 +59,12 @@ SDL_FreeSurface(surface);
     SDL_RenderClear(renderer);
 
     // Affichage de l'image
-    SDL_Rect dstrect = { 0, 0, 640, 480 };  // Position et taille de l'image à l'écran
-    SDL_RenderCopy(renderer, texture, NULL, &dstrect);
+for (int x = 0; x < DIMW; x += surface->w) {
+  for (int y = 0; y < DIMH; y += surface->h) {
+    SDL_Rect dstRect = { x, y, surface->w, surface->h };
+    SDL_RenderCopy(renderer, texture, NULL, &dstRect);
+  }
+}
 
     // Mise à jour de l'écran
     SDL_RenderPresent(renderer);
