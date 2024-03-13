@@ -24,5 +24,6 @@ Position operator* (Position b, float a){
 Position::Position(float _x, float _y) : x(_x), y(_y) {}
 
 Position::Position(){
-  x=y=0;
+  x=0;
+  y=0;
 }

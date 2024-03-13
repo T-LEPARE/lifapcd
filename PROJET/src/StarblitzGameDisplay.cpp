@@ -25,7 +25,7 @@ int main() {
     return 1;
   }
 
-  // Chargement d'une image (remplacez "image.png" par votre fichier)
+  // Chargement d'une image (remplacer "image.png" par notre fichier)
   SDL_Surface* surface = SDL_LoadBMP("image.png");
   if (surface == nullptr) {
     SDL_Log("Échec du chargement de l'image : %s", SDL_GetError());

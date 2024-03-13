@@ -6,6 +6,7 @@
 class Invader {
 private:
     Position pos;
+    Position direction;
     float speed;
     float taille;
     float HP;
@@ -41,6 +42,7 @@ public:
      @param y position y
     */
     void setPos(float x,float y);
+    void setPos(Position p);
 
     /**
      @brief Donne des Healthpoint a l'invader
@@ -64,6 +66,8 @@ public:
      */
     void setTaille(float TailleInvader);
 
+    void setDirection(float x,float y);
+    void setDirection(Position p);
 
 
 
@@ -92,6 +96,7 @@ public:
      */
     float getTaille();
 
+    Position getDirection();
 
 
     /**
@@ -105,7 +110,7 @@ public:
     */
     bool CheckCollision(Projectile P);
 
-     /**
+    /**
      @brief Si l'invader a été touché par un projectile alors on lui enlève de la vie
      @param  b le booléen exprimant la collision
      @param  P Un projectile 

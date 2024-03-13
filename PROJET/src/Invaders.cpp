@@ -5,9 +5,11 @@
     Invader::Invader()
     {
         pos=Position(0,0);
+        direction=Position(0,-1);
         HP=10;
-        speed=2.0;
+        speed=2.0f;
         dmg=1;
+        taille=32.0f;
     }
 
     Invader::~Invader()
@@ -21,12 +23,13 @@
         HP=HealthPoint;         
         dmg=damage;
         speed=spd;
+        return *this;
     }
 
     void Invader::setPos(float x,float y)
     {
-    this->pos.x=x;
-    this->pos.y=y;
+        pos.x=x;
+        pos.y=y;
     }
 
     void Invader::setHP(int HealthPoint)
@@ -51,37 +54,51 @@
 
     float Invader::getTaille()
     {
-        return this->taille;
+        return taille;
     }
 
     Position Invader::getPos()
     {
-        return this->pos;
+        return pos;
     }
 
     int Invader::getDamage(){
-        return this->dmg;
+        return dmg;
     }
 
     float Invader::getSpeed()
     {
-        return this->speed;
+        return speed;
     }
 
     int Invader::getHP()
     {
-        return this->HP;
+        return HP;
     }
 
+    Position Invader::getDirection()
+    {
+        return direction;
+    }
+
+    void Invader::setDirection(float x,float y)
+    {
+        direction = Position(x,y);
+    }
+    
+    void Invader::setDirection(Position p)
+    {
+        direction = p;
+    }
 
     void Invader::movement()
     {
         //pattern à modifier plus tard
-        if (this->pos.x >=DIMW)
+        if (pos.x >=DIMW)
             speed*-1.;
-        if (this->pos.x <=0)
+        if (pos.x <=0)
             speed*-1;
-        this->pos.x+=speed;
+        pos.x+=speed;
     }
 
     bool Invader::CheckCollision(Projectile P){
