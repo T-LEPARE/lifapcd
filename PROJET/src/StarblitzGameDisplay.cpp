@@ -135,13 +135,14 @@ int main() {
 
         // Mise à jour de l'écran
         SDL_RenderPresent(renderer);
+
     }
 
-    // Nettoyage
+    // Libération de la mémoire
+    SDL_FreeSurface(surface);
     SDL_DestroyTexture(texture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
-    SDL_FreeSurface(surface);
     SDL_Quit();
 
     return 0;
