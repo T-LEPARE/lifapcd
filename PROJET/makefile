@@ -38,5 +38,5 @@ all :./bin/StarblitzGame
 clean : 
 		rm ./obj/*.o 
 
-veryclean :
-		rm ./bin/*
+realclean :
+		rm ./obj/*.o ; rm ./bin/*

@@ -72,18 +72,24 @@
         while( SDL_PollEvent(&event) ){
             switch( event.key.keysym.sym ){
             case SDLK_DOWN:
+            case SDLK_s:
                 pos.y+=speed;
                 break;
 
             case SDLK_UP:
+            case SDLK_z:
+            case SDLK_w: //pour le QWERTY
                 pos.y-=speed;
                 break;
 
             case SDLK_RIGHT:
+            case SDLK_d:
                 pos.x+=speed;
                 break;
 
             case SDLK_LEFT:
+            case SDLK_q:
+            case SDLK_a: //pour le QWERTY
                 pos.x-=speed;
                 break;
             default:
