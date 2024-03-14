@@ -7,7 +7,6 @@ Display::Display(SDL_Renderer* renderer){
  // Initialisation des membres
     setDIMW(540);
     setDIMH(960);
-
     prevTicks = SDL_GetTicks();
     targetFrameTime = 1000.0f / 60.0f; // Cible de 60 FPS
 
@@ -48,27 +47,35 @@ void Display::setDIMH(int _DIMH){
 }
 
 void Display::updateGame(float deltaTime, float targetFrameTime) {
-    // Mettre ici la logique du jeu qui doit être mise à jour à chaque frame
-    //SDL_Log("Jeu mis à jour");
-
     // Mesurer le temps écoulé depuis le dernier frame
     Uint32 currentTicks = SDL_GetTicks();
     if (currentTicks - prevTicks >= targetFrameTime) {
         // Si le temps écoulé dépasse le temps cible, faire quelque chose
         prevTicks = currentTicks; // Mettre à jour le temps précédent
     }
+
+    // Mettre ici la logique du jeu qui doit être mise à jour à chaque frame
+    //SDL_Log("Jeu mis à jour");
+
 }
 
 void Display::render(SDL_Renderer* renderer) {
     // Effacer l'écran avec une couleur
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
     SDL_RenderClear(renderer);
 
-    // Effectuer le rendu de la texture
-    if (surface != nullptr && texture != nullptr) {
-        SDL_RenderCopy(renderer, texture, NULL, NULL); // Rendre la texture sur toute la fenêtre
-    }
+    SDL_Rect rect;
+    rect.w = surface->w;
+    rect.h = surface->h;
 
+    // Render the image repeatedly horizontally and vertically
+    for (int y = 0; y < DIMH; y += surface->h) {
+        for (int x = 0; x < DIMW; x += surface->w) {
+        rect.x = x;
+        rect.y = y;
+        SDL_RenderCopy(renderer, texture, NULL, &rect);
+        }
+    }
     // Mettre à jour l'écran
     SDL_RenderPresent(renderer);
 }
