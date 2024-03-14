@@ -6,8 +6,9 @@ int Display::DIMW;
 int Display::DIMH;
 
 Display::Display(){
-    DIMW=960;
-    DIMH=540;
+    //Le jeu se joue avec un affichage vertical
+    DIMW=540;
+    DIMH=960;
 }
 
 Display::~Display(){
@@ -41,8 +42,17 @@ int main() {
     }
     SDL_Log("SDL initialisé avec succès.");
 
+    //Initialisation de SDL image
+    bool success;
+    int imgFlags = IMG_INIT_PNG;
+    success = IMG_Init( imgFlags );
+    if (success==false) {
+        SDL_Log("Échec de l'initialisation de SDL_Image : %s", SDL_GetError());
+        SDL_Quit();
+    }
+
     // Création d'une fenêtre
-    SDL_Window* window = SDL_CreateWindow("Space Invaders", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Display::getDIMH(), Display::getDIMW(), SDL_WINDOW_SHOWN);
+    SDL_Window* window = SDL_CreateWindow("Space Invaders", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Display::getDIMW(), Display::getDIMH(), SDL_WINDOW_SHOWN);
     if (window == nullptr) {
         SDL_Log("Échec de la création de la fenêtre : %s", SDL_GetError());
         SDL_Quit();
@@ -83,8 +93,7 @@ int main() {
     }
     SDL_Log("Texture créée avec succès!");
 
-    // Libération de la surface après création de la texture
-    SDL_FreeSurface(surface);
+
 
     // Début de la boucle de jeu
     bool running = true;
@@ -113,8 +122,8 @@ int main() {
             SDL_Log("Nombre de répétitions verticales : %d", numVerticalRepeats);
 
             // Boucle de rendu avec affichage des coordonnées
-            for (int x = 0; x < numHorizontalRepeats; ++x) {
-                for (int y = 0; y < numVerticalRepeats; ++y) {
+            for (int x = 0; x < numHorizontalRepeats; x++) {
+                for (int y = 0; y < numVerticalRepeats; y++) {
                     SDL_Rect dstRect = { x * surface->w, y * surface->h, surface->w, surface->h };
                     SDL_RenderCopy(renderer, texture, NULL, &dstRect);
                     SDL_Log("Rendu de l'image à (%d, %d)", x * surface->w, y * surface->h);
@@ -132,6 +141,7 @@ int main() {
     SDL_DestroyTexture(texture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
+    SDL_FreeSurface(surface);
     SDL_Quit();
 
     return 0;
