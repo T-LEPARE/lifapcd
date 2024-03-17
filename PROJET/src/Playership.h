@@ -12,6 +12,7 @@ private:
     float speed;
     float taille;
     int HP;
+    Position direction;
 
 public:
 
@@ -20,7 +21,7 @@ public:
     /**
      * Constructeur de Player
      */
-    Player(float x, float y, int healthPoint, float playerSpeed, float TaillePlayer);
+    Player(float x, float y, int healthPoint, float playerSpeed, float TaillePlayer, Position direct);
 
     /**
      * Destructeur de Player
@@ -34,7 +35,7 @@ public:
      * @param HP Vie du joueur
      * @return Le joueur initialisé
      */
-    Player InitPlayer(float x, float y, int HP, float playerSpeed, float TaillePlayer);
+    Player InitPlayer(float x, float y, int HP, float playerSpeed, float TaillePlayer, Position direct);
 
     /**
      * Donne une position au joueur
@@ -60,9 +61,32 @@ public:
      * @param x  taille en pixel
      */
     void setTaille(int t);
+    
+    /**
+     * @brief Set the Dir object
+     * 
+     * @param x 
+     * @param y 
+     */
+    void setDir(float x,float y);
+    
+    /**
+    * @brief Set the Dir object
+    * 
+    * @param p 
+    */
+    void setDir(Position p);
+
+
+    
    
-   
-   
+    /**
+    * @brief Get the Dir object
+    * 
+    * @return Position 
+    */
+    Position getDir();
+
     /**
      * @return Retourne la position du joueur
      */
