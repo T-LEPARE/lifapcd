@@ -117,6 +117,20 @@ int main() {
     // Création de l'instance de Display
     Display display(renderer);
 
+    // Création du playerShip
+    Player player;
+    player.surface = IMG_Load("./data/PlayerShip.png");
+    if (player.surface == nullptr) {
+    SDL_Log("Échec du chargement de l'image : %s", SDL_GetError());
+    // Gestion de l'erreur appropriée
+    }
+    player.texture = SDL_CreateTextureFromSurface(renderer, player.surface);
+    if (player.texture == nullptr) {
+        SDL_Log("Échec de la création de la texture : %s", SDL_GetError());
+        // Gestion de l'erreur appropriée
+    }
+
+
     // Boucle principale du jeu
     Uint32 prevTicks = SDL_GetTicks();
     const float targetFrameTime = 1000.0f / 60.0f;
