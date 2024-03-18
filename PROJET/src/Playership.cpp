@@ -46,15 +46,17 @@
     {
         this->taille=t;
     }
-    void Player::setDir(float x,float y){
+    void Player::setDirX(float x){
     this->pos.x=x;
-    this->pos.y=y;
     }
 
+    void Player::setDirY(float y){
+    this->pos.y=y;
+    }
     void Player::setDir(Position p){
     this->pos.x=p.x;
     this->pos.y=p.y;
-    }
+}
 
 
     Position Player::getDir()
@@ -89,34 +91,34 @@
             switch( event.key.keysym.sym ){
             case SDLK_DOWN:
             case SDLK_s:
-                setDir(direction.x,1);//On modifie le vecteur direction
+                setDirY(1);//On modifie le vecteur direction
                 pos.y+=direction.y*speed; //Mise à jour de la position du joueur
                 break;
 
             case SDLK_UP:
             case SDLK_z:
             case SDLK_w: //pour le QWERTY
-                setDir(direction.x,-1);
+                setDirY(-1);
                 pos.y+=direction.y*speed;
                 break;
 
             case SDLK_RIGHT:
             case SDLK_d:
-                setDir(1,direction.y);
+                setDirX(1);
                 pos.x+=direction.x*speed;
                 break;
 
             case SDLK_LEFT:
             case SDLK_q:
             case SDLK_a: //pour le QWERTY
-                setDir(-1,direction.y);
+                setDirX(-1);
                 pos.x+=direction.x*speed;
                 break;
             default:
                 break;
              }   
         }
-        setDir(0,0);//Remise à 0 du vecteur direction du joueur
+        setDirX(0);setDirY(0);//Remise à 0 du vecteur direction du joueur
     }
 
     bool Player::CheckCollisionProjectile(Projectile Projectile){

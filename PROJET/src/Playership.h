@@ -63,18 +63,23 @@ public:
     void setTaille(int t);
     
     /**
-     * @brief Set the Dir object
+     * @brief Set the coord X Dir object
      * 
      * @param x 
-     * @param y 
      */
-    void setDir(float x,float y);
+    void setDirX(float x);
     
     /**
-    * @brief Set the Dir object
+    * @brief Set the coord Y Dir object
     * 
-    * @param p 
+     * @param y
     */
+    void setDirY(float y);
+    /**
+     * @brief Set the Dir object
+     * 
+      * @param p 
+     */
     void setDir(Position p);
 
 
