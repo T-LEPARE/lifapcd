@@ -47,15 +47,15 @@
         this->taille=t;
     }
     void Player::setDirX(float x){
-    this->pos.x=x;
+    this->direction.x=x;
     }
 
     void Player::setDirY(float y){
-    this->pos.y=y;
+    this->direction.y=y;
     }
     void Player::setDir(Position p){
-    this->pos.x=p.x;
-    this->pos.y=p.y;
+    this->direction.x=p.x;
+    this->direction.y=p.y;
 }
 
 
@@ -118,7 +118,9 @@
                 break;
              }   
         }
-        setDirX(0);setDirY(0);//Remise à 0 du vecteur direction du joueur
+        //Remise à 0 du vecteur direction du joueur
+        setDirX(0);
+        setDirY(0);
     }
 
     bool Player::CheckCollisionProjectile(Projectile Projectile){
