@@ -4,7 +4,7 @@
 #include <SDL2/SDL_image.h>
 #include "Playership.h"
 
-class Display {
+class Display : public Player {
 private:
     static int DIMW;
     static int DIMH;
@@ -12,6 +12,7 @@ private:
     float targetFrameTime;
     SDL_Surface* surface;
     SDL_Texture* texture;
+    
 
 public:
     Display(SDL_Renderer* _renderer);
@@ -23,6 +24,7 @@ public:
     void updateGame(float dT, float targetTime);  // Fonction pour mettre à jour le jeu en fonction du delta temps
     bool shouldRender;
     void render(SDL_Renderer* renderer); // Effectue le rendu
+    int main(void);
 
 };
 

@@ -80,7 +80,7 @@ void Display::render(SDL_Renderer* renderer) {
     SDL_RenderPresent(renderer);
 }
 
-int main() {
+int Display::main() {
     // Initialisation de SDL
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
         SDL_Log("Échec de l'initialisation de SDL : %s", SDL_GetError());
@@ -119,13 +119,13 @@ int main() {
 
     // Création du playerShip
     Player player;
-    player.surface = IMG_Load("./data/PlayerShip.png");
-    if (player.surface == nullptr) {
+    player.setSurface(IMG_Load("./data/PlayerShip.png"));
+    if (player.getSurface() == nullptr) {
     SDL_Log("Échec du chargement de l'image : %s", SDL_GetError());
     // Gestion de l'erreur appropriée
     }
-    player.texture = SDL_CreateTextureFromSurface(renderer, player.surface);
-    if (player.texture == nullptr) {
+    player.setTexture( SDL_CreateTextureFromSurface(renderer, player.getSurface()) );
+    if (player.getTexture() == nullptr) {
         SDL_Log("Échec de la création de la texture : %s", SDL_GetError());
         // Gestion de l'erreur appropriée
     }

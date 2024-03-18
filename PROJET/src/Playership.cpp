@@ -56,7 +56,20 @@
     void Player::setDir(Position p){
     this->direction.x=p.x;
     this->direction.y=p.y;
-}
+    }
+
+    SDL_Texture* Player::getTexture(){
+        return texture;
+    }
+    SDL_Surface* Player::getSurface(){
+        return surface;
+    }
+    void Player::setTexture(SDL_Texture* _texture){
+        texture = _texture;
+    }
+    void Player::setSurface(SDL_Surface* _surface){
+        surface = _surface;
+    }
 
 
     Position Player::getDir()

@@ -13,6 +13,8 @@ private:
     float taille;
     int HP;
     Position direction;
+    SDL_Surface* surface;
+    SDL_Texture* texture;
 
 public:
 
@@ -36,6 +38,11 @@ public:
      * @return Le joueur initialisé
      */
     Player InitPlayer(float x, float y, int HP, float playerSpeed, float TaillePlayer, Position direct);
+
+    SDL_Texture* getTexture();
+    SDL_Surface* getSurface();
+    void setTexture(SDL_Texture*);
+    void setSurface(SDL_Surface*);
 
     /**
      * Donne une position au joueur
