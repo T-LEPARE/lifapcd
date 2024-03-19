@@ -3,6 +3,7 @@
 #include "Invaders.h"
 #include "Position.h"
 #include "Projectile.h"
+#include <iostream>
 
 
 int main(void)
@@ -78,7 +79,10 @@ int main(void)
 
 
         // Mise à jour du jeu
-        display.updateGame(deltaTime, targetFrameTime,player);
+        display.updateGame(deltaTime, targetFrameTime);
+
+        player.movement();
+        std::cout<<"player movement : "<<player.getPos().x<<";"<<player.getPos().y<<std::endl;
 
         // Effectuer le rendu
         display.render(renderer);

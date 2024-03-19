@@ -1,5 +1,4 @@
 #include "StarblitzGameDisplay.h"
-#include <iostream>
 
 int Display::DIMW;
 int Display::DIMH;
@@ -47,7 +46,7 @@ void Display::setDIMH(int _DIMH){
     DIMH = _DIMH;
 }
 
-void Display::updateGame(float deltaTime, float targetFrameTime, Player player) {
+void Display::updateGame(float deltaTime, float targetFrameTime) {
     // Mesurer le temps écoulé depuis le dernier frame
     Uint32 currentTicks = SDL_GetTicks();
     if (currentTicks - prevTicks >= targetFrameTime) {
@@ -57,8 +56,6 @@ void Display::updateGame(float deltaTime, float targetFrameTime, Player player) 
 
     // Mettre ici la logique du jeu qui doit être mise à jour à chaque frame
     //SDL_Log("Jeu mis à jour");
-    player.movement();
-    //std::cout<<"player movement : "<<player.getPos().x<<";"<<player.getPos().y<<std::endl;
 
 }
 
