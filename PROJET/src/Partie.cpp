@@ -4,6 +4,7 @@
 #include "Position.h"
 #include "Projectile.h"
 
+
 int main(void)
 {
     // Initialisation de SDL
@@ -75,8 +76,9 @@ int main(void)
             // Autres gestionnaires d'événements si nécessaire
         }
 
+
         // Mise à jour du jeu
-        display.updateGame(deltaTime, targetFrameTime);
+        display.updateGame(deltaTime, targetFrameTime,player);
 
         // Effectuer le rendu
         display.render(renderer);
