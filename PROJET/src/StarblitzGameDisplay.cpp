@@ -80,7 +80,7 @@ void Display::render(SDL_Renderer* renderer) {
     SDL_RenderPresent(renderer);
 }
 
-int Display::main() {
+int Display::main(Display display) {
     // Initialisation de SDL
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
         SDL_Log("Échec de l'initialisation de SDL : %s", SDL_GetError());
@@ -115,7 +115,7 @@ int Display::main() {
     SDL_Log("Rendu créé avec succès.");
 
     // Création de l'instance de Display
-    Display display(renderer);
+    
 
     // Création du playerShip
     Player player;
