@@ -24,8 +24,6 @@ public:
     void updateGame(float dT, float targetTime);  // Fonction pour mettre à jour le jeu en fonction du delta temps
     bool shouldRender;
     void render(SDL_Renderer* renderer); // Effectue le rendu
-    //int main(Display display);
-
 };
 
 #endif

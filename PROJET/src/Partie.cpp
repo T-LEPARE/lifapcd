@@ -4,6 +4,8 @@
 #include "Position.h"
 #include "Projectile.h"
 #include <iostream>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 int main(void)
 {
@@ -39,7 +41,6 @@ int main(void)
         return 1;
     }
     SDL_Log("Rendu créé avec succès.");
-
     // Création de l'instance de Display
     Display display(renderer);
 
@@ -60,7 +61,7 @@ int main(void)
     Uint32 prevTicks = SDL_GetTicks();
     const float targetFrameTime = 1000.0f / 60.0f;
     bool running = true;
-    SDL_Event event; // Moved the event declaration outside the loop
+    SDL_Event event;
     Uint32 currentTicks;
     float accumulator = 0.0f;
 
@@ -90,7 +91,7 @@ int main(void)
         // Render the game state
         display.render(renderer);
         // Render player's ship
-        SDL_Rect playerRect = {static_cast<int>(player.getPos().x), static_cast<int>(player.getPos().y), player.getWidth(), player.getHeight()};
+        SDL_Rect playerRect = {player.getPos().x, player.getPos().y, player.getWidth(), player.getHeight()};
         SDL_RenderCopy(renderer, player.getTexture(), nullptr, &playerRect);
 
         // Present the rendered frame

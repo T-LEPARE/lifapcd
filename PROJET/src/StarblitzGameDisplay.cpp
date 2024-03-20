@@ -46,19 +46,6 @@ void Display::setDIMH(int _DIMH){
     DIMH = _DIMH;
 }
 
-/*void Display::updateGame(float deltaTime, float targetFrameTime) {
-    // Mesurer le temps écoulé depuis le dernier frame
-    Uint32 currentTicks = SDL_GetTicks();
-    if (currentTicks - prevTicks >= targetFrameTime) {
-        // Si le temps écoulé dépasse le temps cible, faire quelque chose
-        prevTicks = currentTicks; // Mettre à jour le temps précédent
-    }
-
-    // Mettre ici la logique du jeu qui doit être mise à jour à chaque frame
-    //SDL_Log("Jeu mis à jour");
-
-}*/
-
 void Display::render(SDL_Renderer* renderer) {
   // Effacer l'écran avec une couleur (optional, keep it for now)
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
@@ -66,8 +53,8 @@ void Display::render(SDL_Renderer* renderer) {
   int numRepeatsX = (DIMW / surface->w)+1;
   int numRepeatsY = (DIMH / surface->h)+1;
 
-for (int y = 0; y < numRepeatsY; ++y) {
-    for (int x = 0; x < numRepeatsX; ++x) {
+for (int y = 0; y < numRepeatsY; y++) {
+    for (int x = 0; x < numRepeatsX; x++) {
       // Define the rectangle for each image position
       SDL_Rect rect = {x * surface->w, y * surface->h, surface->w, surface->h};
       SDL_RenderCopy(renderer, texture, NULL, &rect);

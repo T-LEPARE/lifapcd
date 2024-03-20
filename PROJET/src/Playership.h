@@ -6,6 +6,7 @@
 #include "Position.h"
 #include <SDL2/SDL.h>
 
+
 class Player {
 private:
     Position pos;
