@@ -10,7 +10,8 @@ class Player {
 private:
     Position pos;
     float speed;
-    float taille;
+    float width;
+    float height;
     int HP;
     Position direction;
     SDL_Surface* surface;
@@ -23,7 +24,7 @@ public:
     /**
      * Constructeur de Player
      */
-    Player(float x, float y, int healthPoint, float playerSpeed, float TaillePlayer, Position direct);
+    Player(float x, float y, int healthPoint, float playerSpeed, float height, float width, Position direct);
 
     /**
      * Destructeur de Player
@@ -37,7 +38,7 @@ public:
      * @param HP Vie du joueur
      * @return Le joueur initialisé
      */
-    Player InitPlayer(float x, float y, int HP, float playerSpeed, float TaillePlayer, Position direct);
+    Player InitPlayer(float x, float y, int HP, float playerSpeed, float height, float width, Position direct);
 
     SDL_Texture* getTexture();
     SDL_Surface* getSurface();
@@ -64,10 +65,16 @@ public:
     void setSpeed(float x);
 
     /**
-     * Donne une taille au joueur
-     * @param x  taille en pixel
+     * Donne une largeur au joueur
+     * @param x  largeur en pixel
      */
-    void setTaille(int t);
+    void setWidth(int w);
+    
+    /**
+     * Donne une hauteur au joueur
+     * @param x  hauteur en pixel
+     */
+    void setHeight(int h);
     
     /**
      * @brief Set the coord X Dir object
@@ -115,14 +122,19 @@ public:
     float getSpeed();
 
     /**
-     * @return Retourne la taille du joueur
+     * @return Retourne la largeur du joueur
      */
-    float getTaille();
+    float getWidth();
+
+    /**
+     * @return Retourne la hauteur du joueur
+     */
+    float getHeight();
 
     /**
      * Déplace le joueur
      */
-    void movement();
+    void movement(SDL_Event &event);
 
     /**
      * Vérifie si le joueur a été touché par un projectile

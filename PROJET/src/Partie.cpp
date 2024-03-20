@@ -5,7 +5,6 @@
 #include "Projectile.h"
 #include <iostream>
 
-
 int main(void)
 {
     // Initialisation de SDL
@@ -42,50 +41,60 @@ int main(void)
     SDL_Log("Rendu créé avec succès.");
 
     // Création de l'instance de Display
-    
     Display display(renderer);
 
     // Création du playerShip
     Player player;
     player.setSurface(IMG_Load("./data/PlayerShip.png"));
     if (player.getSurface() == nullptr) {
-    SDL_Log("Échec du chargement de l'image : %s", SDL_GetError());
-    // Gestion de l'erreur appropriée
+        SDL_Log("Échec du chargement de l'image : %s", SDL_GetError());
+        // Gestion de l'erreur appropriée
     }
-    player.setTexture( SDL_CreateTextureFromSurface(renderer, player.getSurface()) );
+    player.setTexture(SDL_CreateTextureFromSurface(renderer, player.getSurface()));
     if (player.getTexture() == nullptr) {
         SDL_Log("Échec de la création de la texture : %s", SDL_GetError());
         // Gestion de l'erreur appropriée
     }
 
-
     // Boucle principale du jeu
     Uint32 prevTicks = SDL_GetTicks();
     const float targetFrameTime = 1000.0f / 60.0f;
     bool running = true;
+    SDL_Event event; // Moved the event declaration outside the loop
+    Uint32 currentTicks;
+    float accumulator = 0.0f;
+
     while (running) {
-        Uint32 currentTicks = SDL_GetTicks();
-        float deltaTime = (currentTicks - prevTicks) / 1000.0f; // Convertir en secondes
-        prevTicks = currentTicks; // Mettre à jour prevTicks
+        currentTicks = SDL_GetTicks();
+        Uint32 frameTime = currentTicks - prevTicks;
+        prevTicks = currentTicks;
+        accumulator += frameTime;
 
         // Gestion des événements
-        SDL_Event event;
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
                 running = false;
             }
-            // Autres gestionnaires d'événements si nécessaire
+            // Handle player movement
+            player.movement(event); // Pass the event to handle player movement
+            std::cout << "player movement : " << player.getPos().x << ";" << player.getPos().y << std::endl;
         }
 
+        // Update game state using a fixed time step
+        while (accumulator >= targetFrameTime) {
+            // Update game state
+            // For now, we don't have specific game state updates, so it's empty
+            accumulator -= targetFrameTime;
+        }
 
-        // Mise à jour du jeu
-        display.updateGame(deltaTime, targetFrameTime);
-
-        player.movement();
-        std::cout<<"player movement : "<<player.getPos().x<<";"<<player.getPos().y<<std::endl;
-
-        // Effectuer le rendu
+        // Render the game state
         display.render(renderer);
+        // Render player's ship
+        SDL_Rect playerRect = {static_cast<int>(player.getPos().x), static_cast<int>(player.getPos().y), player.getWidth(), player.getHeight()};
+        SDL_RenderCopy(renderer, player.getTexture(), nullptr, &playerRect);
+
+        // Present the rendered frame
+        SDL_RenderPresent(renderer);
     }
 
     // Libération des ressources

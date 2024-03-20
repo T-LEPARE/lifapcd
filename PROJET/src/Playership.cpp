@@ -7,15 +7,17 @@
         pos=Position(0,0);
         HP=100;
         speed=1.0;
-        taille=10;
+        height=5;
+        width=10;
         direction = Position(0,-1);
     }
 
-    Player::Player(float x, float y, int healthPoint, float playerSpeed, float TaillePlayer, Position direct) { 
+    Player::Player(float x, float y, int healthPoint, float playerSpeed, float height, float width, Position direct) { 
         this->setPos(x, y);
         this->setHP(healthPoint); 
         this->setSpeed(playerSpeed);
-        this->setTaille(TaillePlayer);
+        this->setHeight(height);
+        this->setWidth(width);
         this->setDir(direct);
     }
 
@@ -24,9 +26,9 @@
         Player();
     }
 
-    Player Player::InitPlayer(float x, float y, int healthPoint,float spd,float TaillePlayer, Position direct)
+    Player Player::InitPlayer(float x, float y, int healthPoint,float spd,float height, float width, Position direct)
     {   
-        return Player(x, y, healthPoint, spd, TaillePlayer, direct);
+        return Player(x, y, healthPoint, spd, height, width, direct);
     }
 
     void Player::setPos(float x,float y){
@@ -42,9 +44,13 @@
     {
         this->speed = speed;
     }
-    void Player::setTaille(int t)
+    void Player::setWidth(int w)
     {
-        this->taille=t;
+        this->width=w;
+    }
+    void Player::setHeight(int h)
+    {
+        this->height=h;
     }
     void Player::setDirX(float x){
     this->direction.x=x;
@@ -91,54 +97,58 @@
         return this->pos;
     }
 
-    float Player::getTaille()
+    float Player::getWidth()
     {
-        return this->taille;
+        return this->width;
     }
 
-    void Player::movement()
+    float Player::getHeight()
     {
-        SDL_Event event; 
+        return this->height;
+    }
+
+    void Player::movement(SDL_Event &event)
+    {
         int SDL_EnableKeyRepeat(100);
-        while( SDL_PollEvent(&event) ){
-            switch( event.key.keysym.sym ){
-            case SDLK_DOWN:
-            case SDLK_s:
-                setDirY(1);//On modifie le vecteur direction
-                pos.y+=direction.y*speed; //Mise à jour de la position du joueur
-                break;
+         switch (event.key.keysym.sym) {
+        case SDLK_DOWN:
+        case SDLK_s:
+            setDirY(1);
+            pos.y += direction.y * speed;
+            break;
 
-            case SDLK_UP:
-            case SDLK_z:
-            case SDLK_w: //pour le QWERTY
-                setDirY(-1);
-                pos.y+=direction.y*speed;
-                break;
+        case SDLK_UP:
+        case SDLK_z:
+        case SDLK_w:
+            setDirY(-1);
+            pos.y += direction.y * speed;
+            break;
 
-            case SDLK_RIGHT:
-            case SDLK_d:
-                setDirX(1);
-                pos.x+=direction.x*speed;
-                break;
+        case SDLK_RIGHT:
+        case SDLK_d:
+            setDirX(1);
+            pos.x += direction.x * speed;
+            break;
 
-            case SDLK_LEFT:
-            case SDLK_q:
-            case SDLK_a: //pour le QWERTY
-                setDirX(-1);
-                pos.x+=direction.x*speed;
-                break;
-            default:
-                break;
-             }   
-        }
-        //Remise à 0 du vecteur direction du joueur
-        setDirX(0);
-        setDirY(0);
+        case SDLK_LEFT:
+        case SDLK_q:
+        case SDLK_a:
+            setDirX(-1);
+            pos.x += direction.x * speed;
+            break;
+        
+        default:
+            break;
     }
+
+    // Reset direction after processing events
+    setDirX(0);
+    setDirY(0);
+}
 
     bool Player::CheckCollisionProjectile(Projectile Projectile){
         Position position = Projectile.getPos();
-        if (position.x >= pos.x && position.x <= pos.x+taille && position.y >= pos.y && position.y <= pos.y+taille)
+        if (position.x >= pos.x && position.x <= pos.x+width && position.y >= pos.y && position.y <= pos.y+height)
             return true;
         return false;
     }
@@ -152,7 +162,7 @@
 
     bool Player::CheckCollisionInvader(Invader Invader){
         Position position = Invader.getPos();
-        if (position.x >= pos.x && position.x <= pos.x+taille && position.y >= pos.y && position.y <= pos.y+taille)
+        if (position.x >= pos.x && position.x <= pos.x+width && position.y >= pos.y && position.y <= pos.y+height)
             return true;
         return false;
     }
