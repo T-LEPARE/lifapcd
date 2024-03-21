@@ -5,7 +5,7 @@
     Player::Player()
     {
         HP=100;
-        speed=1.0;
+        speed=10.0;
         height=50;
         width=100;
         pos=Position(270-width/2,960-height*1.25);
@@ -205,6 +205,8 @@
             setPos(0,pos.y);
         if (pos.x+width >=540) 
             setPos(540-width,pos.y);
-        if (pos.y >=960) 
-            setPos(pos.x,960);        
+        if (pos.y+height>=960) 
+            setPos(pos.x,960-height);      
+        if (pos.y <=0) 
+            setPos(pos.x,0);    
     }
