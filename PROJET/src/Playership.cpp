@@ -9,7 +9,7 @@
         speed=1.0;
         height=5;
         width=10;
-        direction = Position(0,-1);
+        direction = Position(0,0);
     }
 
     Player::Player(float x, float y, int healthPoint, float playerSpeed, float height, float width, Position direct) { 
