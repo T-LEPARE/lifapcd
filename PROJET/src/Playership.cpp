@@ -4,11 +4,11 @@
 
     Player::Player()
     {
-        pos=Position(0,0);
         HP=100;
         speed=1.0;
-        height=5;
-        width=10;
+        height=50;
+        width=100;
+        pos=Position(270-width/2,960-height*1.25);
         direction = Position(0,0);
     }
 

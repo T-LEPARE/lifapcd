@@ -91,7 +91,7 @@ int main(void)
         // Render the game state
         display.render(renderer);
         // Render player's ship
-        SDL_Rect playerRect = {/*player.getPos().x*/100, /*player.getPos().y*/100, player.getWidth()*10, player.getHeight()*10};
+        SDL_Rect playerRect = {player.getPos().x, player.getPos().y, player.getWidth(), player.getHeight()};
         SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
 
         // Present the rendered frame
