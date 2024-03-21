@@ -47,7 +47,7 @@ void Display::setDIMH(int _DIMH){
 }
 
 void Display::render(SDL_Renderer* renderer) {
-  // Effacer l'écran avec une couleur (optional, keep it for now)
+  // Effacer l'écran avec une couleur
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
   SDL_RenderClear(renderer);
   int numRepeatsX = (DIMW / surface->w)+1;
