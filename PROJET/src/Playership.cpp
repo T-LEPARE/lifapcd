@@ -114,33 +114,29 @@
         case SDLK_DOWN:
         case SDLK_s:
             setDirY(1);
-            pos.y += direction.y * speed;
             break;
 
         case SDLK_UP:
         case SDLK_z:
         case SDLK_w:
             setDirY(-1);
-            pos.y += direction.y * speed;
             break;
 
         case SDLK_RIGHT:
         case SDLK_d:
             setDirX(1);
-            pos.x += direction.x * speed;
             break;
 
         case SDLK_LEFT:
         case SDLK_q:
         case SDLK_a:
             setDirX(-1);
-            pos.x += direction.x * speed;
             break;
-        
         default:
             break;
     }
-
+    pos.x += direction.x * speed;
+    pos.y += direction.y * speed;
     // Reset direction after processing events
     setDirX(0);
     setDirY(0);

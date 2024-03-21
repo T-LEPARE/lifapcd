@@ -19,7 +19,6 @@ private:
     SDL_Texture* texture;
 
 public:
-
     Player();
 
     /**
