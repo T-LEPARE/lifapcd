@@ -110,36 +110,66 @@
     void Player::movement(SDL_Event &event)
     {
         int SDL_EnableKeyRepeat(100);
-         switch (event.key.keysym.sym) {
-        case SDLK_DOWN:
-        case SDLK_s:
-            setDirY(1);
+        switch( event.type ){
+            case SDL_KEYDOWN:
+            switch (event.key.keysym.sym) {
+                case SDLK_DOWN:
+                case SDLK_s:
+                    setDirY(1);
+                    break;
+
+                case SDLK_UP:
+                case SDLK_z:
+                case SDLK_w:
+                    setDirY(-1);
+                    break;
+
+                case SDLK_RIGHT:
+                case SDLK_d:
+                    setDirX(1);
+                    break;
+
+                case SDLK_LEFT:
+                case SDLK_q:
+                case SDLK_a:
+                    setDirX(-1);
+                    break;
+                default:
+                    break;
+            }
             break;
 
-        case SDLK_UP:
-        case SDLK_z:
-        case SDLK_w:
-            setDirY(-1);
-            break;
+            case SDL_KEYUP:
+            switch (event.key.keysym.sym) {
+                case SDLK_DOWN:
+                case SDLK_s:
+                    setDirY(0);
+                    break;
 
-        case SDLK_RIGHT:
-        case SDLK_d:
-            setDirX(1);
-            break;
+                case SDLK_UP:
+                case SDLK_z:
+                case SDLK_w:
+                    setDirY(0);
+                    break;
 
-        case SDLK_LEFT:
-        case SDLK_q:
-        case SDLK_a:
-            setDirX(-1);
+                case SDLK_RIGHT:
+                case SDLK_d:
+                    setDirX(0);
+                    break;
+
+                case SDLK_LEFT:
+                case SDLK_q:
+                case SDLK_a:
+                    setDirX(0);
+                    break;
+                default:
+                    setDir({0,0});
+                    break;
+            }
             break;
-        default:
-            break;
-    }
+        }
     pos.x += direction.x * speed;
     pos.y += direction.y * speed;
-    // Reset direction after processing events
-    setDirX(0);
-    setDirY(0);
 }
 
     bool Player::CheckCollisionProjectile(Projectile Projectile){
