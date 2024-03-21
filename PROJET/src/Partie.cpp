@@ -59,10 +59,10 @@ int main(void)
 
     // Boucle principale du jeu
     Uint32 prevTicks = SDL_GetTicks();
+    Uint32 currentTicks = SDL_GetTicks();
     const float targetFrameTime = 1000.0f / 60.0f;
     bool running = true;
     SDL_Event event;
-    Uint32 currentTicks;
     float accumulator = 0.0f;
 
     while (running) {
@@ -84,18 +84,15 @@ int main(void)
         // Update game state using a fixed time step
         while (accumulator >= targetFrameTime) {
             // Update game state
-            // For now, we don't have specific game state updates, so it's empty
+            // Render the game state
+            display.render(renderer);
+            // Render player's ship
+            SDL_Rect playerRect = {player.getPos().x, player.getPos().y, player.getWidth(), player.getHeight()};
+            SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
+            // Present the rendered frame
+            SDL_RenderPresent(renderer);
             accumulator -= targetFrameTime;
         }
-
-        // Render the game state
-        display.render(renderer);
-        // Render player's ship
-        SDL_Rect playerRect = {player.getPos().x, player.getPos().y, player.getWidth(), player.getHeight()};
-        SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
-
-        // Present the rendered frame
-        SDL_RenderPresent(renderer);
     }
 
     // Libération des ressources

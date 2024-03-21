@@ -109,7 +109,7 @@
 
     void Player::movement(SDL_Event &event)
     {
-        int SDL_EnableKeyRepeat(100);
+        //int SDL_EnableKeyRepeat(100);
         switch( event.type ){
             case SDL_KEYDOWN:
             switch (event.key.keysym.sym) {
@@ -163,7 +163,7 @@
                     setDirX(0);
                     break;
                 default:
-                    setDir({0,0});
+                    //setDir({0,0});
                     break;
             }
             break;
