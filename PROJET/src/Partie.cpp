@@ -76,8 +76,7 @@ int main(void)
             if (event.type == SDL_QUIT) {
                 running = false;
             }
-            // Handle player movement
-            player.movement(event); // Pass the event to handle player movement
+            player.movement(event); 
             player.CollisionWindow();
             std::cout << "player movement : " << player.getPos().x << ";" << player.getPos().y << "               ";
             std::cout << "player direction : " << player.getDir().x << ";" << player.getDir().y << std::endl;
@@ -86,10 +85,10 @@ int main(void)
         // Update game state using a fixed time step
         while (accumulator >= targetFrameTime) {
             // Update game state
+            SDL_Rect playerRect = {player.getPos().x, player.getPos().y, player.getWidth(), player.getHeight()};
             // Render the game state
             display.render(renderer);
             // Render player's ship
-            SDL_Rect playerRect = {player.getPos().x, player.getPos().y, player.getWidth(), player.getHeight()};
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             // Present the rendered frame
             SDL_RenderPresent(renderer);
