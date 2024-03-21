@@ -21,7 +21,6 @@ public:
     static int getDIMH();
     static void setDIMW(int DIMW);
     static void setDIMH(int DIMH);
-    void updateGame(float dT, float targetTime);  // Fonction pour mettre à jour le jeu en fonction du delta temps
     bool shouldRender;
     void render(SDL_Renderer* renderer); // Effectue le rendu
 };
