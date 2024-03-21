@@ -80,7 +80,7 @@
 
     Position Player::getDir()
     {
-    return pos;
+    return direction;
     }
     int Player::getHP()
     {
@@ -198,3 +198,13 @@
             HP-=dmg;
     }
 
+
+
+    bool Player::CollisionWindow(){
+        if (pos.x <=0) 
+            setPos(0,pos.y);
+        if (pos.x+width >=540) 
+            setPos(540-width,pos.y);
+        if (pos.y >=960) 
+            setPos(pos.x,0);        
+    }

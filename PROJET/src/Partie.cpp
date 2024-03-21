@@ -78,7 +78,9 @@ int main(void)
             }
             // Handle player movement
             player.movement(event); // Pass the event to handle player movement
-            std::cout << "player movement : " << player.getPos().x << ";" << player.getPos().y << std::endl;
+            player.CollisionWindow();
+            std::cout << "player movement : " << player.getPos().x << ";" << player.getPos().y << "               ";
+            std::cout << "player direction : " << player.getDir().x << ";" << player.getDir().y << std::endl;
         }
 
         // Update game state using a fixed time step

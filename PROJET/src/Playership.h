@@ -163,6 +163,8 @@ public:
      * @param I Un Invader
      */
     void DamageTakenInvader(bool b,Invader Invader);
+
+    bool CollisionWindow();
 };
 
 #endif // PLAYERSHIP_H
