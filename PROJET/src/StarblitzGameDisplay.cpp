@@ -46,21 +46,20 @@ void Display::setDIMH(int _DIMH){
     DIMH = _DIMH;
 }
 
+SDL_Texture* Display::getTexture(){
+        return texture;
+}
+SDL_Surface* Display::getSurface(){
+        return surface;
+}
+void Display::setTexture(SDL_Texture* _texture){
+        texture = _texture;
+}
+void Display::setSurface(SDL_Surface* _surface){
+        surface = _surface;
+}
+
+
 void Display::render(SDL_Renderer* renderer) {
-  // Effacer l'écran avec une couleur
-  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-  SDL_RenderClear(renderer);
-  int numRepeatsX = (DIMW / surface->w)+1;
-  int numRepeatsY = (DIMH / surface->h)+1;
 
-for (int y = 0; y < numRepeatsY; y++) {
-    for (int x = 0; x < numRepeatsX; x++) {
-      // Define the rectangle for each image position
-      SDL_Rect rect = {x * surface->w, y * surface->h, surface->w, surface->h};
-      SDL_RenderCopy(renderer, texture, NULL, &rect);
-    }
-  }
-
-  // Mettre à jour l'écran
-  SDL_RenderPresent(renderer);
 }

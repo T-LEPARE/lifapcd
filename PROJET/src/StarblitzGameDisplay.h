@@ -23,6 +23,11 @@ public:
     static void setDIMH(int DIMH);
     bool shouldRender;
     void render(SDL_Renderer* renderer); // Effectue le rendu
+    SDL_Texture* getTexture();
+    SDL_Surface* getSurface();
+    void setTexture(SDL_Texture* _texture);
+    void setSurface(SDL_Surface* _surface);
+
 };
 
 #endif

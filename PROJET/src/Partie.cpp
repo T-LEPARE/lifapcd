@@ -58,18 +58,12 @@ int main(void)
     }
 
     // Boucle principale du jeu
-    Uint32 prevTicks = SDL_GetTicks();
-    Uint32 currentTicks = SDL_GetTicks();
     const float targetFrameTime = 1000.0f / 60.0f;
     bool running = true;
     SDL_Event event;
-    float accumulator = 0.0f;
 
     while (running) {
-        currentTicks = SDL_GetTicks();
-        Uint32 frameTime = currentTicks - prevTicks;
-        prevTicks = currentTicks;
-        accumulator += frameTime;
+        Uint64 start = SDL_GetPerformanceCounter();
 
         // Gestion des événements
         while (SDL_PollEvent(&event)) {
@@ -81,19 +75,33 @@ int main(void)
             std::cout << "player movement : " << player.getPos().x << ";" << player.getPos().y << "               ";
             std::cout << "player direction : " << player.getDir().x << ";" << player.getDir().y << std::endl;
         }
-
-        // Update game state using a fixed time step
-        while (accumulator >= targetFrameTime) {
-            // Update game state
             SDL_Rect playerRect = {player.getPos().x, player.getPos().y, player.getWidth(), player.getHeight()};
+            
             // Render the game state
-            display.render(renderer);
+            // Effacer l'écran avec une couleur
+            SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+            SDL_RenderClear(renderer);
+            int numRepeatsX = (display.getDIMW() / display.getSurface()->w)+1;
+            int numRepeatsY = (display.getDIMH() / display.getSurface()->h)+1;
+
+            for (int y = 0; y < numRepeatsY; y++) {
+                for (int x = 0; x < numRepeatsX; x++) {
+                // Define the rectangle for each image position
+                SDL_Rect rect = {x * display.getSurface()->w, y * display.getSurface()->h, display.getSurface()->w, display.getSurface()->h};
+                SDL_RenderCopy(renderer, display.getTexture(), NULL, &rect);
+                }
+            }
+
+
             // Render player's ship
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             // Present the rendered frame
             SDL_RenderPresent(renderer);
-            accumulator -= targetFrameTime;
-        }
+
+            Uint64 end = SDL_GetPerformanceCounter();
+
+	        float elapsed = (end - start) / (float)SDL_GetPerformanceFrequency() * 1000.0f;
+            SDL_Delay(floor(16.666f - elapsed));
     }
 
     // Libération des ressources
