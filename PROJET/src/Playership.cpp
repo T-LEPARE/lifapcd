@@ -223,12 +223,16 @@
     }
 
     bool Player::CollisionWindow(){
-        if (pos.x <=0) 
+        if (pos.x <=0) {
             setPos(0,pos.y);
-        if (pos.x+width >=540) 
+        }
+        if (pos.x+width >=540) {
             setPos(540-width,pos.y);
-        if (pos.y+height>=960) 
-            setPos(pos.x,960-height);      
-        if (pos.y <=0) 
+        }
+        if (pos.y+height>=960) {
+            setPos(pos.x,960-height);
+        }      
+        if (pos.y <=0) {
             setPos(pos.x,0);    
+        }
     }
