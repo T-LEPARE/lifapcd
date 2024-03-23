@@ -5,6 +5,8 @@
 #include "Projectile.h"
 #include "Position.h"
 #include <SDL2/SDL.h>
+#include <vector>
+#include <memory>
 
 
 class Player {
@@ -17,6 +19,9 @@ private:
     Position direction;
     SDL_Surface* surface;
     SDL_Texture* texture;
+    std::vector<std::unique_ptr<Projectile>> projectiles;
+    void addProjectile(std::unique_ptr<Projectile> projectile);
+    void shoot();
 
 public:
     Player();

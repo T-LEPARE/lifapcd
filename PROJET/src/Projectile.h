@@ -11,17 +11,19 @@ struct weapon {
     float fireRate;
 };
 
-//Le delta temps pour modifier la vitesse des projectiles
-const float dt = 0.1;
-
-const std::map<std::string, weapon> weapons {
+const std::map<std::string, weapon> weapons = {
     // {nom,{projectile speed projectile,damage, fire rate}}
     {"mitraillette",{2, 1, 50}},
     {"railgun", {50, 50, 1}},
     {"roquettes", {20, 25, 2}},
 };
 
-class Projectile {
+//Le delta temps pour modifier la vitesse des projectiles
+const float dt = 0.1;
+
+
+
+class Projectile : public weapon {
 
 private :
     Position pos;
@@ -33,6 +35,8 @@ private :
     
 
 public :
+
+
         /**
          * @brief constructeur par defaut du projectiles 
         */

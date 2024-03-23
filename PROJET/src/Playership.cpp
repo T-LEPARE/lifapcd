@@ -5,7 +5,7 @@
     Player::Player()
     {
         HP=100;
-        speed=4.0;
+        speed=7;
         height=50;
         width=100;
         pos=Position(270-width/2,960-height*1.25);
@@ -213,7 +213,13 @@
             HP-=dmg;
     }
 
+    void Player::addProjectile(std::unique_ptr<Projectile> projectile) {
+        projectiles.push_back(projectile);
+    }
 
+    void Player::shoot() {
+        addProjectile(std::make_unique<Projectile>(pos,/*On doit lui passer le vector weapons et le nom de l'arme en question*/));
+    }
 
     bool Player::CollisionWindow(){
         if (pos.x <=0) 
