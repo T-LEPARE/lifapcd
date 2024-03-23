@@ -10,6 +10,7 @@
         width=100;
         pos=Position(270-width/2,960-height*1.25);
         direction = Position(0,0);
+        currentWeapon = 'mitraillette';
     }
 
     Player::Player(float x, float y, int healthPoint, float playerSpeed, float height, float width, Position direct) { 
@@ -218,7 +219,7 @@
     }
 
     void Player::shoot() {
-        addProjectile(std::make_unique<Projectile>(pos,/*On doit lui passer le vector weapons et le nom de l'arme en question*/));
+        addProjectile(std::make_unique<Projectile>(pos, Projectile::getWeapons(), currentWeapon));
     }
 
     bool Player::CollisionWindow(){

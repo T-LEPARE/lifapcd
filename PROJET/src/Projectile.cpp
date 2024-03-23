@@ -58,3 +58,7 @@ void Projectile::setDir(Position p){
     this->pos.x=p.x;
     this->pos.y=p.y;
 }
+
+weapon Projectile::getWeapons() {
+    return weapons;
+}

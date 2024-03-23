@@ -22,6 +22,7 @@ private:
     std::vector<std::unique_ptr<Projectile>> projectiles;
     void addProjectile(std::unique_ptr<Projectile> projectile);
     void shoot();
+    std::string currentWeapon;
 
 public:
     Player();
