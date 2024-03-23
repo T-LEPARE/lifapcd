@@ -134,7 +134,7 @@ public:
     /**
      * Déplace le joueur
      */
-    void movement(SDL_Event &event);
+    void movement(SDL_Event &event, float &oldElapsed);
 
     /**
      * Vérifie si le joueur a été touché par un projectile

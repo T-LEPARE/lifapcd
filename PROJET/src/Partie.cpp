@@ -62,16 +62,18 @@ int main(void)
     SDL_Event event;
     const int targetFPS = 60;
     const float targetFrameTime = 1000.0f / targetFPS;  // milliseconds per frame
+    float elapsed;
+    float oldElapsed;
 
     while (running) {
         Uint64 start = SDL_GetPerformanceCounter();
-
+        oldElapsed = elapsed;
         // Gestion des événements
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
                 running = false;
             }
-            player.movement(event); 
+            player.movement(event, oldElapsed); 
             player.CollisionWindow();
             std::cout << "player movement : " << player.getPos().x << ";" << player.getPos().y << "               ";
             std::cout << "player direction : " << player.getDir().x << ";" << player.getDir().y << std::endl;
@@ -101,7 +103,7 @@ int main(void)
 
             Uint64 end = SDL_GetPerformanceCounter();
 
-	        float elapsed = (end - start) / (float)SDL_GetPerformanceFrequency() * 1000.0f;
+	        elapsed = (end - start) / (float)SDL_GetPerformanceFrequency() * 1000.0f;
 
             float delay = targetFrameTime - elapsed;
             if (delay > 0) {

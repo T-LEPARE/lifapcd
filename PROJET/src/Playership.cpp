@@ -107,7 +107,7 @@
         return this->height;
     }
 
-    void Player::movement(SDL_Event &event)
+    void Player::movement(SDL_Event &event, float &oldElapsed)
     {
         switch( event.type ){
             case SDL_KEYDOWN:
