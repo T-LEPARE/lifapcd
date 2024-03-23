@@ -64,6 +64,7 @@ int main(void)
     const float targetFrameTime = 1000.0f / targetFPS;  // milliseconds per frame
     float elapsed;
     float oldElapsed;
+    float delay;
 
     while (running) {
         Uint64 start = SDL_GetPerformanceCounter();
@@ -73,7 +74,7 @@ int main(void)
             if (event.type == SDL_QUIT) {
                 running = false;
             }
-            player.movement(event, oldElapsed); 
+            player.movement(event, delay); 
             player.CollisionWindow();
             std::cout << "player movement : " << player.getPos().x << ";" << player.getPos().y << "               ";
             std::cout << "player direction : " << player.getDir().x << ";" << player.getDir().y << std::endl;
@@ -105,7 +106,7 @@ int main(void)
 
 	        elapsed = (end - start) / (float)SDL_GetPerformanceFrequency() * 1000.0f;
 
-            float delay = targetFrameTime - elapsed;
+            delay = targetFrameTime - elapsed;
             if (delay > 0) {
                 SDL_Delay(floor(delay));
             }

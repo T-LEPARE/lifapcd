@@ -5,7 +5,7 @@
     Player::Player()
     {
         HP=100;
-        speed=10.0;
+        speed=4.0;
         height=50;
         width=100;
         pos=Position(270-width/2,960-height*1.25);
@@ -107,31 +107,36 @@
         return this->height;
     }
 
-    void Player::movement(SDL_Event &event, float &oldElapsed)
+    void Player::movement(SDL_Event &event, const float &delay)
     {
+        int touchepresse;
         switch( event.type ){
             case SDL_KEYDOWN:
             switch (event.key.keysym.sym) {
                 case SDLK_DOWN:
                 case SDLK_s:
                     setDirY(1);
+                    touchepresse++;
                     break;
 
                 case SDLK_UP:
                 case SDLK_z:
                 case SDLK_w:
                     setDirY(-1);
+                    touchepresse++;
                     break;
 
                 case SDLK_RIGHT:
                 case SDLK_d:
                     setDirX(1);
+                    touchepresse++;
                     break;
 
                 case SDLK_LEFT:
                 case SDLK_q:
                 case SDLK_a:
                     setDirX(-1);
+                    touchepresse++;
                     break;
                 default:
                     break;
@@ -143,31 +148,41 @@
                 case SDLK_DOWN:
                 case SDLK_s:
                     setDirY(0);
+                    touchepresse--;
                     break;
 
                 case SDLK_UP:
                 case SDLK_z:
                 case SDLK_w:
                     setDirY(0);
+                    touchepresse--;
                     break;
 
                 case SDLK_RIGHT:
                 case SDLK_d:
                     setDirX(0);
+                    touchepresse--;
                     break;
 
                 case SDLK_LEFT:
                 case SDLK_q:
                 case SDLK_a:
                     setDirX(0);
+                    touchepresse--;
                     break;
                 default:
                     break;
             }
             break;
         }
-    pos.x += direction.x * speed;
-    pos.y += direction.y * speed;
+        if (touchepresse>=2){
+            pos.x += direction.x * speed/2 ;
+            pos.y += direction.y * speed/2 ;
+        }
+        else{
+            pos.x += direction.x * speed ;
+            pos.y += direction.y * speed ; 
+        }
 }
 
     bool Player::CheckCollisionProjectile(Projectile Projectile){
