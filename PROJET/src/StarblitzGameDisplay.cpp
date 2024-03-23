@@ -7,8 +7,6 @@ Display::Display(SDL_Renderer* renderer){
  // Initialisation des membres
     setDIMW(540);
     setDIMH(960);
-    prevTicks = SDL_GetTicks();
-    targetFrameTime = 1000.0f / 60.0f; // Cible de 60 FPS
 
     // Chargement de l'image
     surface = IMG_Load("./data/SpaceInvaders_Background.png");

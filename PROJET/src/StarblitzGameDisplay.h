@@ -8,8 +8,6 @@ class Display : public Player {
 private:
     static int DIMW;
     static int DIMH;
-    Uint32 prevTicks;
-    float targetFrameTime;
     SDL_Surface* surface;
     SDL_Texture* texture;
     

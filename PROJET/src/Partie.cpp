@@ -58,9 +58,10 @@ int main(void)
     }
 
     // Boucle principale du jeu
-    const float targetFrameTime = 1000.0f / 60.0f;
     bool running = true;
     SDL_Event event;
+    const int targetFPS = 60;
+    const float targetFrameTime = 1000.0f / targetFPS;  // milliseconds per frame
 
     while (running) {
         Uint64 start = SDL_GetPerformanceCounter();
@@ -101,7 +102,11 @@ int main(void)
             Uint64 end = SDL_GetPerformanceCounter();
 
 	        float elapsed = (end - start) / (float)SDL_GetPerformanceFrequency() * 1000.0f;
-            SDL_Delay(floor(16.666f - elapsed));
+
+            float delay = targetFrameTime - elapsed;
+            if (delay > 0) {
+                SDL_Delay(floor(delay));
+            }
     }
 
     // Libération des ressources
