@@ -18,7 +18,7 @@ private:
     float width;
     Position pos;
     Position direction;
-    std::string currentWeaponName; // Name of the current weapon
+    std::string currentWeapon; // Name of the current weapon
     SDL_Texture* texture;
     SDL_Surface* surface;
     std::vector<std::unique_ptr<Projectile>> projectiles;
