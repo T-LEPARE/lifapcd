@@ -74,7 +74,7 @@ int main(void)
             if (event.type == SDL_QUIT) {
                 running = false;
             }
-            player.movement(event, delay); 
+            player.movement(event); 
             player.CollisionWindow();
             std::cout << "player movement : " << player.getPos().x << ";" << player.getPos().y << "               ";
             std::cout << "player direction : " << player.getDir().x << ";" << player.getDir().y << std::endl;

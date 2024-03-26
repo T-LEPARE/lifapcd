@@ -5,17 +5,21 @@
 #include <vector>
 #include "Position.h"
 
-struct weapon {
-    float projectileSpeed;
-    int damage;
-    float fireRate;
-    const std::map<std::string, weapon> weaponTypes = {
+static std::map<std::string, weapon> weaponTypes = {
     // {nom,{projectile speed projectile,damage, fire rate}}
     {"mitraillette",{2, 1, 50}},
     {"railgun", {50, 50, 1}},
     {"roquettes", {20, 25, 2}},
-    };
 };
+
+struct weapon {
+    float projectileSpeed;
+    int damage;
+    float fireRate;
+    static std::map<std::string, weapon> weaponTypes;
+};
+
+
 
 //Le delta temps pour modifier la vitesse des projectiles
 const float dt = 0.1;
@@ -48,7 +52,7 @@ public :
          * @param weapons 
          * @param weaponName 
          */
-        Projectile(Position pos,std::map<std::string, weapon> weapons, std::string weaponName);
+        Projectile(Position pos, const weapon& wpn, std::string weaponName);
 
         /**
          * @brief destructeur de projectile 

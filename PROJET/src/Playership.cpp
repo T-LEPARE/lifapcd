@@ -214,8 +214,8 @@
             HP-=dmg;
     }
 
-    void Player::addProjectile(std::unique_ptr<Projectile> projectile) {
-        projectiles.push_back(projectile);
+   void Player::addProjectile(std::unique_ptr<Projectile> projectile) {
+         projectiles.push_back(std::move(projectile));
     }
 
     void Player::shoot() {

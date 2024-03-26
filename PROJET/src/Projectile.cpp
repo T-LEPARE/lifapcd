@@ -1,5 +1,7 @@
 #include "Projectile.h"
 
+
+
 Projectile::Projectile(){
     projectileSpeed = 1; //vitesse du projectile
     damage = 1; //dégats d'un projectile de l'arme
@@ -8,11 +10,11 @@ Projectile::Projectile(){
     pos = Position(); // ici on verra comment on fait, il faut récupérer la position de l'entité qui crée le projectile
 }
 
-Projectile::Projectile(Position pos,std::map<std::string, weapon> weapons,std::string weaponName){
+Projectile::Projectile(Position pos,std::map<std::string, weapon> &weapons,std::string weaponName){
     this->pos = pos; // Ici il faudrait faire un getPos() soit pour l'invader soit pour le Playership, mais comme la position sera l'angle supérieur gauche, il faudra modifier pour que ça parte de la moitié du mec...
     this->damage = weapons[weaponName].damage;
     this->projectileSpeed = weapons[weaponName].projectileSpeed;
-    this->direction = Position(0,-1); // la direction initiale du tir, vers le bas
+    this->direction = Position(0,-1); // la direction initiale du tir
 }
 
 
