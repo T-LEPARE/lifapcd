@@ -118,12 +118,12 @@
         return false;
     }
 
-    // void Invader::DamageTaken(bool b, Weapon w)
-    // {
-    //     int dmg=w.getDamage();
-    //     if (b)
-    //         HP-=dmg;
-    // }
+    void Invader::DamageTaken(bool b, Weapon w)
+    {
+        int dmg=w.getDamage();
+        if (b)
+            HP-=dmg;
+    }
 
 
         SDL_Texture* Invader::getTexture(){

@@ -192,12 +192,12 @@
         return false;
     }
 
-    // void Player::DamageTakenProjectile(bool b,Projectile Projectile)
-    // {
-    //     int dmg=getDamage(currentWeaponName);
-    //     if (b)
-    //         HP-=dmg;
-    // }
+    void Player::DamageTakenProjectile(bool b,Projectile Projectile)
+    {
+        int dmg=getDamage(currentWeaponName);
+        if (b)
+            HP-=dmg;
+    }
 
     bool Player::CheckCollisionInvader(Invader Invader){
         Position position = Invader.getPos();
@@ -217,20 +217,20 @@
          projectiles.push_back(std::move(projectile));
     }
 
-    // void Player::shoot() {
-    //     // Use getWeapons() to access the weapon data
-    //     currentWeapon->fire(projectiles, pos, direction);
-    // }
+    void Player::shoot() {
+        // Use getWeapons() to access the weapon data
+        currentWeapon->fire(projectiles, pos, direction);
+    }
 
-    // void Player::setCurrentWeapon(std::unique_ptr<Weapon> weapon) {
-    // currentWeapon = std::move(weapon);
-    // }
+    void Player::setCurrentWeapon(std::unique_ptr<Weapon> weapon) {
+    currentWeapon = std::move(weapon);
+    }
 
-    // void Player::changeWeapon(const std::string& weaponName) {
-    //     // Logic to retrieve weapon data based on weaponName
-    //     std::unique_ptr<Weapon> newWeapon = /* create new Weapon object */;
-    //     setCurrentWeapon(std::move(newWeapon));
-    // }
+    void Player::changeWeapon(const std::string& weaponName) {
+        // Logic to retrieve weapon data based on weaponName
+        std::unique_ptr<Weapon> newWeapon = /* create new Weapon object */;
+        setCurrentWeapon(std::move(newWeapon));
+    }
 
     bool Player::CollisionWindow(){
         if (pos.x <=0) {
