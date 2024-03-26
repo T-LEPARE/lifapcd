@@ -2,17 +2,29 @@
 
     Invader::Invader()
     {
-        pos=Position(0,0);
+        pos=Position(100,100);
         direction=Position(0,-1);
         HP=10;
         speed=2.0f;
         dmg=1;
-        taille=32.0f;
+        height=25;
+        width=50;
+    }
+
+    Invader::Invader(float x,float y)
+    {
+        pos=Position(x,y);
+        direction=Position(0,-1);
+        HP=10;
+        speed=2.0f;
+        dmg=1;
+        height=50;
+        width=100;
     }
 
     Invader::~Invader()
     {
-        Invader();
+    
     }
 
     Invader Invader::InitInvader(float x, float y, int HealthPoint,float spd,int damage)
@@ -43,16 +55,6 @@
     void Invader::setDamage(int damage)
     {
         dmg=damage;
-    }
-    void Invader::setTaille(float TailleInvader)
-    {
-        taille=TailleInvader;
-    }
-
-
-    float Invader::getTaille()
-    {
-        return taille;
     }
 
     Position Invader::getPos()
@@ -88,6 +90,16 @@
     {
         direction = p;
     }
+        
+    float Invader::getWidth()
+    {
+        return this->width;
+    }
+
+    float Invader::getHeight()
+    {
+        return this->height;
+    }
 
     void Invader::movement()
     {
@@ -101,7 +113,7 @@
 
     bool Invader::CheckCollision(Projectile P){
         Position position = P.getPos();
-        if (position.x >= pos.x && position.x <= pos.x+taille && position.y >= pos.y && position.y <= pos.y+taille)
+        if (position.x >= pos.x && position.x <= pos.x+width && position.y >= pos.y && position.y <= pos.y+width)
             return true;
         return false;
     }
@@ -114,3 +126,15 @@
     }
 
 
+        SDL_Texture* Invader::getTexture(){
+            return texture;
+        }
+        SDL_Surface* Invader::getSurface(){
+            return surface;
+        }
+        void Invader::setTexture(SDL_Texture* _texture){
+            texture = _texture;
+        }
+        void Invader::setSurface(SDL_Surface* _surface){
+            surface = _surface;
+    }

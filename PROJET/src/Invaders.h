@@ -2,6 +2,7 @@
 #define INVADERS_H
 #include "Projectile.h"
 #include "Position.h"
+#include "SDL2/SDL.h"
 //#include "StarblitzGameDisplay.h"
 
 
@@ -10,15 +11,26 @@ private:
     Position pos;
     Position direction;
     float speed;
-    float taille;
     float HP;
     int dmg;
+    float width;
+    float height;
+    SDL_Surface* surface;
+    SDL_Texture* texture;
 
 public:
     /**
      @brief constructeur de Invader
     */
     Invader();
+
+    /**
+     * @brief Construct a new Invader object
+     * 
+     * @param x 
+     * @param y 
+     */
+    Invader(float x,float y);
 
     /**
      @brief destructeur de Invader
@@ -62,15 +74,22 @@ public:
     */
     void setDamage(int x);
 
-    /**
-     * Donne une taille à l'Invader
-     * @param TailleInvader  taille en pixel
-     */
-    void setTaille(float TailleInvader);
+    
 
     void setDirection(float x,float y);
     void setDirection(Position p);
 
+        /**
+     * Donne une largeur au joueur
+     * @param x  largeur en pixel
+     */
+    void setWidth(int w);
+    
+    /**
+     * Donne une hauteur au joueur
+     * @param x  hauteur en pixel
+     */
+    void setHeight(int h);
 
 
     /**
@@ -100,6 +119,16 @@ public:
 
     Position getDirection();
 
+    /**
+     * @return Retourne la largeur de l'Invader
+     */
+    float getWidth();
+
+    /**
+     * @return Retourne la hauteur du l'Invader
+     */
+    float getHeight();
+
 
     /**
      @brief les déplacements de l'Invader selon un pattern 
@@ -118,6 +147,34 @@ public:
      @param  P Un projectile 
     */
     void DamageTaken(bool b, Projectile P);
+
+   /**
+    * @brief 
+    * 
+    * @return SDL_Texture* 
+    */
+    SDL_Texture* getTexture(); 
+
+    /**
+     * @brief 
+     * 
+     * @return SDL_Surface* 
+     */
+    SDL_Surface* getSurface();
+
+    /**
+     * @brief 
+     * 
+     * @param _texture 
+     */
+    void setTexture(SDL_Texture* _texture);
+
+    /**
+     * @brief 
+     * 
+     * @param _surface 
+     */
+    void setSurface(SDL_Surface* _surface);
 };
 
 

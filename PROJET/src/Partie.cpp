@@ -3,6 +3,7 @@
 #include "Invaders.h"
 #include "Position.h"
 #include "Projectile.h"
+#include "InvadersManager.h"
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -56,7 +57,10 @@ int main(void)
         SDL_Log("Échec de la création de la texture : %s", SDL_GetError());
         // Gestion de l'erreur appropriée
     }
-
+    // Création du tab invader
+    InvadersManager itab(3);
+    itab.InitTabInvader(renderer);
+    
     // Boucle principale du jeu
     bool running = true;
     SDL_Event event;
@@ -80,7 +84,8 @@ int main(void)
             std::cout << "player direction : " << player.getDir().x << ";" << player.getDir().y << std::endl;
         }
             SDL_Rect playerRect = {player.getPos().x, player.getPos().y, player.getWidth(), player.getHeight()};
-            
+            itab.RectInvader(renderer);
+                  
             // Render the game state
             // Effacer l'écran avec une couleur
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
@@ -96,9 +101,11 @@ int main(void)
                 }
             }
 
-
+            
             // Render player's ship
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
+            itab.DrawInvaders(renderer);
+            
             // Present the rendered frame
             SDL_RenderPresent(renderer);
 

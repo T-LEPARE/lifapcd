@@ -4,9 +4,12 @@
 #include "Position.h"
 #include "Invaders.h"
 #include <vector>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 class InvadersManager: private Invader {
 private:
+    int nbInvader;
     std::vector<Invader> invaders;
 
 public:
@@ -14,6 +17,11 @@ public:
      * @brief Default constructor to initialize an empty InvadersManager.
      */
     InvadersManager();
+
+     /**
+     * @brief Default constructor to initialize an empty InvadersManager.
+     */
+    InvadersManager(int nb);
 
     /**
      * @brief Adds a new Invader to the vector.
@@ -45,6 +53,11 @@ public:
      */
     bool IsAllDead();
 
+    void InitTabInvader(SDL_Renderer* renderer);
+
+    void RectInvader(SDL_Renderer* renderer);   
+    
+    void DrawInvaders(SDL_Renderer* renderer);
 };
 
 #endif
