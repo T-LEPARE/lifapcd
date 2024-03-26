@@ -81,7 +81,7 @@
 
     Position Player::getDir()
     {
-    return direction;
+        return direction;
     }
     int Player::getHP()
     {
@@ -108,36 +108,36 @@
         return this->height;
     }
 
-    void Player::movement(SDL_Event &event, const float &delay)
+    void Player::movement(SDL_Event &event)
     {
-        int touchepresse;
+        int keypressed;
         switch( event.type ){
             case SDL_KEYDOWN:
             switch (event.key.keysym.sym) {
                 case SDLK_DOWN:
                 case SDLK_s:
                     setDirY(1);
-                    touchepresse++;
+                    keypressed++;
                     break;
 
                 case SDLK_UP:
                 case SDLK_z:
                 case SDLK_w:
                     setDirY(-1);
-                    touchepresse++;
+                    keypressed++;
                     break;
 
                 case SDLK_RIGHT:
                 case SDLK_d:
                     setDirX(1);
-                    touchepresse++;
+                    keypressed++;
                     break;
 
                 case SDLK_LEFT:
                 case SDLK_q:
                 case SDLK_a:
                     setDirX(-1);
-                    touchepresse++;
+                    keypressed++;
                     break;
                 default:
                     break;
@@ -149,34 +149,34 @@
                 case SDLK_DOWN:
                 case SDLK_s:
                     setDirY(0);
-                    touchepresse--;
+                    keypressed--;
                     break;
 
                 case SDLK_UP:
                 case SDLK_z:
                 case SDLK_w:
                     setDirY(0);
-                    touchepresse--;
+                    keypressed--;
                     break;
 
                 case SDLK_RIGHT:
                 case SDLK_d:
                     setDirX(0);
-                    touchepresse--;
+                    keypressed--;
                     break;
 
                 case SDLK_LEFT:
                 case SDLK_q:
                 case SDLK_a:
                     setDirX(0);
-                    touchepresse--;
+                    keypressed--;
                     break;
                 default:
                     break;
             }
             break;
         }
-        if (touchepresse>=2){
+        if (keypressed>=2){
             pos.x += direction.x * speed/2 ;
             pos.y += direction.y * speed/2 ;
         }
