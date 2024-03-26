@@ -218,9 +218,9 @@
          projectiles.push_back(std::move(projectile));
     }
 
-    void Player::shoot() {
-        addProjectile(std::make_unique<Projectile>(pos, Projectile::getWeapons(), currentWeapon));
-    }
+    void Player::shoot(const std::string& weaponName, float projectileSpeed) {
+  addProjectile(std::make_unique<Projectile>(pos, weaponName, projectileSpeed));
+}
 
     bool Player::CollisionWindow(){
         if (pos.x <=0) {

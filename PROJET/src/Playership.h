@@ -20,8 +20,6 @@ private:
     SDL_Surface* surface;
     SDL_Texture* texture;
     std::vector<std::unique_ptr<Projectile>> projectiles;
-    void addProjectile(std::unique_ptr<Projectile> projectile);
-    void shoot();
     std::string currentWeapon;
 
 public:
@@ -171,6 +169,9 @@ public:
     void DamageTakenInvader(bool b,Invader Invader);
 
     bool CollisionWindow();
+
+    void addProjectile(std::unique_ptr<Projectile> projectile);
+    void shoot(const std::string& weaponName, float projectileSpeed);
 };
 
 #endif // PLAYERSHIP_H
