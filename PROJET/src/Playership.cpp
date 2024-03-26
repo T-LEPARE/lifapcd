@@ -10,7 +10,6 @@
         width=100;
         pos=Position(270-width/2,960-height*1.25);
         direction = Position(0,0);
-        currentWeapon = 'mitraillette';
     }
 
     Player::Player(float x, float y, int healthPoint, float playerSpeed, float height, float width, Position direct) { 
@@ -195,7 +194,7 @@
 
     void Player::DamageTakenProjectile(bool b,Projectile Projectile)
     {
-        int dmg=Projectile.getDamage();
+        int dmg=getDamage(currentWeaponName);
         if (b)
             HP-=dmg;
     }
@@ -218,12 +217,20 @@
          projectiles.push_back(std::move(projectile));
     }
 
-    void Player::shoot(const std::string& weaponName) {
-  // Use getWeapons() to access the weapon data
-    const weapon& weapon = weaponTypes[weaponName]; // Assuming weaponTypes is passed as argument
-    addProjectile(std::make_unique<Projectile>(pos, weapon, &weaponName));
+    void Player::shoot() {
+        // Use getWeapons() to access the weapon data
+        currentWeapon->fire(projectiles, pos, direction);
+    }
 
-}
+    void Player::setCurrentWeapon(std::unique_ptr<Weapon> weapon) {
+    currentWeapon = std::move(weapon);
+    }
+
+    void Player::changeWeapon(const std::string& weaponName) {
+        // Logic to retrieve weapon data based on weaponName
+        std::unique_ptr<Weapon> newWeapon = /* create new Weapon object */;
+        setCurrentWeapon(std::move(newWeapon));
+    }
 
     bool Player::CollisionWindow(){
         if (pos.x <=0) {

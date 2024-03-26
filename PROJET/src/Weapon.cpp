@@ -1,11 +1,17 @@
 #include "Weapon.h"
 
-struct weapon {
-    float projectileSpeed;
-    int damage;
-    float fireRate;
-};
 
-std::map<std::string, weapon> Weapon::getWeapons() {
+Weapon::Weapon() {
+}
+
+Weapon::~Weapon(){
+
+}
+
+std::map<std::string, Weapon::weaponType> Weapon::getWeapons() {
     return weaponTypes;
+}
+
+
+void Weapon::fire(std::vector<std::unique_ptr<Projectile>>& projectiles, const Position& pos, const Position& direction) {
 }

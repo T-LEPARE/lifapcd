@@ -7,24 +7,19 @@
 #include "Weapon.h"
 
 
-
-
-
 //Le delta temps pour modifier la vitesse des projectiles
 const float dt = 0.1;
 
 
 
-class Projectile : public Weapon {
+class Projectile {
 
 private :
-    Position pos;
-    Position direction;
-    float projectileSpeed; 
-    int damage;
-    float fireRate;
-    
-    
+        Position pos;
+        Position direction;
+        int damage;
+        float projectileSpeed;
+
 public :
 
 
@@ -40,7 +35,7 @@ public :
          * @param weapons 
          * @param weaponName 
          */
-        Projectile(Position& pos, const weapon& wpn, std::string& weaponName);
+        Projectile(const Position& pos, const Weapon& weapon);
 
         /**
          * @brief destructeur de projectile 
@@ -53,10 +48,7 @@ public :
         */
          void update();
 
-        /**
-        * @return renvoie le degats de l'arme 
-        */
-        int getDamage();
+
        
         /**
          * @brief Get the Pos object
@@ -80,21 +72,14 @@ public :
          */
         void setPos(float x, float y);
 
-        /**
-         * @brief Set the fireRate object
-         */
-        void setFireRate();
 
-        /**
-         * @brief Get the fireRate object
-         */
-        float getFireRate();
 
         /**
          * @brief Get the Dir object
          * 
          * @return Position 
          */
+
         Position getDir();
 
         /**
