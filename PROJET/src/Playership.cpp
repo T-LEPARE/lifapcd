@@ -218,8 +218,11 @@
          projectiles.push_back(std::move(projectile));
     }
 
-    void Player::shoot(const std::string& weaponName, float projectileSpeed) {
-  addProjectile(std::make_unique<Projectile>(pos, weaponName, projectileSpeed));
+    void Player::shoot(const std::string& weaponName) {
+  // Use getWeapons() to access the weapon data
+    const weapon& weapon = weaponTypes[weaponName]; // Assuming weaponTypes is passed as argument
+    addProjectile(std::make_unique<Projectile>(pos, weapon, &weaponName));
+
 }
 
     bool Player::CollisionWindow(){

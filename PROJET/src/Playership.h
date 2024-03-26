@@ -171,7 +171,7 @@ public:
     bool CollisionWindow();
 
     void addProjectile(std::unique_ptr<Projectile> projectile);
-    void shoot(const std::string& weaponName, float projectileSpeed);
+    void shoot(const std::string& weaponName) ;
 };
 
 #endif // PLAYERSHIP_H
