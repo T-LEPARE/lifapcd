@@ -60,6 +60,3 @@ void Projectile::setDir(Position p){
     this->pos.y=p.y;
 }
 
-std::map<std::string, weapon> Projectile::getWeapons() {
-    return weaponTypes;
-}
