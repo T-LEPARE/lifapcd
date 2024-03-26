@@ -12,12 +12,6 @@ struct weapon {
     static std::map<std::string, weapon> weaponTypes;
 };
 
-
-
-
-
-
-
 //Le delta temps pour modifier la vitesse des projectiles
 const float dt = 0.1;
 
@@ -127,7 +121,7 @@ public :
          */
         void setDir(Position p);
 
-        std::map<std::string, weapon> Projectile::getWeapons() const;
+        std::map<std::string, weapon> getWeapons() const;
 
 };
 
