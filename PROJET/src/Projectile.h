@@ -5,6 +5,14 @@
 #include <vector>
 #include "Position.h"
 
+struct weapon {
+    float projectileSpeed;
+    int damage;
+    float fireRate;
+    static std::map<std::string, weapon> weaponTypes;
+};
+
+
 static std::map<std::string, weapon> weaponTypes = {
     // {nom,{projectile speed projectile,damage, fire rate}}
     {"mitraillette",{2, 1, 50}},
@@ -12,12 +20,6 @@ static std::map<std::string, weapon> weaponTypes = {
     {"roquettes", {20, 25, 2}},
 };
 
-struct weapon {
-    float projectileSpeed;
-    int damage;
-    float fireRate;
-    static std::map<std::string, weapon> weaponTypes;
-};
 
 
 
@@ -52,7 +54,7 @@ public :
          * @param weapons 
          * @param weaponName 
          */
-        Projectile(Position pos, const weapon& wpn, std::string weaponName);
+        Projectile(Position pos, std::map<std::string, weapon> weapons, std::string weaponName);
 
         /**
          * @brief destructeur de projectile 

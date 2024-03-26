@@ -10,7 +10,7 @@ Projectile::Projectile(){
     pos = Position(); // ici on verra comment on fait, il faut récupérer la position de l'entité qui crée le projectile
 }
 
-Projectile::Projectile(Position pos,std::map<std::string, weapon> &weapons,std::string weaponName){
+Projectile::Projectile(Position pos,std::map<std::string, weapon> weapons,std::string weaponName){
     this->pos = pos; // Ici il faudrait faire un getPos() soit pour l'invader soit pour le Playership, mais comme la position sera l'angle supérieur gauche, il faudra modifier pour que ça parte de la moitié du mec...
     this->damage = weapons[weaponName].damage;
     this->projectileSpeed = weapons[weaponName].projectileSpeed;
