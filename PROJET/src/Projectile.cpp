@@ -12,8 +12,8 @@ Projectile::Projectile(){
 
 Projectile::Projectile(Position& pos, const weapon& wpn, std::string& weaponName){
     this->pos = pos; // Ici il faudrait faire un getPos() soit pour l'invader soit pour le Playership, mais comme la position sera l'angle supérieur gauche, il faudra modifier pour que ça parte de la moitié du mec...
-    this->damage = Projectile::weaponTypes[weaponName].damage;
-    this->projectileSpeed = Projectile::weaponTypes[weaponName].projectileSpeed;
+    this->damage = getWeapons()[weaponName].damage;
+    this->projectileSpeed = getWeapons()[weaponName].projectileSpeed;
     this->direction = Position(0,-1); // la direction initiale du tir
 }
 
@@ -60,6 +60,6 @@ void Projectile::setDir(Position p){
     this->pos.y=p.y;
 }
 
-weapon Projectile::getWeapons() {
-    return weapons;
+std::map<std::string, weapon> Projectile::getWeapons() const {
+    return weaponTypes;
 }
