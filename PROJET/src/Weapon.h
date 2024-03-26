@@ -44,7 +44,7 @@ public:
         * @return renvoie le degats de l'arme 
         */
 
-        void fire(std::vector<std::unique_ptr<Projectile>>& projectiles, const Position& pos, const Position& direction);
+        //void fire(std::vector<std::unique_ptr<Projectile>>& projectiles, const Position& pos, const Position& direction);
 };
 
 #endif 

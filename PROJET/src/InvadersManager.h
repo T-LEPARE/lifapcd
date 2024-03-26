@@ -11,6 +11,7 @@ class InvadersManager: private Invader {
 private:
     int nbInvader;
     std::vector<Invader> invaders;
+    std::vector<SDL_Rect> rects;
 
 public:
     /**

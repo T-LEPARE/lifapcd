@@ -67,3 +67,4 @@ void InvadersManager::DrawInvaders(SDL_Renderer* renderer){
     for (int i = 0;i<nbInvader;i++){
         SDL_RenderCopy(renderer, invaders[i].getTexture(), NULL, &rects[i]);     
 }
+}
