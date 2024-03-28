@@ -4,10 +4,11 @@
 
 
 Weapon::Weapon() {
+
 }
 
 Weapon::~Weapon(){
-
+    
 }
 
 std::map<std::string, Weapon::weaponType> Weapon::getWeapons() {
@@ -15,7 +16,7 @@ std::map<std::string, Weapon::weaponType> Weapon::getWeapons() {
 }
 
 // A voir
-void Weapon::fire(std::vector<std::unique_ptr<Projectile>>& projectiles, const Position& pos, const Position& direction) {
+void Weapon::weaponType::fire(std::vector<std::unique_ptr<Projectile>>& projectiles, const Position& pos, const Position& direction) {
         
 }
 

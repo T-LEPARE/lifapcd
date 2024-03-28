@@ -221,25 +221,20 @@
     }
 
     void Player::shoot() {
-        currentWeapon->fire(projectiles, pos, direction);
+        currentWeapon.fire(projectiles, pos, direction);
     }
 
-    void Player::setCurrentWeapon(std::unique_ptr<Weapon> weapon) {
-    currentWeapon = std::move(weapon);
+    void Player::setCurrentWeapon(Weapon::weaponType weapon) {
+        currentWeapon = weapon;
     }
 
 void Player::changeWeapon(const std::string& weaponName) {
   // Retrieve weapon data
   Weapon weapon;
   std::map<std::string, Weapon::weaponType> weaponList = weapon.getWeapons();
-  int damage = weaponList.at(weaponName).damage;
-  float projectileSpeed = weaponList.at(weaponName).projectileSpeed;
+  Weapon::weaponType newWeapon = weaponList.at(weaponName);
 
-  // Create a new Weapon object with default constructor
-  std::unique_ptr<Weapon> newWeapon = std::make_unique<Weapon>();
-
-
-  setCurrentWeapon(std::move(newWeapon));
+  setCurrentWeapon(newWeapon);
 }
 
     std::string Player::getCurrentWeaponName() {

@@ -20,7 +20,7 @@ private:
     float width;
     Position pos;
     Position direction;
-    std::unique_ptr<Weapon> currentWeapon;
+    Weapon::weaponType currentWeapon;
     std::string currentWeaponName; // Name of the current weapon
     SDL_Texture* texture;
     SDL_Surface* surface;
@@ -61,7 +61,7 @@ public:
     void DamageTakenInvader(bool b, Invader Invader);
     void addProjectile(std::unique_ptr<Projectile> projectile);
     void shoot();
-    void setCurrentWeapon(std::unique_ptr<Weapon> weapon);
+    void setCurrentWeapon(Weapon::weaponType weapon);
     void changeWeapon(const std::string& weaponName); // Changed to take the name of the weapon
     bool CollisionWindow();
     std::string getCurrentWeaponName();
