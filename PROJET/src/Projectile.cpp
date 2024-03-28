@@ -9,10 +9,10 @@ Projectile::Projectile(){
     pos = Position(); // ici on verra comment on fait, il faut récupérer la position de l'entité qui crée le projectile
 }
 
-Projectile::Projectile(const Position& pos, const Weapon& weapon) {
-     this->pos = pos; // Set position
-    this->damage = weapon.getDamage("mitraillette"); // Example with a specific weapon name
-    this->projectileSpeed = weapon.getProjectileSpeed("mitraillette"); // Example with a specific weapon name
+Projectile::Projectile(const Position& pos, const Weapon& weapon, std::string weaponName) {
+    this->pos = pos; // Set position
+    this->damage = weapon.getDamage(weaponName); // Example with a specific weapon name
+    this->projectileSpeed = weapon.getProjectileSpeed(weaponName); // Example with a specific weapon name
     this->direction = Position(0, -1); // Set initial direction
 }
 
@@ -21,7 +21,6 @@ void Projectile::update() {
   // Use getters to access x and y from direction
   setPos(getPos() + getDir() * projectileSpeed * dt);
 }
-
 
 
 Projectile::~Projectile(){
@@ -57,3 +56,6 @@ void Projectile::setDir(Position p){
     this->pos.y=p.y;
 }
 
+int Projectile::getDamage() {
+    return damage;
+}

@@ -3,7 +3,6 @@
 #include "Projectile.h"
 #include "Position.h"
 #include "SDL2/SDL.h"
-//#include "StarblitzGameDisplay.h"
 
 
 class Invader {
@@ -146,7 +145,7 @@ public:
      @param  b le booléen exprimant la collision
      @param  P Un projectile 
     */
-    void DamageTaken(bool b, Weapon w);
+    void DamageTaken(bool b, Projectile p);
 
    /**
     * @brief 

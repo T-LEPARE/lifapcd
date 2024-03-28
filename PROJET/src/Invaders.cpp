@@ -118,10 +118,9 @@
         return false;
     }
 
-    //Je suis pas sûr de comprendre celui-ci
-    void Invader::DamageTaken(bool b, Weapon w)
+    void Invader::DamageTaken(bool b, Projectile P)
     {
-        int dmg=w.getDamage();
+        int dmg=P.getDamage();
         if (b)
             HP-=dmg;
     }
