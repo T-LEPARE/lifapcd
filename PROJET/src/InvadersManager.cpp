@@ -32,20 +32,22 @@ void InvadersManager::UpdateMovement() {
         float invaderSpeed = invaders[i].getSpeed(); // Get the speed of the current invader
 
         // Update the position of the invader based on its direction and speed
-        float newXPos = invaders[i].getPos().x + invaderSpeed;
+        float XPosDroite = invaders[nbInvader-1].getPos().x + invaderSpeed;
+        float XPosGauche = invaders[0].getPos().x + invaderSpeed;
 
         // Check if the invader reaches the window boundaries
-        if (newXPos < 0 || newXPos + invaders[i].getWidth() > 540) {
+        if (XPosGauche < 0 || XPosDroite + invaders[nbInvader-1].getWidth() > 540) {
             // Reverse the direction of the invader
             invaderSpeed *= -1;
             invaders[i].setSpeed(invaderSpeed);
-            newXPos = invaders[i].getPos().x + invaderSpeed;
+            invaders[i].setPos(invaders[i].getPos().x+invaderSpeed, invaders[i].getPos().y);
         }
 
         // Update the position of the invader
-        invaders[i].setPos(newXPos, invaders[i].getPos().y);
+        invaders[i].setPos(invaders[i].getPos().x+invaderSpeed, invaders[i].getPos().y);
     }
 }
+
 
 std::vector<size_t> InvadersManager::CheckCollisions(Projectile P) {
     std::vector<size_t> hitInvaders;
