@@ -195,23 +195,23 @@
 
 
     // Pourquoi on a ça alors qu'on a DamageTakenInvader ?
-    /*void Player::DamageTakenProjectile(bool b,Projectile Projectile)
+    void Player::DamageTakenProjectile(bool b,Projectile P)
     {
-        int dmg=getDamage(getCurrentWeaponName());
+        int dmg=P.getDamage();
         if (b)
             HP-=dmg;
-    }*/
+    }
 
-    bool Player::CheckCollisionInvader(Invader Invader){
-        Position position = Invader.getPos();
+    bool Player::CheckCollisionInvader(Invader I){
+        Position position = I.getPos();
         if (position.x >= pos.x && position.x <= pos.x+width && position.y >= pos.y && position.y <= pos.y+height)
             return true;
         return false;
     }
 
-    void Player::DamageTakenInvader(bool b,Invader Invader)
+    void Player::DamageTakenInvader(bool b,Invader I)
     {
-        int dmg=Invader.getDamage();
+        int dmg=I.getDamage();
         if (b)
             HP-=dmg;
     }
