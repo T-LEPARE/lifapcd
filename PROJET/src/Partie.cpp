@@ -84,7 +84,7 @@ int main(void)
             //std::cout << "player direction : " << player.getDir().x << ";" << player.getDir().y << std::endl;
         }
             SDL_Rect playerRect = {player.getPos().x, player.getPos().y, player.getWidth(), player.getHeight()};
-            if(itab.IsAllDead()== 1){
+            if(itab.IsAllDead()){
                 std::cout<<"It's empty !"<<std::endl;
                 itab.SetnbInvader(4);
                 itab.InitTabInvader(renderer);
