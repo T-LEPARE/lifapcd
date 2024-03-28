@@ -12,7 +12,7 @@ void InvadersManager::SetnbInvader(int nb){
     this->nbInvader = nb ;
 }
 
-void InvadersManager::AddInvader(const Invader& invader) {
+void InvadersManager::AddInvader(const Invader& invader) { 
     invaders.push_back(invader);
 }
 
@@ -20,11 +20,24 @@ void InvadersManager::RemoveInvader(size_t index) {
     invaders.erase(invaders.begin() + index);
 }
 
+// void InvadersManager::UpdateMovement() {
+//     for (Invader& invader : invaders) {
+//         if (invader.getPos().x>=960-)
+            
+//         else invader.setPos(invader.getPos().x+invader.getSpeed(),invader.getPos().y);
+//     }
+// }
+
 void InvadersManager::UpdateMovement() {
-    for (Invader& invader : invaders) {
-        invader.movement();
+    for(unsigned int i=0;i<=nbInvader;i++)
+    {
+        if(invaders[nbInvader-1].getPos().x>=950)
+            invaders[i].setSpeed(-invaders[i].getSpeed());
+        else if (invaders[nbInvader-1].getPos().x<=10) 
+            invaders[i].setSpeed(-invaders[i].getSpeed());
+        else invaders[i].setPos(invaders[i].getPos().x+invaders[i].getSpeed(),invaders[i].getPos().y);
     }
-}
+} 
 
 std::vector<size_t> InvadersManager::CheckCollisions(Projectile P) {
     std::vector<size_t> hitInvaders;

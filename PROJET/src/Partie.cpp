@@ -107,6 +107,7 @@ int main(void)
                 itab.InitTabInvader(renderer);
                 itab.RectInvader(renderer);
             }
+            itab.UpdateMovement();
             // Render player's ship
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);

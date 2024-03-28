@@ -103,12 +103,7 @@
 
     void Invader::movement()
     {
-        //pattern à modifier plus tard
-        if (pos.x >=900)//Display::getDIMW()
-            speed*-1.;
-        if (pos.x <=0)
-            speed*-1;
-        pos.x+=speed;
+        
     }
 
     bool Invader::CheckCollision(Projectile P){
