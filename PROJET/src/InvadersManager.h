@@ -58,7 +58,9 @@ public:
 
     void InitTabInvader(SDL_Renderer* renderer);
 
-    void RectInvader(SDL_Renderer* renderer);   
+    void RectInvaderInit(SDL_Renderer* renderer);  
+
+    SDL_Rect RectInvaderUpdate(); 
     
     void DrawInvaders(SDL_Renderer* renderer);
 };

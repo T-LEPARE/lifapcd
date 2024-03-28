@@ -7,7 +7,6 @@ InvadersManager::InvadersManager() {
 }
 
 
-
 void InvadersManager::SetnbInvader(int nb){
     this->nbInvader = nb ;
 }
@@ -29,15 +28,24 @@ void InvadersManager::RemoveInvader(size_t index) {
 // }
 
 void InvadersManager::UpdateMovement() {
-    for(unsigned int i=0;i<=nbInvader;i++)
-    {
-        if(invaders[nbInvader-1].getPos().x>=950)
-            invaders[i].setSpeed(-invaders[i].getSpeed());
-        else if (invaders[nbInvader-1].getPos().x<=10) 
-            invaders[i].setSpeed(-invaders[i].getSpeed());
-        else invaders[i].setPos(invaders[i].getPos().x+invaders[i].getSpeed(),invaders[i].getPos().y);
+    for (unsigned int i = 0; i < nbInvader; i++) {
+        float invaderSpeed = invaders[i].getSpeed(); // Get the speed of the current invader
+
+        // Update the position of the invader based on its direction and speed
+        float newXPos = invaders[i].getPos().x + invaderSpeed;
+
+        // Check if the invader reaches the window boundaries
+        if (newXPos < 0 || newXPos + invaders[i].getWidth() > 540) {
+            // Reverse the direction of the invader
+            invaderSpeed *= -1;
+            invaders[i].setSpeed(invaderSpeed);
+            newXPos = invaders[i].getPos().x + invaderSpeed;
+        }
+
+        // Update the position of the invader
+        invaders[i].setPos(newXPos, invaders[i].getPos().y);
     }
-} 
+}
 
 std::vector<size_t> InvadersManager::CheckCollisions(Projectile P) {
     std::vector<size_t> hitInvaders;
@@ -75,14 +83,21 @@ void InvadersManager::InitTabInvader(SDL_Renderer* renderer){
     }
 }
 
-void InvadersManager::RectInvader(SDL_Renderer* renderer){
+void InvadersManager::RectInvaderInit(SDL_Renderer* renderer){
     for (int i = 0;i<nbInvader;i++){
         rects.push_back({int(invaders[i].getPos().x),int(invaders[i].getPos().y),int(invaders[i].getWidth()),int(invaders[i].getHeight())});
+    }
 }
+
+SDL_Rect InvadersManager::RectInvaderUpdate() {
+    for (int i = 0; i < nbInvader; i++){ 
+        rects.at(i) = {static_cast<int>(invaders[i].getPos().x), static_cast<int>(invaders[i].getPos().y), static_cast<int>(invaders[i].getWidth()), static_cast<int>(invaders[i].getHeight())};
+    }
 }
 
 void InvadersManager::DrawInvaders(SDL_Renderer* renderer){
+    RectInvaderUpdate();
     for (int i = 0;i<nbInvader;i++){
         SDL_RenderCopy(renderer, invaders[i].getTexture(), NULL, &rects[i]);     
-}
+    }
 }

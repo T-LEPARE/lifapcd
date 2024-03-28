@@ -80,12 +80,20 @@ int main(void)
             }
             player.movement(event); 
             player.CollisionWindow();
-            std::cout << "player movement : " << player.getPos().x << ";" << player.getPos().y << "               ";
-            std::cout << "player direction : " << player.getDir().x << ";" << player.getDir().y << std::endl;
+            //std::cout << "player movement : " << player.getPos().x << ";" << player.getPos().y << "               ";
+            //std::cout << "player direction : " << player.getDir().x << ";" << player.getDir().y << std::endl;
         }
             SDL_Rect playerRect = {player.getPos().x, player.getPos().y, player.getWidth(), player.getHeight()};
-           
-                  
+            if(itab.IsAllDead()== 1){
+                std::cout<<"It's empty !"<<std::endl;
+                itab.SetnbInvader(4);
+                itab.InitTabInvader(renderer);
+                itab.RectInvaderInit(renderer);
+                if (itab.IsAllDead()==1) {
+                    std::cout << "still empty" << std::endl;
+                } else {std::cout << "not empty anymore" << std::endl;}
+            }
+            
             // Render the game state
             // Effacer l'écran avec une couleur
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
@@ -101,12 +109,7 @@ int main(void)
                 }
             }
 
-            if(itab.IsAllDead()== 1){
-                std::cout<<"la boucle"<<std::endl;
-                itab.SetnbInvader(4);
-                itab.InitTabInvader(renderer);
-                itab.RectInvader(renderer);
-            }
+
             itab.UpdateMovement();
             // Render player's ship
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
