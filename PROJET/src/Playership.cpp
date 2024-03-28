@@ -221,7 +221,7 @@
     }
 
     void Player::shoot() {
-        currentWeapon->fire(projectiles, pos, direction);
+        //currentWeapon->fire(projectiles, pos, direction);
     }
 
     void Player::setCurrentWeapon(std::unique_ptr<Weapon> weapon) {
@@ -230,9 +230,9 @@
 
     void Player::changeWeapon(const std::string& weaponName) {
         // Logic to retrieve weapon data based on weaponName
-        Weapon weapon;
-        std::unique_ptr<Weapon> newWeapon = std::make_unique<Weapon>(weapon.getWeapons().at(weaponName))/* create new Weapon object */;
-        setCurrentWeapon(std::move(newWeapon));
+        //Weapon weapon;
+        //std::unique_ptr<Weapon> newWeapon = std::make_unique<Weapon>(weapon.getWeapons().at(weaponName));
+        //setCurrentWeapon(std::move(newWeapon));
     }
 
     std::string Player::getCurrentWeaponName() {

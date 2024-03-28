@@ -4,13 +4,13 @@
 #include <string>
 #include <vector>
 #include "Position.h"
-#include "Weapon.h"
+
 
 
 //Le delta temps pour modifier la vitesse des projectiles
 const float dt = 0.1;
 
-
+class Weapon;
 
 class Projectile {
 

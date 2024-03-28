@@ -3,7 +3,10 @@
 #include <map>
 #include <string>
 #include <memory>
-#include "Projectile.h"
+#include <vector>
+
+
+class Projectile;
 
 class Weapon {
 
@@ -32,13 +35,9 @@ public:
          */
         std::map<std::string, weaponType> getWeapons();
 
-        int getDamage(const std::string& weaponName) const {
-            return weaponTypes.at(weaponName).damage;
-        }
+        int getDamage(const std::string& weaponName) const;
 
-        float getProjectileSpeed(const std::string& weaponName) const {
-            return weaponTypes.at(weaponName).projectileSpeed;
-        }
+        float getProjectileSpeed(const std::string& weaponName) const;
 
         /**
         * @return renvoie le degats de l'arme 
