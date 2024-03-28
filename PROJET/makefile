@@ -40,7 +40,7 @@ all :./bin/StarblitzGame
 ./obj/Invaders.o : ./src/Invaders.cpp ./src/Invaders.h 
 			g++ -g -Wall -c ./src/Invaders.cpp -o ./obj/Invaders.o -lSDL2 
 
-./obj/Weapon.o : ./src/Weapon.cpp ./src/Weapon.h ./src/Projectile.h
+./obj/Weapon.o : ./src/Weapon.cpp ./src/Weapon.h ./src/Projectile.h ./src/Position.h
 			g++ -g -Wall -c ./src/Weapon.cpp -o ./obj/Weapon.o
 
 clean : 

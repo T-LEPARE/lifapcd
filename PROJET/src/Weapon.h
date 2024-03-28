@@ -4,6 +4,7 @@
 #include <string>
 #include <memory>
 #include <vector>
+#include "Position.h"
 
 
 class Projectile;
