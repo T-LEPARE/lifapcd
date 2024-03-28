@@ -10,6 +10,8 @@
 #include "Weapon.h"
 #include "Invaders.h"
 
+class Weapon;
+
 class Player {
 private:
     int HP;

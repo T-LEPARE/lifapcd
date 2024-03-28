@@ -11,21 +11,12 @@ class Projectile;
 
 class Weapon {
 
-private:
-    struct weaponType {
-        float projectileSpeed;
-        int damage;
-        float fireRate;
-    };
-    
-    std::map<std::string, weaponType> weaponTypes = {
-            {"mitraillette", {2, 1, 50}},
-            {"railgun", {50, 50, 1}},
-            {"roquettes", {20, 25, 2}},
-        };
-
-
 public:
+        struct weaponType {
+                float projectileSpeed;
+                int damage;
+                float fireRate;
+            };
 
         Weapon();
 
@@ -37,6 +28,7 @@ public:
         std::map<std::string, weaponType> getWeapons();
 
         int getDamage(const std::string& weaponName) const;
+        
 
         float getProjectileSpeed(const std::string& weaponName) const;
 
@@ -45,6 +37,16 @@ public:
         */
 
         void fire(std::vector<std::unique_ptr<Projectile>>& projectiles, const Position& pos, const Position& direction);
+
+        private:
+    
+    std::map<std::string, weaponType> weaponTypes = {
+            {"mitraillette", {2, 1, 50}},
+            {"railgun", {50, 50, 1}},
+            {"roquettes", {20, 25, 2}},
+        };
+
+
 };
 
 #endif 
