@@ -221,7 +221,6 @@
     }
 
     void Player::shoot() {
-        // Use getWeapons() to access the weapon data
         currentWeapon->fire(projectiles, pos, direction);
     }
 
