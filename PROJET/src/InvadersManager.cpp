@@ -19,22 +19,14 @@ void InvadersManager::RemoveInvader(size_t index) {
     invaders.erase(invaders.begin() + index);
 }
 
-// void InvadersManager::UpdateMovement() {
-//     for (Invader& invader : invaders) {
-//         if (invader.getPos().x>=960-)
-            
-//         else invader.setPos(invader.getPos().x+invader.getSpeed(),invader.getPos().y);
-//     }
-// }
 
 void InvadersManager::UpdateMovement() {
     for (unsigned int i = 0; i < nbInvader; i++) {
-        float invaderSpeed = invaders[i].getSpeed(); // Get the speed of the current invader
-
+        // Get the speed of the current invader
+        float invaderSpeed = invaders[i].getSpeed(); 
         // Update the position of the invader based on its direction and speed
         float XPosDroite = invaders[nbInvader-1].getPos().x + invaderSpeed;
         float XPosGauche = invaders[0].getPos().x + invaderSpeed;
-
         // Check if the invader reaches the window boundaries
         if (XPosGauche < 0 || XPosDroite + invaders[nbInvader-1].getWidth() > 540) {
             // Reverse the direction of the invader
@@ -42,7 +34,6 @@ void InvadersManager::UpdateMovement() {
             invaders[i].setSpeed(invaderSpeed);
             invaders[i].setPos(invaders[i].getPos().x+invaderSpeed, invaders[i].getPos().y);
         }
-
         // Update the position of the invader
         invaders[i].setPos(invaders[i].getPos().x+invaderSpeed, invaders[i].getPos().y);
     }
