@@ -58,8 +58,8 @@ int main(void)
         // Gestion de l'erreur appropriée
     }
     // Création du tab invader
-    InvadersManager itab(3);
-    itab.InitTabInvader(renderer);
+    InvadersManager itab;
+  
     
     // Boucle principale du jeu
     bool running = true;
@@ -84,7 +84,7 @@ int main(void)
             std::cout << "player direction : " << player.getDir().x << ";" << player.getDir().y << std::endl;
         }
             SDL_Rect playerRect = {player.getPos().x, player.getPos().y, player.getWidth(), player.getHeight()};
-            itab.RectInvader(renderer);
+           
                   
             // Render the game state
             // Effacer l'écran avec une couleur
@@ -101,7 +101,12 @@ int main(void)
                 }
             }
 
-            
+            if(itab.IsAllDead()== 1){
+                std::cout<<"la boucle"<<std::endl;
+                itab.SetnbInvader(4);
+                itab.InitTabInvader(renderer);
+                itab.RectInvader(renderer);
+            }
             // Render player's ship
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);

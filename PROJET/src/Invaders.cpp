@@ -7,7 +7,7 @@
         HP=10;
         speed=2.0f;
         dmg=1;
-        height=25;
+        height=30;
         width=50;
     }
 
@@ -18,8 +18,8 @@
         HP=10;
         speed=2.0f;
         dmg=1;
-        height=50;
-        width=100;
+        height=30;
+        width=50;
     }
 
     Invader::~Invader()

@@ -1,10 +1,15 @@
 #include "InvadersManager.h"
 
 
-InvadersManager::InvadersManager() {}
+InvadersManager::InvadersManager() {
+    this->nbInvader = 0;
+    
+}
 
-InvadersManager::InvadersManager(int nb) {
-    this->nbInvader = nb;
+
+
+void InvadersManager::SetnbInvader(int nb){
+    this->nbInvader = nb ;
 }
 
 void InvadersManager::AddInvader(const Invader& invader) {

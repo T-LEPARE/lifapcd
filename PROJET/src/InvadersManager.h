@@ -54,6 +54,8 @@ public:
      */
     bool IsAllDead();
 
+    void SetnbInvader(int nb);
+
     void InitTabInvader(SDL_Renderer* renderer);
 
     void RectInvader(SDL_Renderer* renderer);   
