@@ -10,6 +10,7 @@
         width=100;
         pos=Position(270-width/2,960-height*1.25);
         direction = Position(0,0);
+        changeWeapon("mitraillette");
     }
 
     Player::Player(float x, float y, int healthPoint, float playerSpeed, float height, float width, Position direct) { 
@@ -192,12 +193,14 @@
         return false;
     }
 
-    void Player::DamageTakenProjectile(bool b,Projectile Projectile)
+
+    // Pourquoi on a ça alors qu'on a DamageTakenInvader ?
+    /*void Player::DamageTakenProjectile(bool b,Projectile Projectile)
     {
-        int dmg=getDamage(currentWeaponName);
+        int dmg=getDamage(getCurrentWeaponName());
         if (b)
             HP-=dmg;
-    }
+    }*/
 
     bool Player::CheckCollisionInvader(Invader Invader){
         Position position = Invader.getPos();
@@ -228,8 +231,13 @@
 
     void Player::changeWeapon(const std::string& weaponName) {
         // Logic to retrieve weapon data based on weaponName
-        std::unique_ptr<Weapon> newWeapon = /* create new Weapon object */;
+        Weapon weapon;
+        std::unique_ptr<Weapon> newWeapon = std::make_unique<Weapon>(weapon.getWeapons().at(weaponName))/* create new Weapon object */;
         setCurrentWeapon(std::move(newWeapon));
+    }
+
+    std::string Player::getCurrentWeaponName() {
+        return currentWeaponName;
     }
 
     bool Player::CollisionWindow(){

@@ -146,7 +146,7 @@ public:
      @param  b le booléen exprimant la collision
      @param  P Un projectile 
     */
-    void DamageTaken(bool b, Projectile P);
+    void DamageTaken(bool b, Weapon w);
 
    /**
     * @brief 

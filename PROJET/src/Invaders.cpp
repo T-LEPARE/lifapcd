@@ -118,6 +118,7 @@
         return false;
     }
 
+    //Je suis pas sûr de comprendre celui-ci
     void Invader::DamageTaken(bool b, Weapon w)
     {
         int dmg=w.getDamage();
