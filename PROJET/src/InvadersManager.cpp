@@ -39,7 +39,7 @@ void InvadersManager::UpdateMovement() {
     }
 }
 
-
+// A quoi ça servira ça ? Je comprends pas
 std::vector<size_t> InvadersManager::CheckCollisions(Projectile P) {
     std::vector<size_t> hitInvaders;
     for (size_t i = 0; i < invaders.size(); i++) {

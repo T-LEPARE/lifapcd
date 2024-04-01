@@ -25,7 +25,6 @@ void Projectile::update() {
 
 
 Projectile::~Projectile(){
-    //a voir
 
 }
 

@@ -16,7 +16,7 @@ public:
                 float projectileSpeed;
                 int damage;
                 float fireRate;
-                void fire(std::vector<std::unique_ptr<Projectile>>& projectiles, const Position& pos, const Position& direction);
+                void fire(const Position& pos, const Position& direction);
             };
 
         Weapon();

@@ -186,14 +186,6 @@
         }
 }
 
-    bool Player::CheckCollisionProjectile(Projectile Projectile){
-        Position position = Projectile.getPos();
-        if (position.x >= pos.x && position.x <= pos.x+width && position.y >= pos.y && position.y <= pos.y+height)
-            return true;
-        return false;
-    }
-
-
     // Pourquoi on a ça alors qu'on a DamageTakenInvader ?
     void Player::DamageTakenProjectile(bool b,Projectile P)
     {
@@ -202,12 +194,6 @@
             HP-=dmg;
     }
 
-    bool Player::CheckCollisionInvader(Invader I){
-        Position position = I.getPos();
-        if (position.x >= pos.x && position.x <= pos.x+width && position.y >= pos.y && position.y <= pos.y+height)
-            return true;
-        return false;
-    }
 
     void Player::DamageTakenInvader(bool b,Invader I)
     {
@@ -216,12 +202,8 @@
             HP-=dmg;
     }
 
-   void Player::addProjectile(std::unique_ptr<Projectile> projectile) {
-         projectiles.push_back(std::move(projectile));
-    }
-
     void Player::shoot() {
-        currentWeapon.fire(projectiles, pos, direction);
+        currentWeapon.fire(pos, direction);
     }
 
     void Player::setCurrentWeapon(Weapon::weaponType weapon) {

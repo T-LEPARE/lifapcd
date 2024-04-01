@@ -1,5 +1,5 @@
-#ifndef INVADERS_MANAGER_H
-#define INVADERS_MANAGER_H
+#ifndef INVADERSMANAGER_H
+#define INVADERSMANAGER_H
 #include "Projectile.h"
 #include "Position.h"
 #include "Invaders.h"

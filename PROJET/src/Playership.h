@@ -7,6 +7,7 @@
 #include <SDL2/SDL.h>
 #include "Position.h"
 #include "Projectile.h"
+#include "ProjectileManager.h"
 #include "Weapon.h"
 #include "Invaders.h"
 
@@ -21,10 +22,9 @@ private:
     Position pos;
     Position direction;
     Weapon::weaponType currentWeapon;
-    std::string currentWeaponName; // Name of the current weapon
+    std::string currentWeaponName;
     SDL_Texture* texture;
     SDL_Surface* surface;
-    std::vector<std::unique_ptr<Projectile>> projectiles;
 
 public:
     Player();
