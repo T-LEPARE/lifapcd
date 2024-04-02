@@ -7,6 +7,7 @@
 #include "Position.h"
 #include "Playership.h"
 #include "Invaders.h"
+#include"ProjectileManager.h"
 
 
 class Projectile;
@@ -36,7 +37,7 @@ public:
 
         float getProjectileSpeed(const std::string& weaponName) const;
 
-        void fireplayer(Player player, const Position& direction,Weapon w,ProjectileManager tab);
+        void fireplayer(Player p1, const Position& direction,Weapon w,ProjectileManager tab1);
 
 
 

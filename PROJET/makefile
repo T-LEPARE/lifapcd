@@ -12,7 +12,7 @@ all :./bin/StarblitzGame
 
 
 
-./obj/StarblitzGameDisplay.o : ./src/StarblitzGameDisplay.cpp ./src/StarblitzGameDisplay.h ./src/Playership.h ./src/Projectile.h ./src/Weapon.h
+./obj/StarblitzGameDisplay.o : ./src/StarblitzGameDisplay.cpp ./src/StarblitzGameDisplay.h ./src/Playership.h ./src/Projectile.h ./src/Weapon.h ./src/ProjectileManager.h
 			g++ -Wall -c ./src/StarblitzGameDisplay.cpp -o ./obj/StarblitzGameDisplay.o -lSDL2 -lSDL2_image
 
 
@@ -40,7 +40,7 @@ all :./bin/StarblitzGame
 ./obj/Invaders.o : ./src/Invaders.cpp ./src/Invaders.h 
 			g++ -g -Wall -c ./src/Invaders.cpp -o ./obj/Invaders.o -lSDL2 
 
-./obj/Weapon.o : ./src/Weapon.cpp ./src/Weapon.h ./src/Projectile.h ./src/Position.h
+./obj/Weapon.o : ./src/Weapon.cpp ./src/Weapon.h ./src/Projectile.h ./src/Position.h ./src/ProjectileManager.h ./src/Playership.h ./src/Invaders.h 
 			g++ -g -Wall -c ./src/Weapon.cpp -o ./obj/Weapon.o
 
 ./obj/ProjectileManager.o : ./src/ProjectileManager.cpp ./src/ProjectileManager.h ./src/Position.h ./src/Projectile.h ./src/Weapon.h ./src/Playership.h ./src/Invaders.h ./src/StarblitzGameDisplay.h

@@ -202,9 +202,9 @@
             HP-=dmg;
     }
 
-    void Player::shoot() {
-        currentWeapon.fire(pos, direction);
-    }
+    // void Player::shoot() {
+    //     currentWeapon.fire(pos, direction);
+    // }
 
     void Player::setCurrentWeapon(Weapon::weaponType weapon) {
         currentWeapon = weapon;

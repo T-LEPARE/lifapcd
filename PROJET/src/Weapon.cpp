@@ -16,7 +16,7 @@ std::map<std::string, Weapon::weaponType> Weapon::getWeapons() {
     return weaponTypes;
 }
 
-// A voir
+
 void Weapon::fireplayer(Player player,const Position& direction,Weapon w,ProjectileManager tab) {
         std::unique_ptr<Projectile> p = std::make_unique<Projectile>((player.getPos(),w,player.getCurrentWeaponName(),5,10));
         tab.addProjectile(std::move(p));
