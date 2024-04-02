@@ -12,18 +12,12 @@ Weapon::~Weapon(){
     
 }
 
-std::map<std::string, WeaponManager::weaponType> WeaponManager::getWeapons() {
-    return weaponTypes;
-}
-
-
+//Problème ici, ça ira pas, compliqué de lui passer un player ?
 void Weapon::firePlayer(Player player, ProjectileManager tab) {
     // Create a new Projectile object
     std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
-        player.getPos(),                  // Position argument
-        player.getCurrentWeaponName(),   // Current weapon name argument
-        5.0f,                                // Width argument
-        10.0f                                // Height argument
+        player.getPos(),                  
+        player.getCurrentWeaponName()                    
     );
     
     // Add the projectile to the projectile manager

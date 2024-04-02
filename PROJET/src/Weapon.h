@@ -28,6 +28,8 @@ public:
          */
         void firePlayer(Player player, ProjectileManager tab);
 
+        //WeaponManager::weaponType weaponType;
+
 
         private:
     

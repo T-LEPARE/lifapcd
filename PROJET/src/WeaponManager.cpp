@@ -1,6 +1,5 @@
 #include "WeaponManager.h"
 
-
 int WeaponManager::getDamage(const std::string& weaponName) const {
     return weaponTypes.at(weaponName).damage;
 }
@@ -8,4 +7,16 @@ int WeaponManager::getDamage(const std::string& weaponName) const {
 
 float WeaponManager::getProjectileSpeed(const std::string& weaponName) const {
     return weaponTypes.at(weaponName).projectileSpeed;
+}
+
+float WeaponManager::getProjectileWidth(const std::string& weaponName) const {
+    return weaponTypes.at(weaponName).projectileWidth;
+}
+
+float WeaponManager::getProjectileHeight(const std::string& weaponName) const {
+    return weaponTypes.at(weaponName).projectileHeight;
+}
+
+std::map<std::string, WeaponManager::weaponType> WeaponManager::getWeapons() {
+    return weaponTypes;
 }

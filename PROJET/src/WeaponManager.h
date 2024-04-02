@@ -14,6 +14,8 @@ public:
                 float projectileSpeed;
                 int damage;
                 float fireRate;
+                int projectileWidth;
+                int projectileHeight;
             };
     std::map<std::string, weaponType> getWeapons();
 
@@ -22,13 +24,17 @@ public:
 
     float getProjectileSpeed(const std::string& weaponName) const;
 
+    float getProjectileWidth(const std::string& weaponName) const;
+
+    float getProjectileHeight(const std::string& weaponName) const;
+
 
 private:
     std::map<std::string, weaponType> weaponTypes = {
-            //nom, projectileSpeed, damage, fireRate
-            {"mitraillette", {2, 1, 50}},
-            {"railgun", {50, 50, 1}},
-            {"roquettes", {20, 25, 2}},
+            //nom, projectileSpeed, damage, fireRate, projectileWidth, projectileHeight
+            {"mitraillette", {2, 1, 50, 5, 1}},
+            {"railgun", {50, 50, 1, 5, 100}},
+            {"roquettes", {20, 25, 2, 20,30}},
     };
 };
 

@@ -68,6 +68,7 @@ public:
     void changeWeapon(const std::string& weaponName); // Changed to take the name of the weapon
     bool CollisionWindow();
     std::string getCurrentWeaponName();
+    WeaponManager::weaponType getCurrentWeapon();
 };
 
 #endif // PLAYER_H

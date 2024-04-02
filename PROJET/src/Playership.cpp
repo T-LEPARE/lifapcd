@@ -108,6 +108,10 @@
         return this->height;
     }
 
+    WeaponManager::weaponType Player::getCurrentWeapon() {
+        return this->currentWeapon;
+    }
+
     void Player::movement(SDL_Event &event)
     {
         int keypressed;

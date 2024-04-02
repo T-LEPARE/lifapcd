@@ -12,14 +12,14 @@ Projectile::Projectile(){
     height = 10;
 }
 
-Projectile::Projectile(const Position& pos, std::string weaponName,float width,float height){
+Projectile::Projectile(const Position& pos, std::string weaponName){
     WeaponManager weapon;
     this->pos = pos; // Set position
     this->damage = weapon.getDamage(weaponName); // Example with a specific weapon name
     this->projectileSpeed = weapon.getProjectileSpeed(weaponName); // Example with a specific weapon name
     this->direction = Position(0, -1); // Set initial direction
-    this->width = 5;
-    this->height = 10;
+    this->width = weapon.getProjectileWidth(weaponName);
+    this->height = weapon.getProjectileHeight(weaponName);
     this->projectileRect = {int(pos.x),int(pos.y),int(width),int(height)};
 }
 
