@@ -112,8 +112,23 @@ public :
          * @return Retourne la hauteur du l'Invader
          */
         float getHeight();
-
+       
+        /**
+         * @brief Set the Projectile Rect object
+         * 
+         * @param x 
+         * @param y 
+         * @param width 
+         * @param height 
+         */
         void setProjectileRect(int x ,int y,int width,int height);
+       
+        /**
+         * @brief 
+         * 
+         * @param renderer 
+         */
+        void drawProjectile(SDL_Renderer* renderer);
 };
 
 #endif 

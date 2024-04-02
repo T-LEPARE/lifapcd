@@ -5,6 +5,8 @@
 #include <memory>
 #include <vector>
 #include "Position.h"
+#include "Playership.h"
+#include "Invaders.h"
 
 
 class Projectile;
@@ -16,7 +18,7 @@ public:
                 float projectileSpeed;
                 int damage;
                 float fireRate;
-                void fire(const Position& pos, const Position& direction);
+                
             };
 
         Weapon();
@@ -34,9 +36,7 @@ public:
 
         float getProjectileSpeed(const std::string& weaponName) const;
 
-        /**
-        * @return renvoie le degats de l'arme 
-        */
+        void fireplayer(Player player, const Position& direction,Weapon w,ProjectileManager tab);
 
 
 
