@@ -3,7 +3,7 @@
     Invader::Invader()
     {
         pos=Position(100,100);
-        direction=Position(0,-1);
+        direction=Position(1,0);
         HP=10;
         speed=2.0f;
         dmg=1;
@@ -14,7 +14,7 @@
     Invader::Invader(float x,float y)
     {
         pos=Position(x,y);
-        direction=Position(0,-1);
+        direction=Position(1,0);
         HP=10;
         speed=2.0f;
         dmg=1;
