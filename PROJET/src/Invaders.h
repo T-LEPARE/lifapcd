@@ -26,8 +26,8 @@ public:
     /**
      * @brief Construct a new Invader object
      * 
-     * @param x 
-     * @param y 
+     * @param x coordonné x
+     * @param y coordonné y
      */
     Invader(float x,float y);
 

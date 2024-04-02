@@ -11,7 +11,7 @@
 #include "Invaders.h"
 #include "StarblitzGameDisplay.h"
 
-
+class Player;
 class ProjectileManager: private Projectile {
     private:
 

@@ -4,7 +4,8 @@
 #include <SDL2/SDL_image.h>
 #include "Playership.h"
 
-class Display : public Player {
+
+class Display: public Player{
 private:
     static int DIMW;
     static int DIMH;
