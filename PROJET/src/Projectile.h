@@ -38,7 +38,7 @@ public :
          * @param weapons 
          * @param weaponName 
          */
-        Projectile(const Position& pos, const Weapon& weapon, std::string weaponName,float width,float height);
+        Projectile(const Position& pos, std::string weaponName, float width, float height);
 
         /**
          * @brief destructeur de projectile 

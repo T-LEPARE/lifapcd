@@ -206,15 +206,15 @@
     //     currentWeapon.fire(pos, direction);
     // }
 
-    void Player::setCurrentWeapon(Weapon::weaponType weapon) {
+    void Player::setCurrentWeapon(WeaponManager::weaponType weapon) {
         currentWeapon = weapon;
     }
 
     void Player::changeWeapon(const std::string& weaponName) {
     // Retrieve weapon data
-    Weapon weapon;
-    std::map<std::string, Weapon::weaponType> weaponList = weapon.getWeapons();
-    Weapon::weaponType newWeapon = weaponList.at(weaponName);
+    WeaponManager weapon;
+    std::map<std::string, WeaponManager::weaponType> weaponList = weapon.getWeapons();
+    WeaponManager::weaponType newWeapon = weaponList.at(weaponName);
     setCurrentWeapon(newWeapon);
     }
 

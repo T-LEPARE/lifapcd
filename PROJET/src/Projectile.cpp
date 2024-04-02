@@ -1,6 +1,6 @@
 #include "Projectile.h"
 #include "Weapon.h"
-
+#include "WeaponManager.h"
 
 
 Projectile::Projectile(){
@@ -12,7 +12,8 @@ Projectile::Projectile(){
     height = 10;
 }
 
-Projectile::Projectile(const Position& pos, const Weapon& weapon, std::string weaponName,float width,float height) {
+Projectile::Projectile(const Position& pos, std::string weaponName,float width,float height){
+    WeaponManager weapon;
     this->pos = pos; // Set position
     this->damage = weapon.getDamage(weaponName); // Example with a specific weapon name
     this->projectileSpeed = weapon.getProjectileSpeed(weaponName); // Example with a specific weapon name

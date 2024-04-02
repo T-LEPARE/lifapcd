@@ -8,19 +8,15 @@
 #include "Playership.h"
 #include "Invaders.h"
 #include"ProjectileManager.h"
-
+#include "WeaponManager.h"
 
 class Projectile;
+class Player;
+class ProjectileManager;
 
 class Weapon {
 
 public:
-        struct weaponType {
-                float projectileSpeed;
-                int damage;
-                float fireRate;
-                
-            };
 
         Weapon();
 
@@ -30,24 +26,12 @@ public:
         /**
          * @brief Get the weapons
          */
-        std::map<std::string, weaponType> getWeapons();
-
-        int getDamage(const std::string& weaponName) const;
-        
-
-        float getProjectileSpeed(const std::string& weaponName) const;
-
-        void fireplayer(Player p1, const Position& direction,Weapon w,ProjectileManager tab1);
-
+        void firePlayer(Player player, ProjectileManager tab);
 
 
         private:
     
-    std::map<std::string, weaponType> weaponTypes = {
-            {"mitraillette", {2, 1, 50}},
-            {"railgun", {50, 50, 1}},
-            {"roquettes", {20, 25, 2}},
-        };
+
 
 
 };

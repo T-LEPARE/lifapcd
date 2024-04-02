@@ -12,24 +12,20 @@ Weapon::~Weapon(){
     
 }
 
-std::map<std::string, Weapon::weaponType> Weapon::getWeapons() {
+std::map<std::string, WeaponManager::weaponType> WeaponManager::getWeapons() {
     return weaponTypes;
 }
 
 
-void Weapon::fireplayer(Player player,const Position& direction,Weapon w,ProjectileManager tab) {
-        std::unique_ptr<Projectile> p = std::make_unique<Projectile>((player.getPos(),w,player.getCurrentWeaponName(),5,10));
-        tab.addProjectile(std::move(p));
-}
-        
-
-
-
-int Weapon::getDamage(const std::string& weaponName) const {
-    return weaponTypes.at(weaponName).damage;
-}
-
-
-float Weapon::getProjectileSpeed(const std::string& weaponName) const {
-    return weaponTypes.at(weaponName).projectileSpeed;
+void Weapon::firePlayer(Player player, ProjectileManager tab) {
+    // Create a new Projectile object
+    std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
+        player.getPos(),                  // Position argument
+        player.getCurrentWeaponName(),   // Current weapon name argument
+        5.0f,                                // Width argument
+        10.0f                                // Height argument
+    );
+    
+    // Add the projectile to the projectile manager
+    tab.addProjectile(std::move(p));
 }
