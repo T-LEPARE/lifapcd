@@ -56,7 +56,7 @@ public:
 
     void SetnbInvader(int nb);
 
-    void InitTabInvader(SDL_Renderer* renderer);
+    void InitTabInvader(SDL_Renderer* renderer,SDL_Surface* surfaceInvader);
 
     void RectInvaderInit(SDL_Renderer* renderer);  
 

@@ -59,6 +59,16 @@ int main(void)
         // Gestion de l'erreur appropriée
     }
     // Création du tab invader
+    SDL_Surface* surfaceInvader = IMG_Load("./data/LargeAlien.png");
+    if ( surfaceInvader == nullptr) {
+        SDL_Log("Échec du chargement de l'image : %s", SDL_GetError());
+        // Gestion de l'erreur appropriée
+    }
+    SDL_Surface* surfaceProjectile = IMG_Load("./data/LargeAlien.png");
+    if ( surfaceInvader == nullptr) {
+        SDL_Log("Échec du chargement de l'image : %s", SDL_GetError());
+        // Gestion de l'erreur appropriée
+    }
     InvadersManager itab;
   
     
@@ -88,7 +98,7 @@ int main(void)
             if(itab.IsAllDead()){
                 std::cout<<"It's empty !"<<std::endl;
                 itab.SetnbInvader(4);
-                itab.InitTabInvader(renderer);
+                itab.InitTabInvader(renderer,surfaceInvader);
                 itab.RectInvaderInit(renderer);
                 if (itab.IsAllDead()==1) {
                     std::cout << "still empty" << std::endl;

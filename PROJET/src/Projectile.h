@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include "Position.h"
-
+#include <SDL2/SDL.h>
 
 
 //Le delta temps pour modifier la vitesse des projectiles
@@ -19,6 +19,9 @@ private :
         Position direction;
         int damage;
         float projectileSpeed;
+        SDL_Rect projectileRect;
+        float height;
+        float width;
 
 public :
 
@@ -35,7 +38,7 @@ public :
          * @param weapons 
          * @param weaponName 
          */
-        Projectile(const Position& pos, const Weapon& weapon, std::string weaponName);
+        Projectile(const Position& pos, const Weapon& weapon, std::string weaponName,float width,float height);
 
         /**
          * @brief destructeur de projectile 
@@ -99,6 +102,18 @@ public :
 
         int getDamage();
     
+        
+        /**
+         * @return Retourne la largeur de l'Invader
+         */
+        float getWidth();
+
+        /**
+         * @return Retourne la hauteur du l'Invader
+         */
+        float getHeight();
+
+        void setProjectileRect(int x ,int y,int width,int height);
 };
 
 #endif 

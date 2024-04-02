@@ -45,3 +45,4 @@ void ProjectileManager::DamageTakenProjectile(bool hit, bool isPlayer, Player* p
         }
     }
 }
+

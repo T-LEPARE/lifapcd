@@ -5,7 +5,7 @@
 #include "Playership.h"
 
 
-class Display: public Player{
+class Display {
 private:
     static int DIMW;
     static int DIMH;

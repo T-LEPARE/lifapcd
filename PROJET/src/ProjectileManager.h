@@ -14,9 +14,8 @@
 class Player;
 class ProjectileManager: private Projectile {
     private:
-
-    public:
     std::vector<std::unique_ptr<Projectile>> projectiles;
+    public:
     void addProjectile(std::unique_ptr<Projectile> projectile);
     void removeProjectile(const std::unique_ptr<Projectile>& projectileToRemove);
     void DamageTakenProjectile(bool b, bool isPlayer, Player* playerPtr, Invader* invaderPtr);
