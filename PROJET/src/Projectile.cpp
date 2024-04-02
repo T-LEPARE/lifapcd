@@ -81,7 +81,7 @@ void Projectile::setProjectileRect(int x ,int y,int width,int height){
     this->projectileRect = {int(x),int(y),int(width),int(height)};
 }
 
-/*void Projectile::drawProjectile(SDL_Renderer* renderer){
+void Projectile::drawProjectile(SDL_Renderer* renderer){
     SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
     SDL_RenderFillRect(renderer,&projectileRect);
-}*/
+}
