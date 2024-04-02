@@ -23,6 +23,8 @@ Projectile::Projectile(const Position& pos, const Weapon& weapon, std::string we
 }
 
 
+
+
 void Projectile::update() {
   // Use getters to access x and y from direction
   setPos(getPos() + getDir() * projectileSpeed * dt);

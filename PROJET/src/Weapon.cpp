@@ -3,6 +3,7 @@
 
 
 
+
 Weapon::Weapon() {
 
 }
@@ -16,9 +17,12 @@ std::map<std::string, Weapon::weaponType> Weapon::getWeapons() {
 }
 
 // A voir
-void Weapon::weaponType::fire(const Position& pos, const Position& direction) {
+void Weapon::fireplayer(Player player,const Position& direction,Weapon w,ProjectileManager tab) {
+        std::unique_ptr<Projectile> p ;
+        tab.addProjectile(std::move(p));
+    }
         
-}
+
 
 
 int Weapon::getDamage(const std::string& weaponName) const {
