@@ -1,19 +1,15 @@
 #ifndef PLAYERSHIP_H
 #define PLAYERSHIP_H
 
-#include <iostream>
-#include <vector>
+#include <string>
 #include <memory>
 #include <SDL2/SDL.h>
 #include "Position.h"
 #include "Projectile.h"
-#include "ProjectileManager.h"
-#include "Invaders.h"
 #include "Weapon.h"
+#include "Invaders.h"
 
-
-class ProjectileManager;
-class WeaponManager;
+class Invader;
 
 class Player {
 private:

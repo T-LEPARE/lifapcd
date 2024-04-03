@@ -1,12 +1,10 @@
 #ifndef PROJECTILE_H
 #define PROJECTILE_H
-#include <map>
-#include <string>
-#include <vector>
-#include "Position.h"
-#include <SDL2/SDL.h>
-#include "WeaponManager.h"
 
+#include <string>
+#include <SDL2/SDL.h>
+#include "Position.h"
+#include "WeaponManager.h"
 
 
 //Le delta temps pour modifier la vitesse des projectiles

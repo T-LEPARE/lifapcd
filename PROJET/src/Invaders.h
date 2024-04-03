@@ -1,9 +1,9 @@
 #ifndef INVADERS_H
 #define INVADERS_H
-#include "Projectile.h"
-#include "Position.h"
-#include "SDL2/SDL.h"
 
+#include <SDL2/SDL.h>
+#include "Position.h"
+#include "Projectile.h"
 
 class Invader {
 private:

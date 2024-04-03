@@ -1,18 +1,14 @@
 #ifndef WEAPON_H
 #define WEAPON_H
 
-class Player;
-
-#include <map>
 #include <string>
-#include <memory>
-#include <vector>
-#include "Position.h"
-#include "Invaders.h"
-#include "ProjectileManager.h"
+#include <map>
 #include "WeaponManager.h"
 
+
+class Player;
 class ProjectileManager;
+
 class Weapon {
 
 public:
@@ -26,7 +22,7 @@ public:
         /**
          * @brief Get the weapons
          */
-        void firePlayer(Player player,ProjectileManager tab);
+        /*void firePlayer(Player player,ProjectileManager tab);*/
 
 
         private:

@@ -1,13 +1,14 @@
-#include "StarblitzGameDisplay.h"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <iostream>
 #include "Playership.h"
-#include "Invaders.h"
 #include "Position.h"
 #include "Projectile.h"
 #include "InvadersManager.h"
-#include <iostream>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-
+#include "StarblitzGameDisplay.h"
+#include "ProjectileManager.h"
+#include "WeaponManager.h"
+#include "Weapon.h"
 
 int main(void)
 {

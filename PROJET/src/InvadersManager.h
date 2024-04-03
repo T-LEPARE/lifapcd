@@ -1,11 +1,9 @@
 #ifndef INVADERSMANAGER_H
 #define INVADERSMANAGER_H
-#include "Projectile.h"
-#include "Position.h"
-#include "Invaders.h"
+
 #include <vector>
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#include "Invaders.h"
 
 class InvadersManager: private Invader {
 private:

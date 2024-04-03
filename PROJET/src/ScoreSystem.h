@@ -1,7 +1,6 @@
 #ifndef SCORE_SYSTEM_H
 #define SCORE_SYSTEM_H
 
-#include "Position.h"
 
 class ScoreSystem {
     public:

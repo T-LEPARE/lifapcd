@@ -1,0 +1,59 @@
+# Compiler options
+CXX = g++
+CXXFLAGS = -Wall -g
+LDFLAGS = -lSDL2 -lSDL2_image
+
+# Directories
+SRC_DIR = ./src
+OBJ_DIR = ./obj
+BIN_DIR = ./bin
+
+# Object files
+OBJ = $(OBJ_DIR)/Partie.o \
+      $(OBJ_DIR)/StarblitzGameLogic.o \
+      $(OBJ_DIR)/StarblitzGameDisplay.o \
+      $(OBJ_DIR)/ScoreSystem.o \
+      $(OBJ_DIR)/Projectile.o \
+      $(OBJ_DIR)/Weapon.o \
+      $(OBJ_DIR)/Playership.o \
+      $(OBJ_DIR)/WeaponManager.o \
+      $(OBJ_DIR)/Position.o \
+      $(OBJ_DIR)/InvadersManager.o \
+      $(OBJ_DIR)/Invaders.o \
+      $(OBJ_DIR)/ProjectileManager.o
+
+# Executable file
+EXEC = $(BIN_DIR)/StarblitzGame
+
+# Build rule
+all: $(EXEC)
+
+# Linking rule
+$(EXEC): $(OBJ)
+			$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
+
+# Compilation rules
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+			$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Dependency rules
+$(OBJ_DIR)/Partie.o: $(SRC_DIR)/Partie.cpp $(SRC_DIR)/Playership.h $(SRC_DIR)/Position.h $(SRC_DIR)/Projectile.h $(SRC_DIR)/Invaders.h $(SRC_DIR)/StarblitzGameDisplay.h
+$(OBJ_DIR)/StarblitzGameLogic.o: $(SRC_DIR)/StarblitzGameLogic.cpp $(SRC_DIR)/StarblitzGameLogic.h
+$(OBJ_DIR)/StarblitzGameDisplay.o: $(SRC_DIR)/StarblitzGameDisplay.cpp $(SRC_DIR)/StarblitzGameDisplay.h $(SRC_DIR)/Playership.h $(SRC_DIR)/Projectile.h $(SRC_DIR)/Weapon.h $(SRC_DIR)/ProjectileManager.h
+$(OBJ_DIR)/ScoreSystem.o: $(SRC_DIR)/ScoreSystem.cpp $(SRC_DIR)/ScoreSystem.h
+$(OBJ_DIR)/Projectile.o: $(SRC_DIR)/Projectile.cpp $(SRC_DIR)/Projectile.h $(SRC_DIR)/WeaponManager.h $(SRC_DIR)/Position.h
+$(OBJ_DIR)/Weapon.o: $(SRC_DIR)/Weapon.cpp $(SRC_DIR)/Weapon.h $(SRC_DIR)/Projectile.h $(SRC_DIR)/Position.h $(SRC_DIR)/WeaponManager.h $(SRC_DIR)/Invaders.h
+$(OBJ_DIR)/Playership.o: $(SRC_DIR)/Playership.cpp $(SRC_DIR)/Playership.h $(SRC_DIR)/Projectile.h $(SRC_DIR)/WeaponManager.h $(SRC_DIR)/Weapon.h $(SRC_DIR)/Position.h
+$(OBJ_DIR)/WeaponManager.o: $(SRC_DIR)/WeaponManager.cpp $(SRC_DIR)/WeaponManager.h $(SRC_DIR)/Position.h $(SRC_DIR)/Projectile.h $(SRC_DIR)/Weapon.h $(SRC_DIR)/Playership.h $(SRC_DIR)/Invaders.h $(SRC_DIR)/StarblitzGameDisplay.h
+$(OBJ_DIR)/Position.o: $(SRC_DIR)/Position.cpp $(SRC_DIR)/Position.h
+$(OBJ_DIR)/InvadersManager.o: $(SRC_DIR)/InvadersManager.cpp $(SRC_DIR)/InvadersManager.h $(SRC_DIR)/Invaders.h
+$(OBJ_DIR)/Invaders.o: $(SRC_DIR)/Invaders.cpp $(SRC_DIR)/Invaders.h
+$(OBJ_DIR)/ProjectileManager.o: $(SRC_DIR)/ProjectileManager.cpp $(SRC_DIR)/ProjectileManager.h $(SRC_DIR)/Position.h $(SRC_DIR)/Projectile.h $(SRC_DIR)/Weapon.h $(SRC_DIR)/Playership.h $(SRC_DIR)/Invaders.h $(SRC_DIR)/StarblitzGameDisplay.h
+
+# Clean rule
+clean:
+			rm -f $(OBJ)
+
+# Real clean rule
+realclean: clean
+			rm -f $(EXEC)

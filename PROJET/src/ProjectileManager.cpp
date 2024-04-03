@@ -1,17 +1,6 @@
 #include "ProjectileManager.h"
    
-ProjectileManager::ProjectileManager() {
-    this->nbP = 0;
-    
-}
-
-
-void ProjectileManager::SetnbProjectile(int nb){
-    this->nbP = nb ;
-}
-int ProjectileManager::GetnbProjectile(){
-    return nbP;
-}
+ProjectileManager::ProjectileManager(){}
 
 void ProjectileManager::addProjectile(std::unique_ptr<Projectile> projectile) {
     projectiles.push_back(std::move(projectile));

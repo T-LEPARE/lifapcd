@@ -1,20 +1,21 @@
 #ifndef PROJECTILE_MANAGER_H
 #define PROJECTILE_MANAGER_H
-#include "Position.h"
-#include "Projectile.h"
-#include "Playership.h"
-#include "Invaders.h"
-#include "StarblitzGameDisplay.h"
+
 #include <vector>
 #include <memory>
 #include <algorithm>
-#include "Weapon.h"
+#include "Playership.h"
+#include "Invaders.h"
+#include "StarblitzGameDisplay.h"
+
 
 
 class Player;
 class ProjectileManager {
     private:
     std::vector<std::unique_ptr<Projectile>> projectiles;
+    int nbP;
+
     public:
     ProjectileManager();
     void SetnbProjectile(int nb);

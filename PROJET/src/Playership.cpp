@@ -1,7 +1,4 @@
 #include "Playership.h"
-#include "Weapon.h"
-#include "Projectile.h"
-
 
     Player::Player()
     {
@@ -237,7 +234,7 @@
         }
     }
 
-    void Player::firePlayer() {
+    /*void Player::firePlayer() {
         // Create a new Projectile object
         std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
             getPos(),                  
@@ -245,4 +242,4 @@
         );
             // Add the projectile to the projectile manager
             addProjectile(std::move(p));
-    }
+    }*/

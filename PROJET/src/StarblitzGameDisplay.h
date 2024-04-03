@@ -1,9 +1,8 @@
 #ifndef STARBLITZGAMEDISPLAY_H
 #define STARBLITZGAMEDISPLAY_H
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include "Playership.h"
-#include "ProjectileManager.h"
 
 
 class Display {
