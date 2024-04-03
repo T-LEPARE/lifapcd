@@ -8,13 +8,12 @@
 #include "Position.h"
 #include "Projectile.h"
 #include "ProjectileManager.h"
-#include "Weapon.h"
 #include "Invaders.h"
-#include "WeaponManager.h"
+#include "Weapon.h"
 
 
-class Weapon;
-
+class ProjectileManager;
+class WeaponManager;
 
 class Player {
 private:
@@ -24,7 +23,7 @@ private:
     float width;
     Position pos;
     Position direction;
-    WeaponManager::weaponType currentWeapon;
+    Weapon currentWeapon;
     std::string currentWeaponName;
     SDL_Texture* texture;
     SDL_Surface* surface;
@@ -63,12 +62,12 @@ public:
     bool CheckCollisionInvader(Invader Invader);
     void DamageTakenInvader(bool b, Invader Invader);
     void addProjectile(std::unique_ptr<Projectile> projectile);
-    void shoot();
-    void setCurrentWeapon(WeaponManager::weaponType weapon);
+    void setCurrentWeapon(Weapon& weapon);
     void changeWeapon(const std::string& weaponName); // Changed to take the name of the weapon
     bool CollisionWindow();
     std::string getCurrentWeaponName();
-    WeaponManager::weaponType getCurrentWeapon();
+    Weapon getCurrentWeapon();
+    void firePlayer();
 };
 
-#endif // PLAYER_H
+#endif

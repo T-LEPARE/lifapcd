@@ -1,6 +1,5 @@
 #include "Projectile.h"
-#include "Weapon.h"
-#include "WeaponManager.h"
+
 
 
 Projectile::Projectile(){

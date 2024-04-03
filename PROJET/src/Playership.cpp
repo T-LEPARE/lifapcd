@@ -1,5 +1,6 @@
 #include "Playership.h"
-
+#include "Weapon.h"
+#include "Projectile.h"
 
 
     Player::Player()
@@ -10,7 +11,7 @@
         width=100;
         pos=Position(270-width/2,960-height*1.25);
         direction = Position(0,0);
-        changeWeapon("mitraillette");
+        currentWeapon = Weapon("mitraillette");
     }
 
     Player::Player(float x, float y, int healthPoint, float playerSpeed, float height, float width, Position direct) { 
@@ -108,7 +109,7 @@
         return this->height;
     }
 
-    WeaponManager::weaponType Player::getCurrentWeapon() {
+    Weapon Player::getCurrentWeapon() {
         return this->currentWeapon;
     }
 
@@ -206,25 +207,20 @@
             HP-=dmg;
     }
 
-    // void Player::shoot() {
-    //     currentWeapon.fire(pos, direction);
-    // }
-
-    void Player::setCurrentWeapon(WeaponManager::weaponType weapon) {
+    void Player::setCurrentWeapon(Weapon& weapon) {
         currentWeapon = weapon;
     }
 
     void Player::changeWeapon(const std::string& weaponName) {
-    // Retrieve weapon data
-    WeaponManager weapon;
-    std::map<std::string, WeaponManager::weaponType> weaponList = weapon.getWeapons();
-    WeaponManager::weaponType newWeapon = weaponList.at(weaponName);
-    setCurrentWeapon(newWeapon);
+        Weapon nextWeapon = Weapon(weaponName);
+        setCurrentWeapon(nextWeapon);
+        currentWeaponName = weaponName;
     }
 
     std::string Player::getCurrentWeaponName() {
         return currentWeaponName;
     }
+
 
     bool Player::CollisionWindow(){
         if (pos.x <=0) {
@@ -239,4 +235,14 @@
         if (pos.y <=0) {
             setPos(pos.x,0);    
         }
+    }
+
+    void Player::firePlayer() {
+        // Create a new Projectile object
+        std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
+            getPos(),                  
+            getCurrentWeaponName()                    
+        );
+            // Add the projectile to the projectile manager
+            addProjectile(std::move(p));
     }

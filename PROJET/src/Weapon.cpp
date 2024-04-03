@@ -1,25 +1,21 @@
 #include "Weapon.h"
+#include "Playership.h"
 #include "Projectile.h"
 
 
 
 
-Weapon::Weapon() {
-
+Weapon::Weapon(std::string weaponName) {
+    WeaponManager weaponManager;
+    std::map<std::string, WeaponManager::weaponType> weaponList = weaponManager.getWeapons();
+    try {
+        weapon = weaponList.at(weaponName);
+    } catch (const std::out_of_range& e) {
+        throw std::runtime_error("Weapon not found: " + weaponName);
+    }
 }
 
 Weapon::~Weapon(){
     
 }
 
-//Problème ici, ça ira pas, compliqué de lui passer un player ?
-void Weapon::firePlayer(Player player, ProjectileManager tab) {
-    // Create a new Projectile object
-    std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
-        player.getPos(),                  
-        player.getCurrentWeaponName()                    
-    );
-    
-    // Add the projectile to the projectile manager
-    tab.addProjectile(std::move(p));
-}

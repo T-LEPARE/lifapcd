@@ -25,12 +25,12 @@ all :./bin/StarblitzGame
 			g++ -Wall -c ./src/Projectile.cpp -o ./obj/Projectile.o
 
 
-./obj/Playership.o : ./src/Playership.cpp ./src/Playership.h ./src/Projectile.h ./src/Weapon.h ./src/WeaponManager.h ./src/Position.h
-			g++ -g -Wall -c ./src/Playership.cpp -o ./obj/Playership.o -lSDL2
-
-
 ./obj/Weapon.o : ./src/Weapon.cpp ./src/Weapon.h ./src/Projectile.h ./src/Position.h ./src/WeaponManager.h ./src/Playership.h ./src/Invaders.h 
 			g++ -g -Wall -c ./src/Weapon.cpp -o ./obj/Weapon.o
+			
+
+./obj/Playership.o : ./src/Playership.cpp ./src/Playership.h ./src/Projectile.h ./src/WeaponManager.h ./src/Weapon.h ./src/Position.h
+			g++ -g -Wall -c ./src/Playership.cpp -o ./obj/Playership.o -lSDL2
 
 
 ./obj/WeaponManager.o : ./src/WeaponManager.cpp ./src/WeaponManager.h ./src/Position.h ./src/Projectile.h ./src/Weapon.h ./src/Playership.h ./src/Invaders.h ./src/StarblitzGameDisplay.h

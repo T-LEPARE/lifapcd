@@ -5,12 +5,13 @@
 #include <vector>
 #include "Position.h"
 #include <SDL2/SDL.h>
+#include "WeaponManager.h"
+
 
 
 //Le delta temps pour modifier la vitesse des projectiles
 const float dt = 0.1;
 
-class Weapon;
 
 class Projectile {
 
