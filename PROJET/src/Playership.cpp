@@ -7,7 +7,7 @@
     {
         HP=100;
         speed=7;
-        height=50;
+        height=75;
         width=100;
         pos=Position(270-width/2,960-height*1.25);
         direction = Position(0,0);

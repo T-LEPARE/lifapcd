@@ -71,7 +71,12 @@ int main(void)
     }
     InvadersManager itab;
   
+    ProjectileManager Pmanager;
+    Weapon Weapon;
+
     
+
+
     // Boucle principale du jeu
     bool running = true;
     SDL_Event event;
@@ -90,10 +95,10 @@ int main(void)
                 running = false;
             }
             player.movement(event); 
+            //Weapon.firePlayer(player,Pmanager);
+            Pmanager.UpdateProj();
             player.CollisionWindow();
-            //std::cout << "player movement : " << player.getPos().x << ";" << player.getPos().y << "               ";
-            //std::cout << "player direction : " << player.getDir().x << ";" << player.getDir().y << std::endl;
-        }
+            }
             SDL_Rect playerRect = {player.getPos().x, player.getPos().y, player.getWidth(), player.getHeight()};
             if(itab.IsAllDead()){
                 std::cout<<"It's empty !"<<std::endl;
@@ -122,10 +127,9 @@ int main(void)
 
 
             itab.UpdateMovement();
-            // Render player's ship
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);
-            
+            Pmanager.DrawProj(renderer);
             // Present the rendered frame
             SDL_RenderPresent(renderer);
 

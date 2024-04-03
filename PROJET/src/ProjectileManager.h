@@ -1,5 +1,5 @@
-#ifndef INVADERS_MANAGER_H
-#define INVADERS_MANAGER_H
+#ifndef PROJECTILE_MANAGER_H
+#define PROJECTILE_MANAGER_H
 #include "Position.h"
 #include "Projectile.h"
 #include "Playership.h"
@@ -16,11 +16,16 @@ class ProjectileManager {
     private:
     std::vector<std::unique_ptr<Projectile>> projectiles;
     public:
+    ProjectileManager();
+    void SetnbProjectile(int nb);
+    int GetnbProjectile();
     void addProjectile(std::unique_ptr<Projectile> projectile);
     void removeProjectile(const std::unique_ptr<Projectile>& projectileToRemove);
     void DamageTakenProjectile(bool b, bool isPlayer, Player* playerPtr, Invader* invaderPtr);
     bool isProjectileOutOfBounds(const std::unique_ptr<Projectile>& projectile);
     bool hasProjectileCollided(const std::unique_ptr<Projectile>& projectile, Player* playerPtr, Invader* invaderPtr);
+    void DrawProj(SDL_Renderer* renderer);
+    void UpdateProj();
 };
 
 

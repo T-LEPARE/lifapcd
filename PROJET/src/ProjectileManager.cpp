@@ -1,5 +1,18 @@
 #include "ProjectileManager.h"
    
+ProjectileManager::ProjectileManager() {
+    this->nbP = 0;
+    
+}
+
+
+void ProjectileManager::SetnbProjectile(int nb){
+    this->nbP = nb ;
+}
+int ProjectileManager::GetnbProjectile(){
+    return nbP;
+}
+
 void ProjectileManager::addProjectile(std::unique_ptr<Projectile> projectile) {
     projectiles.push_back(std::move(projectile));
 }
@@ -46,3 +59,20 @@ void ProjectileManager::DamageTakenProjectile(bool hit, bool isPlayer, Player* p
     }
 }
 
+
+void ProjectileManager::DrawProj(SDL_Renderer* renderer)
+{
+    for(int i=0;i<nbP;i++)
+    {
+        projectiles[i]->drawProjectile(renderer);
+    }
+}
+
+
+void ProjectileManager::UpdateProj()
+{
+    for(int i=0;i<nbP;i++)
+    {
+        projectiles[i]->update();
+    }
+}
