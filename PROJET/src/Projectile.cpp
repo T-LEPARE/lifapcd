@@ -12,6 +12,7 @@ Projectile::Projectile(){
 }
 
 Projectile::Projectile(const Position& pos, std::string weaponName){
+    //celui du joueur
     WeaponManager weapon;
     this->pos = pos; // Set position
     this->damage = weapon.getDamage(weaponName); // Example with a specific weapon name
@@ -21,6 +22,19 @@ Projectile::Projectile(const Position& pos, std::string weaponName){
     this->height = weapon.getProjectileHeight(weaponName);
     this->projectileRect = {int(pos.x),int(pos.y),int(width),int(height)};
 }
+
+Projectile::Projectile(const Position& pos){
+    //celui des invaders
+    WeaponManager weapon;
+    this->pos = pos; // Set position
+    this->damage = weapon.getDamage("mitraillette"); // Example with a specific weapon name
+    this->projectileSpeed = weapon.getProjectileSpeed("mitraillette"); // Example with a specific weapon name
+    this->direction = Position(0, 1); // Set initial direction
+    this->width = weapon.getProjectileWidth("mitraillette");
+    this->height = weapon.getProjectileHeight("mitraillette");
+    this->projectileRect = {int(pos.x),int(pos.y),int(width),int(height)};
+}
+
 
 
 

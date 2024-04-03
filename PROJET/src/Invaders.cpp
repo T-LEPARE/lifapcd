@@ -133,3 +133,8 @@
         void Invader::setSurface(SDL_Surface* _surface){
             surface = _surface;
     }
+
+    void Invader::shootInvader(ProjectileManager& tabpro){
+        std::unique_ptr<Projectile> p = std::make_unique<Projectile>(pos);
+        tabpro.addProjectile(std::move(p));
+}

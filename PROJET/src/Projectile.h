@@ -39,6 +39,8 @@ public :
          */
         Projectile(const Position& pos, std::string weaponName);
 
+        Projectile(const Position& pos);
+
         /**
          * @brief destructeur de projectile 
         */

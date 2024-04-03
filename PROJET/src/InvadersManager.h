@@ -61,6 +61,8 @@ public:
     SDL_Rect RectInvaderUpdate(); 
     
     void DrawInvaders(SDL_Renderer* renderer);
+
+    void shootEverybody(ProjectileManager tabpro);
 };
 
 #endif

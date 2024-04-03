@@ -85,3 +85,9 @@ void InvadersManager::DrawInvaders(SDL_Renderer* renderer){
         SDL_RenderCopy(renderer, invaders[i].getTexture(), NULL, &rects[i]);     
     }
 }
+
+void InvadersManager::shootEverybody(ProjectileManager tabpro){
+     for (int i = 0;i<nbInvader;i++){
+        invaders[i].shootInvader(tabpro);    
+    }
+}

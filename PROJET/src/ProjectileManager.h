@@ -11,6 +11,7 @@
 
 
 class Player;
+class Invader;
 class ProjectileManager {
     private:
     std::vector<std::unique_ptr<Projectile>> projectiles;

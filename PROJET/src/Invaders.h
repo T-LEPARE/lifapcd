@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include "Position.h"
 #include "Projectile.h"
+#include "ProjectileManager.h"
 
 class Invader {
 private:
@@ -174,6 +175,8 @@ public:
      * @param _surface 
      */
     void setSurface(SDL_Surface* _surface);
+
+    void shootInvader(ProjectileManager& tabpro);
 };
 
 
