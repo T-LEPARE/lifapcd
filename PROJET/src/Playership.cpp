@@ -238,30 +238,20 @@
         }
     }
 
-    void Player::firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager,SDL_Event &event) {
-            if (event.type == SDL_KEYDOWN) {
-                // Vérifie si la touche A est pressée (SDLK_a pour la touche A)
-                if (event.key.keysym.sym == SDLK_SPACE) {
-                    // Si la touche A est pressée, appelle la fonction
-            // Create a new Projectile object
+    void Player::firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager) {
             std::string currentWeaponName = getCurrentWeaponName();
-            try {
-                std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
-                    Player::getPos().x+Player::getWidth()/2, Player::getPos().y+2,
-                    currentWeaponName,
-                    weaponManager
-                );
-                // Set the direction of the projectile to be upwards (0, -1)
-                p->setDir(0, -1);
-                std::cout << p->getDir().x << "  " << p->getDir().y << std::endl;
-                // Add the projectile to the projectile manager
-                projectileManager.addProjectile(std::move(p));
-            } catch (const std::out_of_range& e) {
-                std::cerr << "Error: Weapon '" << currentWeaponName << "' not found in WeaponManager." << std::endl;
-            }
-            }
-            }
-        }
+            std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
+                Player::getPos().x+Player::getWidth()/2, Player::getPos().y+2,
+                currentWeaponName,
+                weaponManager
+            );
+            // Set the direction of the projectile to be upwards (0, -1)
+            p->setDir(0, -1);
+            std::cout << p->getDir().x << "  " << p->getDir().y << std::endl;
+            // Add the projectile to the projectile manager
+            projectileManager.addProjectile(std::move(p));
+    }
+
 
     bool Player::HPnullPlayership()
     {

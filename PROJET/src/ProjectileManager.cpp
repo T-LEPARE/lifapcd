@@ -19,7 +19,7 @@ bool ProjectileManager::isProjectileOutOfBounds(const std::unique_ptr<Projectile
             projectile->getPos().y < 0 || projectile->getPos().y > Display::getDIMH());
 }
 
-bool ProjectileManager::hasProjectileCollided( Player* playerPtr=nullptr, std::vector<Invader> *invaders=nullptr) {
+void ProjectileManager::hasProjectileCollided( Player* playerPtr=nullptr, std::vector<Invader> *invaders=nullptr) {
     for (auto& projectilePtr : projectiles) { 
         // Check collision with an invader
         if (invaders != nullptr){
@@ -41,30 +41,30 @@ bool ProjectileManager::hasProjectileCollided( Player* playerPtr=nullptr, std::v
                 DamageTakenProjectile(playerPtr,nullptr);
             }
         }
-        return false;
+
     }
 }
 
-//Une fonction pour le player et l'invader : on l'appelle comme ça :  DamageTakenProjectile(hit,true,playerPtr,nullptr) ou DamageTakenProjectile(hit,true,nullptr,invaderPtr)
-void ProjectileManager::DamageTakenProjectile(Player* playerPtr = nullptr, Invader* invaderPtr = nullptr) {
-    for (const auto& projectilePtr : projectiles) {
-        int dmg = projectilePtr->getDamage();
+void ProjectileManager::DamageTakenProjectile(Player* playerPtr, Invader* invaderPtr) {
+    std::vector<std::unique_ptr<Projectile>> projectilesToRemove;
+    for (auto it = projectiles.begin(); it != projectiles.end();) {
+        int dmg = (*it)->getDamage();
         if (playerPtr != nullptr) {
             playerPtr->setHP(playerPtr->getHP() - dmg);
-            removeProjectile(projectilePtr);
-            if(playerPtr -> HPnullPlayership()) {}
+            projectilesToRemove.push_back(std::move(*it));
+            ++it;
+            //it = projectiles.erase(it); // Remove projectile from projectiles vector
         } else if (invaderPtr != nullptr) {
             invaderPtr->setHP(invaderPtr->getHP() - dmg);
-            removeProjectile(projectilePtr);
-            if(invaderPtr -> HPnullInvader())
-            {
-                invaderPtr -> setHP(100);
-                //invaders.erase(invaders.begin()+i);
-                std::cout<<"Invader mort"<<std::endl;;
-            }
-        
+            projectilesToRemove.push_back(std::move(*it));
+            ++it;
+            //it = projectiles.erase(it); // Remove projectile from projectiles vector
+        } else {
+            ++it; // Move to the next projectile
         }
     }
+    // Clear projectilesToRemove vector after processing all projectiles
+    projectilesToRemove.clear();
 }
 
 
@@ -80,5 +80,5 @@ void ProjectileManager::UpdateProj() {
     for (auto it = projectiles.begin(); it != projectiles.end(); ++it) {
             (*it)->update();
     }
-    // Remove any out-of-bounds projectiles here
+    // On supprime les projectiles ici si nécessaire
 }

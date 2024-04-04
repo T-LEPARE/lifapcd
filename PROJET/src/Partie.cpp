@@ -68,22 +68,8 @@ int main(void)
     }
     InvadersManager itab;
     ProjectileManager Pmanager;
-    // WeaponManager initialization before Weapon creation
     WeaponManager weaponManager;
     std::cout << "weaponManager Initialised" << std::endl;
-
-    // Weapon creation with potential error handling
-try {
-    Weapon myWeapon("mitraillette", weaponManager);
-    std::cout << "Weapon Initialized" << std::endl;
-} catch (const std::out_of_range& e) {
-    std::cerr << "Error: Weapon 'mitraillette' not found in WeaponManager." << std::endl;
-}
-
-
-    
-    
-
 
     // Boucle principale du jeu
     bool running = true;
@@ -102,10 +88,8 @@ try {
             }
             player.movement(event); 
             player.CollisionWindow();
-            player.firePlayer(Pmanager, weaponManager,event);
             }
             SDL_Rect playerRect = {int(player.getPos().x), int(player.getPos().y), int(player.getWidth()), int(player.getHeight())};
-            Pmanager.UpdateProj();
             if(itab.IsAllDead()){
                 std::cout<<"It's empty !"<<std::endl;
                 itab.SetnbInvader(4);
@@ -131,10 +115,12 @@ try {
                 }
             }
             std::vector<Invader>* itabPtr = itab.getInvaders();
-            Pmanager.hasProjectileCollided(&player,itabPtr);
             itab.UpdateMovement();
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);
+            player.firePlayer(Pmanager, weaponManager);
+            Pmanager.UpdateProj();
+            Pmanager.hasProjectileCollided(&player,itabPtr);
             Pmanager.DrawProj(renderer);
             // Present the rendered frame
             SDL_RenderPresent(renderer);
