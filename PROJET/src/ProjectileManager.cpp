@@ -65,9 +65,9 @@ void ProjectileManager::DrawProj(SDL_Renderer* renderer)
 }
 
 
-//    void ProjectileManager::UpdateProj() {
-//         for (auto it = projectiles.begin(); it != projectiles.end(); ++it) {
-//             (*it)->update();
-//         }
-//         // Remove any out-of-bounds projectiles here
-//     }
+void ProjectileManager::UpdateProj() {
+    for (auto it = projectiles.begin(); it != projectiles.end(); ++it) {
+            (*it)->update();
+    }
+    // Remove any out-of-bounds projectiles here
+}

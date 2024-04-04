@@ -101,10 +101,11 @@ try {
             }
             player.movement(event); 
             player.firePlayer(Pmanager, weaponManager);
-            //Pmanager.UpdateProj();
+        
             player.CollisionWindow();
             }
             SDL_Rect playerRect = {int(player.getPos().x), int(player.getPos().y), int(player.getWidth()), int(player.getHeight())};
+            Pmanager.UpdateProj();
             if(itab.IsAllDead()){
                 std::cout<<"It's empty !"<<std::endl;
                 itab.SetnbInvader(4);

@@ -28,7 +28,7 @@ Projectile::Projectile(const Position& pos){
     this->pos = pos; // Set position
     this->damage = weapon.getDamage("mitraillette"); // Example with a specific weapon name
     this->projectileSpeed = weapon.getProjectileSpeed("mitraillette"); // Example with a specific weapon name
-    this->direction = Position(0, 1); // Set initial direction
+    this->direction = Position(0, -1); // Set initial direction
     this->width = weapon.getProjectileWidth("mitraillette");
     this->height = weapon.getProjectileHeight("mitraillette");
     this->projectileRect = {int(pos.x),int(pos.y),int(width),int(height)};
@@ -42,7 +42,6 @@ void Projectile::update() {
   // Use getters to access x and y from direction
   setPos(getPos() + getDir() * projectileSpeed * dt);
   this->projectileRect = {int(this->getPos().x),int(this->getPos().y),int(this->getWidth()),int(this->getHeight())};
-
 }
 
 
@@ -65,7 +64,7 @@ void Projectile::setPos(Position p){
 }
 
 Position Projectile::getDir(){
-    return pos;
+    return direction;
 }
 
 void Projectile::setDir(float x,float y){
@@ -97,6 +96,6 @@ void Projectile::setProjectileRect(int x ,int y,int width,int height){
 }
 
 void Projectile::drawProjectile(SDL_Renderer* renderer){
-    SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 0);
     SDL_RenderFillRect(renderer,&projectileRect);
 }

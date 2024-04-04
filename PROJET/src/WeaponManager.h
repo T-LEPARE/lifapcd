@@ -15,7 +15,7 @@ public:
                 float fireRate;
                 int projectileWidth;
                 int projectileHeight;
-            };
+    };
     std::map<std::string, weaponType> getWeapons();
 
     int getDamage(const std::string& weaponName) const;
