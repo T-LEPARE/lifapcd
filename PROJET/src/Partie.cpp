@@ -129,6 +129,8 @@ try {
                 SDL_RenderCopy(renderer, display.getTexture(), NULL, &rect);
                 }
             }
+            // if(Pmanager.hasProjectileCollided(blablalbla))
+            //     Pmanager.DamageTakenProjectile(blablalbla);    <---- a modifier avec pointeur et tout là
             itab.UpdateMovement();
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);
