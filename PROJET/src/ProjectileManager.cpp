@@ -43,13 +43,13 @@ bool ProjectileManager::hasProjectileCollided(const std::unique_ptr<Projectile>&
 }
 
 //Une fonction pour le player et l'invader : on l'appelle comme ça :  DamageTakenProjectile(hit,true,playerPtr,nullptr) ou DamageTakenProjectile(hit,true,nullptr,invaderPtr)
-void ProjectileManager::DamageTakenProjectile(bool hit, bool isPlayer, Player* playerPtr = nullptr, Invader* invaderPtr = nullptr) {
+void ProjectileManager::DamageTakenProjectile(Player* playerPtr = nullptr, Invader* invaderPtr = nullptr) {
     for (const auto& projectilePtr : projectiles) {
         int dmg = projectilePtr->getDamage();
-        if (isPlayer && playerPtr != nullptr) {
+        if (playerPtr != nullptr) {
             playerPtr->setHP(playerPtr->getHP() - dmg);
             removeProjectile(projectilePtr);
-        } else if (!isPlayer && invaderPtr != nullptr) {
+        } else if (invaderPtr != nullptr) {
             invaderPtr->setHP(invaderPtr->getHP() - dmg);
             removeProjectile(projectilePtr);
         }

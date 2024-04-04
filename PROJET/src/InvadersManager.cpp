@@ -35,7 +35,7 @@ void InvadersManager::UpdateMovement() {
     }
 }
 
-// A quoi ça servira ça ? Je comprends pas
+
 void InvadersManager::CheckCollisions(Projectile P) {
     for (size_t i = 0; i < invaders.size(); i++) {
         if (invaders[i].CheckCollision(P)) {
