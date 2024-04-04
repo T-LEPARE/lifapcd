@@ -247,7 +247,7 @@
             std::string currentWeaponName = getCurrentWeaponName();
             try {
                 std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
-                    Player::getPos().x+Player::getWidth()/2, Player::getPos().y,
+                    Player::getPos().x+Player::getWidth()/2, Player::getPos().y+2,
                     currentWeaponName,
                     weaponManager
                 );
@@ -262,3 +262,10 @@
             }
             }
         }
+
+    bool Player::HPnullPlayership()
+    {
+        if(HP <= 0)
+            return true;
+        return false;
+    }

@@ -66,6 +66,7 @@ public:
     std::string getCurrentWeaponName();
     Weapon getCurrentWeapon();
     void firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager,SDL_Event &event);
+    bool HPnullPlayership();
 };
 
 #endif

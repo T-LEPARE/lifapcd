@@ -106,19 +106,6 @@
         
     }
 
-    bool Invader::CheckCollision(Projectile P){
-        Position position = P.getPos();
-        if (position.x >= pos.x && position.x <= pos.x+width && position.y >= pos.y && position.y <= pos.y+width)
-            return true;
-        return false;
-    }
-
-    void Invader::DamageTaken(Projectile P)
-    {
-        int dmg=P.getDamage();
-        HP-=dmg;
-    }
-
 
         SDL_Texture* Invader::getTexture(){
             return texture;
@@ -144,7 +131,7 @@
         return false;
     }
 
-    bool Invader::HPnull()
+    bool Invader::HPnullInvader()
     {
         if(HP <= 0)
             return true;

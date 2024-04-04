@@ -1,4 +1,5 @@
 #include "ProjectileManager.h"
+#include <iostream>
    
 ProjectileManager::ProjectileManager(){}
 
@@ -18,24 +19,26 @@ bool ProjectileManager::isProjectileOutOfBounds(const std::unique_ptr<Projectile
             projectile->getPos().y < 0 || projectile->getPos().y > Display::getDIMH());
 }
 
-bool ProjectileManager::hasProjectileCollided(const std::unique_ptr<Projectile>& projectile, Player* playerPtr, Invader* invaderPtr) {
-    // Check collision with an invader
-    if (invaderPtr != nullptr) {
-        Position Iposition = invaderPtr->getPos();
-        if ((projectile->getPos().x >= Iposition.x) && (projectile->getPos().x <= Iposition.x + invaderPtr->getWidth()) &&
-            (projectile->getPos().y >= Iposition.y) && (projectile->getPos().y <= Iposition.y + invaderPtr->getHeight())) {
-            //ici on appelel damagetakenprojectile avec l'invaderptr
+bool ProjectileManager::hasProjectileCollided( Player* playerPtr, Invader* invaderPtr) {
+    for (const auto& projectilePtr : projectiles) { 
+        // Check collision with an invader
+        if (invaderPtr != nullptr) {
+            Position Iposition = invaderPtr->getPos();
+            if ((projectilePtr->getPos().x >= Iposition.x) && (projectilePtr->getPos().x <= Iposition.x + invaderPtr->getWidth()) &&
+                (projectilePtr->getPos().y >= Iposition.y) && (projectilePtr->getPos().y <= Iposition.y + invaderPtr->getHeight())) {
+                //ici on appelel damagetakenprojectile avec l'invaderptr
+            }
         }
-    }
-    // Check collision with a player
-    if (playerPtr != nullptr) {
-        Position Pposition = playerPtr->getPos();
-        if ((projectile->getPos().x >= Pposition.x) && (projectile->getPos().x <= Pposition.x + playerPtr->getWidth()) &&
-            (projectile->getPos().y >= Pposition.y) && (projectile->getPos().y <= Pposition.y + playerPtr->getHeight())) {
-            // Ici, on appelle damagetakenprojectile avec le playerptr
+        // Check collision with a player
+        if (playerPtr != nullptr) {
+            Position Pposition = playerPtr->getPos();
+            if ((projectilePtr->getPos().x >= Pposition.x) && (projectilePtr->getPos().x <= Pposition.x + playerPtr->getWidth()) &&
+                (projectilePtr->getPos().y >= Pposition.y) && (projectilePtr->getPos().y <= Pposition.y + playerPtr->getHeight())) {
+                // Ici, on appelle damagetakenprojectile avec le playerptr
+            }
         }
+        return false;
     }
-    return false;
 }
 
 //Une fonction pour le player et l'invader : on l'appelle comme ça :  DamageTakenProjectile(hit,true,playerPtr,nullptr) ou DamageTakenProjectile(hit,true,nullptr,invaderPtr)
@@ -45,9 +48,17 @@ void ProjectileManager::DamageTakenProjectile(Player* playerPtr = nullptr, Invad
         if (playerPtr != nullptr) {
             playerPtr->setHP(playerPtr->getHP() - dmg);
             removeProjectile(projectilePtr);
+            if(playerPtr -> HPnullPlayership()) {}
         } else if (invaderPtr != nullptr) {
             invaderPtr->setHP(invaderPtr->getHP() - dmg);
             removeProjectile(projectilePtr);
+            if(invaderPtr -> HPnullInvader())
+            {
+                invaderPtr -> setHP(100);
+                //invaders.erase(invaders.begin()+i);
+                std::cout<<"Invader mort"<<std::endl;;
+            }
+        
         }
     }
 }

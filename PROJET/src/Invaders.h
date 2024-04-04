@@ -135,18 +135,6 @@ public:
     */
     void movement();
 
-    /**
-     @brief Vérifie si l'invader a été touché par un projectile
-     @param  P Un projectile 
-    */
-    bool CheckCollision(Projectile P);
-
-    /**
-     @brief Si l'invader a été touché par un projectile alors on lui enlève de la vie
-     @param  P Un projectile 
-    */
-    void DamageTaken(Projectile p);
-
    /**
     * @brief 
     * 
@@ -179,7 +167,7 @@ public:
 
     bool ArriveEnBas();
 
-    bool HPnull();
+    bool HPnullInvader();
 };
 
 

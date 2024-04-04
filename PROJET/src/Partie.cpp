@@ -129,8 +129,6 @@ try {
                 SDL_RenderCopy(renderer, display.getTexture(), NULL, &rect);
                 }
             }
-
-      
             itab.UpdateMovement();
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);

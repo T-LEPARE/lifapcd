@@ -36,15 +36,15 @@ void InvadersManager::UpdateMovement() {
 }
 
 
-void InvadersManager::CheckCollisions(Projectile P) {
-    for (size_t i = 0; i < invaders.size(); i++) {
-        if (invaders[i].CheckCollision(P)) {
-            invaders[i].DamageTaken(P);
-            if(invaders[i].HPnull())
-                invaders.erase(invaders.begin()+i);
-        }
-    }
-}
+// void InvadersManager::CheckCollisions(Projectile P) {
+//     for (size_t i = 0; i < invaders.size(); i++) {
+//         if (invaders[i].CheckCollision(P)) {
+//             invaders[i].DamageTaken(P);
+//             if(invaders[i].HPnull())
+//                 invaders.erase(invaders.begin()+i);
+//         }
+//     }
+// }
 
 bool InvadersManager::IsAllDead() {
     return invaders.empty();
@@ -95,7 +95,7 @@ void InvadersManager::shootEverybody(ProjectileManager tabpro){
 
 bool InvadersManager::ArriveEnBas()
 {
-    for (unsigned int i = 0; i < nbInvader; i++) {
+    for (int i = 0; i < nbInvader; i++) {
         if(invaders[i].ArriveEnBas())
             return true;
     }
