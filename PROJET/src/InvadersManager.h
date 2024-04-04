@@ -58,7 +58,7 @@ public:
 
     void RectInvaderInit(SDL_Renderer* renderer);  
 
-    SDL_Rect RectInvaderUpdate(); 
+    void RectInvaderUpdate(); 
     
     void DrawInvaders(SDL_Renderer* renderer);
 

@@ -65,11 +65,6 @@ int main(void)
         SDL_Log("Échec du chargement de l'image : %s", SDL_GetError());
         // Gestion de l'erreur appropriée
     }
-    SDL_Surface* surfaceProjectile = IMG_Load("./data/LargeAlien.png");
-    if ( surfaceInvader == nullptr) {
-        SDL_Log("Échec du chargement de l'image : %s", SDL_GetError());
-        // Gestion de l'erreur appropriée
-    }
     InvadersManager itab;
     ProjectileManager Pmanager;
     // WeaponManager initialization before Weapon creation
@@ -95,24 +90,21 @@ try {
     const int targetFPS = 60;
     const float targetFrameTime = 1000.0f / targetFPS;  // milliseconds per frame
     float elapsed;
-    float oldElapsed;
     float delay;
 
     while (running) {
         Uint64 start = SDL_GetPerformanceCounter();
-        oldElapsed = elapsed;
         // Gestion des événements
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
                 running = false;
             }
             player.movement(event); 
-            
             player.firePlayer(Pmanager, weaponManager);
             Pmanager.UpdateProj();
-            //player.CollisionWindow();
+            player.CollisionWindow();
             }
-            SDL_Rect playerRect = {player.getPos().x, player.getPos().y, player.getWidth(), player.getHeight()};
+            SDL_Rect playerRect = {int(player.getPos().x), int(player.getPos().y), int(player.getWidth()), int(player.getHeight())};
             if(itab.IsAllDead()){
                 std::cout<<"It's empty !"<<std::endl;
                 itab.SetnbInvader(4);

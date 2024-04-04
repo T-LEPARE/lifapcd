@@ -21,14 +21,14 @@ void InvadersManager::RemoveInvader(size_t index) {
 
 
 void InvadersManager::UpdateMovement() {
-    for (unsigned int i = 0; i < nbInvader; i++) {
+    for (int i = 0; i < nbInvader; i++) {
         invaders[i].setPos(invaders[i].getPos().x + invaders[i].getDirection().x * invaders[i].getSpeed(), invaders[i].getPos().y + invaders[i].getDirection().y * invaders[i].getSpeed());
     }
 
     float leftMost = invaders[0].getPos().x;
     float rightMost = invaders[nbInvader - 1].getPos().x + invaders[nbInvader - 1].getWidth();
     if (leftMost < 0 || rightMost > 540) {
-        for (unsigned int i = 0; i < nbInvader; i++) {
+        for (int i = 0; i < nbInvader; i++) {
             invaders[i].setDirection(-1*invaders[i].getDirection());
         }
     }
@@ -73,7 +73,7 @@ void InvadersManager::RectInvaderInit(SDL_Renderer* renderer){
     }
 }
 
-SDL_Rect InvadersManager::RectInvaderUpdate() {
+void InvadersManager::RectInvaderUpdate() {
     for (int i = 0; i < nbInvader; i++){ 
         rects.at(i) = {static_cast<int>(invaders[i].getPos().x), static_cast<int>(invaders[i].getPos().y), static_cast<int>(invaders[i].getWidth()), static_cast<int>(invaders[i].getHeight())};
     }

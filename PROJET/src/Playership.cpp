@@ -116,7 +116,7 @@
 
     void Player::movement(SDL_Event &event)
     {
-        int keypressed;
+        int keypressed=0;
         switch( event.type ){
             case SDL_KEYDOWN:
             switch (event.key.keysym.sym) {
@@ -223,7 +223,7 @@
     }
 
 
-    bool Player::CollisionWindow(){
+    void Player::CollisionWindow(){
         if (pos.x <=0) {
             setPos(0,pos.y);
         }
