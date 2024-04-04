@@ -73,8 +73,10 @@ int main(void)
     InvadersManager itab;
   
     ProjectileManager Pmanager;
+    WeaponManager Weaponmanager;
     Weapon Weapon;
 
+    
     
 
 
@@ -96,7 +98,7 @@ int main(void)
                 running = false;
             }
             player.movement(event); 
-            //Weapon.firePlayer(player,Pmanager);
+            player.firePlayer(Pmanager);
             Pmanager.UpdateProj();
             player.CollisionWindow();
             }

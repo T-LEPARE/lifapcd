@@ -7,6 +7,8 @@
 class WeaponManager {
 public:
 
+    WeaponManager();
+    ~WeaponManager();
     struct weaponType {
                 float projectileSpeed;
                 int damage;

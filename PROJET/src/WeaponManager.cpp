@@ -1,5 +1,9 @@
 #include "WeaponManager.h"
 
+WeaponManager::WeaponManager(){}
+
+WeaponManager::~WeaponManager(){}
+
 int WeaponManager::getDamage(const std::string& weaponName) const {
     return weaponTypes.at(weaponName).damage;
 }

@@ -1,6 +1,8 @@
 #ifndef PLAYERSHIP_H
 #define PLAYERSHIP_H
 
+class ProjectileManager;
+
 #include <string>
 #include <memory>
 #include <SDL2/SDL.h>
@@ -8,6 +10,7 @@
 #include "Projectile.h"
 #include "Weapon.h"
 #include "Invaders.h"
+
 
 class Invader;
 
@@ -57,13 +60,12 @@ public:
     void DamageTakenProjectile(bool b, Projectile Projectile);
     bool CheckCollisionInvader(Invader Invader);
     void DamageTakenInvader(bool b, Invader Invader);
-    void addProjectile(std::unique_ptr<Projectile> projectile);
     void setCurrentWeapon(Weapon& weapon);
     void changeWeapon(const std::string& weaponName); // Changed to take the name of the weapon
     bool CollisionWindow();
     std::string getCurrentWeaponName();
     Weapon getCurrentWeapon();
-    void firePlayer();
+    void firePlayer(ProjectileManager& projectileManager);
 };
 
 #endif

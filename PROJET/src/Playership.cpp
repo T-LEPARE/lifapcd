@@ -1,4 +1,7 @@
 #include "Playership.h"
+#include "ProjectileManager.h"
+#include <iostream>
+#include <string>
 
     Player::Player()
     {
@@ -234,12 +237,12 @@
         }
     }
 
-    /*void Player::firePlayer() {
+    void Player::firePlayer(ProjectileManager& projectileManager) {
         // Create a new Projectile object
         std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
             getPos(),                  
             getCurrentWeaponName()                    
         );
             // Add the projectile to the projectile manager
-            addProjectile(std::move(p));
-    }*/
+            projectileManager.addProjectile(std::move(p));
+    }

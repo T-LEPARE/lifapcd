@@ -4,6 +4,7 @@ ProjectileManager::ProjectileManager(){}
 
 void ProjectileManager::addProjectile(std::unique_ptr<Projectile> projectile) {
     projectiles.push_back(std::move(projectile));
+    nbP++;
 }
 
 void ProjectileManager::removeProjectile(const std::unique_ptr<Projectile>& projectileToRemove) {
