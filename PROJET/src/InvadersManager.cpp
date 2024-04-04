@@ -101,3 +101,7 @@ bool InvadersManager::ArriveEnBas()
     }
     return false;
 }
+
+std::vector<Invader>* InvadersManager::getInvaders(){
+    return &invaders;
+}

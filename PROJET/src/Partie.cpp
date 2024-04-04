@@ -9,6 +9,7 @@
 #include "ProjectileManager.h"
 #include "WeaponManager.h"
 #include "Weapon.h"
+#include <memory>
 
 int main(void)
 {
@@ -129,8 +130,8 @@ try {
                 SDL_RenderCopy(renderer, display.getTexture(), NULL, &rect);
                 }
             }
-            // if(Pmanager.hasProjectileCollided(blablalbla))
-            //     Pmanager.DamageTakenProjectile(blablalbla);    <---- a modifier avec pointeur et tout là
+            std::vector<Invader>* itabPtr = itab.getInvaders();
+            Pmanager.hasProjectileCollided(&player,itabPtr);
             itab.UpdateMovement();
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);

@@ -65,6 +65,8 @@ public:
     void shootEverybody(ProjectileManager tabpro);
 
     bool ArriveEnBas();
+
+    std::vector<Invader>* getInvaders();
 };
 
 #endif

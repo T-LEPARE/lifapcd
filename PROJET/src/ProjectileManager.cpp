@@ -19,14 +19,17 @@ bool ProjectileManager::isProjectileOutOfBounds(const std::unique_ptr<Projectile
             projectile->getPos().y < 0 || projectile->getPos().y > Display::getDIMH());
 }
 
-bool ProjectileManager::hasProjectileCollided( Player* playerPtr, Invader* invaderPtr) {
-    for (const auto& projectilePtr : projectiles) { 
+bool ProjectileManager::hasProjectileCollided( Player* playerPtr=nullptr, std::vector<Invader> *invaders=nullptr) {
+    for (auto& projectilePtr : projectiles) { 
         // Check collision with an invader
-        if (invaderPtr != nullptr) {
-            Position Iposition = invaderPtr->getPos();
-            if ((projectilePtr->getPos().x >= Iposition.x) && (projectilePtr->getPos().x <= Iposition.x + invaderPtr->getWidth()) &&
-                (projectilePtr->getPos().y >= Iposition.y) && (projectilePtr->getPos().y <= Iposition.y + invaderPtr->getHeight())) {
-                //ici on appelel damagetakenprojectile avec l'invaderptr
+        if (invaders != nullptr){
+            for ( auto& invaderPtr : *invaders)  {
+                Position Iposition = invaderPtr.getPos();
+                if ((projectilePtr->getPos().x >= Iposition.x) && (projectilePtr->getPos().x <= Iposition.x + invaderPtr.getWidth()) &&
+                    (projectilePtr->getPos().y >= Iposition.y) && (projectilePtr->getPos().y <= Iposition.y + invaderPtr.getHeight())) {
+                    //ici on appelel damagetakenprojectile avec l'invaderptr
+                    DamageTakenProjectile(nullptr,&invaderPtr);
+                }
             }
         }
         // Check collision with a player
@@ -35,6 +38,7 @@ bool ProjectileManager::hasProjectileCollided( Player* playerPtr, Invader* invad
             if ((projectilePtr->getPos().x >= Pposition.x) && (projectilePtr->getPos().x <= Pposition.x + playerPtr->getWidth()) &&
                 (projectilePtr->getPos().y >= Pposition.y) && (projectilePtr->getPos().y <= Pposition.y + playerPtr->getHeight())) {
                 // Ici, on appelle damagetakenprojectile avec le playerptr
+                DamageTakenProjectile(playerPtr,nullptr);
             }
         }
         return false;
