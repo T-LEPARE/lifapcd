@@ -143,10 +143,9 @@ public:
 
     /**
      @brief Si l'invader a été touché par un projectile alors on lui enlève de la vie
-     @param  b le booléen exprimant la collision
      @param  P Un projectile 
     */
-    void DamageTaken(bool b, Projectile p);
+    void DamageTaken(Projectile p);
 
    /**
     * @brief 
@@ -179,6 +178,8 @@ public:
     void shootInvader(ProjectileManager& tabpro);
 
     bool ArriveEnBas();
+
+    bool HPnull();
 };
 
 

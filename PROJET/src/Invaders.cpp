@@ -113,11 +113,10 @@
         return false;
     }
 
-    void Invader::DamageTaken(bool b, Projectile P)
+    void Invader::DamageTaken(Projectile P)
     {
         int dmg=P.getDamage();
-        if (b)
-            HP-=dmg;
+        HP-=dmg;
     }
 
 
@@ -137,10 +136,17 @@
     void Invader::shootInvader(ProjectileManager& tabpro){
         std::unique_ptr<Projectile> p = std::make_unique<Projectile>(pos);
         tabpro.addProjectile(std::move(p));
-}
-bool Invader::ArriveEnBas()
+    }
+    bool Invader::ArriveEnBas()
     {
         if (pos.y>960)
+            return true;
+        return false;
+    }
+
+    bool Invader::HPnull()
+    {
+        if(HP <= 0)
             return true;
         return false;
     }

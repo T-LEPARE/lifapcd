@@ -41,7 +41,9 @@ std::vector<size_t> InvadersManager::CheckCollisions(Projectile P) {
     std::vector<size_t> hitInvaders;
     for (size_t i = 0; i < invaders.size(); i++) {
         if (invaders[i].CheckCollision(P)) {
-            hitInvaders.push_back(i);
+            invaders[i].DamageTaken(P);
+            if(invaders[i].HPnull())
+                invaders.erase(invaders[i]);// <----- change cet ligne 
         }
     }
     return hitInvaders;
