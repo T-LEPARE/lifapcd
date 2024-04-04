@@ -29,7 +29,9 @@ void InvadersManager::UpdateMovement() {
     float rightMost = invaders[nbInvader - 1].getPos().x + invaders[nbInvader - 1].getWidth();
     if (leftMost < 0 || rightMost > 540) {
         for (int i = 0; i < nbInvader; i++) {
-            invaders[i].setDirection(-1*invaders[i].getDirection());
+            invaders[i].setDirection(-1*invaders[i].getDirection().x,1);
+            invaders[i].setPos(invaders[i].getPos().x + invaders[i].getDirection().x * invaders[i].getSpeed(), invaders[i].getPos().y + invaders[i].getDirection().y * invaders[i].getHeight());
+            invaders[i].setDirection(invaders[i].getDirection().x,0);
         }
     }
 }

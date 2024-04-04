@@ -40,7 +40,7 @@ Projectile::Projectile(const Position& pos){
 
 void Projectile::update() {
   // Use getters to access x and y from direction
-  setPos(getPos() + getDir() * projectileSpeed * dt);
+  setPos(getPos() + getDir() * projectileSpeed);
   this->projectileRect = {int(this->getPos().x),int(this->getPos().y),int(this->getWidth()),int(this->getHeight())};
 }
 
