@@ -11,8 +11,9 @@ Projectile::Projectile(){
     height = 10;
 }
 
-Projectile::Projectile(const Position& pos, std::string weaponName, WeaponManager& weaponManager) {
-    this->pos = pos; // Set position
+Projectile::Projectile(float x,float y, std::string weaponName, WeaponManager& weaponManager) {
+    this->pos.x = x; // Set position
+    this->pos.y = y;
     this->damage = weaponManager.getDamage(weaponName); // Retrieve damage from weaponManager
     this->projectileSpeed = weaponManager.getProjectileSpeed(weaponName); // Retrieve projectile speed from weaponManager
     this->direction = Position(0, -1); // Set initial direction

@@ -243,7 +243,7 @@
         std::string currentWeaponName = getCurrentWeaponName();
         try {
             std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
-                getPos(),                  
+                getPos().x+width/2,getPos().y,                  
                 currentWeaponName,
                 weaponManager    
             );
