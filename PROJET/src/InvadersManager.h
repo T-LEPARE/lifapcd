@@ -44,7 +44,7 @@ public:
      * @param P The Projectile object to check for collisions.
      * @return A vector containing indices of the hit Invaders.
      */
-    std::vector<size_t> CheckCollisions(Projectile P);
+    void CheckCollisions(Projectile P);
 
     /**
      * @brief Checks if all Invaders in the manager are dead.

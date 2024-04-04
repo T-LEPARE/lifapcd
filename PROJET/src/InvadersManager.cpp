@@ -19,7 +19,6 @@ void InvadersManager::RemoveInvader(size_t index) {
     invaders.erase(invaders.begin() + index);
 }
 
-
 void InvadersManager::UpdateMovement() {
     for (int i = 0; i < nbInvader; i++) {
         invaders[i].setPos(invaders[i].getPos().x + invaders[i].getDirection().x * invaders[i].getSpeed(), invaders[i].getPos().y + invaders[i].getDirection().y * invaders[i].getSpeed());
@@ -37,16 +36,14 @@ void InvadersManager::UpdateMovement() {
 }
 
 // A quoi ça servira ça ? Je comprends pas
-std::vector<size_t> InvadersManager::CheckCollisions(Projectile P) {
-    std::vector<size_t> hitInvaders;
+void InvadersManager::CheckCollisions(Projectile P) {
     for (size_t i = 0; i < invaders.size(); i++) {
         if (invaders[i].CheckCollision(P)) {
             invaders[i].DamageTaken(P);
             if(invaders[i].HPnull())
-                invaders.erase(invaders[i]);// <----- change cet ligne 
+                invaders.erase(invaders.begin()+i);
         }
     }
-    return hitInvaders;
 }
 
 bool InvadersManager::IsAllDead() {
