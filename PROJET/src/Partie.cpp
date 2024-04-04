@@ -101,6 +101,7 @@ try {
             }
             player.movement(event); 
             player.CollisionWindow();
+            player.firePlayer(Pmanager, weaponManager,event);
             }
             SDL_Rect playerRect = {int(player.getPos().x), int(player.getPos().y), int(player.getWidth()), int(player.getHeight())};
             Pmanager.UpdateProj();
@@ -129,7 +130,7 @@ try {
                 }
             }
 
-            player.firePlayer(Pmanager, weaponManager);
+      
             itab.UpdateMovement();
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);

@@ -65,7 +65,7 @@ public:
     void CollisionWindow();
     std::string getCurrentWeaponName();
     Weapon getCurrentWeapon();
-    void firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager);
+    void firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager,SDL_Event &event);
 };
 
 #endif
