@@ -24,9 +24,7 @@ bool ProjectileManager::hasProjectileCollided(const std::unique_ptr<Projectile>&
         Position Iposition = invaderPtr->getPos();
         if ((projectile->getPos().x >= Iposition.x) && (projectile->getPos().x <= Iposition.x + invaderPtr->getWidth()) &&
             (projectile->getPos().y >= Iposition.y) && (projectile->getPos().y <= Iposition.y + invaderPtr->getHeight())) {
-            return true;
-        } else {
-            return false;
+            //ici on appelel damagetakenprojectile avec l'invaderptr
         }
     }
     // Check collision with a player
@@ -34,9 +32,7 @@ bool ProjectileManager::hasProjectileCollided(const std::unique_ptr<Projectile>&
         Position Pposition = playerPtr->getPos();
         if ((projectile->getPos().x >= Pposition.x) && (projectile->getPos().x <= Pposition.x + playerPtr->getWidth()) &&
             (projectile->getPos().y >= Pposition.y) && (projectile->getPos().y <= Pposition.y + playerPtr->getHeight())) {
-            return true;
-        } else {
-            return false;
+            // Ici, on appelle damagetakenprojectile avec le playerptr
         }
     }
     return false;
