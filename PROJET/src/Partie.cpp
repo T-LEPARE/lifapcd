@@ -71,10 +71,19 @@ int main(void)
         // Gestion de l'erreur appropriée
     }
     InvadersManager itab;
-  
     ProjectileManager Pmanager;
-    WeaponManager Weaponmanager;
-    Weapon Weapon;
+    // WeaponManager initialization before Weapon creation
+    WeaponManager weaponManager;
+    std::cout << "weaponManager Initialised" << std::endl;
+
+    // Weapon creation with potential error handling
+try {
+    Weapon myWeapon("mitraillette", weaponManager);
+    std::cout << "Weapon Initialized" << std::endl;
+} catch (const std::out_of_range& e) {
+    std::cerr << "Error: Weapon 'mitraillette' not found in WeaponManager." << std::endl;
+}
+
 
     
     
@@ -98,9 +107,10 @@ int main(void)
                 running = false;
             }
             player.movement(event); 
-            player.firePlayer(Pmanager);
+            
+            player.firePlayer(Pmanager, weaponManager);
             Pmanager.UpdateProj();
-            player.CollisionWindow();
+            //player.CollisionWindow();
             }
             SDL_Rect playerRect = {player.getPos().x, player.getPos().y, player.getWidth(), player.getHeight()};
             if(itab.IsAllDead()){

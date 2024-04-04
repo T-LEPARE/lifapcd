@@ -14,7 +14,7 @@ class Weapon {
 public:
 
         Weapon();
-        Weapon(std::string weaponName);
+        Weapon(std::string weaponName, WeaponManager& weaponManager);
 
 
         ~Weapon();

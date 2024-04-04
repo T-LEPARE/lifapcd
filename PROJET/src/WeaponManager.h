@@ -29,12 +29,7 @@ public:
 
 
 private:
-    std::map<std::string, weaponType> weaponTypes = {
-            //nom, projectileSpeed, damage, fireRate, projectileWidth, projectileHeight
-            {"mitraillette", {2, 1, 50, 5, 1}},
-            {"railgun", {50, 50, 1, 5, 100}},
-            {"roquettes", {20, 25, 2, 20,30}},
-    };
+    std::map<std::string, weaponType> weaponTypes;
 };
 
 #endif

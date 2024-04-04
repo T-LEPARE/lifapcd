@@ -60,12 +60,12 @@ public:
     void DamageTakenProjectile(bool b, Projectile Projectile);
     bool CheckCollisionInvader(Invader Invader);
     void DamageTakenInvader(bool b, Invader Invader);
-    void setCurrentWeapon(Weapon& weapon);
-    void changeWeapon(const std::string& weaponName); // Changed to take the name of the weapon
+    void setCurrentWeapon(Weapon weapon);
+    void changeWeapon(const std::string& weaponName, WeaponManager& weaponManager); // Changed to take the name of the weapon
     bool CollisionWindow();
     std::string getCurrentWeaponName();
     Weapon getCurrentWeapon();
-    void firePlayer(ProjectileManager& projectileManager);
+    void firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager);
 };
 
 #endif

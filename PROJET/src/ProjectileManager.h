@@ -15,7 +15,6 @@ class Invader;
 class ProjectileManager {
     private:
     std::vector<std::unique_ptr<Projectile>> projectiles;
-    int nbP;
 
     public:
     ProjectileManager();
@@ -24,7 +23,7 @@ class ProjectileManager {
     void addProjectile(std::unique_ptr<Projectile> projectile);
     void removeProjectile(const std::unique_ptr<Projectile>& projectileToRemove);
     void DamageTakenProjectile(bool b, bool isPlayer, Player* playerPtr, Invader* invaderPtr);
-    bool isProjectileOutOfBounds(const std::unique_ptr<Projectile>& projectile);
+    bool isProjectileOutOfBounds(const std::unique_ptr<Projectile>& projectile) const;
     bool hasProjectileCollided(const std::unique_ptr<Projectile>& projectile, Player* playerPtr, Invader* invaderPtr);
     void DrawProj(SDL_Renderer* renderer);
     void UpdateProj();

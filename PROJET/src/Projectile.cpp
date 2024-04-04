@@ -11,15 +11,13 @@ Projectile::Projectile(){
     height = 10;
 }
 
-Projectile::Projectile(const Position& pos, std::string weaponName){
-    //celui du joueur
-    WeaponManager weapon;
+Projectile::Projectile(const Position& pos, std::string weaponName, WeaponManager& weaponManager) {
     this->pos = pos; // Set position
-    this->damage = weapon.getDamage(weaponName); // Example with a specific weapon name
-    this->projectileSpeed = weapon.getProjectileSpeed(weaponName); // Example with a specific weapon name
+    this->damage = weaponManager.getDamage(weaponName); // Retrieve damage from weaponManager
+    this->projectileSpeed = weaponManager.getProjectileSpeed(weaponName); // Retrieve projectile speed from weaponManager
     this->direction = Position(0, -1); // Set initial direction
-    this->width = weapon.getProjectileWidth(weaponName);
-    this->height = weapon.getProjectileHeight(weaponName);
+    this->width = weaponManager.getProjectileWidth(weaponName); // Retrieve projectile width from weaponManager
+    this->height = weaponManager.getProjectileHeight(weaponName); // Retrieve projectile height from weaponManager
     this->projectileRect = {int(pos.x),int(pos.y),int(width),int(height)};
 }
 
@@ -70,8 +68,8 @@ Position Projectile::getDir(){
 }
 
 void Projectile::setDir(float x,float y){
-    this->pos.x=x;
-    this->pos.y=y;
+    this->direction.x=x;
+    this->direction.y=y;
 }
 
 void Projectile::setDir(Position p){

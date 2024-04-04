@@ -4,14 +4,16 @@
 #include <string>
 
     Player::Player()
-    {
+    {   WeaponManager weaponManager;
         HP=100;
         speed=7;
         height=75;
         width=100;
         pos=Position(270-width/2,960-height*1.25);
         direction = Position(0,0);
-        currentWeapon = Weapon("mitraillette");
+        currentWeaponName = "mitraillette";
+        currentWeapon = Weapon(currentWeaponName,weaponManager);
+
     }
 
     Player::Player(float x, float y, int healthPoint, float playerSpeed, float height, float width, Position direct) { 
@@ -25,7 +27,6 @@
 
     Player::~Player()
     {
-        Player();
     }
 
     Player Player::InitPlayer(float x, float y, int healthPoint,float spd,float height, float width, Position direct)
@@ -207,12 +208,12 @@
             HP-=dmg;
     }
 
-    void Player::setCurrentWeapon(Weapon& weapon) {
+    void Player::setCurrentWeapon(Weapon weapon) {
         currentWeapon = weapon;
     }
 
-    void Player::changeWeapon(const std::string& weaponName) {
-        Weapon nextWeapon = Weapon(weaponName);
+    void Player::changeWeapon(const std::string& weaponName, WeaponManager& weaponManager) {
+        Weapon nextWeapon = Weapon(weaponName, weaponManager);
         setCurrentWeapon(nextWeapon);
         currentWeaponName = weaponName;
     }
@@ -237,12 +238,18 @@
         }
     }
 
-    void Player::firePlayer(ProjectileManager& projectileManager) {
+    void Player::firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager) {
         // Create a new Projectile object
-        std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
-            getPos(),                  
-            getCurrentWeaponName()                    
-        );
+        std::string currentWeaponName = getCurrentWeaponName();
+        try {
+            std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
+                getPos(),                  
+                currentWeaponName,
+                weaponManager    
+            );
             // Add the projectile to the projectile manager
             projectileManager.addProjectile(std::move(p));
+        } catch (const std::out_of_range& e) {
+            std::cerr << "Error: Weapon '" << currentWeaponName << "' not found in WeaponManager." << std::endl;
+        }
     }

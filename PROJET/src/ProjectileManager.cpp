@@ -4,7 +4,6 @@ ProjectileManager::ProjectileManager(){}
 
 void ProjectileManager::addProjectile(std::unique_ptr<Projectile> projectile) {
     projectiles.push_back(std::move(projectile));
-    nbP++;
 }
 
 void ProjectileManager::removeProjectile(const std::unique_ptr<Projectile>& projectileToRemove) {
@@ -14,24 +13,32 @@ void ProjectileManager::removeProjectile(const std::unique_ptr<Projectile>& proj
         }), projectiles.end());
 }
 
-bool ProjectileManager::isProjectileOutOfBounds(const std::unique_ptr<Projectile>& projectile) {
+bool ProjectileManager::isProjectileOutOfBounds(const std::unique_ptr<Projectile>& projectile) const {
     return (projectile->getPos().x < 0 || projectile->getPos().x > Display::getDIMW() ||
             projectile->getPos().y < 0 || projectile->getPos().y > Display::getDIMH());
 }
 
-bool ProjectileManager::hasProjectileCollided(const std::unique_ptr<Projectile>& projectile, Player* playerPtr = nullptr, Invader* invaderPtr = nullptr) {
-    if (invaderPtr != nullptr){
+bool ProjectileManager::hasProjectileCollided(const std::unique_ptr<Projectile>& projectile, Player* playerPtr, Invader* invaderPtr) {
+    // Check collision with an invader
+    if (invaderPtr != nullptr) {
         Position Iposition = invaderPtr->getPos();
-        if ( (projectile->getPos().x >= Iposition.x)  && (projectile->getPos().x <= Iposition.x+invaderPtr->getWidth())  && (projectile->getPos().y >= Iposition.y)  && (projectile->getPos().y <= Iposition.y+invaderPtr->getHeight()) ) {
+        if ((projectile->getPos().x >= Iposition.x) && (projectile->getPos().x <= Iposition.x + invaderPtr->getWidth()) &&
+            (projectile->getPos().y >= Iposition.y) && (projectile->getPos().y <= Iposition.y + invaderPtr->getHeight())) {
             return true;
-        } else {return false;}
-    }
-    if (playerPtr != nullptr){
-        Position Pposition = playerPtr->getPos();
-        if ( (projectile->getPos().x >= Pposition.x)  && (projectile->getPos().x <= Pposition.x+playerPtr->getWidth())  && (projectile->getPos().y >= Pposition.y)  && (projectile->getPos().y <= Pposition.y+playerPtr->getHeight()) ) {
-            return true;
-        } else {return false;}
+        } else {
+            return false;
         }
+    }
+    // Check collision with a player
+    if (playerPtr != nullptr) {
+        Position Pposition = playerPtr->getPos();
+        if ((projectile->getPos().x >= Pposition.x) && (projectile->getPos().x <= Pposition.x + playerPtr->getWidth()) &&
+            (projectile->getPos().y >= Pposition.y) && (projectile->getPos().y <= Pposition.y + playerPtr->getHeight())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     return false;
 }
 
@@ -52,17 +59,15 @@ void ProjectileManager::DamageTakenProjectile(bool hit, bool isPlayer, Player* p
 
 void ProjectileManager::DrawProj(SDL_Renderer* renderer)
 {
-    for(int i=0;i<nbP;i++)
-    {
-        projectiles[i]->drawProjectile(renderer);
-    }
+    for (auto it = projectiles.begin(); it != projectiles.end(); ++it) {
+            (*it)->drawProjectile(renderer);
+        }
 }
 
 
-void ProjectileManager::UpdateProj()
-{
-    for(int i=0;i<nbP;i++)
-    {
-        projectiles[i]->update();
+   void ProjectileManager::UpdateProj() {
+        for (auto it = projectiles.begin(); it != projectiles.end(); ++it) {
+            (*it)->update();
+        }
+        // Remove any out-of-bounds projectiles here
     }
-}
