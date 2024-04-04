@@ -63,6 +63,8 @@ public:
     void DrawInvaders(SDL_Renderer* renderer);
 
     void shootEverybody(ProjectileManager tabpro);
+
+    bool ArriveEnBas();
 };
 
 #endif

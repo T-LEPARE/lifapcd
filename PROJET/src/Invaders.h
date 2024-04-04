@@ -177,7 +177,11 @@ public:
     void setSurface(SDL_Surface* _surface);
 
     void shootInvader(ProjectileManager& tabpro);
+
+    bool ArriveEnBas();
 };
+
+
 
 
 #endif

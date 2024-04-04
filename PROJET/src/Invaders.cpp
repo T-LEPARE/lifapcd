@@ -138,3 +138,9 @@
         std::unique_ptr<Projectile> p = std::make_unique<Projectile>(pos);
         tabpro.addProjectile(std::move(p));
 }
+bool Invader::ArriveEnBas()
+    {
+        if (pos.y>960)
+            return true;
+        return false;
+    }

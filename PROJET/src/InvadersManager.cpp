@@ -93,3 +93,12 @@ void InvadersManager::shootEverybody(ProjectileManager tabpro){
         invaders[i].shootInvader(tabpro);    
     }
 }
+
+bool InvadersManager::ArriveEnBas()
+{
+    for (unsigned int i = 0; i < nbInvader; i++) {
+        if(invaders[i].ArriveEnBas())
+            return true;
+    }
+    return false;
+}
