@@ -49,11 +49,7 @@ Projectile::~Projectile(){
 }
 
 Position Projectile::getPos(){
-    if (this == nullptr) {
-        std::cout << "Projectile::getPos() was called on a nullptr !" << std::endl;
-        return Position(0, 0);
-    }
-    return pos;
+       return pos;
 }
 
 void Projectile::setPos(float x,float y){
