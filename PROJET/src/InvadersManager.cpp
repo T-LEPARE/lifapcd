@@ -87,11 +87,11 @@ void InvadersManager::DrawInvaders(SDL_Renderer* renderer){
     }
 }
 
-void InvadersManager::shootEverybody(ProjectileManager tabpro){
+/*void InvadersManager::shootEverybody(ProjectileManager tabpro){
      for (int i = 0;i<nbInvader;i++){
         invaders[i].shootInvader(tabpro);    
     }
-}
+}*/
 
 bool InvadersManager::ArriveEnBas()
 {

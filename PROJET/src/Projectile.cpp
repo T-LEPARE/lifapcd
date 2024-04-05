@@ -22,15 +22,14 @@ Projectile::Projectile(float x,float y, std::string weaponName, WeaponManager& w
     projectileRect = {int(pos.x),int(pos.y),int(width),int(height)};
 }
 
-Projectile::Projectile(const Position& posi){
+Projectile::Projectile(const Position& posi, WeaponManager& weaponManager){
     //celui des invaders
-    WeaponManager weapon;
     pos = posi; // Set position
-    damage = weapon.getDamage("mitraillette"); // Example with a specific weapon name
-    projectileSpeed = weapon.getProjectileSpeed("mitraillette"); // Example with a specific weapon name
+    damage = weaponManager.getDamage("mitraillette"); // Example with a specific weapon name
+    projectileSpeed = weaponManager.getProjectileSpeed("mitraillette"); // Example with a specific weapon name
     direction = Position(0, -1); // Set initial direction
-    width = weapon.getProjectileWidth("mitraillette");
-    height = weapon.getProjectileHeight("mitraillette");
+    width = weaponManager.getProjectileWidth("mitraillette");
+    height = weaponManager.getProjectileHeight("mitraillette");
     projectileRect = {int(pos.x),int(pos.y),int(width),int(height)};
 }
 

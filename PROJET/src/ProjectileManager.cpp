@@ -28,7 +28,8 @@ void ProjectileManager::hasProjectileCollided( Player* playerPtr=nullptr, std::v
                 if ((projectilePtr->getPos().x >= Iposition.x) && (projectilePtr->getPos().x <= Iposition.x + invaderPtr.getWidth()) &&
                     (projectilePtr->getPos().y >= Iposition.y) && (projectilePtr->getPos().y <= Iposition.y + invaderPtr.getHeight())) {
                     //ici on appelel damagetakenprojectile avec l'invaderptr
-                    DamageTakenProjectile(nullptr,&invaderPtr);
+                    DamageTakenProjectile(move(projectilePtr),nullptr,&invaderPtr);
+                    
                 }
             }
         }
@@ -38,33 +39,23 @@ void ProjectileManager::hasProjectileCollided( Player* playerPtr=nullptr, std::v
             if ((projectilePtr->getPos().x >= Pposition.x) && (projectilePtr->getPos().x <= Pposition.x + playerPtr->getWidth()) &&
                 (projectilePtr->getPos().y >= Pposition.y) && (projectilePtr->getPos().y <= Pposition.y + playerPtr->getHeight())) {
                 // Ici, on appelle damagetakenprojectile avec le playerptr
-                DamageTakenProjectile(playerPtr,nullptr);
+                DamageTakenProjectile(move(projectilePtr),playerPtr,nullptr);
             }
         }
 
     }
 }
 
-void ProjectileManager::DamageTakenProjectile(Player* playerPtr, Invader* invaderPtr) {
-    std::vector<std::unique_ptr<Projectile>> projectilesToRemove;
-    for (auto it = projectiles.begin(); it != projectiles.end();) {
-        int dmg = (*it)->getDamage();
+void ProjectileManager::DamageTakenProjectile(std::unique_ptr<Projectile> projectilePtr, Player* playerPtr, Invader* invaderPtr) {
+    int dmg = projectilePtr->getDamage();
         if (playerPtr != nullptr) {
             playerPtr->setHP(playerPtr->getHP() - dmg);
-            projectilesToRemove.push_back(std::move(*it));
-            ++it;
             //it = projectiles.erase(it); // Remove projectile from projectiles vector
         } else if (invaderPtr != nullptr) {
-            invaderPtr->setHP(invaderPtr->getHP() - dmg);
-            projectilesToRemove.push_back(std::move(*it));
-            ++it;
+            invaderPtr->setHP(invaderPtr->getHP() - dmg);;
             //it = projectiles.erase(it); // Remove projectile from projectiles vector
-        } else {
-            ++it; // Move to the next projectile
         }
-    }
     // Clear projectilesToRemove vector after processing all projectiles
-    projectilesToRemove.clear();
 }
 
 
