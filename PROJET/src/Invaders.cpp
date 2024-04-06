@@ -119,11 +119,16 @@
         void Invader::setSurface(SDL_Surface* _surface){
             surface = _surface;
     }
+    
+    void Invader::shootInvader(ProjectileManager& projectileManager) {
+                std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
+                Position(Invader::getPos().x+Invader::getWidth()/2,
+                Invader::getPos().y+(Invader::getHeight()+30)),
+                Invader::getDamage()
+            );
+            projectileManager.addProjectile(std::move(p));
+    }
 
-    /*void Invader::shootInvader(ProjectileManager& tabpro){
-        std::unique_ptr<Projectile> p = std::make_unique<Projectile>(pos);
-        tabpro.addProjectile(std::move(p));
-    }*/
     bool Invader::ArriveEnBas()
     {
         if (pos.y>960)

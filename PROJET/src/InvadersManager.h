@@ -37,7 +37,9 @@ public:
     /**
      * @brief Updates the positions of all Invaders based on their movement pattern.
      */
-    void UpdateMovement();
+    void Update(ProjectileManager& tabpro);
+
+    void Move();
     
     /**
      * @brief Checks for collisions between all Invaders and a given Projectile.
@@ -62,7 +64,7 @@ public:
     
     void DrawInvaders(SDL_Renderer* renderer);
 
-    void shootEverybody(ProjectileManager tabpro);
+    void Shoot(ProjectileManager& tabpro);
 
     bool ArriveEnBas();
 

@@ -39,7 +39,7 @@ public :
          */
         Projectile(float x,float y, std::string weaponName, WeaponManager& weaponManager);
 
-        Projectile(const Position& pos, WeaponManager& weaponManager);
+        Projectile(const Position& invPos, const int& dmg);
 
         /**
          * @brief destructeur de projectile 

@@ -4,6 +4,7 @@
 
 
 Projectile::Projectile(){
+    //default projectile constructor
     projectileSpeed = 1; //vitesse du projectile
     damage = 1; //dégats d'un projectile de l'arme
     direction = Position(0,-1); // la direction initiale du tir, vers le bas
@@ -13,6 +14,7 @@ Projectile::Projectile(){
 }
 
 Projectile::Projectile(float x,float y, std::string weaponName, WeaponManager& weaponManager) {
+    //player projectile constructor
     pos = Position(x,y);
     damage = weaponManager.getDamage(weaponName); // Retrieve damage from weaponManager
     projectileSpeed = weaponManager.getProjectileSpeed(weaponName); // Retrieve projectile speed from weaponManager
@@ -22,14 +24,14 @@ Projectile::Projectile(float x,float y, std::string weaponName, WeaponManager& w
     projectileRect = {int(pos.x),int(pos.y),int(width),int(height)};
 }
 
-Projectile::Projectile(const Position& posi, WeaponManager& weaponManager){
-    //celui des invaders
-    pos = posi; // Set position
-    damage = weaponManager.getDamage("mitraillette"); // Example with a specific weapon name
-    projectileSpeed = weaponManager.getProjectileSpeed("mitraillette"); // Example with a specific weapon name
-    direction = Position(0, -1); // Set initial direction
-    width = weaponManager.getProjectileWidth("mitraillette");
-    height = weaponManager.getProjectileHeight("mitraillette");
+Projectile::Projectile(const Position& invPos, const int& dmg) {
+    //invader projectile constructor
+    pos = invPos;
+    direction = Position(0,1); // les invaders tirent vers le bas
+    damage = dmg;
+    projectileSpeed = 1; //Les invaders auront tous la meme projectile speed ? Sinon il faut rajouter la projectileSpeed dans invaders
+    width = 1; //Les invaders auront tous la meme projectile width ? Sinon il faut rajouter la projectileWidth dans invaders
+    height = 5; //Les invaders auront tous la meme projectile height ? Sinon il faut rajouter la projectileHeight dans invaders
     projectileRect = {int(pos.x),int(pos.y),int(width),int(height)};
 }
 
