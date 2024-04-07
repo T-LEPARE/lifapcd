@@ -55,7 +55,6 @@ public:
     float getWidth();
     float getHeight();
 
-    void movement(SDL_Event& event);
     bool CheckCollisionProjectile(Projectile Projectile);
     void DamageTakenProjectile(bool b, Projectile Projectile);
     bool CheckCollisionInvader(Invader Invader);

@@ -114,84 +114,6 @@
         return this->currentWeapon;
     }
 
-    void Player::movement(SDL_Event &event)
-    {
-        int keypressed=0;
-        switch( event.type ){
-            case SDL_KEYDOWN:
-            switch (event.key.keysym.sym) {
-                case SDLK_DOWN:
-                case SDLK_s:
-                    setDirY(1);
-                    keypressed++;
-                    break;
-
-                case SDLK_UP:
-                case SDLK_z:
-                case SDLK_w:
-                    setDirY(-1);
-                    keypressed++;
-                    break;
-
-                case SDLK_RIGHT:
-                case SDLK_d:
-                    setDirX(1);
-                    keypressed++;
-                    break;
-
-                case SDLK_LEFT:
-                case SDLK_q:
-                case SDLK_a:
-                    setDirX(-1);
-                    keypressed++;
-                    break;
-                default:
-                    break;
-            }
-            break;
-
-            case SDL_KEYUP:
-            switch (event.key.keysym.sym) {
-                case SDLK_DOWN:
-                case SDLK_s:
-                    setDirY(0);
-                    keypressed--;
-                    break;
-
-                case SDLK_UP:
-                case SDLK_z:
-                case SDLK_w:
-                    setDirY(0);
-                    keypressed--;
-                    break;
-
-                case SDLK_RIGHT:
-                case SDLK_d:
-                    setDirX(0);
-                    keypressed--;
-                    break;
-
-                case SDLK_LEFT:
-                case SDLK_q:
-                case SDLK_a:
-                    setDirX(0);
-                    keypressed--;
-                    break;
-                default:
-                    break;
-            }
-            break;
-        }
-        if (keypressed>=2){
-            pos.x += direction.x * speed/2 ;
-            pos.y += direction.y * speed/2 ;
-        }
-        else{
-            pos.x += direction.x * speed ;
-            pos.y += direction.y * speed ; 
-        }
-}
-
 void Player::moveShip(const Uint8 *keyboardState) {
   // Vérifie l'état des touches de déplacement (flèches)
   int intendedX = pos.x + (keyboardState[SDL_SCANCODE_RIGHT] ? 1 : 0) * speed;
@@ -209,13 +131,22 @@ void Player::moveShip(const Uint8 *keyboardState) {
   pos.y = actualY;
 
   if (intendedX != actualX) {
-    setDirX((intendedX > pos.x) ? 1 : -1);
+    if (intendedX > pos.x) {
+        setDirX(1);
+    }
+    else{
+        setDirX(-1);
+    }
   }
   if (intendedY != actualY) {
-    setDirY((intendedY > pos.y) ? 1 : -1);
+    if (intendedY > pos.y) {
+        setDirY(1);
+    }
+    else{
+        setDirY(-1);
+    }
   }
 }
-
 
     // Pourquoi on a ça alors qu'on a DamageTakenInvader ?
     void Player::DamageTakenProjectile(bool b,Projectile P)
