@@ -193,24 +193,29 @@
 }
 
 void Player::moveShip(const Uint8 *keyboardState) {
-    // Vérifie l'état des touches de déplacement (flèches)
-    if (keyboardState[SDL_SCANCODE_LEFT] && pos.x >= 0 ) {
-        setDirX(-1);
-        pos.x += direction.x * speed; // Déplacer vers la gauche
-    }
-    if (keyboardState[SDL_SCANCODE_RIGHT] && pos.x <= 540-width) {
-        setDirX(1);
-        pos.x += direction.x * speed; // Déplacer vers la droite
-    }
-    if (keyboardState[SDL_SCANCODE_UP] && pos.y >= 0) {
-        setDirY(-1);
-        pos.y += direction.y * speed;// Déplacer vers le haut
-    }
-    if (keyboardState[SDL_SCANCODE_DOWN] && pos.y<= 960+height) {
-        setDirY(1);
-        pos.y += direction.y * speed; // Déplacer vers le bas
-    }
+  // Vérifie l'état des touches de déplacement (flèches)
+  int intendedX = pos.x + (keyboardState[SDL_SCANCODE_RIGHT] ? 1 : 0) * speed;
+  int intendedY = pos.y + (keyboardState[SDL_SCANCODE_DOWN] ? 1 : 0) * speed;
+  
+  intendedX -= (keyboardState[SDL_SCANCODE_LEFT] ? 1 : 0) * speed;
+  intendedY -= (keyboardState[SDL_SCANCODE_UP] ? 1 : 0) * speed;
+
+  // Calculate valid movement within bounds
+  int actualX = std::min(std::max(intendedX, 0), 540 - width);
+  int actualY = std::min(std::max(intendedY, 0), 960 - height);
+
+  // Update position and direction based on actual movement
+  pos.x = actualX;
+  pos.y = actualY;
+
+  if (intendedX != actualX) {
+    setDirX((intendedX > pos.x) ? 1 : -1);
+  }
+  if (intendedY != actualY) {
+    setDirY((intendedY > pos.y) ? 1 : -1);
+  }
 }
+
 
     // Pourquoi on a ça alors qu'on a DamageTakenInvader ?
     void Player::DamageTakenProjectile(bool b,Projectile P)

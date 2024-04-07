@@ -18,8 +18,8 @@ class Player {
 private:
     int HP;
     float speed;
-    float height;
-    float width;
+    int height;
+    int width;
     Position pos;
     Position direction;
     Weapon currentWeapon;
