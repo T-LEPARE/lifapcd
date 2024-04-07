@@ -20,7 +20,7 @@ void InvadersManager::RemoveInvader(size_t index) {
 }
 
 void InvadersManager::Update(ProjectileManager& tabpro) {
-    Shoot(tabpro);
+    //Shoot(tabpro);
     Move();
 }
 

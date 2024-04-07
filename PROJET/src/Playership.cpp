@@ -192,6 +192,26 @@
         }
 }
 
+void Player::moveShip(const Uint8 *keyboardState) {
+    // Vérifie l'état des touches de déplacement (flèches)
+    if (keyboardState[SDL_SCANCODE_LEFT]) {
+        setDirX(-1);
+        pos.x += direction.x * speed; // Déplacer vers la gauche
+    }
+    if (keyboardState[SDL_SCANCODE_RIGHT]) {
+        setDirX(1);
+        pos.x += direction.x * speed; // Déplacer vers la droite
+    }
+    if (keyboardState[SDL_SCANCODE_UP]) {
+        setDirY(-1);
+        pos.y += direction.y * speed;// Déplacer vers le haut
+    }
+    if (keyboardState[SDL_SCANCODE_DOWN]) {
+        setDirY(1);
+        pos.y += direction.y * speed; // Déplacer vers le bas
+    }
+}
+
     // Pourquoi on a ça alors qu'on a DamageTakenInvader ?
     void Player::DamageTakenProjectile(bool b,Projectile P)
     {
@@ -238,7 +258,8 @@
         }
     }
 
-    void Player::firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager) {
+    void Player::firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager,const Uint8 *keyboardState) {
+        if (keyboardState[SDL_SCANCODE_SPACE]) {
             std::string currentWeaponName = getCurrentWeaponName();
             std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
                 Player::getPos().x+Player::getWidth()/2, Player::getPos().y+2,
@@ -251,7 +272,7 @@
             // Add the projectile to the projectile manager
             projectileManager.addProjectile(std::move(p));
     }
-
+}
 
     bool Player::HPnullPlayership()
     {

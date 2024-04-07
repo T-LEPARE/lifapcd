@@ -86,10 +86,12 @@ int main(void)
             if (event.type == SDL_QUIT) {
                 running = false;
             }
-            player.movement(event); 
+            //player.movement(event); 
             player.CollisionWindow();
             }
             SDL_Rect playerRect = {int(player.getPos().x), int(player.getPos().y), int(player.getWidth()), int(player.getHeight())};
+             const Uint8 *keyboardState = SDL_GetKeyboardState(NULL);
+            player.moveShip(keyboardState);
             if(itab.IsAllDead()){
                 std::cout<<"It's empty !"<<std::endl;
                 itab.SetnbInvader(4);
@@ -118,7 +120,7 @@ int main(void)
             itab.Update(Pmanager);
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);
-            player.firePlayer(Pmanager, weaponManager);
+            player.firePlayer(Pmanager, weaponManager,keyboardState);
             Pmanager.UpdateProj();
             Pmanager.hasProjectileCollided(&player,itabPtr);
             Pmanager.DrawProj(renderer);

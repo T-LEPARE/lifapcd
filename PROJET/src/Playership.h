@@ -65,8 +65,9 @@ public:
     void CollisionWindow();
     std::string getCurrentWeaponName();
     Weapon getCurrentWeapon();
-    void firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager);
+    void firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager,const Uint8 *keyboardState);
     bool HPnullPlayership();
+    void moveShip(const Uint8 *keyboardState);
 };
 
 #endif
