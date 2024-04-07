@@ -87,7 +87,7 @@ int main(void)
                 running = false;
             }
             //player.movement(event); 
-            player.CollisionWindow();
+             //player.CollisionWindow();
             }
             SDL_Rect playerRect = {int(player.getPos().x), int(player.getPos().y), int(player.getWidth()), int(player.getHeight())};
              const Uint8 *keyboardState = SDL_GetKeyboardState(NULL);

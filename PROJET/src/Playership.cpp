@@ -194,19 +194,19 @@
 
 void Player::moveShip(const Uint8 *keyboardState) {
     // Vérifie l'état des touches de déplacement (flèches)
-    if (keyboardState[SDL_SCANCODE_LEFT]) {
+    if (keyboardState[SDL_SCANCODE_LEFT] && pos.x >= 0 ) {
         setDirX(-1);
         pos.x += direction.x * speed; // Déplacer vers la gauche
     }
-    if (keyboardState[SDL_SCANCODE_RIGHT]) {
+    if (keyboardState[SDL_SCANCODE_RIGHT] && pos.x <= 540-width) {
         setDirX(1);
         pos.x += direction.x * speed; // Déplacer vers la droite
     }
-    if (keyboardState[SDL_SCANCODE_UP]) {
+    if (keyboardState[SDL_SCANCODE_UP] && pos.y >= 0) {
         setDirY(-1);
         pos.y += direction.y * speed;// Déplacer vers le haut
     }
-    if (keyboardState[SDL_SCANCODE_DOWN]) {
+    if (keyboardState[SDL_SCANCODE_DOWN] && pos.y<= 960+height) {
         setDirY(1);
         pos.y += direction.y * speed; // Déplacer vers le bas
     }
