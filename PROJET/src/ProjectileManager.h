@@ -27,6 +27,7 @@ class ProjectileManager {
     void hasProjectileCollided( Player* playerPtr, std::vector<Invader>* invaders);
     void DrawProj(SDL_Renderer* renderer);
     void UpdateProj();
+    void clearTab();
 };
 
 

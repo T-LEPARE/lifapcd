@@ -67,6 +67,7 @@ public:
     void firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager,const Uint8 *keyboardState);
     bool HPnullPlayership();
     void moveShip(const Uint8 *keyboardState);
+    void playerDeath(ProjectileManager& projectileManager);
 };
 
 #endif

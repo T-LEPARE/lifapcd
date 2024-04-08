@@ -20,7 +20,7 @@ void ProjectileManager::removeProjectile(const std::unique_ptr<Projectile>& proj
 
 bool ProjectileManager::isProjectileOutOfBounds(const std::unique_ptr<Projectile>& projectile) const {
   if (projectile == nullptr) {
-    return false; // Avoid null pointer access here
+    return false;
   }
   return (projectile->getPos().x < 0 || projectile->getPos().x > Display::getDIMW() ||
           projectile->getPos().y < 0 || projectile->getPos().y > Display::getDIMH());
@@ -28,7 +28,7 @@ bool ProjectileManager::isProjectileOutOfBounds(const std::unique_ptr<Projectile
 
 void ProjectileManager::hasProjectileCollided(Player* playerPtr, std::vector<Invader>* invaders) {
   for (auto it = projectiles.begin(); it != projectiles.end();) {
-    if (*it != nullptr) { // Check for null pointer before using
+    if (*it != nullptr) {
       // Check collision with invader
       if (invaders != nullptr) {
         for (auto& invaderPtr : *invaders) {
@@ -38,11 +38,10 @@ void ProjectileManager::hasProjectileCollided(Player* playerPtr, std::vector<Inv
               ((*it)->getPos().y >= Iposition.y) &&
               ((*it)->getPos().y <= Iposition.y + invaderPtr.getHeight())) {
             DamageTakenProjectile(*it, nullptr, &invaderPtr);
-            break; // Projectile can only collide with one invader, exit inner loop
+            break;
           }
         }
       }
-
       // Check collision with player
       if (playerPtr != nullptr) {
         Position Pposition = playerPtr->getPos();
@@ -54,11 +53,11 @@ void ProjectileManager::hasProjectileCollided(Player* playerPtr, std::vector<Inv
         }
       }
       ++it;
-    }  else {
-        it = projectiles.erase(it); // Erase invalid projectile and update iterator
-        }
+    } else {
+      removeProjectile(*it);
     }
   }
+}
 
 void ProjectileManager::DamageTakenProjectile(std::unique_ptr<Projectile>& projectilePtr, Player* playerPtr, Invader* invaderPtr) {
   if (projectilePtr == nullptr) {
@@ -92,4 +91,8 @@ void ProjectileManager::UpdateProj() {
       }
     }
   }
+}
+
+void ProjectileManager::clearTab() {
+  projectiles.clear();
 }

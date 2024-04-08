@@ -124,6 +124,7 @@ int main(void)
             Pmanager.UpdateProj();
             Pmanager.hasProjectileCollided(&player,itabPtr);
             Pmanager.DrawProj(renderer);
+            player.playerDeath(Pmanager);
             // Present the rendered frame
             SDL_RenderPresent(renderer);
 

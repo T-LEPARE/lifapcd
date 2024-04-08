@@ -148,7 +148,6 @@ void Player::moveShip(const Uint8 *keyboardState) {
   }
 }
 
-    // Pourquoi on a ça alors qu'on a DamageTakenInvader ?
     void Player::DamageTakenProjectile(bool b,Projectile P)
     {
         int dmg=P.getDamage();
@@ -202,10 +201,6 @@ void Player::moveShip(const Uint8 *keyboardState) {
                 currentWeaponName,
                 weaponManager
             );
-            // Set the direction of the projectile to be upwards (0, -1)
-            p->setDir(0, -1);
-            std::cout << p->getDir().x << "  " << p->getDir().y << std::endl;
-            // Add the projectile to the projectile manager
             projectileManager.addProjectile(std::move(p));
     }
 }
@@ -215,4 +210,14 @@ void Player::moveShip(const Uint8 *keyboardState) {
         if(HP <= 0)
             return true;
         return false;
+    }
+
+    void Player::playerDeath(ProjectileManager& projectileManager){
+        if (HPnullPlayership()){
+            projectileManager.clearTab();
+            HP=100;
+            speed=7;
+            pos=Position(270-width/2,960-height*1.25);
+            direction = Position(0,0);
+        }
     }
