@@ -20,6 +20,10 @@ float WeaponManager::getProjectileSpeed(const std::string& weaponName) const {
     return weaponTypes.at(weaponName).projectileSpeed;
 }
 
+float WeaponManager::getfireRate(const std::string& weaponName) const {
+    return weaponTypes.at(weaponName).fireRate;
+}
+
 float WeaponManager::getProjectileWidth(const std::string& weaponName) const {
     return weaponTypes.at(weaponName).projectileWidth;
 }

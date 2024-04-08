@@ -9,6 +9,7 @@ class ProjectileManager;
 #include "Position.h"
 #include "Projectile.h"
 #include "Weapon.h"
+#include "WeaponManager.h"
 #include "Invaders.h"
 
 
@@ -26,6 +27,8 @@ private:
     std::string currentWeaponName;
     SDL_Texture* texture;
     SDL_Surface* surface;
+    Uint32 dernier_tir;
+
 
 public:
     Player();
@@ -64,6 +67,7 @@ public:
     void CollisionWindow();
     std::string getCurrentWeaponName();
     Weapon getCurrentWeapon();
+    bool peutTirer();
     void firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager,const Uint8 *keyboardState);
     bool HPnullPlayership();
     void moveShip(const Uint8 *keyboardState);

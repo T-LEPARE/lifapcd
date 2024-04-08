@@ -23,6 +23,8 @@ public:
 
     float getProjectileSpeed(const std::string& weaponName) const;
 
+    float getfireRate(const std::string& weaponName) const;
+
     float getProjectileWidth(const std::string& weaponName) const;
 
     float getProjectileHeight(const std::string& weaponName) const;

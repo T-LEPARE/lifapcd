@@ -193,16 +193,29 @@ void Player::moveShip(const Uint8 *keyboardState) {
         }
     }
 
-    void Player::firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager,const Uint8 *keyboardState) {
-        if (keyboardState[SDL_SCANCODE_SPACE]) {
-            std::string currentWeaponName = getCurrentWeaponName();
-            std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
-                Player::getPos().x+Player::getWidth()/2, Player::getPos().y+2,
-                currentWeaponName,
-                weaponManager
-            );
-            projectileManager.addProjectile(std::move(p));
+
+    bool Player::peutTirer() {
+    Uint32 maintenant = SDL_GetTicks();
+    WeaponManager wp;
+    if (maintenant - dernier_tir > wp.getfireRate(getCurrentWeaponName()))
+        return true;
+    return false;
     }
+
+    void Player::firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager,const Uint8 *keyboardState) {
+        Uint32 maintenant = SDL_GetTicks();
+        if (peutTirer()) {
+            dernier_tir = maintenant;
+            if (keyboardState[SDL_SCANCODE_SPACE]) {
+                std::string currentWeaponName = getCurrentWeaponName();
+                std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
+                    Player::getPos().x+Player::getWidth()/2, Player::getPos().y+2,
+                    currentWeaponName,
+                    weaponManager
+                );
+                projectileManager.addProjectile(std::move(p));
+            }
+        }
 }
 
     bool Player::HPnullPlayership()
