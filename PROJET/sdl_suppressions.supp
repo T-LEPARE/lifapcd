@@ -1,0 +1,8 @@
+{
+   <SDL2 library suppression>
+   Memcheck:Leak
+   obj:*/SDL2/SDL.h
+   obj:*/SDL2/SDL_image.h
+   obj:*/SDL2/SDL_audio.h
+
+}
