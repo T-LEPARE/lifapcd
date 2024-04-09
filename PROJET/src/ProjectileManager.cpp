@@ -62,7 +62,8 @@ void ProjectileManager::hasProjectileCollided(Player* playerPtr, std::vector<Inv
 
 void ProjectileManager::DamageTakenProjectile(std::unique_ptr<Projectile>& projectilePtr, Player* playerPtr, Invader* invaderPtr) {
   if (projectilePtr == nullptr) {
-    exit(EXIT_FAILURE); // Avoid using null pointer
+    std::cout << "Error: Projectile pointer is null!" << std::endl;
+    exit(EXIT_FAILURE);
   }
   int dmg = projectilePtr->getDamage();
   if (playerPtr != nullptr) {
@@ -72,7 +73,6 @@ void ProjectileManager::DamageTakenProjectile(std::unique_ptr<Projectile>& proje
     invaderPtr->setHP(invaderPtr->getHP() - dmg);
     std::cout << "invaderHP = " << invaderPtr->getHP() << std::endl;
   }
-  removeProjectile(projectilePtr);
 }
 
 void ProjectileManager::DrawProj(SDL_Renderer* renderer) {
