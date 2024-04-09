@@ -27,38 +27,56 @@ bool ProjectileManager::isProjectileOutOfBounds(const std::unique_ptr<Projectile
 }
 
 void ProjectileManager::hasProjectileCollided(Player* playerPtr, std::vector<Invader>* invaders) {
+
+  //erase all nullptr from the vector before everything... It fixed a crash
   projectiles.erase(std::remove_if(projectiles.begin(), projectiles.end(),
                                  [](const std::unique_ptr<Projectile>& projectile) {
                                      return projectile == nullptr;
                                  }),
                   projectiles.end());
-  for (auto it = projectiles.begin(); it != projectiles.end();) {
+  
+  std::vector<size_t> indicesToRemove; // Indices of projectiles to remove
+
+  for (size_t i = 0; i < projectiles.size(); ++i) {
+      bool collided = false;
+
       // Check collision with invader
       if (invaders != nullptr) {
         for (auto& invaderPtr : *invaders) {
           Position Iposition = invaderPtr.getPos();
-          if (((*it)->getPos().x >= Iposition.x) &&
-              ((*it)->getPos().x <= Iposition.x + invaderPtr.getWidth()) &&
-              ((*it)->getPos().y >= Iposition.y) &&
-              ((*it)->getPos().y <= Iposition.y + invaderPtr.getHeight())) {
-            DamageTakenProjectile(*it, nullptr, &invaderPtr);
+          if ((projectiles[i]->getPos().x >= Iposition.x) &&
+              (projectiles[i]->getPos().x <= Iposition.x + invaderPtr.getWidth()) &&
+              (projectiles[i]->getPos().y >= Iposition.y) &&
+              (projectiles[i]->getPos().y <= Iposition.y + invaderPtr.getHeight())) {
+            DamageTakenProjectile(projectiles[i], nullptr, &invaderPtr);
+            collided = true;
             break;
           }
         }
       }
       // Check collision with player
-      if (playerPtr != nullptr) {
+      if (!collided && playerPtr != nullptr) {
         Position Pposition = playerPtr->getPos();
-        if (((*it)->getPos().x >= Pposition.x) &&
-            ((*it)->getPos().x <= Pposition.x + playerPtr->getWidth()) &&
-            ((*it)->getPos().y >= Pposition.y) &&
-            ((*it)->getPos().y <= Pposition.y + playerPtr->getHeight())) {
-          DamageTakenProjectile(*it, playerPtr, nullptr);
+        if ((projectiles[i]->getPos().x >= Pposition.x) &&
+            (projectiles[i]->getPos().x <= Pposition.x + playerPtr->getWidth()) &&
+            (projectiles[i]->getPos().y >= Pposition.y) &&
+            (projectiles[i]->getPos().y <= Pposition.y + playerPtr->getHeight())) {
+          DamageTakenProjectile(projectiles[i], playerPtr, nullptr);
+          collided = true;
         }
       }
-      ++it;
+      //if projectile collided, mark it for removal
+      if (collided) {
+        indicesToRemove.push_back(i);
+      }
+  }
+  //remove all projectiles marked for removal
+  for (auto it = indicesToRemove.rbegin(); it != indicesToRemove.rend(); ++it) {
+    projectiles.erase(projectiles.begin() + *it);
   }
 }
+
+
 
 void ProjectileManager::DamageTakenProjectile(std::unique_ptr<Projectile>& projectilePtr, Player* playerPtr, Invader* invaderPtr) {
   if (projectilePtr == nullptr) {
