@@ -1,6 +1,6 @@
 #include "ProjectileManager.h"
 #include <iostream>
-#include <algorithm> // for std::copy_if
+#include <algorithm>
 
 ProjectileManager::ProjectileManager() {}
 
@@ -27,8 +27,12 @@ bool ProjectileManager::isProjectileOutOfBounds(const std::unique_ptr<Projectile
 }
 
 void ProjectileManager::hasProjectileCollided(Player* playerPtr, std::vector<Invader>* invaders) {
+  projectiles.erase(std::remove_if(projectiles.begin(), projectiles.end(),
+                                 [](const std::unique_ptr<Projectile>& projectile) {
+                                     return projectile == nullptr;
+                                 }),
+                  projectiles.end());
   for (auto it = projectiles.begin(); it != projectiles.end();) {
-    if (*it != nullptr) {
       // Check collision with invader
       if (invaders != nullptr) {
         for (auto& invaderPtr : *invaders) {
@@ -53,9 +57,6 @@ void ProjectileManager::hasProjectileCollided(Player* playerPtr, std::vector<Inv
         }
       }
       ++it;
-    } else {
-      removeProjectile(*it);
-    }
   }
 }
 
@@ -83,12 +84,12 @@ void ProjectileManager::DrawProj(SDL_Renderer* renderer) {
 }
 
 void ProjectileManager::UpdateProj() {
-  for (auto it = projectiles.begin(); it != projectiles.end(); ++it) {
+  for (auto it = projectiles.begin(); it != projectiles.end();) {
     if (*it != nullptr) {
       (*it)->update();
       if (isProjectileOutOfBounds(*it)) {
         removeProjectile(*it);
-      }
+      }else{++it;}
     }
   }
 }

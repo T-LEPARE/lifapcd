@@ -118,7 +118,6 @@ void Player::moveShip(const Uint8 *keyboardState) {
   // Vérifie l'état des touches de déplacement (flèches)
   int intendedX = pos.x + (keyboardState[SDL_SCANCODE_RIGHT] ? 1 : 0) * speed;
   int intendedY = pos.y + (keyboardState[SDL_SCANCODE_DOWN] ? 1 : 0) * speed;
-  
   intendedX -= (keyboardState[SDL_SCANCODE_LEFT] ? 1 : 0) * speed;
   intendedY -= (keyboardState[SDL_SCANCODE_UP] ? 1 : 0) * speed;
 
