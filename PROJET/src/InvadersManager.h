@@ -22,6 +22,11 @@ public:
      */
     InvadersManager(int nb);
 
+        /**
+     * @brief Default destructor to delete InvadersManager.
+     */
+    ~InvadersManager();
+
     /**
      * @brief Adds a new Invader to the vector.
      * @param invader The Invader object to be added.

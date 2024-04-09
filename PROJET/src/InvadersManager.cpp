@@ -4,7 +4,11 @@
 
 InvadersManager::InvadersManager() {
     this->nbInvader = 0;
-    
+}
+
+InvadersManager::~InvadersManager() {
+    invaders.clear();
+    rects.clear();
 }
 
 

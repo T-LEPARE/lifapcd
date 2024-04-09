@@ -4,13 +4,17 @@
 
 ProjectileManager::ProjectileManager() {}
 
+ProjectileManager::~ProjectileManager() {
+      projectiles.clear();
+}
+
 void ProjectileManager::addProjectile(std::unique_ptr<Projectile> projectile) {
   if (projectile != nullptr) {
     projectiles.push_back(std::move(projectile));
   }
 }
 
-void ProjectileManager::removeProjectile(const std::unique_ptr<Projectile>& projectileToRemove) {
+void ProjectileManager::removeProjectiles(const std::unique_ptr<Projectile>& projectileToRemove) {
   projectiles.erase(std::remove_if(projectiles.begin(), projectiles.end(),
                                  [&projectileToRemove](const std::unique_ptr<Projectile>& projectile) {
                                    return projectile.get() == projectileToRemove.get();
@@ -104,7 +108,7 @@ void ProjectileManager::UpdateProj() {
     if (*it != nullptr) {
       (*it)->update();
       if (isProjectileOutOfBounds(*it)) {
-        removeProjectile(*it);
+        removeProjectiles(*it);
       }else{++it;}
     }
   }
