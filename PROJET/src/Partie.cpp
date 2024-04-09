@@ -100,6 +100,8 @@ int main(void)
     const float targetFrameTime = 1000.0f / targetFPS;  // milliseconds per frame
     float elapsed;
     float delay;
+    SDL_QueueAudio(deviceId, wavStart, wavLength);
+    SDL_PauseAudioDevice(deviceId, 0);
 
     while (running) {
         Uint64 start = SDL_GetPerformanceCounter();
@@ -108,12 +110,6 @@ int main(void)
             if (event.type == SDL_QUIT) {
                 running = false;
             }
-            
-            }
-              if (audioPlaying) {
-                SDL_QueueAudio(deviceId, wavStart, wavLength); // Ajoute les données audio à la file d'attente
-                SDL_PauseAudioDevice(deviceId, 0); // Démarre la lecture audio
-                audioPlaying = false; // Indique que le son a été démarré
             }
             SDL_Rect playerRect = {int(player.getPos().x), int(player.getPos().y), int(player.getWidth()), int(player.getHeight())};
              const Uint8 *keyboardState = SDL_GetKeyboardState(NULL);
@@ -126,13 +122,6 @@ int main(void)
                 if (itab.IsAllDead()==1) {
                     std::cout << "still empty" << std::endl;
                 } else {std::cout << "not empty anymore" << std::endl;}
-            }
-            
-            // Check audio status and play if needed
-            int audioStatus = SDL_GetAudioStatus();
-            if (audioStatus == SDL_AUDIO_STOPPED) {
-                SDL_QueueAudio(deviceId, wavStart, wavLength); // Queue audio again
-                SDL_PauseAudioDevice(deviceId, 0);              // Start playback
             }
             // Render the game state
             // Effacer l'écran avec une couleur
@@ -174,7 +163,9 @@ int main(void)
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_CloseAudioDevice(deviceId);
-    SDL_FreeWAV(wavStart);
+    if (SDL_GetQueuedAudioSize(deviceId) == 0) {
+            SDL_FreeWAV(wavStart);
+    }
     IMG_Quit();
     SDL_Quit();
 
