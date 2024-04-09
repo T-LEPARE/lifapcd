@@ -20,6 +20,26 @@ int main(void)
     }
     SDL_Log("SDL initialisé avec succès.");
 
+    SDL_AudioSpec wavSpec;
+    Uint8* wavStart;
+    Uint32 wavLength;
+
+
+    if (SDL_LoadWAV("./data/Space_Invaders.wav", &wavSpec, &wavStart, &wavLength) == NULL) {
+        SDL_Log("Erreur lors du chargement du fichier audio : %s", SDL_GetError());
+        return 1;
+    }
+
+    SDL_AudioDeviceID deviceId = SDL_OpenAudioDevice(NULL, 0, &wavSpec, NULL, 0);
+    if (deviceId == 0) {
+        SDL_Log("Impossible d'ouvrir le périphérique audio : %s", SDL_GetError());
+        SDL_FreeWAV(wavStart);
+        return 1;
+    }
+  // Démarre la lecture audio
+
+    // Attendre que la musique se termine (ou ajouter de la logique pour continuer à jouer)
+
     // Initialisation de SDL image
     if ((IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) != IMG_INIT_PNG) {
         SDL_Log("Échec de l'initialisation de SDL_Image : %s", SDL_GetError());
@@ -73,6 +93,7 @@ int main(void)
 
     // Boucle principale du jeu
     bool running = true;
+    bool audioPlaying = true;
     SDL_Event event;
     const int targetFPS = 60;
     const float targetFrameTime = 1000.0f / targetFPS;  // milliseconds per frame
@@ -86,8 +107,12 @@ int main(void)
             if (event.type == SDL_QUIT) {
                 running = false;
             }
-            //player.movement(event); 
-             //player.CollisionWindow();
+            
+            }
+              if (audioPlaying) {
+                SDL_QueueAudio(deviceId, wavStart, wavLength); // Ajoute les données audio à la file d'attente
+                SDL_PauseAudioDevice(deviceId, 0); // Démarre la lecture audio
+                audioPlaying = false; // Indique que le son a été démarré
             }
             SDL_Rect playerRect = {int(player.getPos().x), int(player.getPos().y), int(player.getWidth()), int(player.getHeight())};
              const Uint8 *keyboardState = SDL_GetKeyboardState(NULL);
@@ -120,7 +145,6 @@ int main(void)
             itab.Update(Pmanager);
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);
-            itab.hasInvaderCollided(&player);
             player.firePlayer(Pmanager, weaponManager,keyboardState);
             Pmanager.UpdateProj();
             Pmanager.hasProjectileCollided(&player,itabPtr);
@@ -142,6 +166,8 @@ int main(void)
     // Libération des ressources
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
+    SDL_CloseAudioDevice(deviceId);
+    SDL_FreeWAV(wavStart);
     IMG_Quit();
     SDL_Quit();
 
