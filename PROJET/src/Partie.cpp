@@ -1,5 +1,6 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_audio.h>
 #include <iostream>
 #include "Playership.h"
 #include "Position.h"
@@ -127,6 +128,12 @@ int main(void)
                 } else {std::cout << "not empty anymore" << std::endl;}
             }
             
+            // Check audio status and play if needed
+            int audioStatus = SDL_GetAudioStatus();
+            if (audioStatus == SDL_AUDIO_STOPPED) {
+                SDL_QueueAudio(deviceId, wavStart, wavLength); // Queue audio again
+                SDL_PauseAudioDevice(deviceId, 0);              // Start playback
+            }
             // Render the game state
             // Effacer l'écran avec une couleur
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
