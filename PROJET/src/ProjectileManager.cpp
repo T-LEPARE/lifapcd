@@ -71,12 +71,10 @@ void ProjectileManager::hasProjectileCollided(Player* playerPtr, std::vector<Inv
       }
   }
   //remove all projectiles marked for removal
-  for (auto it = indicesToRemove.rbegin(); it != indicesToRemove.rend(); ++it) {
+  for (auto it = indicesToRemove.begin(); it != indicesToRemove.end(); ++it) {
     projectiles.erase(projectiles.begin() + *it);
   }
 }
-
-
 
 void ProjectileManager::DamageTakenProjectile(std::unique_ptr<Projectile>& projectilePtr, Player* playerPtr, Invader* invaderPtr) {
   if (projectilePtr == nullptr) {
