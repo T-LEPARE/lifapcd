@@ -75,19 +75,30 @@ public:
     void setDamage(int x);
 
     
-
+    /**
+     * @brief Set the Direction object
+     * 
+     * @param x 
+     * @param y 
+     */
     void setDirection(float x,float y);
+    
+    /**
+     * @brief Set the Direction object
+     * 
+     * @param p 
+     */
     void setDirection(Position p);
 
         /**
-     * Donne une largeur au joueur
-     * @param x  largeur en pixel
+     * @brief  donne une largeur au invader
+     * @param w  largeur en pixel
      */
     void setWidth(int w);
     
     /**
-     * Donne une hauteur au joueur
-     * @param x  hauteur en pixel
+     * @brief donne un hauteur au invader
+     * @param h  hauteur en pixel
      */
     void setHeight(int h);
 
@@ -136,37 +147,54 @@ public:
     void movement();
 
    /**
-    * @brief 
+    * @brief  permet de recuperer la texture des invaders
     * 
     * @return SDL_Texture* 
     */
     SDL_Texture* getTexture(); 
 
     /**
-     * @brief 
+     * @brief permet de recuperer la surface des invaders 
      * 
      * @return SDL_Surface* 
      */
     SDL_Surface* getSurface();
 
     /**
-     * @brief 
+     * @brief permet de set la texture des invaders
      * 
      * @param _texture 
      */
     void setTexture(SDL_Texture* _texture);
 
     /**
-     * @brief 
+     * @brief permet de set la surface des invaders
      * 
      * @param _surface 
      */
     void setSurface(SDL_Surface* _surface);
 
+    /**
+     * @brief permet au invader de tirer 
+     * 
+     * @param tabpro 
+     */
     void shootInvader(ProjectileManager& tabpro);
 
+    /**
+     * @brief retourne vrai si l'invader est arrivé en bas de l'écran
+     * 
+     * @return true 
+     * @return false 
+     */
     bool ArriveEnBas();
 
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
     bool HPnullInvader();
 };
 

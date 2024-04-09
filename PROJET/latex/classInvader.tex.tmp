@@ -1,0 +1,408 @@
+\hypertarget{classInvader}{}\doxysection{Invader Class Reference}
+\label{classInvader}\index{Invader@{Invader}}
+
+
+Inheritance diagram for Invader\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInvader_a66554fabc7a2ca91051589b018bca99a}\label{classInvader_a66554fabc7a2ca91051589b018bca99a}} 
+\mbox{\hyperlink{classInvader_a66554fabc7a2ca91051589b018bca99a}{Invader}} ()
+\begin{DoxyCompactList}\small\item\em constructeur de \mbox{\hyperlink{classInvader}{Invader}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classInvader_a1808fc487a4a77f5271fa487625b077b}{Invader}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classInvader}{Invader}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInvader_a3a5de7b32f8fc794426a81f7658fd5b9}\label{classInvader_a3a5de7b32f8fc794426a81f7658fd5b9}} 
+\mbox{\hyperlink{classInvader_a3a5de7b32f8fc794426a81f7658fd5b9}{$\sim$\+Invader}} ()
+\begin{DoxyCompactList}\small\item\em destructeur de \mbox{\hyperlink{classInvader}{Invader}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classInvader}{Invader}} \mbox{\hyperlink{classInvader_a5cbf60922e28b369866eb4b14e5cfcd3}{Init\+Invader}} (float x, float y, int HP, float spd, int damage)
+\begin{DoxyCompactList}\small\item\em initialisation de l\textquotesingle{}\mbox{\hyperlink{classInvader}{Invader}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInvader_abd794068a7b2ece810f7e9b5f595c695}{set\+Pos}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Donne une position a l\textquotesingle{}invader. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInvader_a6cc4fd0c3cea03d15c3551389ee591ef}\label{classInvader_a6cc4fd0c3cea03d15c3551389ee591ef}} 
+void {\bfseries set\+Pos} (\mbox{\hyperlink{structPosition}{Position}} p)
+\item 
+void \mbox{\hyperlink{classInvader_a3dbb4306192f01c3f67dc846dfb7b437}{set\+HP}} (int x)
+\begin{DoxyCompactList}\small\item\em Donne des Healthpoint a l\textquotesingle{}invader. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInvader_ab6866ec87bb406fa155223e9eb75436b}{set\+Speed}} (float x)
+\begin{DoxyCompactList}\small\item\em Donne une vitesse a l\textquotesingle{}invader. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInvader_a0504f29b72d2e06a0a98714f50b81d92}{set\+Damage}} (int x)
+\begin{DoxyCompactList}\small\item\em Donne des damages a l\textquotesingle{}invader. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInvader_a614c25628dffd1dcd734190453f8e281}{set\+Direction}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Set the Direction object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInvader_a74c167b955d6b089e2d39c5dc2762a07}{set\+Direction}} (\mbox{\hyperlink{structPosition}{Position}} p)
+\begin{DoxyCompactList}\small\item\em Set the Direction object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInvader_ab92a84ddcc76eaee39c84939dfb64d14}{set\+Width}} (int w)
+\begin{DoxyCompactList}\small\item\em donne une largeur au invader \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInvader_aacc22d0718b6299de4bd876eb190e3b8}{set\+Height}} (int h)
+\begin{DoxyCompactList}\small\item\em donne un hauteur au invader \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPosition}{Position}} \mbox{\hyperlink{classInvader_a0caee7970c1696d48854a0fd68b00c00}{get\+Pos}} ()
+\item 
+int \mbox{\hyperlink{classInvader_a71f9287da6601ee32982b14e72fb001d}{get\+Damage}} ()
+\item 
+int \mbox{\hyperlink{classInvader_aea691764931a88308ff519fbef1b1df5}{get\+HP}} ()
+\item 
+float \mbox{\hyperlink{classInvader_aeb19c6eb9092f6751e329b395e1a8520}{get\+Speed}} ()
+\item 
+float \mbox{\hyperlink{classInvader_aaf4282f9ece534a3a4c6bb6df62fbc21}{get\+Taille}} ()
+\item 
+\mbox{\Hypertarget{classInvader_af7b329279cad65adedbf5cc3b2f19a1b}\label{classInvader_af7b329279cad65adedbf5cc3b2f19a1b}} 
+\mbox{\hyperlink{structPosition}{Position}} {\bfseries get\+Direction} ()
+\item 
+float \mbox{\hyperlink{classInvader_a35b977c39b784597a815392d8e54e7e5}{get\+Width}} ()
+\item 
+float \mbox{\hyperlink{classInvader_af780800cad0a7ed61547a934d1c212d9}{get\+Height}} ()
+\item 
+\mbox{\Hypertarget{classInvader_a8383e1b92a4ba938f5c3209c5a5b36d6}\label{classInvader_a8383e1b92a4ba938f5c3209c5a5b36d6}} 
+void \mbox{\hyperlink{classInvader_a8383e1b92a4ba938f5c3209c5a5b36d6}{movement}} ()
+\begin{DoxyCompactList}\small\item\em les déplacements de l\textquotesingle{}\mbox{\hyperlink{classInvader}{Invader}} selon un pattern \end{DoxyCompactList}\item 
+SDL\+\_\+\+Texture $\ast$ \mbox{\hyperlink{classInvader_a3e34b60942ecffdc470853985a721d25}{get\+Texture}} ()
+\begin{DoxyCompactList}\small\item\em permet de recuperer la texture des invaders \end{DoxyCompactList}\item 
+SDL\+\_\+\+Surface $\ast$ \mbox{\hyperlink{classInvader_a457d0237a5b426ab26cced3b6e855611}{get\+Surface}} ()
+\begin{DoxyCompactList}\small\item\em permet de recuperer la surface des invaders \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInvader_acc12398c85ae7ab90293c08463fdba52}{set\+Texture}} (SDL\+\_\+\+Texture $\ast$\+\_\+texture)
+\begin{DoxyCompactList}\small\item\em permet de set la texture des invaders \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInvader_a195ddc1b4e8217bc4a6b06588aaf9b25}{set\+Surface}} (SDL\+\_\+\+Surface $\ast$\+\_\+surface)
+\begin{DoxyCompactList}\small\item\em permet de set la surface des invaders \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInvader_a67d7203ea4bad4a2284955415b4380d8}{shoot\+Invader}} (\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&tabpro)
+\begin{DoxyCompactList}\small\item\em permet au invader de tirer \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classInvader_a2ed58cf50da1da1ef10569f2c3f7a9db}{Arrive\+En\+Bas}} ()
+\begin{DoxyCompactList}\small\item\em retourne vrai si l\textquotesingle{}invader est arrivé en bas de l\textquotesingle{}écran \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classInvader_a5caf8e0d809043a2be149c13c248ce70}{HPnull\+Invader}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classInvader_a1808fc487a4a77f5271fa487625b077b}\label{classInvader_a1808fc487a4a77f5271fa487625b077b}} 
+\index{Invader@{Invader}!Invader@{Invader}}
+\index{Invader@{Invader}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{Invader()}{Invader()}}
+{\footnotesize\ttfamily Invader\+::\+Invader (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classInvader}{Invader}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & coordonné x \\
+\hline
+{\em y} & coordonné y \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classInvader_a2ed58cf50da1da1ef10569f2c3f7a9db}\label{classInvader_a2ed58cf50da1da1ef10569f2c3f7a9db}} 
+\index{Invader@{Invader}!ArriveEnBas@{ArriveEnBas}}
+\index{ArriveEnBas@{ArriveEnBas}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{ArriveEnBas()}{ArriveEnBas()}}
+{\footnotesize\ttfamily bool Invader\+::\+Arrive\+En\+Bas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+retourne vrai si l\textquotesingle{}invader est arrivé en bas de l\textquotesingle{}écran 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInvader_a71f9287da6601ee32982b14e72fb001d}\label{classInvader_a71f9287da6601ee32982b14e72fb001d}} 
+\index{Invader@{Invader}!getDamage@{getDamage}}
+\index{getDamage@{getDamage}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{getDamage()}{getDamage()}}
+{\footnotesize\ttfamily int Invader\+::get\+Damage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+renvoie le degats de l\textquotesingle{}arme 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInvader_af780800cad0a7ed61547a934d1c212d9}\label{classInvader_af780800cad0a7ed61547a934d1c212d9}} 
+\index{Invader@{Invader}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}}
+{\footnotesize\ttfamily float Invader\+::get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Retourne la hauteur du l\textquotesingle{}\mbox{\hyperlink{classInvader}{Invader}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInvader_aea691764931a88308ff519fbef1b1df5}\label{classInvader_aea691764931a88308ff519fbef1b1df5}} 
+\index{Invader@{Invader}!getHP@{getHP}}
+\index{getHP@{getHP}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{getHP()}{getHP()}}
+{\footnotesize\ttfamily int Invader\+::get\+HP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+retourne le nombre de point de vie de l\textquotesingle{}invader 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInvader_a0caee7970c1696d48854a0fd68b00c00}\label{classInvader_a0caee7970c1696d48854a0fd68b00c00}} 
+\index{Invader@{Invader}!getPos@{getPos}}
+\index{getPos@{getPos}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{getPos()}{getPos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPosition}{Position}} Invader\+::get\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+retourne la position de l\textquotesingle{}\mbox{\hyperlink{classInvader}{Invader}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInvader_aeb19c6eb9092f6751e329b395e1a8520}\label{classInvader_aeb19c6eb9092f6751e329b395e1a8520}} 
+\index{Invader@{Invader}!getSpeed@{getSpeed}}
+\index{getSpeed@{getSpeed}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{getSpeed()}{getSpeed()}}
+{\footnotesize\ttfamily float Invader\+::get\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Retourne la speed de l\textquotesingle{}\mbox{\hyperlink{classInvader}{Invader}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInvader_a457d0237a5b426ab26cced3b6e855611}\label{classInvader_a457d0237a5b426ab26cced3b6e855611}} 
+\index{Invader@{Invader}!getSurface@{getSurface}}
+\index{getSurface@{getSurface}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{getSurface()}{getSurface()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Surface $\ast$ Invader\+::get\+Surface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+permet de recuperer la surface des invaders 
+
+\begin{DoxyReturn}{Returns}
+SDL\+\_\+\+Surface$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInvader_aaf4282f9ece534a3a4c6bb6df62fbc21}\label{classInvader_aaf4282f9ece534a3a4c6bb6df62fbc21}} 
+\index{Invader@{Invader}!getTaille@{getTaille}}
+\index{getTaille@{getTaille}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{getTaille()}{getTaille()}}
+{\footnotesize\ttfamily float Invader\+::get\+Taille (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Retourne la taille de l\textquotesingle{}\mbox{\hyperlink{classInvader}{Invader}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInvader_a3e34b60942ecffdc470853985a721d25}\label{classInvader_a3e34b60942ecffdc470853985a721d25}} 
+\index{Invader@{Invader}!getTexture@{getTexture}}
+\index{getTexture@{getTexture}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{getTexture()}{getTexture()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Texture $\ast$ Invader\+::get\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+permet de recuperer la texture des invaders 
+
+\begin{DoxyReturn}{Returns}
+SDL\+\_\+\+Texture$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInvader_a35b977c39b784597a815392d8e54e7e5}\label{classInvader_a35b977c39b784597a815392d8e54e7e5}} 
+\index{Invader@{Invader}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{getWidth()}{getWidth()}}
+{\footnotesize\ttfamily float Invader\+::get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Retourne la largeur de l\textquotesingle{}\mbox{\hyperlink{classInvader}{Invader}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInvader_a5caf8e0d809043a2be149c13c248ce70}\label{classInvader_a5caf8e0d809043a2be149c13c248ce70}} 
+\index{Invader@{Invader}!HPnullInvader@{HPnullInvader}}
+\index{HPnullInvader@{HPnullInvader}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{HPnullInvader()}{HPnullInvader()}}
+{\footnotesize\ttfamily bool Invader\+::\+HPnull\+Invader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInvader_a5cbf60922e28b369866eb4b14e5cfcd3}\label{classInvader_a5cbf60922e28b369866eb4b14e5cfcd3}} 
+\index{Invader@{Invader}!InitInvader@{InitInvader}}
+\index{InitInvader@{InitInvader}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{InitInvader()}{InitInvader()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classInvader}{Invader}} Invader\+::\+Init\+Invader (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{int}]{HP,  }\item[{float}]{spd,  }\item[{int}]{damage }\end{DoxyParamCaption})}
+
+
+
+initialisation de l\textquotesingle{}\mbox{\hyperlink{classInvader}{Invader}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & position x \\
+\hline
+{\em y} & position y \\
+\hline
+{\em HP} & vie de l\textquotesingle{}\mbox{\hyperlink{classInvader}{Invader}} \\
+\hline
+{\em spd} & speed de l\textquotesingle{}invader \\
+\hline
+{\em damage} & damage de l\textquotesingle{}invader \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInvader_a0504f29b72d2e06a0a98714f50b81d92}\label{classInvader_a0504f29b72d2e06a0a98714f50b81d92}} 
+\index{Invader@{Invader}!setDamage@{setDamage}}
+\index{setDamage@{setDamage}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{setDamage()}{setDamage()}}
+{\footnotesize\ttfamily void Invader\+::set\+Damage (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+
+
+Donne des damages a l\textquotesingle{}invader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & damage \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInvader_a614c25628dffd1dcd734190453f8e281}\label{classInvader_a614c25628dffd1dcd734190453f8e281}} 
+\index{Invader@{Invader}!setDirection@{setDirection}}
+\index{setDirection@{setDirection}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{setDirection()}{setDirection()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Invader\+::set\+Direction (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Set the Direction object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInvader_a74c167b955d6b089e2d39c5dc2762a07}\label{classInvader_a74c167b955d6b089e2d39c5dc2762a07}} 
+\index{Invader@{Invader}!setDirection@{setDirection}}
+\index{setDirection@{setDirection}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{setDirection()}{setDirection()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Invader\+::set\+Direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPosition}{Position}}}]{p }\end{DoxyParamCaption})}
+
+
+
+Set the Direction object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInvader_aacc22d0718b6299de4bd876eb190e3b8}\label{classInvader_aacc22d0718b6299de4bd876eb190e3b8}} 
+\index{Invader@{Invader}!setHeight@{setHeight}}
+\index{setHeight@{setHeight}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{setHeight()}{setHeight()}}
+{\footnotesize\ttfamily void Invader\+::set\+Height (\begin{DoxyParamCaption}\item[{int}]{h }\end{DoxyParamCaption})}
+
+
+
+donne un hauteur au invader 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & hauteur en pixel \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInvader_a3dbb4306192f01c3f67dc846dfb7b437}\label{classInvader_a3dbb4306192f01c3f67dc846dfb7b437}} 
+\index{Invader@{Invader}!setHP@{setHP}}
+\index{setHP@{setHP}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{setHP()}{setHP()}}
+{\footnotesize\ttfamily void Invader\+::set\+HP (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+
+
+Donne des Healthpoint a l\textquotesingle{}invader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & HP \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInvader_abd794068a7b2ece810f7e9b5f595c695}\label{classInvader_abd794068a7b2ece810f7e9b5f595c695}} 
+\index{Invader@{Invader}!setPos@{setPos}}
+\index{setPos@{setPos}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{setPos()}{setPos()}}
+{\footnotesize\ttfamily void Invader\+::set\+Pos (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Donne une position a l\textquotesingle{}invader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & position x \\
+\hline
+{\em y} & position y \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInvader_ab6866ec87bb406fa155223e9eb75436b}\label{classInvader_ab6866ec87bb406fa155223e9eb75436b}} 
+\index{Invader@{Invader}!setSpeed@{setSpeed}}
+\index{setSpeed@{setSpeed}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{setSpeed()}{setSpeed()}}
+{\footnotesize\ttfamily void Invader\+::set\+Speed (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})}
+
+
+
+Donne une vitesse a l\textquotesingle{}invader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & speed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInvader_a195ddc1b4e8217bc4a6b06588aaf9b25}\label{classInvader_a195ddc1b4e8217bc4a6b06588aaf9b25}} 
+\index{Invader@{Invader}!setSurface@{setSurface}}
+\index{setSurface@{setSurface}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{setSurface()}{setSurface()}}
+{\footnotesize\ttfamily void Invader\+::set\+Surface (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Surface $\ast$}]{\+\_\+surface }\end{DoxyParamCaption})}
+
+
+
+permet de set la surface des invaders 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+surface} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInvader_acc12398c85ae7ab90293c08463fdba52}\label{classInvader_acc12398c85ae7ab90293c08463fdba52}} 
+\index{Invader@{Invader}!setTexture@{setTexture}}
+\index{setTexture@{setTexture}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{setTexture()}{setTexture()}}
+{\footnotesize\ttfamily void Invader\+::set\+Texture (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Texture $\ast$}]{\+\_\+texture }\end{DoxyParamCaption})}
+
+
+
+permet de set la texture des invaders 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+texture} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInvader_ab92a84ddcc76eaee39c84939dfb64d14}\label{classInvader_ab92a84ddcc76eaee39c84939dfb64d14}} 
+\index{Invader@{Invader}!setWidth@{setWidth}}
+\index{setWidth@{setWidth}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{setWidth()}{setWidth()}}
+{\footnotesize\ttfamily void Invader\+::set\+Width (\begin{DoxyParamCaption}\item[{int}]{w }\end{DoxyParamCaption})}
+
+
+
+donne une largeur au invader 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & largeur en pixel \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInvader_a67d7203ea4bad4a2284955415b4380d8}\label{classInvader_a67d7203ea4bad4a2284955415b4380d8}} 
+\index{Invader@{Invader}!shootInvader@{shootInvader}}
+\index{shootInvader@{shootInvader}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{shootInvader()}{shootInvader()}}
+{\footnotesize\ttfamily void Invader\+::shoot\+Invader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&}]{tabpro }\end{DoxyParamCaption})}
+
+
+
+permet au invader de tirer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tabpro} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Invaders.\+h\item 
+Invaders.\+cpp\end{DoxyCompactItemize}

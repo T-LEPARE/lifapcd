@@ -1,0 +1,213 @@
+\hypertarget{classProjectile}{}\doxysection{Projectile Class Reference}
+\label{classProjectile}\index{Projectile@{Projectile}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classProjectile_ac536ed2aad56af866a2078b9a85aa16d}\label{classProjectile_ac536ed2aad56af866a2078b9a85aa16d}} 
+\mbox{\hyperlink{classProjectile_ac536ed2aad56af866a2078b9a85aa16d}{Projectile}} ()
+\begin{DoxyCompactList}\small\item\em constructeur par defaut du projectiles \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProjectile_ab8a845d667df0b6fbef9285373657e0c}{Projectile}} (float x, float y, std\+::string weapon\+Name, \mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&weapon\+Manager)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classProjectile}{Projectile}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classProjectile_a59647a0c30cd0021d0ad947071b610ff}\label{classProjectile_a59647a0c30cd0021d0ad947071b610ff}} 
+{\bfseries Projectile} (const \mbox{\hyperlink{structPosition}{Position}} \&inv\+Pos, const int \&dmg)
+\item 
+\mbox{\Hypertarget{classProjectile_a94903e021fa2edab60ba3836ca0b937d}\label{classProjectile_a94903e021fa2edab60ba3836ca0b937d}} 
+\mbox{\hyperlink{classProjectile_a94903e021fa2edab60ba3836ca0b937d}{$\sim$\+Projectile}} ()
+\begin{DoxyCompactList}\small\item\em destructeur de projectile \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classProjectile_a8b32ce7d21ec9032812b528e5cb87cc7}\label{classProjectile_a8b32ce7d21ec9032812b528e5cb87cc7}} 
+void \mbox{\hyperlink{classProjectile_a8b32ce7d21ec9032812b528e5cb87cc7}{update}} ()
+\begin{DoxyCompactList}\small\item\em met à jour le projectile (position) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPosition}{Position}} \mbox{\hyperlink{classProjectile_af404d680ef5c19b7c33ba7b98a08c707}{get\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em Get the Pos object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProjectile_ad4ef903221ebe2a3e2bacac9e10f9075}{set\+Pos}} (\mbox{\hyperlink{structPosition}{Position}} p)
+\begin{DoxyCompactList}\small\item\em Set the Pos object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProjectile_a42f83ce10936e6fe649a0c604f12d730}{set\+Pos}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Set the Pos object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPosition}{Position}} \mbox{\hyperlink{classProjectile_a492ec760c0ab762eb9a1936423e369ea}{get\+Dir}} ()
+\begin{DoxyCompactList}\small\item\em Get the Dir object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProjectile_a3903400f7ab5e8d691036f4b5db72573}{set\+Dir}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Set the Dir object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProjectile_a9e04e66dff69420fc37eae02ccc3c8ca}{set\+Dir}} (\mbox{\hyperlink{structPosition}{Position}} p)
+\begin{DoxyCompactList}\small\item\em Set the Dir object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classProjectile_a64ebdc75a18cf9b88dd43c2444d1b52f}\label{classProjectile_a64ebdc75a18cf9b88dd43c2444d1b52f}} 
+int {\bfseries get\+Damage} ()
+\item 
+float \mbox{\hyperlink{classProjectile_afb7d5c794f26e495ccbc5b597bb01246}{get\+Width}} ()
+\item 
+float \mbox{\hyperlink{classProjectile_a70d55ea52a1d6cdaf74c894d412597d1}{get\+Height}} ()
+\item 
+void \mbox{\hyperlink{classProjectile_a29cfcf900c435edafbd7dbf9942f7fda}{set\+Projectile\+Rect}} (int x, int y, int width, int height)
+\begin{DoxyCompactList}\small\item\em Set the \mbox{\hyperlink{classProjectile}{Projectile}} Rect object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProjectile_af9630d3d14f44b7b1cf17a641a04f16c}{draw\+Projectile}} (SDL\+\_\+\+Renderer $\ast$renderer)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classProjectile_ab8a845d667df0b6fbef9285373657e0c}\label{classProjectile_ab8a845d667df0b6fbef9285373657e0c}} 
+\index{Projectile@{Projectile}!Projectile@{Projectile}}
+\index{Projectile@{Projectile}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{Projectile()}{Projectile()}}
+{\footnotesize\ttfamily Projectile\+::\+Projectile (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{std\+::string}]{weapon\+Name,  }\item[{\mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&}]{weapon\+Manager }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classProjectile}{Projectile}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \\
+\hline
+{\em weapons} & \\
+\hline
+{\em weapon\+Name} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classProjectile_af9630d3d14f44b7b1cf17a641a04f16c}\label{classProjectile_af9630d3d14f44b7b1cf17a641a04f16c}} 
+\index{Projectile@{Projectile}!drawProjectile@{drawProjectile}}
+\index{drawProjectile@{drawProjectile}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{drawProjectile()}{drawProjectile()}}
+{\footnotesize\ttfamily void Projectile\+::draw\+Projectile (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classProjectile_a492ec760c0ab762eb9a1936423e369ea}\label{classProjectile_a492ec760c0ab762eb9a1936423e369ea}} 
+\index{Projectile@{Projectile}!getDir@{getDir}}
+\index{getDir@{getDir}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{getDir()}{getDir()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPosition}{Position}} Projectile\+::get\+Dir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Dir object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structPosition}{Position}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classProjectile_a70d55ea52a1d6cdaf74c894d412597d1}\label{classProjectile_a70d55ea52a1d6cdaf74c894d412597d1}} 
+\index{Projectile@{Projectile}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}}
+{\footnotesize\ttfamily float Projectile\+::get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Retourne la hauteur du l\textquotesingle{}\mbox{\hyperlink{classInvader}{Invader}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classProjectile_af404d680ef5c19b7c33ba7b98a08c707}\label{classProjectile_af404d680ef5c19b7c33ba7b98a08c707}} 
+\index{Projectile@{Projectile}!getPos@{getPos}}
+\index{getPos@{getPos}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{getPos()}{getPos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPosition}{Position}} Projectile\+::get\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Pos object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structPosition}{Position}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classProjectile_afb7d5c794f26e495ccbc5b597bb01246}\label{classProjectile_afb7d5c794f26e495ccbc5b597bb01246}} 
+\index{Projectile@{Projectile}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{getWidth()}{getWidth()}}
+{\footnotesize\ttfamily float Projectile\+::get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Retourne la largeur de l\textquotesingle{}\mbox{\hyperlink{classInvader}{Invader}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classProjectile_a3903400f7ab5e8d691036f4b5db72573}\label{classProjectile_a3903400f7ab5e8d691036f4b5db72573}} 
+\index{Projectile@{Projectile}!setDir@{setDir}}
+\index{setDir@{setDir}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{setDir()}{setDir()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Projectile\+::set\+Dir (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Set the Dir object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classProjectile_a9e04e66dff69420fc37eae02ccc3c8ca}\label{classProjectile_a9e04e66dff69420fc37eae02ccc3c8ca}} 
+\index{Projectile@{Projectile}!setDir@{setDir}}
+\index{setDir@{setDir}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{setDir()}{setDir()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Projectile\+::set\+Dir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPosition}{Position}}}]{p }\end{DoxyParamCaption})}
+
+
+
+Set the Dir object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classProjectile_a42f83ce10936e6fe649a0c604f12d730}\label{classProjectile_a42f83ce10936e6fe649a0c604f12d730}} 
+\index{Projectile@{Projectile}!setPos@{setPos}}
+\index{setPos@{setPos}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{setPos()}{setPos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Projectile\+::set\+Pos (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Set the Pos object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classProjectile_ad4ef903221ebe2a3e2bacac9e10f9075}\label{classProjectile_ad4ef903221ebe2a3e2bacac9e10f9075}} 
+\index{Projectile@{Projectile}!setPos@{setPos}}
+\index{setPos@{setPos}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{setPos()}{setPos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Projectile\+::set\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPosition}{Position}}}]{p }\end{DoxyParamCaption})}
+
+
+
+Set the Pos object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classProjectile_a29cfcf900c435edafbd7dbf9942f7fda}\label{classProjectile_a29cfcf900c435edafbd7dbf9942f7fda}} 
+\index{Projectile@{Projectile}!setProjectileRect@{setProjectileRect}}
+\index{setProjectileRect@{setProjectileRect}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{setProjectileRect()}{setProjectileRect()}}
+{\footnotesize\ttfamily void Projectile\+::set\+Projectile\+Rect (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Set the \mbox{\hyperlink{classProjectile}{Projectile}} Rect object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em width} & \\
+\hline
+{\em height} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Projectile.\+h\item 
+Projectile.\+cpp\end{DoxyCompactItemize}
