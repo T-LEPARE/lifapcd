@@ -24,8 +24,9 @@ void InvadersManager::RemoveInvader(size_t index) {
     invaders.erase(invaders.begin() + index);
 }
 
-void InvadersManager::Update(ProjectileManager& tabpro) {
+void InvadersManager::Update(ProjectileManager& tabpro, Player &player) {
     //Shoot(tabpro);
+    hasInvaderCollided(&player);
     Move();
 }
 

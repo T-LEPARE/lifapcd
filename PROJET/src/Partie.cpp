@@ -138,7 +138,7 @@ int main(void)
                 }
             }
             std::vector<Invader>* itabPtr = itab.getInvaders();
-            itab.Update(Pmanager);
+            itab.Update(Pmanager,player);
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);
             player.firePlayer(Pmanager, weaponManager,keyboardState);

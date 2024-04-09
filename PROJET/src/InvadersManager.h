@@ -42,7 +42,7 @@ public:
     /**
      * @brief Updates the positions of all Invaders based on their movement pattern.
      */
-    void Update(ProjectileManager& tabpro);
+    void Update(ProjectileManager& tabpro, Player& player);
 
     void Move();
     
