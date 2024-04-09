@@ -48,6 +48,10 @@ public:
      */
     void CheckCollisions(Projectile P);
 
+    void hasInvaderCollided(Player* playerPtr);
+
+    void DamageTakenPlayer(Player* playerPtr,Invader invader);
+
     /**
      * @brief Checks if all Invaders in the manager are dead.
      * @return True if all invaders are dead, False otherwise.

@@ -120,6 +120,7 @@ int main(void)
             itab.Update(Pmanager);
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);
+            itab.hasInvaderCollided(&player);
             player.firePlayer(Pmanager, weaponManager,keyboardState);
             Pmanager.UpdateProj();
             Pmanager.hasProjectileCollided(&player,itabPtr);

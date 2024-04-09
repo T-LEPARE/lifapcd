@@ -1,4 +1,5 @@
 #include "InvadersManager.h"
+#include <iostream>
 
 
 InvadersManager::InvadersManager() {
@@ -52,6 +53,26 @@ void InvadersManager::Move() {
     }
 }
 
+void InvadersManager::hasInvaderCollided(Player* playerPtr)
+{
+    for(int i=0;i<nbInvader;i++)
+    {
+        Position Iposition = invaders[i].getPos();
+        Position Pposition = playerPtr->getPos();
+        if ((Iposition.x < Pposition.x+ playerPtr->getWidth()) &&
+            (Iposition.x + invaders[i].getWidth() > Pposition.x ) &&
+            (Iposition.y < Pposition.y + playerPtr->getHeight()) &&
+            (Iposition.y + invaders[i].getHeight()> Pposition.y ))
+            DamageTakenPlayer(playerPtr,invaders[i]);
+    }
+}
+
+void InvadersManager::DamageTakenPlayer(Player* playerPtr,Invader invader)
+{
+    int dmg = invader.getDamage();
+    playerPtr->setHP(playerPtr->getHP() - dmg);
+    std::cout << "playerHP = " << playerPtr->getHP() << std::endl;
+}
 
 bool InvadersManager::IsAllDead() {
     return invaders.empty();
