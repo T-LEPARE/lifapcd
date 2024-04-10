@@ -19,7 +19,6 @@ public:
     std::map<std::string, weaponType> getWeapons();
 
     int getDamage(const std::string& weaponName) const;
-        
 
     float getProjectileSpeed(const std::string& weaponName) const;
 
@@ -28,6 +27,8 @@ public:
     float getProjectileWidth(const std::string& weaponName) const;
 
     float getProjectileHeight(const std::string& weaponName) const;
+
+    std::string getnextWeaponName(const std::string& weaponName);
 
 
 private:

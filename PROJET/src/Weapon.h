@@ -15,9 +15,9 @@ public:
 
         Weapon();
         Weapon(std::string weaponName, WeaponManager& weaponManager);
-
-
         ~Weapon();
+        std::string getName();
+
 
         /**
          * @brief Get the weapons
@@ -26,6 +26,7 @@ public:
 
 
         private:
+        std::string name;
         WeaponManager::weaponType weapon;
     
 

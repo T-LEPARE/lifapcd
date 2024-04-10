@@ -166,10 +166,13 @@ void Player::moveShip(const Uint8 *keyboardState) {
         currentWeapon = weapon;
     }
 
-    void Player::changeWeapon(const std::string& weaponName, WeaponManager& weaponManager) {
-        Weapon nextWeapon = Weapon(weaponName, weaponManager);
-        setCurrentWeapon(nextWeapon);
-        currentWeaponName = weaponName;
+    void Player::changeWeapon(WeaponManager& weaponManager) {
+        std::cout << "currentWeaponName : " << getCurrentWeaponName() << std::endl;
+        std::string nextWeaponName = weaponManager.getnextWeaponName(currentWeaponName);
+        std::cout << "nextWeaponName : " << nextWeaponName << std::endl;
+        Weapon nextWeapon = Weapon(nextWeaponName,weaponManager);
+        currentWeaponName = nextWeaponName;
+        currentWeapon = nextWeapon;
     }
 
     std::string Player::getCurrentWeaponName() {

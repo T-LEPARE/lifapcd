@@ -63,7 +63,7 @@ public:
     bool CheckCollisionInvader(Invader Invader);
     void DamageTakenInvader(bool b, Invader Invader);
     void setCurrentWeapon(Weapon weapon);
-    void changeWeapon(const std::string& weaponName, WeaponManager& weaponManager);
+    void changeWeapon(WeaponManager& weaponManager);
     void CollisionWindow();
     std::string getCurrentWeaponName();
     Weapon getCurrentWeapon();

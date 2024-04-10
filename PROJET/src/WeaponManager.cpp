@@ -1,4 +1,5 @@
 #include "WeaponManager.h"
+#include <iostream>
 
 WeaponManager::WeaponManager(){
     weaponTypes = {
@@ -34,4 +35,24 @@ float WeaponManager::getProjectileHeight(const std::string& weaponName) const {
 
 std::map<std::string, WeaponManager::weaponType> WeaponManager::getWeapons() {
     return weaponTypes;
+}
+
+std::string WeaponManager::getnextWeaponName(const std::string& weaponName) {
+
+    auto it = weaponTypes.find(weaponName);
+    
+    if (it != weaponTypes.end()) {
+
+        ++it;
+
+        if (it != weaponTypes.end()) {
+            return it->first;
+        } else {
+
+            return weaponTypes.begin()->first;
+        }
+    } else {
+        std::cout << "Erreur dans la récupération du nom de la prochaine arme" << std::endl;
+        exit(EXIT_FAILURE);
+    }
 }

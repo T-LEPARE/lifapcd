@@ -106,11 +106,18 @@ int main(void)
     while (running) {
         Uint64 start = SDL_GetPerformanceCounter();
         // Gestion des événements
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT) {
-                running = false;
+    while (SDL_PollEvent(&event)) {
+        if (event.type == SDL_QUIT) {
+            running = false;
+        }
+        // Check for key presses
+        else if (event.type == SDL_KEYDOWN) {
+            if (event.key.keysym.sym == SDLK_w) {
+                // Change the weapon
+                player.changeWeapon(weaponManager);
             }
-            }
+        }
+    }
             SDL_Rect playerRect = {int(player.getPos().x), int(player.getPos().y), int(player.getWidth()), int(player.getHeight())};
              const Uint8 *keyboardState = SDL_GetKeyboardState(NULL);
             player.moveShip(keyboardState);

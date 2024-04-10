@@ -10,6 +10,7 @@ Weapon::Weapon(std::string weaponName, WeaponManager& weaponManager) {
     if (weaponList.count(weaponName)) {
         std::cout << "Damage : " << weaponList.at(weaponName).damage << std::endl;
         weapon = weaponList.at(weaponName);
+        name = weaponName;
     } else {
         std::cout << "Weapon '" << weaponName << "' not found in WeaponList!" << std::endl;
     }
@@ -17,4 +18,6 @@ Weapon::Weapon(std::string weaponName, WeaponManager& weaponManager) {
 Weapon::~Weapon(){
     
 }
+
+std::string Weapon::getName() {return name;}
 
