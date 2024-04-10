@@ -28,6 +28,7 @@ private:
     SDL_Texture* texture;
     SDL_Surface* surface;
     Uint32 dernier_tir;
+    Uint32 dernier_changement;
 
 
 public:
@@ -63,6 +64,7 @@ public:
     bool CheckCollisionInvader(Invader Invader);
     void DamageTakenInvader(bool b, Invader Invader);
     void setCurrentWeapon(Weapon weapon);
+    bool TempsPourChanger() ;
     void changeWeapon(WeaponManager& weaponManager,const Uint8 *keyboardState);
     void CollisionWindow();
     std::string getCurrentWeaponName();

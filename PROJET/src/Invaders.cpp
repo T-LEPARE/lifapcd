@@ -17,7 +17,7 @@
         direction=Position(1,0);
         HP=10;
         speed=2.0f;
-        dmg=1;
+        dmg=5;
         height=30;
         width=50;
     }

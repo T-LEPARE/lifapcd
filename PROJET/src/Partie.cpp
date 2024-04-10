@@ -236,7 +236,7 @@ if (TTF_Init() != 0) {
             player.moveShip(keyboardState);
             if(itab.IsAllDead()){
                 std::cout<<"It's empty !"<<std::endl;
-                itab.SetnbInvader(2);
+                itab.SetnbInvader(12);
                 itab.InitTabInvader(renderer,surfaceInvader);
                 itab.RectInvaderInit(renderer);
                 if (itab.IsAllDead()==1) {

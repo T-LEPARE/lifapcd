@@ -166,14 +166,26 @@ void Player::moveShip(const Uint8 *keyboardState) {
         currentWeapon = weapon;
     }
 
+    bool Player::TempsPourChanger() {
+    Uint32 maintenant = SDL_GetTicks();
+    if (maintenant - dernier_changement > 150)
+        return true;
+    return false;
+    }
+
     void Player::changeWeapon(WeaponManager& weaponManager,const Uint8 *keyboardState) {
-        if(keyboardState[SDL_SCANCODE_D]){
-        std::cout << "currentWeaponName : " << getCurrentWeaponName() << std::endl;
-        std::string nextWeaponName = weaponManager.getnextWeaponName(currentWeaponName);
-        std::cout << "nextWeaponName : " << nextWeaponName << std::endl;
-        Weapon nextWeapon = Weapon(nextWeaponName,weaponManager);
-        currentWeaponName = nextWeaponName;
-        currentWeapon = nextWeapon;}
+        Uint32 maintenant = SDL_GetTicks();
+        if (TempsPourChanger()) 
+        {
+            dernier_changement = maintenant;
+            if(keyboardState[SDL_SCANCODE_D]){
+            std::cout << "currentWeaponName : " << getCurrentWeaponName() << std::endl;
+            std::string nextWeaponName = weaponManager.getnextWeaponName(currentWeaponName);
+            std::cout << "nextWeaponName : " << nextWeaponName << std::endl;
+            Weapon nextWeapon = Weapon(nextWeaponName,weaponManager);
+            currentWeaponName = nextWeaponName;
+            currentWeapon = nextWeapon;}
+        }
     }
 
     std::string Player::getCurrentWeaponName() {
@@ -209,10 +221,26 @@ void Player::moveShip(const Uint8 *keyboardState) {
         Uint32 maintenant = SDL_GetTicks();
         if (peutTirer()) {
             dernier_tir = maintenant;
+            float x,y;
+            if (getCurrentWeaponName()=="mitraillette")
+            {
+                 x =Player::getPos().x+Player::getWidth()/2;
+                 y =Player::getPos().y+2;
+            }
+            if (getCurrentWeaponName()=="railgun")
+            {
+                 x =Player::getPos().x+Player::getWidth()/2-2.5;
+                 y =Player::getPos().y-100;
+            }
+            if (getCurrentWeaponName()=="roquettes")
+            {
+                 x =Player::getPos().x+Player::getWidth()/2-10;
+                 y =Player::getPos().y-30;
+            }
             if (keyboardState[SDL_SCANCODE_SPACE]) {
                 std::string currentWeaponName = getCurrentWeaponName();
                 std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
-                    Player::getPos().x+Player::getWidth()/2, Player::getPos().y+2,
+                    x,y,
                     currentWeaponName,
                     weaponManager
                 );
