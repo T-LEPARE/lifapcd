@@ -140,7 +140,11 @@ if (TTF_Init() != 0) {
                 // Gestion des événements du menu
                 if (event.type == SDL_KEYDOWN) {
                     if (event.key.keysym.sym == SDLK_RETURN) {
-                        gameState = GameState::Running; // Commence le jeu si l'utilisateur appuie sur Entrée
+                        gameState = GameState::Running;
+                        player.playerDeath(Pmanager);
+                        itab.SetnbInvader(4);
+                        itab.InitTabInvader(renderer,surfaceInvader);
+                        itab.RectInvaderInit(renderer); // Commence le jeu si l'utilisateur appuie sur Entrée
                     } else if (event.key.keysym.sym == SDLK_ESCAPE) {
                         gameState = GameState::Exiting; // Quitte le jeu si l'utilisateur appuie sur Échap dans le menu
                         running = false;
@@ -258,6 +262,7 @@ if (TTF_Init() != 0) {
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);
             player.firePlayer(Pmanager, weaponManager,keyboardState);
+            player.changeWeapon(weaponManager,keyboardState);
             Pmanager.UpdateProj();
             Pmanager.hasProjectileCollided(&player,itabPtr);
             Pmanager.DrawProj(renderer);

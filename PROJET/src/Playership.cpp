@@ -166,13 +166,14 @@ void Player::moveShip(const Uint8 *keyboardState) {
         currentWeapon = weapon;
     }
 
-    void Player::changeWeapon(WeaponManager& weaponManager) {
+    void Player::changeWeapon(WeaponManager& weaponManager,const Uint8 *keyboardState) {
+        if(keyboardState[SDL_SCANCODE_D]){
         std::cout << "currentWeaponName : " << getCurrentWeaponName() << std::endl;
         std::string nextWeaponName = weaponManager.getnextWeaponName(currentWeaponName);
         std::cout << "nextWeaponName : " << nextWeaponName << std::endl;
         Weapon nextWeapon = Weapon(nextWeaponName,weaponManager);
         currentWeaponName = nextWeaponName;
-        currentWeapon = nextWeapon;
+        currentWeapon = nextWeapon;}
     }
 
     std::string Player::getCurrentWeaponName() {
