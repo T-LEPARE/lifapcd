@@ -1,6 +1,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_audio.h>
+#include <SDL2/SDL_ttf.h>
 #include <iostream>
 #include "Playership.h"
 #include "Position.h"
@@ -12,6 +13,19 @@
 #include "Weapon.h"
 #include <memory>
 
+
+enum class GameState {
+    Menu,
+    Running,
+    Exiting,
+    Paused,
+    loosescreen,
+};
+
+
+
+
+
 int main(void)
 {
     // Initialisation de SDL
@@ -20,6 +34,17 @@ int main(void)
         return 1;
     }
     SDL_Log("SDL initialisé avec succès.");
+    // Initialisation de SDL_ttf
+if (TTF_Init() != 0) {
+    SDL_Log("Échec de l'initialisation de SDL_ttf : %s", TTF_GetError());
+    SDL_Quit();
+    return 1;
+}
+ TTF_Font* font = TTF_OpenFont("./data/sewer.ttf", 24);
+    if (font == nullptr) {
+        return 1;
+    }
+
 
     SDL_AudioSpec wavSpec;
     Uint8* wavStart;
@@ -93,6 +118,7 @@ int main(void)
     std::cout << "weaponManager Initialised" << std::endl;
 
     // Boucle principale du jeu
+    GameState gameState = GameState::Menu;
     bool running = true;
     bool audioPlaying = true;
     SDL_Event event;
@@ -102,17 +128,107 @@ int main(void)
     float delay;
     SDL_QueueAudio(deviceId, wavStart, wavLength);
     SDL_PauseAudioDevice(deviceId, 0);
-
-    while (running) {
+        while (running) {
         Uint64 start = SDL_GetPerformanceCounter();
-        // Gestion des événements
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
                 running = false;
+                break;
             }
+
+            if (gameState == GameState::Menu) {
+                // Gestion des événements du menu
+                if (event.type == SDL_KEYDOWN) {
+                    if (event.key.keysym.sym == SDLK_RETURN) {
+                        gameState = GameState::Running; // Commence le jeu si l'utilisateur appuie sur Entrée
+                    } else if (event.key.keysym.sym == SDLK_ESCAPE) {
+                        gameState = GameState::Exiting; // Quitte le jeu si l'utilisateur appuie sur Échap dans le menu
+                        running = false;
+                    }
+                }
+            } else if (gameState == GameState::Running) {
+                if(event.type == SDL_KEYDOWN){
+                    if(event.key.keysym.sym == SDLK_ESCAPE){
+                        gameState = GameState::Paused;   
+                    }else if(player.HPnullPlayership()){
+                        gameState = GameState :: loosescreen;
+                    }
+                }
+            }else if (gameState == GameState::Paused){
+                if(event.type == SDL_KEYDOWN){
+                    if(event.key.keysym.sym == SDLK_RETURN){
+                        gameState = GameState ::Running;}
+                    else if(event.key.keysym.sym == SDLK_ESCAPE){
+                        gameState = GameState::Exiting;
+                        running = false;
+                    }
+                    
+                }
+            }else if (gameState == GameState::loosescreen){
+                if(event.type == SDL_KEYDOWN){
+                    if(event.key.keysym.sym == SDLK_ESCAPE){
+                        gameState = GameState ::Menu;
+                    }
+                    
+                }
             }
+            
+        }
+
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderClear(renderer);
+
+        if (gameState == GameState::Menu) {
+            // Affichage du menu
+            // Par exemple, affichez du texte pour indiquer à l'utilisateur de démarrer le jeu
+            // Vous pouvez utiliser SDL_Renderer pour dessiner des éléments du menu
+            // Exemple :
+            SDL_Color textColor = {255, 255, 255, 255};
+            SDL_Surface* textSurface = TTF_RenderText_Solid(font, "Appuyez sur Entrée pour commencer", textColor);
+            SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+
+            SDL_Rect textRect = {100, 200, textSurface->w, textSurface->h};
+            SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
+
+            SDL_FreeSurface(textSurface);
+            SDL_DestroyTexture(textTexture);
+  
+        }else if (gameState == GameState::loosescreen) {
+            // Affichage du menu
+            // Par exemple, affichez du texte pour indiquer à l'utilisateur de démarrer le jeu
+            // Vous pouvez utiliser SDL_Renderer pour dessiner des éléments du menu
+            // Exemple :
+            SDL_Color textColor = {255, 255, 255, 255};
+            SDL_Surface* textSurface = TTF_RenderText_Solid(font, "t'es mort t'es trop nul", textColor);
+            SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+
+            SDL_Rect textRect = {100, 200, textSurface->w, textSurface->h};
+            SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
+
+            SDL_FreeSurface(textSurface);
+            SDL_DestroyTexture(textTexture);
+  
+        }  else if (gameState == GameState::Paused) {
+            // Affichage du menu
+            // Par exemple, affichez du texte pour indiquer à l'utilisateur de démarrer le jeu
+            // Vous pouvez utiliser SDL_Renderer pour dessiner des éléments du menu
+            // Exemple :
+            SDL_Color textColor = {255, 255, 255, 255};
+            SDL_Surface* textSurface = TTF_RenderText_Solid(font, "Appuyez sur Entrée pour reprendre", textColor);
+            SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+
+            SDL_Rect textRect = {100, 200, textSurface->w, textSurface->h};
+            SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
+
+            SDL_FreeSurface(textSurface);
+            SDL_DestroyTexture(textTexture);
+            
+        } 
+        else if (gameState == GameState::Running) {
+
+             
             SDL_Rect playerRect = {int(player.getPos().x), int(player.getPos().y), int(player.getWidth()), int(player.getHeight())};
-             const Uint8 *keyboardState = SDL_GetKeyboardState(NULL);
+            const Uint8 *keyboardState = SDL_GetKeyboardState(NULL);
             player.moveShip(keyboardState);
             if(itab.IsAllDead()){
                 std::cout<<"It's empty !"<<std::endl;
@@ -145,7 +261,7 @@ int main(void)
             Pmanager.UpdateProj();
             Pmanager.hasProjectileCollided(&player,itabPtr);
             Pmanager.DrawProj(renderer);
-            player.playerDeath(Pmanager);
+            //player.playerDeath(Pmanager);
             // Present the rendered frame
             SDL_RenderPresent(renderer);
 
@@ -157,17 +273,24 @@ int main(void)
             if (delay > 0) {
                 SDL_Delay(floor(delay));
             }
+        }
+
+        SDL_RenderPresent(renderer);
+        
     }
+
 
     // Libération des ressources
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_CloseAudioDevice(deviceId);
+    TTF_CloseFont(font);
     if (SDL_GetQueuedAudioSize(deviceId) == 0) {
             SDL_FreeWAV(wavStart);
     }
     IMG_Quit();
     SDL_Quit();
+    TTF_Quit();
 
     return 0;
 }
