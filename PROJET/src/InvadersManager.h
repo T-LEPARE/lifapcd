@@ -42,9 +42,11 @@ public:
     /**
      * @brief Updates the positions of all Invaders based on their movement pattern.
      */
-    void Update(ProjectileManager& tabpro, Player& player);
+    void Update(ProjectileManager& tabpro, Player& player, std::vector<int> InvaderQuiTir, int indiceDuPlusADroite);
 
-    void Move();
+    int LePlusADroite();
+
+    void Move(int indiceDuPlusADroite);
     
     /**
      * @brief Checks for collisions between all Invaders and a given Projectile.
@@ -73,7 +75,9 @@ public:
     
     void DrawInvaders(SDL_Renderer* renderer);
 
-    void Shoot(ProjectileManager& tabpro);
+    std::vector<int> QuiPeutTirer();
+
+    void Shoot(ProjectileManager& tabpro, std::vector<int> InvaderQuiTir);
 
     bool ArriveEnBas();
 

@@ -120,13 +120,26 @@
             surface = _surface;
     }
     
+    bool Invader::InvaderpeutTirer() {
+    Uint32 maintenant = SDL_GetTicks();
+    WeaponManager wp;
+    if (maintenant - dernier_tir > 1000)
+        return true;
+    return false;
+    }
+
+
     void Invader::shootInvader(ProjectileManager& projectileManager) {
-                std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
-                Position(Invader::getPos().x+Invader::getWidth()/2,
-                Invader::getPos().y+(Invader::getHeight()+30)),
-                Invader::getDamage()
-            );
+        Uint32 maintenant = SDL_GetTicks();
+        if (InvaderpeutTirer()) 
+        {
+            dernier_tir = maintenant;
+            std::unique_ptr<Projectile> p = std::make_unique<Projectile>(
+            Position(Invader::getPos().x+Invader::getWidth()/2,
+            Invader::getPos().y+(Invader::getHeight()+30)),
+            Invader::getDamage());
             projectileManager.addProjectile(std::move(p));
+        }
     }
 
     bool Invader::ArriveEnBas()

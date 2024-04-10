@@ -17,6 +17,7 @@ private:
     float height;
     SDL_Surface* surface;
     SDL_Texture* texture;
+    Uint32 dernier_tir;
 
 public:
     /**
@@ -173,6 +174,8 @@ public:
      * @param _surface 
      */
     void setSurface(SDL_Surface* _surface);
+
+    bool InvaderpeutTirer();
 
     /**
      * @brief permet au invader de tirer 

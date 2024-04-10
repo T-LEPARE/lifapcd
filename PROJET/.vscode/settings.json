@@ -105,6 +105,7 @@
     "cinttypes": "cpp",
     "cstring": "cpp",
     "list": "cpp",
-    "optional": "cpp"
+    "optional": "cpp",
+    "ctime": "cpp"
   }
 }

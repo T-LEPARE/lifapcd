@@ -236,7 +236,7 @@ if (TTF_Init() != 0) {
             player.moveShip(keyboardState);
             if(itab.IsAllDead()){
                 std::cout<<"It's empty !"<<std::endl;
-                itab.SetnbInvader(4);
+                itab.SetnbInvader(2);
                 itab.InitTabInvader(renderer,surfaceInvader);
                 itab.RectInvaderInit(renderer);
                 if (itab.IsAllDead()==1) {
@@ -258,7 +258,9 @@ if (TTF_Init() != 0) {
                 }
             }
             std::vector<Invader>* itabPtr = itab.getInvaders();
-            itab.Update(Pmanager,player);
+            std::vector<int> ListeDerniereLigne=itab.QuiPeutTirer();
+            int indiceDuPlusADroite=itab.LePlusADroite();
+            itab.Update(Pmanager,player,ListeDerniereLigne,indiceDuPlusADroite);
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);
             player.firePlayer(Pmanager, weaponManager,keyboardState);

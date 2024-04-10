@@ -1,6 +1,7 @@
 #include "InvadersManager.h"
 #include <iostream>
-
+#include <stdlib.h>
+#include <time.h>
 
 InvadersManager::InvadersManager() {
     this->nbInvader = 0;
@@ -24,21 +25,47 @@ void InvadersManager::RemoveInvader(size_t index) {
     invaders.erase(invaders.begin() + index);
 }
 
-void InvadersManager::Update(ProjectileManager& tabpro, Player &player) {
-    Shoot(tabpro);
+void InvadersManager::Update(ProjectileManager& tabpro, Player &player, std::vector<int> InvaderQuiTir,int indiceDuPlusADroite) {
+    Shoot(tabpro, InvaderQuiTir);
     hasInvaderCollided(&player);
-    Move();
+    Move(indiceDuPlusADroite);
 }
 
-void InvadersManager::Shoot(ProjectileManager& tabpro){
-     for (int i = 0;i<nbInvader;i++){
-        invaders[i].shootInvader(tabpro);
+std::vector<int> InvadersManager::QuiPeutTirer()
+{
+    std::vector<int> DerniereLigne;
+    Invader reference=invaders[nbInvader-1];
+    for(int i=0;i<nbInvader;i++)
+    {
+        if (invaders[i].getPos().y==reference.getPos().y)
+        {
+            DerniereLigne.push_back(i);
+        }
     }
+    return DerniereLigne;
 }
 
-void InvadersManager::Move() {
+void InvadersManager::Shoot(ProjectileManager& tabpro,std::vector<int> InvaderQuiTir ){
+    std::srand(time(NULL));
+    int CeluiQuiTir = std::rand()%InvaderQuiTir.size(); 
+    invaders[InvaderQuiTir[CeluiQuiTir]].shootInvader(tabpro);
+}
+
+
+int InvadersManager::LePlusADroite()
+{
+    float reference=0;
+    for (int i = 0; i < nbInvader; i++) 
+    {
+        if(invaders[i].getPos().x>invaders[reference].getPos().x)
+            reference=i;
+    }
+    return reference;
+}
+
+void InvadersManager::Move(int indiceDuPlusADroite) {
     float leftMost = invaders[0].getPos().x;
-    float rightMost = invaders[nbInvader - 1].getPos().x + invaders[nbInvader - 1].getWidth();
+    float rightMost = invaders[indiceDuPlusADroite].getPos().x + invaders[indiceDuPlusADroite].getWidth();
     if (leftMost < 0 || rightMost > 540) {
         for (int i = 0; i < nbInvader; i++) {
             invaders[i].setDirection(-1*invaders[i].getDirection().x,1);
@@ -97,6 +124,8 @@ void InvadersManager::InitTabInvader(SDL_Renderer* renderer,SDL_Surface* surface
             SDL_Log("Échec de la création de la texture : %s", SDL_GetError());
             exit(EXIT_FAILURE);
         }
+        if (x+invaders[i].getWidth()+10>=400)
+            {x=-10;y+=invaders[i].getHeight()+10;}
         x+=invaders[i].getWidth()+10;
     }
 }
