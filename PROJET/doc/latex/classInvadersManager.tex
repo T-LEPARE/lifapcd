@@ -1,0 +1,160 @@
+\hypertarget{classInvadersManager}{}\doxysection{Invaders\+Manager Class Reference}
+\label{classInvadersManager}\index{InvadersManager@{InvadersManager}}
+
+
+Inheritance diagram for Invaders\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classInvadersManager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Invaders\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classInvadersManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInvadersManager_a118cdbf910cdd7d71fae78154ad39e92}\label{classInvadersManager_a118cdbf910cdd7d71fae78154ad39e92}} 
+\mbox{\hyperlink{classInvadersManager_a118cdbf910cdd7d71fae78154ad39e92}{Invaders\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor to initialize an empty \mbox{\hyperlink{classInvadersManager}{Invaders\+Manager}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInvadersManager_a37da04590a4f2d1d861e7f5723000d5f}\label{classInvadersManager_a37da04590a4f2d1d861e7f5723000d5f}} 
+\mbox{\hyperlink{classInvadersManager_a37da04590a4f2d1d861e7f5723000d5f}{Invaders\+Manager}} (int nb)
+\begin{DoxyCompactList}\small\item\em Default constructor to initialize an empty \mbox{\hyperlink{classInvadersManager}{Invaders\+Manager}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInvadersManager_ad4ed2ce6bf1ca6df1a4c02f9b1bfdcb6}\label{classInvadersManager_ad4ed2ce6bf1ca6df1a4c02f9b1bfdcb6}} 
+\mbox{\hyperlink{classInvadersManager_ad4ed2ce6bf1ca6df1a4c02f9b1bfdcb6}{$\sim$\+Invaders\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Default destructor to delete \mbox{\hyperlink{classInvadersManager}{Invaders\+Manager}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInvadersManager_a39a8ec8ee8ea7aacfb9b5e4f9706091f}{Add\+Invader}} (const \mbox{\hyperlink{classInvader}{Invader}} \&invader)
+\begin{DoxyCompactList}\small\item\em Adds a new \mbox{\hyperlink{classInvader}{Invader}} to the vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInvadersManager_a8624eab1ef68d727f93323ef4caa7e5f}{Remove\+Invader}} (size\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Removes a dead \mbox{\hyperlink{classInvader}{Invader}} from the vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInvadersManager_ac5679a730c2a6463d838738c0538e059}\label{classInvadersManager_ac5679a730c2a6463d838738c0538e059}} 
+void \mbox{\hyperlink{classInvadersManager_ac5679a730c2a6463d838738c0538e059}{Update}} (\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&tabpro, \mbox{\hyperlink{classPlayer}{Player}} \&player, std\+::vector$<$ int $>$ Invader\+Qui\+Tir, int indice\+Du\+Plus\+ADroite)
+\begin{DoxyCompactList}\small\item\em Updates the positions of all Invaders based on their movement pattern. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInvadersManager_ad2f3852c0504224f6f2ea5be013f517f}\label{classInvadersManager_ad2f3852c0504224f6f2ea5be013f517f}} 
+int {\bfseries Le\+Plus\+ADroite} ()
+\item 
+\mbox{\Hypertarget{classInvadersManager_a5bf71a815b51045e409f8a22704cd26f}\label{classInvadersManager_a5bf71a815b51045e409f8a22704cd26f}} 
+void {\bfseries Move} (int indice\+Du\+Plus\+ADroite)
+\item 
+void \mbox{\hyperlink{classInvadersManager_a53155868fe9fece498937505fa3fc3cb}{Check\+Collisions}} (\mbox{\hyperlink{classProjectile}{Projectile}} P)
+\begin{DoxyCompactList}\small\item\em Checks for collisions between all Invaders and a given \mbox{\hyperlink{classProjectile}{Projectile}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInvadersManager_a7f29ce20b210c228214a5189a114e23f}\label{classInvadersManager_a7f29ce20b210c228214a5189a114e23f}} 
+bool {\bfseries Player\+Delay\+Dmg} ()
+\item 
+\mbox{\Hypertarget{classInvadersManager_a23e402ae5b0ab93a336fbb2c2a4e7aae}\label{classInvadersManager_a23e402ae5b0ab93a336fbb2c2a4e7aae}} 
+void {\bfseries has\+Invader\+Collided} (\mbox{\hyperlink{classPlayer}{Player}} $\ast$player\+Ptr)
+\item 
+\mbox{\Hypertarget{classInvadersManager_ab048b1f59cbef5c260b1fd79dc80b695}\label{classInvadersManager_ab048b1f59cbef5c260b1fd79dc80b695}} 
+void {\bfseries Damage\+Taken\+Player} (\mbox{\hyperlink{classPlayer}{Player}} $\ast$player\+Ptr, \mbox{\hyperlink{classInvader}{Invader}} invader)
+\item 
+bool \mbox{\hyperlink{classInvadersManager_ad39bdfebe8c13d274fe7e05a4020b766}{Is\+All\+Dead}} ()
+\begin{DoxyCompactList}\small\item\em Checks if all Invaders in the manager are dead. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInvadersManager_a9a7ec2c42b16cf099e4ef19a57bb2da2}\label{classInvadersManager_a9a7ec2c42b16cf099e4ef19a57bb2da2}} 
+void {\bfseries Setnb\+Invader} (int nb)
+\item 
+\mbox{\Hypertarget{classInvadersManager_a11a841006bd3a6add8573752c4316a6a}\label{classInvadersManager_a11a841006bd3a6add8573752c4316a6a}} 
+void {\bfseries Init\+Tab\+Invader} (SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Surface $\ast$surface\+Invader)
+\item 
+\mbox{\Hypertarget{classInvadersManager_a1bb3a1007f6c54b6c05a6c554f70010e}\label{classInvadersManager_a1bb3a1007f6c54b6c05a6c554f70010e}} 
+void {\bfseries Rect\+Invader\+Init} (SDL\+\_\+\+Renderer $\ast$renderer)
+\item 
+\mbox{\Hypertarget{classInvadersManager_a91e8ca7e1571183a2e8893dd359a7862}\label{classInvadersManager_a91e8ca7e1571183a2e8893dd359a7862}} 
+void {\bfseries Rect\+Invader\+Update} ()
+\item 
+\mbox{\Hypertarget{classInvadersManager_ac6ad4ddf8581bc78663f10b04f744d81}\label{classInvadersManager_ac6ad4ddf8581bc78663f10b04f744d81}} 
+void {\bfseries Draw\+Invaders} (SDL\+\_\+\+Renderer $\ast$renderer)
+\item 
+\mbox{\Hypertarget{classInvadersManager_a50d80ccc11a00ebff838746c050cf557}\label{classInvadersManager_a50d80ccc11a00ebff838746c050cf557}} 
+std\+::vector$<$ int $>$ {\bfseries Qui\+Peut\+Tirer} ()
+\item 
+\mbox{\Hypertarget{classInvadersManager_a8c72f718516150b06ba4dd513ce0d161}\label{classInvadersManager_a8c72f718516150b06ba4dd513ce0d161}} 
+void {\bfseries Shoot} (\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&tabpro, std\+::vector$<$ int $>$ Invader\+Qui\+Tir)
+\item 
+\mbox{\Hypertarget{classInvadersManager_a01bdf4ee1d66b93beafa92f1fe4838be}\label{classInvadersManager_a01bdf4ee1d66b93beafa92f1fe4838be}} 
+bool {\bfseries Arrive\+En\+Bas} ()
+\item 
+\mbox{\Hypertarget{classInvadersManager_ae22dfcba301a6fed8f2496cb8e77ee7b}\label{classInvadersManager_ae22dfcba301a6fed8f2496cb8e77ee7b}} 
+std\+::vector$<$ \mbox{\hyperlink{classInvader}{Invader}} $>$ $\ast$ {\bfseries get\+Invaders} ()
+\item 
+\mbox{\Hypertarget{classInvadersManager_afc4a44a48fc938d8fe7fa91608ed73ed}\label{classInvadersManager_afc4a44a48fc938d8fe7fa91608ed73ed}} 
+void {\bfseries reset\+Invaders} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classInvadersManager_a39a8ec8ee8ea7aacfb9b5e4f9706091f}\label{classInvadersManager_a39a8ec8ee8ea7aacfb9b5e4f9706091f}} 
+\index{InvadersManager@{InvadersManager}!AddInvader@{AddInvader}}
+\index{AddInvader@{AddInvader}!InvadersManager@{InvadersManager}}
+\doxysubsubsection{\texorpdfstring{AddInvader()}{AddInvader()}}
+{\footnotesize\ttfamily void Invaders\+Manager\+::\+Add\+Invader (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classInvader}{Invader}} \&}]{invader }\end{DoxyParamCaption})}
+
+
+
+Adds a new \mbox{\hyperlink{classInvader}{Invader}} to the vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em invader} & The \mbox{\hyperlink{classInvader}{Invader}} object to be added. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInvadersManager_a53155868fe9fece498937505fa3fc3cb}\label{classInvadersManager_a53155868fe9fece498937505fa3fc3cb}} 
+\index{InvadersManager@{InvadersManager}!CheckCollisions@{CheckCollisions}}
+\index{CheckCollisions@{CheckCollisions}!InvadersManager@{InvadersManager}}
+\doxysubsubsection{\texorpdfstring{CheckCollisions()}{CheckCollisions()}}
+{\footnotesize\ttfamily void Invaders\+Manager\+::\+Check\+Collisions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProjectile}{Projectile}}}]{P }\end{DoxyParamCaption})}
+
+
+
+Checks for collisions between all Invaders and a given \mbox{\hyperlink{classProjectile}{Projectile}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & The \mbox{\hyperlink{classProjectile}{Projectile}} object to check for collisions. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector containing indices of the hit Invaders. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInvadersManager_ad39bdfebe8c13d274fe7e05a4020b766}\label{classInvadersManager_ad39bdfebe8c13d274fe7e05a4020b766}} 
+\index{InvadersManager@{InvadersManager}!IsAllDead@{IsAllDead}}
+\index{IsAllDead@{IsAllDead}!InvadersManager@{InvadersManager}}
+\doxysubsubsection{\texorpdfstring{IsAllDead()}{IsAllDead()}}
+{\footnotesize\ttfamily bool Invaders\+Manager\+::\+Is\+All\+Dead (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if all Invaders in the manager are dead. 
+
+\begin{DoxyReturn}{Returns}
+True if all invaders are dead, False otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInvadersManager_a8624eab1ef68d727f93323ef4caa7e5f}\label{classInvadersManager_a8624eab1ef68d727f93323ef4caa7e5f}} 
+\index{InvadersManager@{InvadersManager}!RemoveInvader@{RemoveInvader}}
+\index{RemoveInvader@{RemoveInvader}!InvadersManager@{InvadersManager}}
+\doxysubsubsection{\texorpdfstring{RemoveInvader()}{RemoveInvader()}}
+{\footnotesize\ttfamily void Invaders\+Manager\+::\+Remove\+Invader (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+
+
+Removes a dead \mbox{\hyperlink{classInvader}{Invader}} from the vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the \mbox{\hyperlink{classInvader}{Invader}} to be removed. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Invaders\+Manager.\+h\item 
+src/Invaders\+Manager.\+cpp\end{DoxyCompactItemize}

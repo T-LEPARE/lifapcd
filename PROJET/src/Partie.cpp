@@ -93,7 +93,14 @@ if (TTF_Init() != 0) {
     SDL_Log("Rendu créé avec succès.");
     // Création de l'instance de Display
     Display display(renderer);
-
+    
+    SDL_Surface* vie1Surface = IMG_Load("./data/SpaceInvaders_Health_1.png");
+    SDL_Surface* vie2Surface = IMG_Load("./data/SpaceInvaders_Health_2.png");
+    SDL_Surface* vie3Surface = IMG_Load("./data/SpaceInvaders_Health_3.png");
+    SDL_Surface* vie4Surface = IMG_Load("./data/SpaceInvaders_Health_4.png");
+    SDL_Surface* vie5Surface = IMG_Load("./data/SpaceInvaders_Health_5.png");
+    SDL_Surface* vie0Surface = IMG_Load("./data/SpaceInvaders_Health_0.png");
+    SDL_Texture* vieTexture;
     // Création du playerShip
     Player player;
     player.setSurface(IMG_Load("./data/PlayerShip.png"));
@@ -143,6 +150,7 @@ if (TTF_Init() != 0) {
                         gameState = GameState::Running;
                         SDL_QueueAudio(deviceId, wavStart, wavLength);
                         SDL_PauseAudioDevice(deviceId, 0);
+                        player.setHP(0);
                         itab.resetInvaders();
                         player.playerDeath(Pmanager);
                         itab.SetnbInvader(12);
@@ -167,6 +175,7 @@ if (TTF_Init() != 0) {
                         gameState = GameState::Running;}
                     else if(event.key.keysym.sym == SDLK_ESCAPE){
                         gameState = GameState::Menu;
+                        
                     }
                     
                 }
@@ -219,12 +228,14 @@ if (TTF_Init() != 0) {
             // Par exemple, affichez du texte pour indiquer à l'utilisateur de démarrer le jeu
             // Vous pouvez utiliser SDL_Renderer pour dessiner des éléments du menu
             // Exemple :
-            
+            vieTexture =  SDL_CreateTextureFromSurface(renderer, vie0Surface);
+            SDL_Rect Vie0Rect = {250, display.getDIMH()/2-50, 100, 50};
+            SDL_RenderCopy(renderer, vieTexture, NULL, &Vie0Rect);
             SDL_Color textColor = {255, 255, 255, 255};
             SDL_Surface* textSurface = TTF_RenderText_Solid(font, "You die fucking idiot", textColor);
             SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
 
-            SDL_Rect textRect = {110,display.getDIMW()/2, textSurface->w, textSurface->h};
+            SDL_Rect textRect = {110,display.getDIMH()/2, textSurface->w, textSurface->h};
             SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
             SDL_FreeSurface(textSurface);
             SDL_DestroyTexture(textTexture);
@@ -298,6 +309,31 @@ if (TTF_Init() != 0) {
             if(player.HPnullPlayership()){
                 gameState = GameState::loosescreen;
                 SDL_PauseAudioDevice(deviceId, 1);
+            }
+            if(player.getHP()>= 80){
+                vieTexture =  SDL_CreateTextureFromSurface(renderer, vie5Surface);
+                SDL_Rect Vie5Rect = {0, 0, 100, 50};
+                SDL_RenderCopy(renderer, vieTexture, NULL, &Vie5Rect);
+            }
+            else if (player.getHP() >= 60 && player.getHP()< 80){
+                vieTexture =  SDL_CreateTextureFromSurface(renderer, vie4Surface);
+                SDL_Rect Vie4Rect = {0, 0, 100, 50};
+                SDL_RenderCopy(renderer, vieTexture, NULL, &Vie4Rect);
+            }
+            else if (player.getHP() >= 40 && player.getHP() < 60){
+               SDL_Texture* vieTexture =  SDL_CreateTextureFromSurface(renderer, vie3Surface);
+                SDL_Rect Vie3Rect = {0, 0, 100, 50};
+                SDL_RenderCopy(renderer, vieTexture, NULL, &Vie3Rect);
+            }
+            else if (player.getHP() >= 20 && player.getHP() < 40){
+                vieTexture =  SDL_CreateTextureFromSurface(renderer, vie2Surface);
+                SDL_Rect Vie2Rect = {0, 0, 100, 50};
+                SDL_RenderCopy(renderer, vieTexture, NULL, &Vie2Rect);
+            }
+            else if (player.getHP() >= 1 && player.getHP() < 20){
+                vieTexture =  SDL_CreateTextureFromSurface(renderer, vie1Surface);
+                SDL_Rect Vie1Rect = {0, 0, 100, 50};
+                SDL_RenderCopy(renderer, vieTexture, NULL, &Vie1Rect);
             }
             std::vector<Invader>* itabPtr = itab.getInvaders();
             std::vector<int> ListeDerniereLigne=itab.QuiPeutTirer();
