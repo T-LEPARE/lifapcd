@@ -224,10 +224,10 @@ if (TTF_Init() != 0) {
             // Exemple :
             
             SDL_Color textColor = {255, 255, 255, 255};
-            SDL_Surface* textSurface = TTF_RenderText_Solid(font, "t'es mort t'es trop nul", textColor);
+            SDL_Surface* textSurface = TTF_RenderText_Solid(font, "You die fucking idiot", textColor);
             SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
 
-            SDL_Rect textRect = {100, 200, textSurface->w, textSurface->h};
+            SDL_Rect textRect = {110,display.getDIMW()/2, textSurface->w, textSurface->h};
             SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
             SDL_FreeSurface(textSurface);
             SDL_DestroyTexture(textTexture);
