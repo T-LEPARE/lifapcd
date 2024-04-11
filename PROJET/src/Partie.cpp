@@ -40,7 +40,7 @@ if (TTF_Init() != 0) {
     SDL_Quit();
     return 1;
 }
- TTF_Font* font = TTF_OpenFont("./data/sewer.ttf", 24);
+ TTF_Font* font = TTF_OpenFont("./data/space_invaders.ttf", 24);
     if (font == nullptr) {
         return 1;
     }
@@ -169,8 +169,7 @@ if (TTF_Init() != 0) {
                         SDL_PauseAudioDevice(deviceId, 0);
                         gameState = GameState::Running;}
                     else if(event.key.keysym.sym == SDLK_ESCAPE){
-                        gameState = GameState::Exiting;
-                        running = false;
+                        gameState = GameState::Menu;
                     }
                     
                 }
@@ -194,13 +193,27 @@ if (TTF_Init() != 0) {
             // Par exemple, affichez du texte pour indiquer à l'utilisateur de démarrer le jeu
             // Vous pouvez utiliser SDL_Renderer pour dessiner des éléments du menu
             // Exemple :
-            SDL_Color textColor = {255, 255, 255, 255};
-            SDL_Surface* textSurface = TTF_RenderText_Solid(font, "Appuyez sur Entrée pour commencer", textColor);
-            SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+            int numRepeatsX = (display.getDIMW() / display.getSurface()->w)+1;
+            int numRepeatsY = (display.getDIMH() / display.getSurface()->h)+1;
+             for (int y = 0; y < numRepeatsY; y++) {
+                for (int x = 0; x < numRepeatsX; x++) {
+                // Define the rectangle for each image position
+                SDL_Rect rect = {x * display.getSurface()->w, y * display.getSurface()->h, display.getSurface()->w, display.getSurface()->h};
+                SDL_RenderCopy(renderer, display.getTexture(), NULL, &rect);
+                }
+            }
+            SDL_Surface* menuSurface = IMG_Load("./data/SpaceInvaders_LogoLarge.png");
+            SDL_Texture* menuTexture =SDL_CreateTextureFromSurface(renderer, menuSurface);
+            SDL_Rect paused = {-45,display.getDIMW()/2,menuSurface->w,menuSurface->h};
+             SDL_Color textColor = {255, 255, 255, 255};
+             SDL_Surface* textSurface = TTF_RenderText_Solid(font, "Press enter to start", textColor);
+             SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
 
-            SDL_Rect textRect = {100, 200, textSurface->w, textSurface->h};
+            SDL_Rect textRect = {110, 520, textSurface->w, textSurface->h};
+            SDL_RenderCopy(renderer,menuTexture,NULL,&paused);
             SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
-
+            SDL_FreeSurface(menuSurface);
+            SDL_DestroyTexture(menuTexture);
             SDL_FreeSurface(textSurface);
             SDL_DestroyTexture(textTexture);
   
@@ -209,6 +222,7 @@ if (TTF_Init() != 0) {
             // Par exemple, affichez du texte pour indiquer à l'utilisateur de démarrer le jeu
             // Vous pouvez utiliser SDL_Renderer pour dessiner des éléments du menu
             // Exemple :
+            
             SDL_Color textColor = {255, 255, 255, 255};
             SDL_Surface* textSurface = TTF_RenderText_Solid(font, "t'es mort t'es trop nul", textColor);
             SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
@@ -239,10 +253,17 @@ if (TTF_Init() != 0) {
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             SDL_Surface* pausedSurface = IMG_Load("./data/SpaceInvaders_LogoLarge.png");
             SDL_Texture* pausedTexture =SDL_CreateTextureFromSurface(renderer, pausedSurface);
+            SDL_Color textColor = {255, 255, 255, 255};
+            SDL_Surface* textSurface = TTF_RenderText_Solid(font, "Press enter to resume", textColor);
+            SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+            SDL_Rect textRect = {110, 520, textSurface->w, textSurface->h};
             SDL_Rect paused = {-45,display.getDIMW()/2,pausedSurface->w,pausedSurface->h};
             SDL_RenderCopy(renderer,pausedTexture,NULL,&paused);
+            SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
             SDL_FreeSurface(pausedSurface);
             SDL_DestroyTexture(pausedTexture);
+            SDL_FreeSurface(textSurface);
+            SDL_DestroyTexture(textTexture);
             
         } 
         else if (gameState == GameState::Running) {
