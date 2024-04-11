@@ -155,7 +155,7 @@ if (TTF_Init() != 0) {
                     if(event.key.keysym.sym == SDLK_ESCAPE){
                         gameState = GameState::Paused;   
                     }else if(player.HPnullPlayership()){
-                        gameState = GameState :: loosescreen;
+                        gameState = GameState::loosescreen;
                     }
                 }
             }else if (gameState == GameState::Paused){
@@ -171,7 +171,7 @@ if (TTF_Init() != 0) {
             }else if (gameState == GameState::loosescreen){
                 if(event.type == SDL_KEYDOWN){
                     if(event.key.keysym.sym == SDLK_ESCAPE){
-                        gameState = GameState ::Menu;
+                        gameState = GameState::Menu;
                     }
                     
                 }
