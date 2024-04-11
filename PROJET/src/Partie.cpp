@@ -232,7 +232,7 @@ if (TTF_Init() != 0) {
             SDL_Rect Vie0Rect = {250, display.getDIMH()/2-50, 100, 50};
             SDL_RenderCopy(renderer, vieTexture, NULL, &Vie0Rect);
             SDL_Color textColor = {255, 255, 255, 255};
-            SDL_Surface* textSurface = TTF_RenderText_Solid(font, "You die fucking idiot", textColor);
+            SDL_Surface* textSurface = TTF_RenderText_Solid(font, "You died muthafacker", textColor);
             SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
 
             SDL_Rect textRect = {110,display.getDIMH()/2, textSurface->w, textSurface->h};
