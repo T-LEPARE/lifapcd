@@ -126,8 +126,8 @@ if (TTF_Init() != 0) {
     const float targetFrameTime = 1000.0f / targetFPS;  // milliseconds per frame
     float elapsed;
     float delay;
-    SDL_QueueAudio(deviceId, wavStart, wavLength);
-    SDL_PauseAudioDevice(deviceId, 0);
+    // SDL_QueueAudio(deviceId, wavStart, wavLength);
+    // SDL_PauseAudioDevice(deviceId, 0);
         while (running) {
         Uint64 start = SDL_GetPerformanceCounter();
         while (SDL_PollEvent(&event)) {
@@ -141,6 +141,9 @@ if (TTF_Init() != 0) {
                 if (event.type == SDL_KEYDOWN) {
                     if (event.key.keysym.sym == SDLK_RETURN) {
                         gameState = GameState::Running;
+                        SDL_QueueAudio(deviceId, wavStart, wavLength);
+                        SDL_PauseAudioDevice(deviceId, 0);
+                        itab.resetInvaders();
                         player.playerDeath(Pmanager);
                         itab.SetnbInvader(12);
                         itab.InitTabInvader(renderer,surfaceInvader);
@@ -153,14 +156,17 @@ if (TTF_Init() != 0) {
             } else if (gameState == GameState::Running) {
                 if(event.type == SDL_KEYDOWN){
                     if(event.key.keysym.sym == SDLK_ESCAPE){
-                        gameState = GameState::Paused;   
-                    }else if(player.HPnullPlayership()){
+                        gameState = GameState::Paused;
+                        SDL_PauseAudioDevice(deviceId, 1);   
+                    }else if(player.HPnullPlayership() || itab.ArriveEnBas()){
                         gameState = GameState::loosescreen;
+                        SDL_PauseAudioDevice(deviceId, 1);
                     }
                 }
             }else if (gameState == GameState::Paused){
                 if(event.type == SDL_KEYDOWN){
                     if(event.key.keysym.sym == SDLK_RETURN){
+                        SDL_PauseAudioDevice(deviceId, 0);
                         gameState = GameState::Running;}
                     else if(event.key.keysym.sym == SDLK_ESCAPE){
                         gameState = GameState::Exiting;
@@ -172,7 +178,7 @@ if (TTF_Init() != 0) {
                 if(event.type == SDL_KEYDOWN){
                     if(event.key.keysym.sym == SDLK_ESCAPE){
                         gameState = GameState::Menu;
-                        itab.resetInvaders();
+                        
                     }
                     
                 }
@@ -217,15 +223,26 @@ if (TTF_Init() != 0) {
             // Par exemple, affichez du texte pour indiquer à l'utilisateur de démarrer le jeu
             // Vous pouvez utiliser SDL_Renderer pour dessiner des éléments du menu
             // Exemple :
-            SDL_Color textColor = {255, 255, 255, 255};
-            SDL_Surface* textSurface = TTF_RenderText_Solid(font, "Appuyez sur Entrée pour reprendre", textColor);
-            SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
-
-            SDL_Rect textRect = {100, 200, textSurface->w, textSurface->h};
-            SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
-
-            SDL_FreeSurface(textSurface);
-            SDL_DestroyTexture(textTexture);
+            //SpaceInvaders_LogoLarge.png
+            int numRepeatsX = (display.getDIMW() / display.getSurface()->w)+1;
+            int numRepeatsY = (display.getDIMH() / display.getSurface()->h)+1;
+             for (int y = 0; y < numRepeatsY; y++) {
+                for (int x = 0; x < numRepeatsX; x++) {
+                // Define the rectangle for each image position
+                SDL_Rect rect = {x * display.getSurface()->w, y * display.getSurface()->h, display.getSurface()->w, display.getSurface()->h};
+                SDL_RenderCopy(renderer, display.getTexture(), NULL, &rect);
+                }
+            }
+            itab.DrawInvaders(renderer);
+            Pmanager.DrawProj(renderer);
+            SDL_Rect playerRect = {int(player.getPos().x), int(player.getPos().y), int(player.getWidth()), int(player.getHeight())};
+            SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
+            SDL_Surface* pausedSurface = IMG_Load("./data/SpaceInvaders_LogoLarge.png");
+            SDL_Texture* pausedTexture =SDL_CreateTextureFromSurface(renderer, pausedSurface);
+            SDL_Rect paused = {-45,display.getDIMW()/2,pausedSurface->w,pausedSurface->h};
+            SDL_RenderCopy(renderer,pausedTexture,NULL,&paused);
+            SDL_FreeSurface(pausedSurface);
+            SDL_DestroyTexture(pausedTexture);
             
         } 
         else if (gameState == GameState::Running) {
