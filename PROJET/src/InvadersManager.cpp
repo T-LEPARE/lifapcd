@@ -85,6 +85,14 @@ void InvadersManager::Move(int indiceDuPlusADroite) {
     }
 }
 
+bool InvadersManager::PlayerDelayDmg()
+{
+    Uint32 maintenant = SDL_GetTicks();
+    if (maintenant - Dernier_PerteDeVie > 50)
+        return true;
+    return false;
+}
+
 void InvadersManager::hasInvaderCollided(Player* playerPtr)
 {
     for(int i=0;i<nbInvader;i++)
@@ -95,7 +103,14 @@ void InvadersManager::hasInvaderCollided(Player* playerPtr)
             (Iposition.x + invaders[i].getWidth() > Pposition.x ) &&
             (Iposition.y < Pposition.y + playerPtr->getHeight()) &&
             (Iposition.y + invaders[i].getHeight()> Pposition.y ))
-            DamageTakenPlayer(playerPtr,invaders[i]);
+            {
+                Uint32 maintenant = SDL_GetTicks();
+                if (PlayerDelayDmg()) 
+                {
+                    Dernier_PerteDeVie = maintenant;
+                    DamageTakenPlayer(playerPtr,invaders[i]);
+                }
+            }
     }
 }
 
@@ -151,10 +166,8 @@ void InvadersManager::DrawInvaders(SDL_Renderer* renderer){
 
 bool InvadersManager::ArriveEnBas()
 {
-    for (int i = 0; i < nbInvader; i++) {
-        if(invaders[i].ArriveEnBas())
+    if(invaders[nbInvader-1].ArriveEnBas())
             return true;
-    }
     return false;
 }
 

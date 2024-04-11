@@ -249,6 +249,8 @@ void Player::moveShip(const Uint8 *keyboardState) {
         }
 }
 
+
+
     bool Player::HPnullPlayership()
     {
         if(HP <= 0)

@@ -31,6 +31,7 @@ private:
     Uint32 dernier_changement;
 
 
+
 public:
     Player();
     Player(float x, float y, int healthPoint, float playerSpeed, float height, float width, Position direct);

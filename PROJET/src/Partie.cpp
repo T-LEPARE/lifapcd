@@ -158,9 +158,6 @@ if (TTF_Init() != 0) {
                     if(event.key.keysym.sym == SDLK_ESCAPE){
                         gameState = GameState::Paused;
                         SDL_PauseAudioDevice(deviceId, 1);   
-                    }else if(player.HPnullPlayership() || itab.ArriveEnBas()){
-                        gameState = GameState::loosescreen;
-                        SDL_PauseAudioDevice(deviceId, 1);
                     }
                 }
             }else if (gameState == GameState::Paused){
@@ -294,6 +291,13 @@ if (TTF_Init() != 0) {
                 SDL_Rect rect = {x * display.getSurface()->w, y * display.getSurface()->h, display.getSurface()->w, display.getSurface()->h};
                 SDL_RenderCopy(renderer, display.getTexture(), NULL, &rect);
                 }
+            }
+            if(itab.ArriveEnBas()){
+                player.setHP(0);
+            }
+            if(player.HPnullPlayership()){
+                gameState = GameState::loosescreen;
+                SDL_PauseAudioDevice(deviceId, 1);
             }
             std::vector<Invader>* itabPtr = itab.getInvaders();
             std::vector<int> ListeDerniereLigne=itab.QuiPeutTirer();

@@ -144,7 +144,7 @@
 
     bool Invader::ArriveEnBas()
     {
-        if (pos.y>960)
+        if (pos.y+height>960)
             return true;
         return false;
     }

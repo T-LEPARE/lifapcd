@@ -80,6 +80,7 @@ void ProjectileManager::hasProjectileCollided(Player* playerPtr, std::vector<Inv
   }
 }
 
+
 void ProjectileManager::DamageTakenProjectile(std::unique_ptr<Projectile>& projectilePtr, Player* playerPtr, Invader* invaderPtr) {
   if (projectilePtr == nullptr) {
     std::cout << "Error: Projectile pointer is null!" << std::endl;

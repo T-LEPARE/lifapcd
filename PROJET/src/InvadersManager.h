@@ -8,6 +8,7 @@
 class InvadersManager: private Invader {
 private:
     int nbInvader;
+    Uint32 Dernier_PerteDeVie;
     std::vector<Invader> invaders;
     std::vector<SDL_Rect> rects;
 
@@ -54,6 +55,8 @@ public:
      * @return A vector containing indices of the hit Invaders.
      */
     void CheckCollisions(Projectile P);
+
+    bool PlayerDelayDmg();
 
     void hasInvaderCollided(Player* playerPtr);
 
