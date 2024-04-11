@@ -142,7 +142,7 @@ if (TTF_Init() != 0) {
                     if (event.key.keysym.sym == SDLK_RETURN) {
                         gameState = GameState::Running;
                         player.playerDeath(Pmanager);
-                        itab.SetnbInvader(4);
+                        itab.SetnbInvader(12);
                         itab.InitTabInvader(renderer,surfaceInvader);
                         itab.RectInvaderInit(renderer); // Commence le jeu si l'utilisateur appuie sur Entrée
                     } else if (event.key.keysym.sym == SDLK_ESCAPE) {
@@ -161,7 +161,7 @@ if (TTF_Init() != 0) {
             }else if (gameState == GameState::Paused){
                 if(event.type == SDL_KEYDOWN){
                     if(event.key.keysym.sym == SDLK_RETURN){
-                        gameState = GameState ::Running;}
+                        gameState = GameState::Running;}
                     else if(event.key.keysym.sym == SDLK_ESCAPE){
                         gameState = GameState::Exiting;
                         running = false;
@@ -172,6 +172,7 @@ if (TTF_Init() != 0) {
                 if(event.type == SDL_KEYDOWN){
                     if(event.key.keysym.sym == SDLK_ESCAPE){
                         gameState = GameState::Menu;
+                        itab.resetInvaders();
                     }
                     
                 }
@@ -208,7 +209,6 @@ if (TTF_Init() != 0) {
 
             SDL_Rect textRect = {100, 200, textSurface->w, textSurface->h};
             SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
-
             SDL_FreeSurface(textSurface);
             SDL_DestroyTexture(textTexture);
   
@@ -268,7 +268,6 @@ if (TTF_Init() != 0) {
             Pmanager.UpdateProj();
             Pmanager.hasProjectileCollided(&player,itabPtr);
             Pmanager.DrawProj(renderer);
-            //player.playerDeath(Pmanager);
             // Present the rendered frame
             SDL_RenderPresent(renderer);
 

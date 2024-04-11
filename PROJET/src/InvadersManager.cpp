@@ -161,3 +161,9 @@ bool InvadersManager::ArriveEnBas()
 std::vector<Invader>* InvadersManager::getInvaders(){
     return &invaders;
 }
+
+void InvadersManager::resetInvaders() {
+    invaders.clear();
+    rects.clear();
+    nbInvader = 0;
+}

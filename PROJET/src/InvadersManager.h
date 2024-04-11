@@ -82,6 +82,10 @@ public:
     bool ArriveEnBas();
 
     std::vector<Invader>* getInvaders();
+
+    void resetInvaders();
+
+
 };
 
 #endif
