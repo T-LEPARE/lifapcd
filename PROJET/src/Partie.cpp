@@ -360,7 +360,7 @@ if (TTF_Init() != 0) {
         }
 
         SDL_RenderPresent(renderer);
-        
+        SDL_Delay(1); // Adding delay to allow for CPU to switch to another task, reducing CPU charge
     }
 
 
