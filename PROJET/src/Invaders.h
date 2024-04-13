@@ -48,9 +48,6 @@ public:
     */
     Invader InitInvader(float x, float y, int HP,float spd,int damage);
 
-
-
-
     /**
      @brief Donne une position a l'invader
      @param x position x

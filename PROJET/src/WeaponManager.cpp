@@ -33,7 +33,7 @@ float WeaponManager::getProjectileHeight(const std::string& weaponName) const {
     return weaponTypes.at(weaponName).projectileHeight;
 }
 
-std::map<std::string, WeaponManager::weaponType> WeaponManager::getWeapons() {
+std::map<std::string, WeaponManager::weaponType> WeaponManager::getWeapons() const {
     return weaponTypes;
 }
 

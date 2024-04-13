@@ -39,6 +39,13 @@ public :
          */
         Projectile(float x,float y, std::string weaponName, WeaponManager& weaponManager);
 
+
+        /**
+        * @brief Constructor for Projectile based on invader position and damage.
+        * 
+        * @param invPos Position of the Invader that fired the Projectile.
+        * @param dmg Damage inflicted by the Projectile.
+        */
         Projectile(const Position& invPos, const int& dmg);
 
         /**
@@ -68,7 +75,7 @@ public :
          */
         void setPos(Position p);
 
-                /**
+        /**
          * @brief Set the Pos object
          * 
          * @param x
@@ -124,11 +131,11 @@ public :
          */
         void setProjectileRect(int x ,int y,int width,int height);
        
+
         /**
-         * @brief 
-         * 
-         * @param renderer 
-         */
+         * @brief Draws the Projectile on the specified renderer.
+         * @param renderer Reference to an SDL_Renderer object.
+        */
         void drawProjectile(SDL_Renderer* renderer);
 };
 

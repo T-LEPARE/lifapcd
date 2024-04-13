@@ -5,33 +5,38 @@
 #include <map>
 #include "WeaponManager.h"
 
-
 class Player;
 class ProjectileManager;
 
 class Weapon {
-
 public:
+  /**
+   * @brief Default constructor for Weapon.
+   */
+  Weapon();
 
-        Weapon();
-        Weapon(std::string weaponName, WeaponManager& weaponManager);
-        ~Weapon();
-        std::string getName();
+  /**
+   * @brief Constructor for Weapon. Initializes a weapon with a specific name and reference to a WeaponManager.
+   * @param weaponName The name of the weapon.
+   * @param weaponManager Reference to a WeaponManager object.
+   */
+  Weapon(std::string weaponName, WeaponManager& weaponManager);
+
+  /**
+   * @brief Destructor for Weapon.
+   */
+  ~Weapon();
+
+  /**
+   * @brief Gets the weapon's name.
+   * @return The weapon's name as a string.
+   */
+  std::string getName();
 
 
-        /**
-         * @brief Get the weapons
-         */
-        /*void firePlayer(Player player,ProjectileManager tab);*/
-
-
-        private:
-        std::string name;
-        WeaponManager::weaponType weapon;
-    
-
-
-
+private:
+  std::string name;  // Weapon name
+  WeaponManager::weaponType weapon;  // Weapon type (obtained from WeaponManager)
 };
 
-#endif 
+#endif
