@@ -163,7 +163,7 @@ public:
    * @param weaponManager Reference to a WeaponManager object for weapon handling.
    * @param keyboardState Pointer to an array of Uint8 representing the current keyboard state.
    */
-  void firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager, const Uint8* keyboardState);
+  void firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager,const Uint8 *keyboardState,SDL_AudioDeviceID audioDevice, Uint8* wavBuffer, Uint32 wavLength);
 
  /**
    * @brief Checks if the Player's health points (HP) are zero or less, indicating death.

@@ -217,7 +217,7 @@ void Player::moveShip(const Uint8 *keyboardState) {
     return false;
     }
 
-    void Player::firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager,const Uint8 *keyboardState) {
+    void Player::firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager,const Uint8 *keyboardState,SDL_AudioDeviceID audioDevice, Uint8* wavBuffer, Uint32 wavLength) {
         Uint32 maintenant = SDL_GetTicks();
         if (peutTirer()) {
             dernier_tir = maintenant;
@@ -226,6 +226,8 @@ void Player::moveShip(const Uint8 *keyboardState) {
             {
                  x =Player::getPos().x+Player::getWidth()/2;
                  y =Player::getPos().y+2;
+                 SDL_QueueAudio(audioDevice, wavBuffer, wavLength);
+                 SDL_PauseAudioDevice(audioDevice, 0);
             }
             if (getCurrentWeaponName()=="railgun")
             {
