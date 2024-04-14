@@ -1,4 +1,5 @@
-all :./bin/StarblitzGame
+all : ./bin/StarblitzGame
+
 
 ./bin/StarblitzGame : ./obj/StarblitzGameDisplay.o  ./obj/ScoreSystem.o ./obj/Projectile.o ./obj/Position.o ./obj/Playership.o ./obj/Invaders.o ./obj/Partie.o ./obj/InvadersManager.o ./obj/Weapon.o ./obj/ProjectileManager.o ./obj/WeaponManager.o
 			g++ -Wall -g ./obj/StarblitzGameDisplay.o ./obj/ScoreSystem.o ./obj/Projectile.o ./obj/Position.o ./obj/Playership.o ./obj/Invaders.o ./obj/Partie.o ./obj/InvadersManager.o ./obj/Weapon.o ./obj/ProjectileManager.o ./obj/WeaponManager.o -o ./bin/StarblitzGame -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
@@ -8,12 +9,8 @@ all :./bin/StarblitzGame
 			g++ -Wall -c ./src/Partie.cpp -o ./obj/Partie.o -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
 
-
-
-
 ./obj/StarblitzGameDisplay.o : ./src/StarblitzGameDisplay.cpp ./src/StarblitzGameDisplay.h ./src/Playership.h ./src/Projectile.h ./src/Weapon.h ./src/ProjectileManager.h
 			g++ -Wall -c ./src/StarblitzGameDisplay.cpp -o ./obj/StarblitzGameDisplay.o -lSDL2 -lSDL2_image
-
 
 
 ./obj/ScoreSystem.o : ./src/ScoreSystem.cpp ./src/ScoreSystem.h
@@ -52,7 +49,7 @@ all :./bin/StarblitzGame
 			g++ -g -Wall -c ./src/ProjectileManager.cpp -o ./obj/ProjectileManager.o -lSDL2_mixer
 
 clean : 
-		rm ./obj/*.o 
+			rm ./obj/*.o 
 
 realclean :
-		rm ./obj/*.o ; rm ./bin/*
+			rm ./obj/*.o ; rm ./bin/*

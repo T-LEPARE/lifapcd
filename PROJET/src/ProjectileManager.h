@@ -90,6 +90,9 @@ void hasProjectileCollided(Player* playerPtr, std::vector<Invader>* invaders,  M
    * @brief Clears the internal vector of projectiles, removing all managed projectiles.
    */
   void clearTab();
+
+  const std::vector<std::unique_ptr<Projectile>>& getProjectiles() const;
+
 };
 
 #endif

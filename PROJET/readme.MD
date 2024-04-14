@@ -6,3 +6,5 @@ Commande valgrind (ignore les erreurs inhérentes à SDL) :
 
  UML : 
  http://www.plantuml.com/plantuml/uml/
+
+ Tests : sudo apt install libgtest-dev

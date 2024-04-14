@@ -121,3 +121,7 @@ void ProjectileManager::UpdateProj() {
 void ProjectileManager::clearTab() {
   projectiles.clear();
 }
+
+const std::vector<std::unique_ptr<Projectile>>& ProjectileManager::getProjectiles() const {
+  return projectiles;
+}
