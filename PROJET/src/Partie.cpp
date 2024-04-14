@@ -147,6 +147,7 @@ if (TTF_Init() != 0) {
     WeaponManager weaponManager;
     ScoreSystem score;
     char scoreTexte[20];
+    char numvague[20];
     std::cout << "weaponManager Initialised" << std::endl;
 
     // Boucle principale du jeu
@@ -265,6 +266,12 @@ if (TTF_Init() != 0) {
             SDL_Surface* scoreSurface = TTF_RenderText_Solid(font,scoreTexte, scoreColor);
             SDL_Texture* scoreTexture = SDL_CreateTextureFromSurface(renderer, scoreSurface);
             SDL_Rect scoreRect = {430, 0, 100, 25};
+            sprintf(numvague, "Wave : %d", itab.GetNumVague());
+            SDL_Color waveColor = {255, 255, 255, 255};
+            SDL_Surface* waveSurface = TTF_RenderText_Solid(font,numvague, waveColor);
+            SDL_Texture* waveTexture = SDL_CreateTextureFromSurface(renderer, waveSurface);
+            SDL_Rect waveRect = {430, 20, 100, 25};
+            SDL_RenderCopy(renderer, waveTexture, NULL, &waveRect);
             SDL_RenderCopy(renderer, scoreTexture, NULL, &scoreRect);
             SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
             SDL_FreeSurface(textSurface);
@@ -301,6 +308,12 @@ if (TTF_Init() != 0) {
             SDL_Surface* scoreSurface = TTF_RenderText_Solid(font,scoreTexte, scoreColor);
             SDL_Texture* scoreTexture = SDL_CreateTextureFromSurface(renderer, scoreSurface);
             SDL_Rect scoreRect = {430, 0, 100, 25};
+            sprintf(numvague, "Wave : %d", itab.GetNumVague());
+            SDL_Color waveColor = {255, 255, 255, 255};
+            SDL_Surface* waveSurface = TTF_RenderText_Solid(font,numvague, waveColor);
+            SDL_Texture* waveTexture = SDL_CreateTextureFromSurface(renderer, waveSurface);
+            SDL_Rect waveRect = {430, 20, 100, 25};
+            SDL_RenderCopy(renderer, waveTexture, NULL, &waveRect);
             SDL_RenderCopy(renderer, scoreTexture, NULL, &scoreRect);
             SDL_RenderCopy(renderer,pausedTexture,NULL,&paused);
             SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
@@ -384,6 +397,12 @@ if (TTF_Init() != 0) {
             SDL_Texture* scoreTexture = SDL_CreateTextureFromSurface(renderer, scoreSurface);
             SDL_Rect scoreRect = {430, 0, 100, 25};
             SDL_RenderCopy(renderer, scoreTexture, NULL, &scoreRect);
+            sprintf(numvague, "Wave : %d", itab.GetNumVague());
+            SDL_Color waveColor = {255, 255, 255, 255};
+            SDL_Surface* waveSurface = TTF_RenderText_Solid(font,numvague, waveColor);
+            SDL_Texture* waveTexture = SDL_CreateTextureFromSurface(renderer, waveSurface);
+            SDL_Rect waveRect = {430, 20, 100, 25};
+            SDL_RenderCopy(renderer, waveTexture, NULL, &waveRect);
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);
             player.firePlayer(Pmanager, weaponManager,keyboardState, tirSound);
