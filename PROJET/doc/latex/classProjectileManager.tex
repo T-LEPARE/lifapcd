@@ -10,7 +10,7 @@
 \mbox{\hyperlink{classProjectileManager_a17ad5ee7f1bdcc061f8c43ecbb07c224}{$\sim$\+Projectile\+Manager}} ()
 \begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}}. Frees resources (projectiles) held in the vector. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classProjectileManager_a1dc8b1cbe9be17873e8f06acaab65af4}{Setnb\+Projectile}} (int nb)
-\begin{DoxyCompactList}\small\item\em Sets the maximum number of projectiles that can be managed (not implemented in the provided code). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets the maximum number of projectiles. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classProjectileManager_a712a5c2fbb5128b412c87853cc86e637}{Getnb\+Projectile}} ()
 \begin{DoxyCompactList}\small\item\em Gets the current number of projectiles managed by the \mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classProjectileManager_ae8a2c1b0776e588020fedda227bb4dda}{add\+Projectile}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ projectile)
@@ -21,7 +21,7 @@ void \mbox{\hyperlink{classProjectileManager_a0f4e1429c6e22ebfe6e0bad4a3baf48b}{
 \begin{DoxyCompactList}\small\item\em Handles potential damage taken by a \mbox{\hyperlink{classPlayer}{Player}} or \mbox{\hyperlink{classInvader}{Invader}} from a \mbox{\hyperlink{classProjectile}{Projectile}}. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classProjectileManager_a1c128ebf1dfb06216ea8a48165431fa4}{is\+Projectile\+Out\+Of\+Bounds}} (const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ \&projectile) const
 \begin{DoxyCompactList}\small\item\em Checks if a \mbox{\hyperlink{classProjectile}{Projectile}} is outside the playable area defined by display dimensions. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classProjectileManager_a1b3e316dd0412eb6d6cd78aaeefba8a2}{has\+Projectile\+Collided}} (\mbox{\hyperlink{classPlayer}{Player}} $\ast$player\+Ptr, std\+::vector$<$ \mbox{\hyperlink{classInvader}{Invader}} $>$ $\ast$invaders)
+void \mbox{\hyperlink{classProjectileManager_a4a84e7b25faac49f3954bf0cc2f82cb3}{has\+Projectile\+Collided}} (\mbox{\hyperlink{classPlayer}{Player}} $\ast$player\+Ptr, std\+::vector$<$ \mbox{\hyperlink{classInvader}{Invader}} $>$ $\ast$invaders, Mix\+\_\+\+Chunk $\ast$Sound\+Dmg)
 \begin{DoxyCompactList}\small\item\em Checks for collisions between projectiles and Invaders or the \mbox{\hyperlink{classPlayer}{Player}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classProjectileManager_ab81134a578a24e2e680f6178f7ff4e0e}{Draw\+Proj}} (SDL\+\_\+\+Renderer $\ast$renderer)
 \begin{DoxyCompactList}\small\item\em Draws all managed Projectiles on the specified renderer. \end{DoxyCompactList}\item 
@@ -95,11 +95,11 @@ Gets the current number of projectiles managed by the \mbox{\hyperlink{classProj
 \begin{DoxyReturn}{Returns}
 The number of projectiles in the internal vector. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classProjectileManager_a1b3e316dd0412eb6d6cd78aaeefba8a2}\label{classProjectileManager_a1b3e316dd0412eb6d6cd78aaeefba8a2}} 
+\mbox{\Hypertarget{classProjectileManager_a4a84e7b25faac49f3954bf0cc2f82cb3}\label{classProjectileManager_a4a84e7b25faac49f3954bf0cc2f82cb3}} 
 \index{ProjectileManager@{ProjectileManager}!hasProjectileCollided@{hasProjectileCollided}}
 \index{hasProjectileCollided@{hasProjectileCollided}!ProjectileManager@{ProjectileManager}}
 \doxysubsubsection{\texorpdfstring{hasProjectileCollided()}{hasProjectileCollided()}}
-{\footnotesize\ttfamily void Projectile\+Manager\+::has\+Projectile\+Collided (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} $\ast$}]{player\+Ptr,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classInvader}{Invader}} $>$ $\ast$}]{invaders }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Projectile\+Manager\+::has\+Projectile\+Collided (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} $\ast$}]{player\+Ptr,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classInvader}{Invader}} $>$ $\ast$}]{invaders,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{Sound\+Dmg }\end{DoxyParamCaption})}
 
 
 
@@ -153,11 +153,11 @@ Removes a specific \mbox{\hyperlink{classProjectile}{Projectile}} object from th
 
 
 
-Sets the maximum number of projectiles that can be managed (not implemented in the provided code). 
+Sets the maximum number of projectiles. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em nb} & The intended maximum number of projectiles. \\
+{\em nb} & The number of projectiles. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classProjectileManager_a914f0841e7fd034156beb76154b6e4ba}\label{classProjectileManager_a914f0841e7fd034156beb76154b6e4ba}} 

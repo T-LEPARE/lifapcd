@@ -116,6 +116,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5bf71a815b51045e409f8a22704cd26f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInvadersManager.html#a5bf71a815b51045e409f8a22704cd26f">Move</a> (int indiceDuPlusADroite)</td></tr>
 <tr class="memdesc:a5bf71a815b51045e409f8a22704cd26f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves all Invaders a certain distance based on the index of the rightmost <a class="el" href="classInvader.html">Invader</a>.  <a href="classInvadersManager.html#a5bf71a815b51045e409f8a22704cd26f">More...</a><br /></td></tr>
 <tr class="separator:a5bf71a815b51045e409f8a22704cd26f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a586087e5d03568378b286a47295d87e9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInvadersManager.html#a586087e5d03568378b286a47295d87e9">InvaderDead</a> ()</td></tr>
+<tr class="separator:a586087e5d03568378b286a47295d87e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53155868fe9fece498937505fa3fc3cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInvadersManager.html#a53155868fe9fece498937505fa3fc3cb">CheckCollisions</a> (<a class="el" href="classProjectile.html">Projectile</a> P)</td></tr>
 <tr class="memdesc:a53155868fe9fece498937505fa3fc3cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for collisions between all Invaders and a given <a class="el" href="classProjectile.html">Projectile</a>.  <a href="classInvadersManager.html#a53155868fe9fece498937505fa3fc3cb">More...</a><br /></td></tr>
 <tr class="separator:a53155868fe9fece498937505fa3fc3cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,6 +136,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9a7ec2c42b16cf099e4ef19a57bb2da2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInvadersManager.html#a9a7ec2c42b16cf099e4ef19a57bb2da2">SetnbInvader</a> (int nb)</td></tr>
 <tr class="memdesc:a9a7ec2c42b16cf099e4ef19a57bb2da2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of Invaders to manage.  <a href="classInvadersManager.html#a9a7ec2c42b16cf099e4ef19a57bb2da2">More...</a><br /></td></tr>
 <tr class="separator:a9a7ec2c42b16cf099e4ef19a57bb2da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a712e43038385c415ae4fff82a77a83b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInvadersManager.html#a712e43038385c415ae4fff82a77a83b1">SetNumVague</a> (int num)</td></tr>
+<tr class="memdesc:a712e43038385c415ae4fff82a77a83b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the wave.  <a href="classInvadersManager.html#a712e43038385c415ae4fff82a77a83b1">More...</a><br /></td></tr>
+<tr class="separator:a712e43038385c415ae4fff82a77a83b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eff88d016562bc17ec96ecc60af429a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInvadersManager.html#a9eff88d016562bc17ec96ecc60af429a">GetNumVague</a> ()</td></tr>
+<tr class="separator:a9eff88d016562bc17ec96ecc60af429a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11a841006bd3a6add8573752c4316a6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInvadersManager.html#a11a841006bd3a6add8573752c4316a6a">InitTabInvader</a> (SDL_Renderer *renderer, SDL_Surface *surfaceInvader)</td></tr>
 <tr class="memdesc:a11a841006bd3a6add8573752c4316a6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the internal vector of Invaders with specified renderer and surface.  <a href="classInvadersManager.html#a11a841006bd3a6add8573752c4316a6a">More...</a><br /></td></tr>
 <tr class="separator:a11a841006bd3a6add8573752c4316a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -348,6 +355,24 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a id="a9eff88d016562bc17ec96ecc60af429a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eff88d016562bc17ec96ecc60af429a">&#9670;&nbsp;</a></span>GetNumVague()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int InvadersManager::GetNumVague </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Which wave we at </dd></dl>
+
+</div>
+</div>
 <a id="a23e402ae5b0ab93a336fbb2c2a4e7aae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a23e402ae5b0ab93a336fbb2c2a4e7aae">&#9670;&nbsp;</a></span>hasInvaderCollided()</h2>
 
@@ -408,6 +433,24 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a586087e5d03568378b286a47295d87e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a586087e5d03568378b286a47295d87e9">&#9670;&nbsp;</a></span>InvaderDead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool InvadersManager::InvaderDead </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>If an invader is dead </dd></dl>
 
 </div>
 </div>
@@ -589,6 +632,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nb</td><td>The number of Invaders. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a712e43038385c415ae4fff82a77a83b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a712e43038385c415ae4fff82a77a83b1">&#9670;&nbsp;</a></span>SetNumVague()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void InvadersManager::SetNumVague </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the wave. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>Which wave we at. </td></tr>
   </table>
   </dd>
 </dl>

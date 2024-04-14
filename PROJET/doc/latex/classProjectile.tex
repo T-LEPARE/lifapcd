@@ -16,6 +16,8 @@
 \mbox{\Hypertarget{classProjectile_a8b32ce7d21ec9032812b528e5cb87cc7}\label{classProjectile_a8b32ce7d21ec9032812b528e5cb87cc7}} 
 void \mbox{\hyperlink{classProjectile_a8b32ce7d21ec9032812b528e5cb87cc7}{update}} ()
 \begin{DoxyCompactList}\small\item\em met à jour le projectile (position) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classProjectile_a32c93173184a12e8b450c985d3c1aa9d}{get\+Provenace\+Du\+Tir}} ()
+\begin{DoxyCompactList}\small\item\em Get who is shooting. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structPosition}{Position}} \mbox{\hyperlink{classProjectile_af404d680ef5c19b7c33ba7b98a08c707}{get\+Pos}} ()
 \begin{DoxyCompactList}\small\item\em Get the Pos object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classProjectile_ad4ef903221ebe2a3e2bacac9e10f9075}{set\+Pos}} (\mbox{\hyperlink{structPosition}{Position}} p)
@@ -37,8 +39,10 @@ float \mbox{\hyperlink{classProjectile_a70d55ea52a1d6cdaf74c894d412597d1}{get\+H
 \item 
 void \mbox{\hyperlink{classProjectile_a29cfcf900c435edafbd7dbf9942f7fda}{set\+Projectile\+Rect}} (int x, int y, int width, int height)
 \begin{DoxyCompactList}\small\item\em Set the \mbox{\hyperlink{classProjectile}{Projectile}} Rect object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classProjectile_af9630d3d14f44b7b1cf17a641a04f16c}{draw\+Projectile}} (SDL\+\_\+\+Renderer $\ast$renderer)
-\begin{DoxyCompactList}\small\item\em Draws the \mbox{\hyperlink{classProjectile}{Projectile}} on the specified renderer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classProjectile_aa927277b01c6455db5c2b5223c71683f}{draw\+Projectile\+Player}} (SDL\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Draws the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s \mbox{\hyperlink{classProjectile}{Projectile}} on the specified renderer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProjectile_ae71264e82fc8b9951259bcd8142caaeb}{draw\+Projectile\+Invader}} (SDL\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Draws the \mbox{\hyperlink{classInvader}{Invader}}\textquotesingle{}s \mbox{\hyperlink{classProjectile}{Projectile}} on the specified renderer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -81,15 +85,30 @@ Constructor for \mbox{\hyperlink{classProjectile}{Projectile}} based on invader 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classProjectile_af9630d3d14f44b7b1cf17a641a04f16c}\label{classProjectile_af9630d3d14f44b7b1cf17a641a04f16c}} 
-\index{Projectile@{Projectile}!drawProjectile@{drawProjectile}}
-\index{drawProjectile@{drawProjectile}!Projectile@{Projectile}}
-\doxysubsubsection{\texorpdfstring{drawProjectile()}{drawProjectile()}}
-{\footnotesize\ttfamily void Projectile\+::draw\+Projectile (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classProjectile_ae71264e82fc8b9951259bcd8142caaeb}\label{classProjectile_ae71264e82fc8b9951259bcd8142caaeb}} 
+\index{Projectile@{Projectile}!drawProjectileInvader@{drawProjectileInvader}}
+\index{drawProjectileInvader@{drawProjectileInvader}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{drawProjectileInvader()}{drawProjectileInvader()}}
+{\footnotesize\ttfamily void Projectile\+::draw\+Projectile\+Invader (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
 
 
 
-Draws the \mbox{\hyperlink{classProjectile}{Projectile}} on the specified renderer. 
+Draws the \mbox{\hyperlink{classInvader}{Invader}}\textquotesingle{}s \mbox{\hyperlink{classProjectile}{Projectile}} on the specified renderer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & Reference to an SDL\+\_\+\+Renderer object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classProjectile_aa927277b01c6455db5c2b5223c71683f}\label{classProjectile_aa927277b01c6455db5c2b5223c71683f}} 
+\index{Projectile@{Projectile}!drawProjectilePlayer@{drawProjectilePlayer}}
+\index{drawProjectilePlayer@{drawProjectilePlayer}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{drawProjectilePlayer()}{drawProjectilePlayer()}}
+{\footnotesize\ttfamily void Projectile\+::draw\+Projectile\+Player (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Draws the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s \mbox{\hyperlink{classProjectile}{Projectile}} on the specified renderer. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -130,6 +149,19 @@ Get the Pos object.
 
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{structPosition}{Position}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classProjectile_a32c93173184a12e8b450c985d3c1aa9d}\label{classProjectile_a32c93173184a12e8b450c985d3c1aa9d}} 
+\index{Projectile@{Projectile}!getProvenaceDuTir@{getProvenaceDuTir}}
+\index{getProvenaceDuTir@{getProvenaceDuTir}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{getProvenaceDuTir()}{getProvenaceDuTir()}}
+{\footnotesize\ttfamily bool Projectile\+::get\+Provenace\+Du\+Tir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get who is shooting. 
+
+\begin{DoxyReturn}{Returns}
+a bool that design who is shooting 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classProjectile_afb7d5c794f26e495ccbc5b597bb01246}\label{classProjectile_afb7d5c794f26e495ccbc5b597bb01246}} 
 \index{Projectile@{Projectile}!getWidth@{getWidth}}

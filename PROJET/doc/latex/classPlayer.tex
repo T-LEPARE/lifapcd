@@ -10,7 +10,7 @@
 \begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classPlayer}{Player}}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}\label{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}} 
 \mbox{\hyperlink{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}{$\sim$\+Player}} ()
-\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classPlayer}{Player}}. Frees allocated resources (if any). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classPlayer}{Player}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classPlayer}{Player}} \mbox{\hyperlink{classPlayer_a4afa05f636d67e0193178e53fe899673}{Init\+Player}} (float x, float y, int health\+Point, float spd, float height, float width, \mbox{\hyperlink{structPosition}{Position}} direct)
 \begin{DoxyCompactList}\small\item\em Initializes the \mbox{\hyperlink{classPlayer}{Player}} object with specified parameters. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classPlayer_ac6bc21572aeb3049fd69bd37b75c73b6}\label{classPlayer_ac6bc21572aeb3049fd69bd37b75c73b6}} 
@@ -90,10 +90,10 @@ std\+::string \mbox{\hyperlink{classPlayer_ab188f2ba361f36a331960a21f263750d}{ge
 \begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s current weapon object. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classPlayer_ab145716d6e5cc94757623fab43d7cb55}{peut\+Tirer}} ()
 \begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classPlayer}{Player}} is able to fire a projectile. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classPlayer_aec06d1ed204c43b5fa58bee2fc31ead7}{fire\+Player}} (\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&projectile\+Manager, \mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&weapon\+Manager, const Uint8 $\ast$keyboard\+State)
+void \mbox{\hyperlink{classPlayer_a64de6c3697ca058d045277f813cd780b}{fire\+Player}} (\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&projectile\+Manager, \mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&weapon\+Manager, const Uint8 $\ast$keyboard\+State, Mix\+\_\+\+Chunk $\ast$Tirsound)
 \begin{DoxyCompactList}\small\item\em Fires a projectile from the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s current weapon. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classPlayer_a2b5b029b323a9fdc02c7ebb9c2e6581c}{HPnull\+Playership}} ()
-\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s health points (HP) are zero or less, indicating death. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s HP are zero or less, indicating death. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPlayer_a853576ecda542451d10125fada9b4550}{move\+Ship}} (const Uint8 $\ast$keyboard\+State)
 \begin{DoxyCompactList}\small\item\em Moves the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s position based on user input and movement speed. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPlayer_a727ff0fac4fc68bc86f5ef31d6aed350}{player\+Death}} (\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&projectile\+Manager)
@@ -218,11 +218,11 @@ Handles damage taken by the \mbox{\hyperlink{classPlayer}{Player}} from a \mbox{
 {\em \mbox{\hyperlink{classProjectile}{Projectile}}} & The \mbox{\hyperlink{classProjectile}{Projectile}} object that inflicted the damage. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classPlayer_aec06d1ed204c43b5fa58bee2fc31ead7}\label{classPlayer_aec06d1ed204c43b5fa58bee2fc31ead7}} 
+\mbox{\Hypertarget{classPlayer_a64de6c3697ca058d045277f813cd780b}\label{classPlayer_a64de6c3697ca058d045277f813cd780b}} 
 \index{Player@{Player}!firePlayer@{firePlayer}}
 \index{firePlayer@{firePlayer}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{firePlayer()}{firePlayer()}}
-{\footnotesize\ttfamily void Player\+::fire\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&}]{projectile\+Manager,  }\item[{\mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&}]{weapon\+Manager,  }\item[{const Uint8 $\ast$}]{keyboard\+State }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Player\+::fire\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&}]{projectile\+Manager,  }\item[{\mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&}]{weapon\+Manager,  }\item[{const Uint8 $\ast$}]{keyboard\+State,  }\item[{Mix\+\_\+\+Chunk $\ast$}]{Tirsound }\end{DoxyParamCaption})}
 
 
 
@@ -271,7 +271,7 @@ A string containing the name of the current weapon.
 
 
 
-Checks if the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s health points (HP) are zero or less, indicating death. 
+Checks if the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s HP are zero or less, indicating death. 
 
 \begin{DoxyReturn}{Returns}
 True if the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s HP is zero or less, False otherwise. 

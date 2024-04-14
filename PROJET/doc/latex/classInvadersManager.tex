@@ -39,6 +39,8 @@ int \mbox{\hyperlink{classInvadersManager_ad2f3852c0504224f6f2ea5be013f517f}{Le\
 \begin{DoxyCompactList}\small\item\em Finds the index of the rightmost \mbox{\hyperlink{classInvader}{Invader}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classInvadersManager_a5bf71a815b51045e409f8a22704cd26f}{Move}} (int indice\+Du\+Plus\+ADroite)
 \begin{DoxyCompactList}\small\item\em Moves all Invaders a certain distance based on the index of the rightmost \mbox{\hyperlink{classInvader}{Invader}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classInvadersManager_a586087e5d03568378b286a47295d87e9}{Invader\+Dead}} ()
+\item 
 void \mbox{\hyperlink{classInvadersManager_a53155868fe9fece498937505fa3fc3cb}{Check\+Collisions}} (\mbox{\hyperlink{classProjectile}{Projectile}} P)
 \begin{DoxyCompactList}\small\item\em Checks for collisions between all Invaders and a given \mbox{\hyperlink{classProjectile}{Projectile}}. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classInvadersManager_a7f29ce20b210c228214a5189a114e23f}{Player\+Delay\+Dmg}} ()
@@ -51,6 +53,10 @@ bool \mbox{\hyperlink{classInvadersManager_ad39bdfebe8c13d274fe7e05a4020b766}{Is
 \begin{DoxyCompactList}\small\item\em Checks if all Invaders in the manager are dead. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classInvadersManager_a9a7ec2c42b16cf099e4ef19a57bb2da2}{Setnb\+Invader}} (int nb)
 \begin{DoxyCompactList}\small\item\em Sets the number of Invaders to manage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInvadersManager_a712e43038385c415ae4fff82a77a83b1}{Set\+Num\+Vague}} (int num)
+\begin{DoxyCompactList}\small\item\em Sets the wave. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classInvadersManager_a9eff88d016562bc17ec96ecc60af429a}{Get\+Num\+Vague}} ()
+\item 
 void \mbox{\hyperlink{classInvadersManager_a11a841006bd3a6add8573752c4316a6a}{Init\+Tab\+Invader}} (SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Surface $\ast$surface\+Invader)
 \begin{DoxyCompactList}\small\item\em Initializes the internal vector of Invaders with specified renderer and surface. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classInvadersManager_a1bb3a1007f6c54b6c05a6c554f70010e}{Rect\+Invader\+Init}} (SDL\+\_\+\+Renderer $\ast$renderer)
@@ -183,6 +189,15 @@ Getter function to access the internal vector of Invaders.
 \begin{DoxyReturn}{Returns}
 A pointer to the vector containing the \mbox{\hyperlink{classInvader}{Invader}} objects. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classInvadersManager_a9eff88d016562bc17ec96ecc60af429a}\label{classInvadersManager_a9eff88d016562bc17ec96ecc60af429a}} 
+\index{InvadersManager@{InvadersManager}!GetNumVague@{GetNumVague}}
+\index{GetNumVague@{GetNumVague}!InvadersManager@{InvadersManager}}
+\doxysubsubsection{\texorpdfstring{GetNumVague()}{GetNumVague()}}
+{\footnotesize\ttfamily int Invaders\+Manager\+::\+Get\+Num\+Vague (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Which wave we at 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classInvadersManager_a23e402ae5b0ab93a336fbb2c2a4e7aae}\label{classInvadersManager_a23e402ae5b0ab93a336fbb2c2a4e7aae}} 
 \index{InvadersManager@{InvadersManager}!hasInvaderCollided@{hasInvaderCollided}}
 \index{hasInvaderCollided@{hasInvaderCollided}!InvadersManager@{InvadersManager}}
@@ -215,6 +230,15 @@ Initializes the internal vector of Invaders with specified renderer and surface.
 {\em surface\+Invader} & Reference to an SDL\+\_\+\+Surface object containing the \mbox{\hyperlink{classInvader}{Invader}} image. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classInvadersManager_a586087e5d03568378b286a47295d87e9}\label{classInvadersManager_a586087e5d03568378b286a47295d87e9}} 
+\index{InvadersManager@{InvadersManager}!InvaderDead@{InvaderDead}}
+\index{InvaderDead@{InvaderDead}!InvadersManager@{InvadersManager}}
+\doxysubsubsection{\texorpdfstring{InvaderDead()}{InvaderDead()}}
+{\footnotesize\ttfamily bool Invaders\+Manager\+::\+Invader\+Dead (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+If an invader is dead 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classInvadersManager_ad39bdfebe8c13d274fe7e05a4020b766}\label{classInvadersManager_ad39bdfebe8c13d274fe7e05a4020b766}} 
 \index{InvadersManager@{InvadersManager}!IsAllDead@{IsAllDead}}
 \index{IsAllDead@{IsAllDead}!InvadersManager@{InvadersManager}}
@@ -325,6 +349,21 @@ Sets the number of Invaders to manage.
 
 \begin{DoxyParams}{Parameters}
 {\em nb} & The number of Invaders. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInvadersManager_a712e43038385c415ae4fff82a77a83b1}\label{classInvadersManager_a712e43038385c415ae4fff82a77a83b1}} 
+\index{InvadersManager@{InvadersManager}!SetNumVague@{SetNumVague}}
+\index{SetNumVague@{SetNumVague}!InvadersManager@{InvadersManager}}
+\doxysubsubsection{\texorpdfstring{SetNumVague()}{SetNumVague()}}
+{\footnotesize\ttfamily void Invaders\+Manager\+::\+Set\+Num\+Vague (\begin{DoxyParamCaption}\item[{int}]{num }\end{DoxyParamCaption})}
+
+
+
+Sets the wave. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & Which wave we at. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classInvadersManager_a8c72f718516150b06ba4dd513ce0d161}\label{classInvadersManager_a8c72f718516150b06ba4dd513ce0d161}} 

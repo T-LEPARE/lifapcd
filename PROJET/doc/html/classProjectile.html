@@ -90,6 +90,9 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectile.html#a8b32ce7d21ec9032812b528e5cb87cc7">update</a> ()</td></tr>
 <tr class="memdesc:a8b32ce7d21ec9032812b528e5cb87cc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">met à jour le projectile (position) <br /></td></tr>
 <tr class="separator:a8b32ce7d21ec9032812b528e5cb87cc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32c93173184a12e8b450c985d3c1aa9d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectile.html#a32c93173184a12e8b450c985d3c1aa9d">getProvenaceDuTir</a> ()</td></tr>
+<tr class="memdesc:a32c93173184a12e8b450c985d3c1aa9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get who is shooting.  <a href="classProjectile.html#a32c93173184a12e8b450c985d3c1aa9d">More...</a><br /></td></tr>
+<tr class="separator:a32c93173184a12e8b450c985d3c1aa9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af404d680ef5c19b7c33ba7b98a08c707"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPosition.html">Position</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectile.html#af404d680ef5c19b7c33ba7b98a08c707">getPos</a> ()</td></tr>
 <tr class="memdesc:af404d680ef5c19b7c33ba7b98a08c707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Pos object.  <a href="classProjectile.html#af404d680ef5c19b7c33ba7b98a08c707">More...</a><br /></td></tr>
 <tr class="separator:af404d680ef5c19b7c33ba7b98a08c707"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,9 +121,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getDamage</b> ()</td><
 <tr class="memitem:a29cfcf900c435edafbd7dbf9942f7fda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectile.html#a29cfcf900c435edafbd7dbf9942f7fda">setProjectileRect</a> (int x, int y, int width, int height)</td></tr>
 <tr class="memdesc:a29cfcf900c435edafbd7dbf9942f7fda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the <a class="el" href="classProjectile.html">Projectile</a> Rect object.  <a href="classProjectile.html#a29cfcf900c435edafbd7dbf9942f7fda">More...</a><br /></td></tr>
 <tr class="separator:a29cfcf900c435edafbd7dbf9942f7fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9630d3d14f44b7b1cf17a641a04f16c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectile.html#af9630d3d14f44b7b1cf17a641a04f16c">drawProjectile</a> (SDL_Renderer *renderer)</td></tr>
-<tr class="memdesc:af9630d3d14f44b7b1cf17a641a04f16c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the <a class="el" href="classProjectile.html">Projectile</a> on the specified renderer.  <a href="classProjectile.html#af9630d3d14f44b7b1cf17a641a04f16c">More...</a><br /></td></tr>
-<tr class="separator:af9630d3d14f44b7b1cf17a641a04f16c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa927277b01c6455db5c2b5223c71683f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectile.html#aa927277b01c6455db5c2b5223c71683f">drawProjectilePlayer</a> (SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:aa927277b01c6455db5c2b5223c71683f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the <a class="el" href="classPlayer.html">Player</a>'s <a class="el" href="classProjectile.html">Projectile</a> on the specified renderer.  <a href="classProjectile.html#aa927277b01c6455db5c2b5223c71683f">More...</a><br /></td></tr>
+<tr class="separator:aa927277b01c6455db5c2b5223c71683f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae71264e82fc8b9951259bcd8142caaeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectile.html#ae71264e82fc8b9951259bcd8142caaeb">drawProjectileInvader</a> (SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:ae71264e82fc8b9951259bcd8142caaeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the <a class="el" href="classInvader.html">Invader</a>'s <a class="el" href="classProjectile.html">Projectile</a> on the specified renderer.  <a href="classProjectile.html#ae71264e82fc8b9951259bcd8142caaeb">More...</a><br /></td></tr>
+<tr class="separator:ae71264e82fc8b9951259bcd8142caaeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab8a845d667df0b6fbef9285373657e0c"></a>
@@ -211,14 +217,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getDamage</b> ()</td><
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af9630d3d14f44b7b1cf17a641a04f16c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9630d3d14f44b7b1cf17a641a04f16c">&#9670;&nbsp;</a></span>drawProjectile()</h2>
+<a id="ae71264e82fc8b9951259bcd8142caaeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae71264e82fc8b9951259bcd8142caaeb">&#9670;&nbsp;</a></span>drawProjectileInvader()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Projectile::drawProjectile </td>
+          <td class="memname">void Projectile::drawProjectileInvader </td>
           <td>(</td>
           <td class="paramtype">SDL_Renderer *&#160;</td>
           <td class="paramname"><em>renderer</em></td><td>)</td>
@@ -227,7 +233,33 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getDamage</b> ()</td><
       </table>
 </div><div class="memdoc">
 
-<p>Draws the <a class="el" href="classProjectile.html">Projectile</a> on the specified renderer. </p>
+<p>Draws the <a class="el" href="classInvader.html">Invader</a>'s <a class="el" href="classProjectile.html">Projectile</a> on the specified renderer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Reference to an SDL_Renderer object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa927277b01c6455db5c2b5223c71683f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa927277b01c6455db5c2b5223c71683f">&#9670;&nbsp;</a></span>drawProjectilePlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Projectile::drawProjectilePlayer </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws the <a class="el" href="classPlayer.html">Player</a>'s <a class="el" href="classProjectile.html">Projectile</a> on the specified renderer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">renderer</td><td>Reference to an SDL_Renderer object. </td></tr>
@@ -292,6 +324,26 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getDamage</b> ()</td><
 
 <p>Get the Pos object. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="structPosition.html" title="Structure representing a 2D position with x and y coordinates.">Position</a> </dd></dl>
+
+</div>
+</div>
+<a id="a32c93173184a12e8b450c985d3c1aa9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32c93173184a12e8b450c985d3c1aa9d">&#9670;&nbsp;</a></span>getProvenaceDuTir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Projectile::getProvenaceDuTir </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get who is shooting. </p>
+<dl class="section return"><dt>Returns</dt><dd>a bool that design who is shooting </dd></dl>
 
 </div>
 </div>

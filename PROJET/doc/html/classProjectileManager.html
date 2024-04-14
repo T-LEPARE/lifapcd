@@ -81,7 +81,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a17ad5ee7f1bdcc061f8c43ecbb07c224"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="classProjectileManager.html">ProjectileManager</a>. Frees resources (projectiles) held in the vector. <br /></td></tr>
 <tr class="separator:a17ad5ee7f1bdcc061f8c43ecbb07c224"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dc8b1cbe9be17873e8f06acaab65af4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#a1dc8b1cbe9be17873e8f06acaab65af4">SetnbProjectile</a> (int nb)</td></tr>
-<tr class="memdesc:a1dc8b1cbe9be17873e8f06acaab65af4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the maximum number of projectiles that can be managed (not implemented in the provided code).  <a href="classProjectileManager.html#a1dc8b1cbe9be17873e8f06acaab65af4">More...</a><br /></td></tr>
+<tr class="memdesc:a1dc8b1cbe9be17873e8f06acaab65af4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the maximum number of projectiles.  <a href="classProjectileManager.html#a1dc8b1cbe9be17873e8f06acaab65af4">More...</a><br /></td></tr>
 <tr class="separator:a1dc8b1cbe9be17873e8f06acaab65af4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a712a5c2fbb5128b412c87853cc86e637"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#a712a5c2fbb5128b412c87853cc86e637">GetnbProjectile</a> ()</td></tr>
 <tr class="memdesc:a712a5c2fbb5128b412c87853cc86e637"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current number of projectiles managed by the <a class="el" href="classProjectileManager.html">ProjectileManager</a>.  <a href="classProjectileManager.html#a712a5c2fbb5128b412c87853cc86e637">More...</a><br /></td></tr>
@@ -98,9 +98,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1c128ebf1dfb06216ea8a48165431fa4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#a1c128ebf1dfb06216ea8a48165431fa4">isProjectileOutOfBounds</a> (const std::unique_ptr&lt; <a class="el" href="classProjectile.html">Projectile</a> &gt; &amp;projectile) const</td></tr>
 <tr class="memdesc:a1c128ebf1dfb06216ea8a48165431fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a <a class="el" href="classProjectile.html">Projectile</a> is outside the playable area defined by display dimensions.  <a href="classProjectileManager.html#a1c128ebf1dfb06216ea8a48165431fa4">More...</a><br /></td></tr>
 <tr class="separator:a1c128ebf1dfb06216ea8a48165431fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b3e316dd0412eb6d6cd78aaeefba8a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#a1b3e316dd0412eb6d6cd78aaeefba8a2">hasProjectileCollided</a> (<a class="el" href="classPlayer.html">Player</a> *playerPtr, std::vector&lt; <a class="el" href="classInvader.html">Invader</a> &gt; *invaders)</td></tr>
-<tr class="memdesc:a1b3e316dd0412eb6d6cd78aaeefba8a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for collisions between projectiles and Invaders or the <a class="el" href="classPlayer.html">Player</a>.  <a href="classProjectileManager.html#a1b3e316dd0412eb6d6cd78aaeefba8a2">More...</a><br /></td></tr>
-<tr class="separator:a1b3e316dd0412eb6d6cd78aaeefba8a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a84e7b25faac49f3954bf0cc2f82cb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#a4a84e7b25faac49f3954bf0cc2f82cb3">hasProjectileCollided</a> (<a class="el" href="classPlayer.html">Player</a> *playerPtr, std::vector&lt; <a class="el" href="classInvader.html">Invader</a> &gt; *invaders, Mix_Chunk *SoundDmg)</td></tr>
+<tr class="memdesc:a4a84e7b25faac49f3954bf0cc2f82cb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for collisions between projectiles and Invaders or the <a class="el" href="classPlayer.html">Player</a>.  <a href="classProjectileManager.html#a4a84e7b25faac49f3954bf0cc2f82cb3">More...</a><br /></td></tr>
+<tr class="separator:a4a84e7b25faac49f3954bf0cc2f82cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab81134a578a24e2e680f6178f7ff4e0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#ab81134a578a24e2e680f6178f7ff4e0e">DrawProj</a> (SDL_Renderer *renderer)</td></tr>
 <tr class="memdesc:ab81134a578a24e2e680f6178f7ff4e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws all managed Projectiles on the specified renderer.  <a href="classProjectileManager.html#ab81134a578a24e2e680f6178f7ff4e0e">More...</a><br /></td></tr>
 <tr class="separator:ab81134a578a24e2e680f6178f7ff4e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -229,8 +229,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a id="a1b3e316dd0412eb6d6cd78aaeefba8a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b3e316dd0412eb6d6cd78aaeefba8a2">&#9670;&nbsp;</a></span>hasProjectileCollided()</h2>
+<a id="a4a84e7b25faac49f3954bf0cc2f82cb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a84e7b25faac49f3954bf0cc2f82cb3">&#9670;&nbsp;</a></span>hasProjectileCollided()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -245,7 +245,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::vector&lt; <a class="el" href="classInvader.html">Invader</a> &gt; *&#160;</td>
-          <td class="paramname"><em>invaders</em>&#160;</td>
+          <td class="paramname"><em>invaders</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mix_Chunk *&#160;</td>
+          <td class="paramname"><em>SoundDmg</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -335,10 +341,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
       </table>
 </div><div class="memdoc">
 
-<p>Sets the maximum number of projectiles that can be managed (not implemented in the provided code). </p>
+<p>Sets the maximum number of projectiles. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">nb</td><td>The intended maximum number of projectiles. </td></tr>
+    <tr><td class="paramname">nb</td><td>The number of projectiles. </td></tr>
   </table>
   </dd>
 </dl>

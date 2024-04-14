@@ -81,7 +81,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a04ba6fb55eb23f7dbbc5f2021e88d7d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a749d2c00e1fe0f5c2746f7505a58c062"><td class="memItemLeft" align="right" valign="top"><a id="a749d2c00e1fe0f5c2746f7505a58c062"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a749d2c00e1fe0f5c2746f7505a58c062">~Player</a> ()</td></tr>
-<tr class="memdesc:a749d2c00e1fe0f5c2746f7505a58c062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="classPlayer.html">Player</a>. Frees allocated resources (if any). <br /></td></tr>
+<tr class="memdesc:a749d2c00e1fe0f5c2746f7505a58c062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="classPlayer.html">Player</a>. <br /></td></tr>
 <tr class="separator:a749d2c00e1fe0f5c2746f7505a58c062"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4afa05f636d67e0193178e53fe899673"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlayer.html">Player</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a4afa05f636d67e0193178e53fe899673">InitPlayer</a> (float x, float y, int healthPoint, float spd, float height, float width, <a class="el" href="structPosition.html">Position</a> direct)</td></tr>
 <tr class="memdesc:a4afa05f636d67e0193178e53fe899673"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="classPlayer.html">Player</a> object with specified parameters.  <a href="classPlayer.html#a4afa05f636d67e0193178e53fe899673">More...</a><br /></td></tr>
@@ -174,11 +174,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:ab145716d6e5cc94757623fab43d7cb55"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#ab145716d6e5cc94757623fab43d7cb55">peutTirer</a> ()</td></tr>
 <tr class="memdesc:ab145716d6e5cc94757623fab43d7cb55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the <a class="el" href="classPlayer.html">Player</a> is able to fire a projectile.  <a href="classPlayer.html#ab145716d6e5cc94757623fab43d7cb55">More...</a><br /></td></tr>
 <tr class="separator:ab145716d6e5cc94757623fab43d7cb55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec06d1ed204c43b5fa58bee2fc31ead7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#aec06d1ed204c43b5fa58bee2fc31ead7">firePlayer</a> (<a class="el" href="classProjectileManager.html">ProjectileManager</a> &amp;projectileManager, <a class="el" href="classWeaponManager.html">WeaponManager</a> &amp;weaponManager, const Uint8 *keyboardState)</td></tr>
-<tr class="memdesc:aec06d1ed204c43b5fa58bee2fc31ead7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fires a projectile from the <a class="el" href="classPlayer.html">Player</a>'s current weapon.  <a href="classPlayer.html#aec06d1ed204c43b5fa58bee2fc31ead7">More...</a><br /></td></tr>
-<tr class="separator:aec06d1ed204c43b5fa58bee2fc31ead7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64de6c3697ca058d045277f813cd780b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a64de6c3697ca058d045277f813cd780b">firePlayer</a> (<a class="el" href="classProjectileManager.html">ProjectileManager</a> &amp;projectileManager, <a class="el" href="classWeaponManager.html">WeaponManager</a> &amp;weaponManager, const Uint8 *keyboardState, Mix_Chunk *Tirsound)</td></tr>
+<tr class="memdesc:a64de6c3697ca058d045277f813cd780b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fires a projectile from the <a class="el" href="classPlayer.html">Player</a>'s current weapon.  <a href="classPlayer.html#a64de6c3697ca058d045277f813cd780b">More...</a><br /></td></tr>
+<tr class="separator:a64de6c3697ca058d045277f813cd780b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b5b029b323a9fdc02c7ebb9c2e6581c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a2b5b029b323a9fdc02c7ebb9c2e6581c">HPnullPlayership</a> ()</td></tr>
-<tr class="memdesc:a2b5b029b323a9fdc02c7ebb9c2e6581c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the <a class="el" href="classPlayer.html">Player</a>'s health points (HP) are zero or less, indicating death.  <a href="classPlayer.html#a2b5b029b323a9fdc02c7ebb9c2e6581c">More...</a><br /></td></tr>
+<tr class="memdesc:a2b5b029b323a9fdc02c7ebb9c2e6581c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the <a class="el" href="classPlayer.html">Player</a>'s HP are zero or less, indicating death.  <a href="classPlayer.html#a2b5b029b323a9fdc02c7ebb9c2e6581c">More...</a><br /></td></tr>
 <tr class="separator:a2b5b029b323a9fdc02c7ebb9c2e6581c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a853576ecda542451d10125fada9b4550"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a853576ecda542451d10125fada9b4550">moveShip</a> (const Uint8 *keyboardState)</td></tr>
 <tr class="memdesc:a853576ecda542451d10125fada9b4550"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the <a class="el" href="classPlayer.html">Player</a>'s position based on user input and movement speed.  <a href="classPlayer.html#a853576ecda542451d10125fada9b4550">More...</a><br /></td></tr>
@@ -426,8 +426,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a id="aec06d1ed204c43b5fa58bee2fc31ead7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec06d1ed204c43b5fa58bee2fc31ead7">&#9670;&nbsp;</a></span>firePlayer()</h2>
+<a id="a64de6c3697ca058d045277f813cd780b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64de6c3697ca058d045277f813cd780b">&#9670;&nbsp;</a></span>firePlayer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -448,7 +448,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const Uint8 *&#160;</td>
-          <td class="paramname"><em>keyboardState</em>&#160;</td>
+          <td class="paramname"><em>keyboardState</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Mix_Chunk *&#160;</td>
+          <td class="paramname"><em>Tirsound</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -525,7 +531,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
       </table>
 </div><div class="memdoc">
 
-<p>Checks if the <a class="el" href="classPlayer.html">Player</a>'s health points (HP) are zero or less, indicating death. </p>
+<p>Checks if the <a class="el" href="classPlayer.html">Player</a>'s HP are zero or less, indicating death. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if the <a class="el" href="classPlayer.html">Player</a>'s HP is zero or less, False otherwise. </dd></dl>
 
 </div>

@@ -8,5 +8,6 @@ var searchData=
   ['draw_14',['draw',['../classScoreSystem.html#a537b368ab879c3e77e4469a8743119af',1,'ScoreSystem']]],
   ['drawinvaders_15',['DrawInvaders',['../classInvadersManager.html#ac6ad4ddf8581bc78663f10b04f744d81',1,'InvadersManager']]],
   ['drawproj_16',['DrawProj',['../classProjectileManager.html#ab81134a578a24e2e680f6178f7ff4e0e',1,'ProjectileManager']]],
-  ['drawprojectile_17',['drawProjectile',['../classProjectile.html#af9630d3d14f44b7b1cf17a641a04f16c',1,'Projectile']]]
+  ['drawprojectileinvader_17',['drawProjectileInvader',['../classProjectile.html#ae71264e82fc8b9951259bcd8142caaeb',1,'Projectile']]],
+  ['drawprojectileplayer_18',['drawProjectilePlayer',['../classProjectile.html#aa927277b01c6455db5c2b5223c71683f',1,'Projectile']]]
 ];

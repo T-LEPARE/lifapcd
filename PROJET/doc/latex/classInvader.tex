@@ -15,7 +15,7 @@ Inheritance diagram for Invader\+:\nopagebreak
 \mbox{\Hypertarget{classInvader_a66554fabc7a2ca91051589b018bca99a}\label{classInvader_a66554fabc7a2ca91051589b018bca99a}} 
 \mbox{\hyperlink{classInvader_a66554fabc7a2ca91051589b018bca99a}{Invader}} ()
 \begin{DoxyCompactList}\small\item\em constructeur de \mbox{\hyperlink{classInvader}{Invader}} \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classInvader_a1808fc487a4a77f5271fa487625b077b}{Invader}} (float x, float y)
+\mbox{\hyperlink{classInvader_a77dbf113947c264ee27bb60efa8bba4d}{Invader}} (float x, float y, float Nv\+HP, int Nvdmg)
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classInvader}{Invader}} object. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classInvader_a3a5de7b32f8fc794426a81f7658fd5b9}\label{classInvader_a3a5de7b32f8fc794426a81f7658fd5b9}} 
 \mbox{\hyperlink{classInvader_a3a5de7b32f8fc794426a81f7658fd5b9}{$\sim$\+Invader}} ()
@@ -51,8 +51,7 @@ float \mbox{\hyperlink{classInvader_aeb19c6eb9092f6751e329b395e1a8520}{get\+Spee
 \item 
 float \mbox{\hyperlink{classInvader_aaf4282f9ece534a3a4c6bb6df62fbc21}{get\+Taille}} ()
 \item 
-\mbox{\Hypertarget{classInvader_af7b329279cad65adedbf5cc3b2f19a1b}\label{classInvader_af7b329279cad65adedbf5cc3b2f19a1b}} 
-\mbox{\hyperlink{structPosition}{Position}} {\bfseries get\+Direction} ()
+\mbox{\hyperlink{structPosition}{Position}} \mbox{\hyperlink{classInvader_af7b329279cad65adedbf5cc3b2f19a1b}{get\+Direction}} ()
 \item 
 float \mbox{\hyperlink{classInvader_a35b977c39b784597a815392d8e54e7e5}{get\+Width}} ()
 \item 
@@ -69,23 +68,22 @@ void \mbox{\hyperlink{classInvader_acc12398c85ae7ab90293c08463fdba52}{set\+Textu
 \begin{DoxyCompactList}\small\item\em permet de set la texture des invaders \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classInvader_a195ddc1b4e8217bc4a6b06588aaf9b25}{set\+Surface}} (SDL\+\_\+\+Surface $\ast$\+\_\+surface)
 \begin{DoxyCompactList}\small\item\em permet de set la surface des invaders \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classInvader_a09e546de91cfec1f69bd551a9e88bf48}\label{classInvader_a09e546de91cfec1f69bd551a9e88bf48}} 
-bool {\bfseries Invaderpeut\+Tirer} ()
+bool \mbox{\hyperlink{classInvader_a09e546de91cfec1f69bd551a9e88bf48}{Invaderpeut\+Tirer}} ()
 \item 
 void \mbox{\hyperlink{classInvader_a67d7203ea4bad4a2284955415b4380d8}{shoot\+Invader}} (\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&tabpro)
 \begin{DoxyCompactList}\small\item\em permet au invader de tirer \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classInvader_a2ed58cf50da1da1ef10569f2c3f7a9db}{Arrive\+En\+Bas}} ()
 \begin{DoxyCompactList}\small\item\em retourne vrai si l\textquotesingle{}invader est arrivé en bas de l\textquotesingle{}écran \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classInvader_a5caf8e0d809043a2be149c13c248ce70}{HPnull\+Invader}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em returns true if invader hp $<$= 0, else returns false \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classInvader_a1808fc487a4a77f5271fa487625b077b}\label{classInvader_a1808fc487a4a77f5271fa487625b077b}} 
+\mbox{\Hypertarget{classInvader_a77dbf113947c264ee27bb60efa8bba4d}\label{classInvader_a77dbf113947c264ee27bb60efa8bba4d}} 
 \index{Invader@{Invader}!Invader@{Invader}}
 \index{Invader@{Invader}!Invader@{Invader}}
 \doxysubsubsection{\texorpdfstring{Invader()}{Invader()}}
-{\footnotesize\ttfamily Invader\+::\+Invader (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Invader\+::\+Invader (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{Nv\+HP,  }\item[{int}]{Nvdmg }\end{DoxyParamCaption})}
 
 
 
@@ -96,6 +94,10 @@ Construct a new \mbox{\hyperlink{classInvader}{Invader}} object.
 {\em x} & coordonné x \\
 \hline
 {\em y} & coordonné y \\
+\hline
+{\em Nv\+HP} & Hp de l\textquotesingle{}invader \\
+\hline
+{\em Nvdmg} & dmg de l\textquotesingle{}invader \\
 \hline
 \end{DoxyParams}
 
@@ -124,6 +126,15 @@ false
 
 \begin{DoxyReturn}{Returns}
 renvoie le degats de l\textquotesingle{}arme 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInvader_af7b329279cad65adedbf5cc3b2f19a1b}\label{classInvader_af7b329279cad65adedbf5cc3b2f19a1b}} 
+\index{Invader@{Invader}!getDirection@{getDirection}}
+\index{getDirection@{getDirection}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{getDirection()}{getDirection()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPosition}{Position}} Invader\+::get\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Retourne la direction de l\textquotesingle{}\mbox{\hyperlink{classInvader}{Invader}} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classInvader_af780800cad0a7ed61547a934d1c212d9}\label{classInvader_af780800cad0a7ed61547a934d1c212d9}} 
 \index{Invader@{Invader}!getHeight@{getHeight}}
@@ -211,6 +222,10 @@ Retourne la largeur de l\textquotesingle{}\mbox{\hyperlink{classInvader}{Invader
 \doxysubsubsection{\texorpdfstring{HPnullInvader()}{HPnullInvader()}}
 {\footnotesize\ttfamily bool Invader\+::\+HPnull\+Invader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+returns true if invader hp $<$= 0, else returns false 
+
 \begin{DoxyReturn}{Returns}
 true 
 
@@ -239,6 +254,15 @@ initialisation de l\textquotesingle{}\mbox{\hyperlink{classInvader}{Invader}}
 {\em damage} & damage de l\textquotesingle{}invader \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classInvader_a09e546de91cfec1f69bd551a9e88bf48}\label{classInvader_a09e546de91cfec1f69bd551a9e88bf48}} 
+\index{Invader@{Invader}!InvaderpeutTirer@{InvaderpeutTirer}}
+\index{InvaderpeutTirer@{InvaderpeutTirer}!Invader@{Invader}}
+\doxysubsubsection{\texorpdfstring{InvaderpeutTirer()}{InvaderpeutTirer()}}
+{\footnotesize\ttfamily bool Invader\+::\+Invaderpeut\+Tirer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+un booléen qui vérifie si l\textquotesingle{}invader peut tirer (cadence de tir) 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classInvader_a0504f29b72d2e06a0a98714f50b81d92}\label{classInvader_a0504f29b72d2e06a0a98714f50b81d92}} 
 \index{Invader@{Invader}!setDamage@{setDamage}}
 \index{setDamage@{setDamage}!Invader@{Invader}}
