@@ -23,6 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">StarBlitzGame
    </div>
+   <div id="projectbrief">Starblitzgame is a litle shoot em up game developed by Louis ,Tristan and Nathan</div>
   </td>
  </tr>
  </tbody>
@@ -75,33 +76,53 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classDisplay.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classDisplay.html">Display</a> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> DIMW;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> DIMH;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    SDL_Surface* surface;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    SDL_Texture* texture;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classDisplay.html">Display</a>(SDL_Renderer* _renderer);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    ~<a class="code" href="classDisplay.html">Display</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> getDIMW();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> getDIMH();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> setDIMW(<span class="keywordtype">int</span> DIMW);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> setDIMH(<span class="keywordtype">int</span> DIMH);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">bool</span> shouldRender;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> render(SDL_Renderer* renderer); <span class="comment">// Effectue le rendu</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    SDL_Texture* getTexture();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    SDL_Surface* getSurface();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> setTexture(SDL_Texture* _texture);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> setSurface(SDL_Surface* _surface);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassDisplay_html"><div class="ttname"><a href="classDisplay.html">Display</a></div><div class="ttdef"><b>Definition:</b> StarblitzGameDisplay.h:8</div></div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classDisplay.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classDisplay.html">Display</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> DIMW;  <span class="comment">// Static member variable for display width</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> DIMH;  <span class="comment">// Static member variable for display height</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  SDL_Surface* surface;  <span class="comment">// Pointer to an SDL_Surface representing the background image</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  SDL_Texture* texture;  <span class="comment">// Pointer to an SDL_Texture representing the background image (for rendering)</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keywordtype">bool</span> shouldRender;     <span class="comment">// Flag indicating whether rendering should occur</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="classDisplay.html#a64b09edaba3b1d53dbc6ebdc9fca0213">Display</a>(SDL_Renderer* renderer);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <a class="code" href="classDisplay.html#ac2607a6bb236c55547a4223d40d85d1f">~Display</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classDisplay.html#aef557c489a76ae97fe911612be73daeb">getDIMW</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classDisplay.html#a8291099dfe54ed9be950fb2fd0935772">getDIMH</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#a23493306931bb3d134125c7734411be7">setDIMW</a>(<span class="keywordtype">int</span> DIMW);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#a5b33c19455440bf891a26aaf42cbd733">setDIMH</a>(<span class="keywordtype">int</span> DIMH);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordtype">bool</span> shouldRender;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#aabbc1d489eb84e79fb3d95724b54e835">render</a>(SDL_Renderer* renderer);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  SDL_Texture* <a class="code" href="classDisplay.html#a8337b1a5c2281aaa8d0b8a70b4daf1d3">getTexture</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  SDL_Surface* <a class="code" href="classDisplay.html#a031e34fa93dc986ff370460f1ea201da">getSurface</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#ac9a22288fa039312ce4abec9f171cae5">setTexture</a>(SDL_Texture* _texture);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classDisplay.html#ab3565b71fb3eea236e9325ea08ba1da3">setSurface</a>(SDL_Surface* _surface);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassDisplay_html"><div class="ttname"><a href="classDisplay.html">Display</a></div><div class="ttdef"><b>Definition:</b> StarblitzGameDisplay.h:7</div></div>
+<div class="ttc" id="aclassDisplay_html_a031e34fa93dc986ff370460f1ea201da"><div class="ttname"><a href="classDisplay.html#a031e34fa93dc986ff370460f1ea201da">Display::getSurface</a></div><div class="ttdeci">SDL_Surface * getSurface()</div><div class="ttdoc">Gets the display's surface object.</div><div class="ttdef"><b>Definition:</b> StarblitzGameDisplay.cpp:50</div></div>
+<div class="ttc" id="aclassDisplay_html_a23493306931bb3d134125c7734411be7"><div class="ttname"><a href="classDisplay.html#a23493306931bb3d134125c7734411be7">Display::setDIMW</a></div><div class="ttdeci">static void setDIMW(int DIMW)</div><div class="ttdoc">Static function to set the display width.</div><div class="ttdef"><b>Definition:</b> StarblitzGameDisplay.cpp:39</div></div>
+<div class="ttc" id="aclassDisplay_html_a5b33c19455440bf891a26aaf42cbd733"><div class="ttname"><a href="classDisplay.html#a5b33c19455440bf891a26aaf42cbd733">Display::setDIMH</a></div><div class="ttdeci">static void setDIMH(int DIMH)</div><div class="ttdoc">Static function to set the display height.</div><div class="ttdef"><b>Definition:</b> StarblitzGameDisplay.cpp:43</div></div>
+<div class="ttc" id="aclassDisplay_html_a64b09edaba3b1d53dbc6ebdc9fca0213"><div class="ttname"><a href="classDisplay.html#a64b09edaba3b1d53dbc6ebdc9fca0213">Display::Display</a></div><div class="ttdeci">Display(SDL_Renderer *renderer)</div><div class="ttdoc">Constructor for Display. Initializes the display with a background image.</div><div class="ttdef"><b>Definition:</b> StarblitzGameDisplay.cpp:6</div></div>
+<div class="ttc" id="aclassDisplay_html_a8291099dfe54ed9be950fb2fd0935772"><div class="ttname"><a href="classDisplay.html#a8291099dfe54ed9be950fb2fd0935772">Display::getDIMH</a></div><div class="ttdeci">static int getDIMH()</div><div class="ttdoc">Static function to get the display height.</div><div class="ttdef"><b>Definition:</b> StarblitzGameDisplay.cpp:35</div></div>
+<div class="ttc" id="aclassDisplay_html_a8337b1a5c2281aaa8d0b8a70b4daf1d3"><div class="ttname"><a href="classDisplay.html#a8337b1a5c2281aaa8d0b8a70b4daf1d3">Display::getTexture</a></div><div class="ttdeci">SDL_Texture * getTexture()</div><div class="ttdoc">Gets the display's texture object.</div><div class="ttdef"><b>Definition:</b> StarblitzGameDisplay.cpp:47</div></div>
+<div class="ttc" id="aclassDisplay_html_aabbc1d489eb84e79fb3d95724b54e835"><div class="ttname"><a href="classDisplay.html#aabbc1d489eb84e79fb3d95724b54e835">Display::render</a></div><div class="ttdeci">void render(SDL_Renderer *renderer)</div><div class="ttdoc">Renders the display background image on the provided renderer.</div><div class="ttdef"><b>Definition:</b> StarblitzGameDisplay.cpp:61</div></div>
+<div class="ttc" id="aclassDisplay_html_ab3565b71fb3eea236e9325ea08ba1da3"><div class="ttname"><a href="classDisplay.html#ab3565b71fb3eea236e9325ea08ba1da3">Display::setSurface</a></div><div class="ttdeci">void setSurface(SDL_Surface *_surface)</div><div class="ttdoc">Sets the display's surface object.</div><div class="ttdef"><b>Definition:</b> StarblitzGameDisplay.cpp:56</div></div>
+<div class="ttc" id="aclassDisplay_html_ac2607a6bb236c55547a4223d40d85d1f"><div class="ttname"><a href="classDisplay.html#ac2607a6bb236c55547a4223d40d85d1f">Display::~Display</a></div><div class="ttdeci">~Display()</div><div class="ttdoc">Destructor for Display. Frees resources (surface and texture).</div><div class="ttdef"><b>Definition:</b> StarblitzGameDisplay.cpp:26</div></div>
+<div class="ttc" id="aclassDisplay_html_ac9a22288fa039312ce4abec9f171cae5"><div class="ttname"><a href="classDisplay.html#ac9a22288fa039312ce4abec9f171cae5">Display::setTexture</a></div><div class="ttdeci">void setTexture(SDL_Texture *_texture)</div><div class="ttdoc">Sets the display's texture object.</div><div class="ttdef"><b>Definition:</b> StarblitzGameDisplay.cpp:53</div></div>
+<div class="ttc" id="aclassDisplay_html_aef557c489a76ae97fe911612be73daeb"><div class="ttname"><a href="classDisplay.html#aef557c489a76ae97fe911612be73daeb">Display::getDIMW</a></div><div class="ttdeci">static int getDIMW()</div><div class="ttdoc">Static function to get the display width.</div><div class="ttdef"><b>Definition:</b> StarblitzGameDisplay.cpp:31</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

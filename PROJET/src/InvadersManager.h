@@ -4,6 +4,7 @@
 #include <vector>
 #include <SDL2/SDL.h>
 #include "Invaders.h"
+#include "ScoreSystem.h"
 
 class InvadersManager: private Invader {
 private:
@@ -48,7 +49,7 @@ public:
    * @param InvaderQuiTir Vector containing indices of invaders that can shoot.
    * @param indiceDuPlusADroite Index of the rightmost Invader.
    */
-  void Update(ProjectileManager& tabpro, Player& player, std::vector<int> InvaderQuiTir, int indiceDuPlusADroite);
+  void Update(ProjectileManager& tabpro, Player& player, std::vector<int> InvaderQuiTir, int indiceDuPlusADroite,ScoreSystem score);
 
   /**
    * @brief Finds the index of the rightmost Invader.
@@ -60,7 +61,7 @@ public:
    * @brief Moves all Invaders a certain distance based on the index of the rightmost Invader.
    * @param indiceDuPlusADroite Index of the rightmost Invader.
    */
-  void Move(int indiceDuPlusADroite);
+  void Move(int indiceDuPlusADroite,ScoreSystem score);
 
   /**
    * @brief Checks for collisions between all Invaders and a given Projectile.

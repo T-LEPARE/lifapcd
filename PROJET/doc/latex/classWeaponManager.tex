@@ -4,31 +4,154 @@
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structWeaponManager_1_1weaponType}{weapon\+Type}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Structure representing a weapon type with its properties. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classWeaponManager_abb551d49fc701c1ebd0c18bc9c554449}\label{classWeaponManager_abb551d49fc701c1ebd0c18bc9c554449}} 
-std\+::map$<$ std\+::string, \mbox{\hyperlink{structWeaponManager_1_1weaponType}{weapon\+Type}} $>$ {\bfseries get\+Weapons} ()
-\item 
+\mbox{\Hypertarget{classWeaponManager_a4def02f745b1f22c4fed349379ea8c0b}\label{classWeaponManager_a4def02f745b1f22c4fed349379ea8c0b}} 
+\mbox{\hyperlink{classWeaponManager_a4def02f745b1f22c4fed349379ea8c0b}{Weapon\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}}. Initializes a map containing weapon data. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWeaponManager_a240f037e5294e11081ca3cce1ab4651e}\label{classWeaponManager_a240f037e5294e11081ca3cce1ab4651e}} 
+\mbox{\hyperlink{classWeaponManager_a240f037e5294e11081ca3cce1ab4651e}{$\sim$\+Weapon\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}}. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, \mbox{\hyperlink{structWeaponManager_1_1weaponType}{weapon\+Type}} $>$ \mbox{\hyperlink{classWeaponManager_a7a7f5f6429258fe67742a309eab59c29}{get\+Weapons}} () const
+\begin{DoxyCompactList}\small\item\em Gets a map containing all available weapons and their properties. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classWeaponManager_a3b293fa332f9dc3a91935960bb40ab99}{get\+Damage}} (const std\+::string \&weapon\+Name) const
+\begin{DoxyCompactList}\small\item\em Gets the damage of a specific weapon. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classWeaponManager_a28cb421108578aeb6866e51601518b1e}{get\+Projectile\+Speed}} (const std\+::string \&weapon\+Name) const
+\begin{DoxyCompactList}\small\item\em Gets the projectile speed of a specific weapon. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classWeaponManager_a29798a02949a88fcde82ca58f3aa141b}{getfire\+Rate}} (const std\+::string \&weapon\+Name) const
+\begin{DoxyCompactList}\small\item\em Gets the fire rate of a specific weapon. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classWeaponManager_ad92a259c7418f29e65d22c7801f16aa3}{get\+Projectile\+Width}} (const std\+::string \&weapon\+Name) const
+\begin{DoxyCompactList}\small\item\em Gets the projectile width of a specific weapon. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classWeaponManager_a03a1976deba7a4f90f2d3e7b78a65699}{get\+Projectile\+Height}} (const std\+::string \&weapon\+Name) const
+\begin{DoxyCompactList}\small\item\em Gets the projectile height of a specific weapon. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classWeaponManager_a43c977fd76324431cd7059aa6535a509}{getnext\+Weapon\+Name}} (const std\+::string \&weapon\+Name)
+\begin{DoxyCompactList}\small\item\em Gets the name of the next weapon in the internal weapon list (circular). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classWeaponManager_a3b293fa332f9dc3a91935960bb40ab99}\label{classWeaponManager_a3b293fa332f9dc3a91935960bb40ab99}} 
-int {\bfseries get\+Damage} (const std\+::string \&weapon\+Name) const
-\item 
-\mbox{\Hypertarget{classWeaponManager_a28cb421108578aeb6866e51601518b1e}\label{classWeaponManager_a28cb421108578aeb6866e51601518b1e}} 
-float {\bfseries get\+Projectile\+Speed} (const std\+::string \&weapon\+Name) const
-\item 
+\index{WeaponManager@{WeaponManager}!getDamage@{getDamage}}
+\index{getDamage@{getDamage}!WeaponManager@{WeaponManager}}
+\doxysubsubsection{\texorpdfstring{getDamage()}{getDamage()}}
+{\footnotesize\ttfamily int Weapon\+Manager\+::get\+Damage (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{weapon\+Name }\end{DoxyParamCaption}) const}
+
+
+
+Gets the damage of a specific weapon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weapon\+Name} & The name of the weapon. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The damage dealt by the weapon\textquotesingle{}s projectile. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classWeaponManager_a29798a02949a88fcde82ca58f3aa141b}\label{classWeaponManager_a29798a02949a88fcde82ca58f3aa141b}} 
-float {\bfseries getfire\+Rate} (const std\+::string \&weapon\+Name) const
-\item 
-\mbox{\Hypertarget{classWeaponManager_ad92a259c7418f29e65d22c7801f16aa3}\label{classWeaponManager_ad92a259c7418f29e65d22c7801f16aa3}} 
-float {\bfseries get\+Projectile\+Width} (const std\+::string \&weapon\+Name) const
-\item 
-\mbox{\Hypertarget{classWeaponManager_a03a1976deba7a4f90f2d3e7b78a65699}\label{classWeaponManager_a03a1976deba7a4f90f2d3e7b78a65699}} 
-float {\bfseries get\+Projectile\+Height} (const std\+::string \&weapon\+Name) const
-\item 
+\index{WeaponManager@{WeaponManager}!getfireRate@{getfireRate}}
+\index{getfireRate@{getfireRate}!WeaponManager@{WeaponManager}}
+\doxysubsubsection{\texorpdfstring{getfireRate()}{getfireRate()}}
+{\footnotesize\ttfamily float Weapon\+Manager\+::getfire\+Rate (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{weapon\+Name }\end{DoxyParamCaption}) const}
+
+
+
+Gets the fire rate of a specific weapon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weapon\+Name} & The name of the weapon. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The fire rate of the weapon (projectiles per second). 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classWeaponManager_a43c977fd76324431cd7059aa6535a509}\label{classWeaponManager_a43c977fd76324431cd7059aa6535a509}} 
-std\+::string {\bfseries getnext\+Weapon\+Name} (const std\+::string \&weapon\+Name)
-\end{DoxyCompactItemize}
+\index{WeaponManager@{WeaponManager}!getnextWeaponName@{getnextWeaponName}}
+\index{getnextWeaponName@{getnextWeaponName}!WeaponManager@{WeaponManager}}
+\doxysubsubsection{\texorpdfstring{getnextWeaponName()}{getnextWeaponName()}}
+{\footnotesize\ttfamily std\+::string Weapon\+Manager\+::getnext\+Weapon\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{weapon\+Name }\end{DoxyParamCaption})}
+
+
+
+Gets the name of the next weapon in the internal weapon list (circular). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weapon\+Name} & The current weapon name. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The name of the next weapon, or the first weapon\textquotesingle{}s name if at the end. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWeaponManager_a03a1976deba7a4f90f2d3e7b78a65699}\label{classWeaponManager_a03a1976deba7a4f90f2d3e7b78a65699}} 
+\index{WeaponManager@{WeaponManager}!getProjectileHeight@{getProjectileHeight}}
+\index{getProjectileHeight@{getProjectileHeight}!WeaponManager@{WeaponManager}}
+\doxysubsubsection{\texorpdfstring{getProjectileHeight()}{getProjectileHeight()}}
+{\footnotesize\ttfamily float Weapon\+Manager\+::get\+Projectile\+Height (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{weapon\+Name }\end{DoxyParamCaption}) const}
+
+
+
+Gets the projectile height of a specific weapon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weapon\+Name} & The name of the weapon. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The height of the weapon\textquotesingle{}s projectile. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWeaponManager_a28cb421108578aeb6866e51601518b1e}\label{classWeaponManager_a28cb421108578aeb6866e51601518b1e}} 
+\index{WeaponManager@{WeaponManager}!getProjectileSpeed@{getProjectileSpeed}}
+\index{getProjectileSpeed@{getProjectileSpeed}!WeaponManager@{WeaponManager}}
+\doxysubsubsection{\texorpdfstring{getProjectileSpeed()}{getProjectileSpeed()}}
+{\footnotesize\ttfamily float Weapon\+Manager\+::get\+Projectile\+Speed (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{weapon\+Name }\end{DoxyParamCaption}) const}
+
+
+
+Gets the projectile speed of a specific weapon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weapon\+Name} & The name of the weapon. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The speed of the weapon\textquotesingle{}s projectile. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWeaponManager_ad92a259c7418f29e65d22c7801f16aa3}\label{classWeaponManager_ad92a259c7418f29e65d22c7801f16aa3}} 
+\index{WeaponManager@{WeaponManager}!getProjectileWidth@{getProjectileWidth}}
+\index{getProjectileWidth@{getProjectileWidth}!WeaponManager@{WeaponManager}}
+\doxysubsubsection{\texorpdfstring{getProjectileWidth()}{getProjectileWidth()}}
+{\footnotesize\ttfamily float Weapon\+Manager\+::get\+Projectile\+Width (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{weapon\+Name }\end{DoxyParamCaption}) const}
+
+
+
+Gets the projectile width of a specific weapon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weapon\+Name} & The name of the weapon. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The width of the weapon\textquotesingle{}s projectile. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWeaponManager_a7a7f5f6429258fe67742a309eab59c29}\label{classWeaponManager_a7a7f5f6429258fe67742a309eab59c29}} 
+\index{WeaponManager@{WeaponManager}!getWeapons@{getWeapons}}
+\index{getWeapons@{getWeapons}!WeaponManager@{WeaponManager}}
+\doxysubsubsection{\texorpdfstring{getWeapons()}{getWeapons()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, \mbox{\hyperlink{structWeaponManager_1_1weaponType}{Weapon\+Manager\+::weapon\+Type}} $>$ Weapon\+Manager\+::get\+Weapons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets a map containing all available weapons and their properties. 
+
+\begin{DoxyReturn}{Returns}
+A map where keys are weapon names and values are \mbox{\hyperlink{structWeaponManager_1_1weaponType}{weapon\+Type}} structures. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

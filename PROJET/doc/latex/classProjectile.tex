@@ -8,9 +8,8 @@
 \begin{DoxyCompactList}\small\item\em constructeur par defaut du projectiles \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classProjectile_ab8a845d667df0b6fbef9285373657e0c}{Projectile}} (float x, float y, std\+::string weapon\+Name, \mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&weapon\+Manager)
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classProjectile}{Projectile}} object. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classProjectile_a59647a0c30cd0021d0ad947071b610ff}\label{classProjectile_a59647a0c30cd0021d0ad947071b610ff}} 
-{\bfseries Projectile} (const \mbox{\hyperlink{structPosition}{Position}} \&inv\+Pos, const int \&dmg)
-\item 
+\mbox{\hyperlink{classProjectile_a59647a0c30cd0021d0ad947071b610ff}{Projectile}} (const \mbox{\hyperlink{structPosition}{Position}} \&inv\+Pos, const int \&dmg)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classProjectile}{Projectile}} based on invader position and damage. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classProjectile_a94903e021fa2edab60ba3836ca0b937d}\label{classProjectile_a94903e021fa2edab60ba3836ca0b937d}} 
 \mbox{\hyperlink{classProjectile_a94903e021fa2edab60ba3836ca0b937d}{$\sim$\+Projectile}} ()
 \begin{DoxyCompactList}\small\item\em destructeur de projectile \end{DoxyCompactList}\item 
@@ -39,14 +38,14 @@ float \mbox{\hyperlink{classProjectile_a70d55ea52a1d6cdaf74c894d412597d1}{get\+H
 void \mbox{\hyperlink{classProjectile_a29cfcf900c435edafbd7dbf9942f7fda}{set\+Projectile\+Rect}} (int x, int y, int width, int height)
 \begin{DoxyCompactList}\small\item\em Set the \mbox{\hyperlink{classProjectile}{Projectile}} Rect object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classProjectile_af9630d3d14f44b7b1cf17a641a04f16c}{draw\+Projectile}} (SDL\+\_\+\+Renderer $\ast$renderer)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Draws the \mbox{\hyperlink{classProjectile}{Projectile}} on the specified renderer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classProjectile_ab8a845d667df0b6fbef9285373657e0c}\label{classProjectile_ab8a845d667df0b6fbef9285373657e0c}} 
 \index{Projectile@{Projectile}!Projectile@{Projectile}}
 \index{Projectile@{Projectile}!Projectile@{Projectile}}
-\doxysubsubsection{\texorpdfstring{Projectile()}{Projectile()}}
+\doxysubsubsection{\texorpdfstring{Projectile()}{Projectile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily Projectile\+::\+Projectile (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{std\+::string}]{weapon\+Name,  }\item[{\mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&}]{weapon\+Manager }\end{DoxyParamCaption})}
 
 
@@ -62,6 +61,23 @@ Construct a new \mbox{\hyperlink{classProjectile}{Projectile}} object.
 {\em weapon\+Name} & \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classProjectile_a59647a0c30cd0021d0ad947071b610ff}\label{classProjectile_a59647a0c30cd0021d0ad947071b610ff}} 
+\index{Projectile@{Projectile}!Projectile@{Projectile}}
+\index{Projectile@{Projectile}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{Projectile()}{Projectile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Projectile\+::\+Projectile (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structPosition}{Position}} \&}]{inv\+Pos,  }\item[{const int \&}]{dmg }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classProjectile}{Projectile}} based on invader position and damage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inv\+Pos} & \mbox{\hyperlink{structPosition}{Position}} of the \mbox{\hyperlink{classInvader}{Invader}} that fired the \mbox{\hyperlink{classProjectile}{Projectile}}. \\
+\hline
+{\em dmg} & Damage inflicted by the \mbox{\hyperlink{classProjectile}{Projectile}}. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -72,8 +88,12 @@ Construct a new \mbox{\hyperlink{classProjectile}{Projectile}} object.
 {\footnotesize\ttfamily void Projectile\+::draw\+Projectile (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
 
 
+
+Draws the \mbox{\hyperlink{classProjectile}{Projectile}} on the specified renderer. 
+
+
 \begin{DoxyParams}{Parameters}
-{\em renderer} & \\
+{\em renderer} & Reference to an SDL\+\_\+\+Renderer object. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classProjectile_a492ec760c0ab762eb9a1936423e369ea}\label{classProjectile_a492ec760c0ab762eb9a1936423e369ea}} 

@@ -12,6 +12,7 @@
 #include "ProjectileManager.h"
 #include "WeaponManager.h"
 #include "Weapon.h"
+#include "ScoreSystem.h"
 #include <memory>
 
 
@@ -144,6 +145,8 @@ if (TTF_Init() != 0) {
     InvadersManager itab;
     ProjectileManager Pmanager;
     WeaponManager weaponManager;
+    ScoreSystem score;
+    char scoreTexte[20];
     std::cout << "weaponManager Initialised" << std::endl;
 
     // Boucle principale du jeu
@@ -170,6 +173,7 @@ if (TTF_Init() != 0) {
                     if (event.key.keysym.sym == SDLK_RETURN) {
                         gameState = GameState::Running;
                         Mix_PlayMusic(backgroundMusic, -1);
+                        score.init();
                         player.setHP(0);
                         itab.resetInvaders();
                         player.playerDeath(Pmanager);
@@ -358,7 +362,13 @@ if (TTF_Init() != 0) {
             std::vector<Invader>* itabPtr = itab.getInvaders();
             std::vector<int> ListeDerniereLigne=itab.QuiPeutTirer();
             int indiceDuPlusADroite=itab.LePlusADroite();
-            itab.Update(Pmanager,player,ListeDerniereLigne,indiceDuPlusADroite);
+            itab.Update(Pmanager,player,ListeDerniereLigne,indiceDuPlusADroite,score);
+            sprintf(scoreTexte, "Score : %d", score.getScore());
+            SDL_Color textColor = {255, 255, 255, 255};
+            SDL_Surface* textSurface = TTF_RenderText_Solid(font,scoreTexte, textColor);
+            SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+            SDL_Rect textRect = {430, 0, 100, 25};
+            SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);
             player.firePlayer(Pmanager, weaponManager,keyboardState, tirSound);

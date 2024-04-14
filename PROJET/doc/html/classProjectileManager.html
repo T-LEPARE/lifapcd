@@ -23,6 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">StarBlitzGame
    </div>
+   <div id="projectbrief">Starblitzgame is a litle shoot em up game developed by Louis ,Tristan and Nathan</div>
   </td>
  </tr>
  </tbody>
@@ -71,37 +72,299 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1dc8b1cbe9be17873e8f06acaab65af4"><td class="memItemLeft" align="right" valign="top"><a id="a1dc8b1cbe9be17873e8f06acaab65af4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetnbProjectile</b> (int nb)</td></tr>
+<tr class="memitem:aa1f4d3c4eec327b6a6db2b89843508b3"><td class="memItemLeft" align="right" valign="top"><a id="aa1f4d3c4eec327b6a6db2b89843508b3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#aa1f4d3c4eec327b6a6db2b89843508b3">ProjectileManager</a> ()</td></tr>
+<tr class="memdesc:aa1f4d3c4eec327b6a6db2b89843508b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="classProjectileManager.html">ProjectileManager</a>. Initializes an empty projectile vector. <br /></td></tr>
+<tr class="separator:aa1f4d3c4eec327b6a6db2b89843508b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17ad5ee7f1bdcc061f8c43ecbb07c224"><td class="memItemLeft" align="right" valign="top"><a id="a17ad5ee7f1bdcc061f8c43ecbb07c224"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#a17ad5ee7f1bdcc061f8c43ecbb07c224">~ProjectileManager</a> ()</td></tr>
+<tr class="memdesc:a17ad5ee7f1bdcc061f8c43ecbb07c224"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="classProjectileManager.html">ProjectileManager</a>. Frees resources (projectiles) held in the vector. <br /></td></tr>
+<tr class="separator:a17ad5ee7f1bdcc061f8c43ecbb07c224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dc8b1cbe9be17873e8f06acaab65af4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#a1dc8b1cbe9be17873e8f06acaab65af4">SetnbProjectile</a> (int nb)</td></tr>
+<tr class="memdesc:a1dc8b1cbe9be17873e8f06acaab65af4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the maximum number of projectiles that can be managed (not implemented in the provided code).  <a href="classProjectileManager.html#a1dc8b1cbe9be17873e8f06acaab65af4">More...</a><br /></td></tr>
 <tr class="separator:a1dc8b1cbe9be17873e8f06acaab65af4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a712a5c2fbb5128b412c87853cc86e637"><td class="memItemLeft" align="right" valign="top"><a id="a712a5c2fbb5128b412c87853cc86e637"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetnbProjectile</b> ()</td></tr>
+<tr class="memitem:a712a5c2fbb5128b412c87853cc86e637"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#a712a5c2fbb5128b412c87853cc86e637">GetnbProjectile</a> ()</td></tr>
+<tr class="memdesc:a712a5c2fbb5128b412c87853cc86e637"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current number of projectiles managed by the <a class="el" href="classProjectileManager.html">ProjectileManager</a>.  <a href="classProjectileManager.html#a712a5c2fbb5128b412c87853cc86e637">More...</a><br /></td></tr>
 <tr class="separator:a712a5c2fbb5128b412c87853cc86e637"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8a2c1b0776e588020fedda227bb4dda"><td class="memItemLeft" align="right" valign="top"><a id="ae8a2c1b0776e588020fedda227bb4dda"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addProjectile</b> (std::unique_ptr&lt; <a class="el" href="classProjectile.html">Projectile</a> &gt; projectile)</td></tr>
+<tr class="memitem:ae8a2c1b0776e588020fedda227bb4dda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#ae8a2c1b0776e588020fedda227bb4dda">addProjectile</a> (std::unique_ptr&lt; <a class="el" href="classProjectile.html">Projectile</a> &gt; projectile)</td></tr>
+<tr class="memdesc:ae8a2c1b0776e588020fedda227bb4dda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new <a class="el" href="classProjectile.html">Projectile</a> object to the manager.  <a href="classProjectileManager.html#ae8a2c1b0776e588020fedda227bb4dda">More...</a><br /></td></tr>
 <tr class="separator:ae8a2c1b0776e588020fedda227bb4dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cea21c8fceb6a9e53ad09d2673f86df"><td class="memItemLeft" align="right" valign="top"><a id="a6cea21c8fceb6a9e53ad09d2673f86df"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeProjectiles</b> (const std::unique_ptr&lt; <a class="el" href="classProjectile.html">Projectile</a> &gt; &amp;projectileToRemove)</td></tr>
+<tr class="memitem:a6cea21c8fceb6a9e53ad09d2673f86df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#a6cea21c8fceb6a9e53ad09d2673f86df">removeProjectiles</a> (const std::unique_ptr&lt; <a class="el" href="classProjectile.html">Projectile</a> &gt; &amp;projectileToRemove)</td></tr>
+<tr class="memdesc:a6cea21c8fceb6a9e53ad09d2673f86df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a specific <a class="el" href="classProjectile.html">Projectile</a> object from the manager based on a provided pointer.  <a href="classProjectileManager.html#a6cea21c8fceb6a9e53ad09d2673f86df">More...</a><br /></td></tr>
 <tr class="separator:a6cea21c8fceb6a9e53ad09d2673f86df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f4e1429c6e22ebfe6e0bad4a3baf48b"><td class="memItemLeft" align="right" valign="top"><a id="a0f4e1429c6e22ebfe6e0bad4a3baf48b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>DamageTakenProjectile</b> (std::unique_ptr&lt; <a class="el" href="classProjectile.html">Projectile</a> &gt; &amp;projectilePtr, <a class="el" href="classPlayer.html">Player</a> *playerPtr, <a class="el" href="classInvader.html">Invader</a> *invaderPtr)</td></tr>
+<tr class="memitem:a0f4e1429c6e22ebfe6e0bad4a3baf48b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#a0f4e1429c6e22ebfe6e0bad4a3baf48b">DamageTakenProjectile</a> (std::unique_ptr&lt; <a class="el" href="classProjectile.html">Projectile</a> &gt; &amp;projectilePtr, <a class="el" href="classPlayer.html">Player</a> *playerPtr, <a class="el" href="classInvader.html">Invader</a> *invaderPtr)</td></tr>
+<tr class="memdesc:a0f4e1429c6e22ebfe6e0bad4a3baf48b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles potential damage taken by a <a class="el" href="classPlayer.html">Player</a> or <a class="el" href="classInvader.html">Invader</a> from a <a class="el" href="classProjectile.html">Projectile</a>.  <a href="classProjectileManager.html#a0f4e1429c6e22ebfe6e0bad4a3baf48b">More...</a><br /></td></tr>
 <tr class="separator:a0f4e1429c6e22ebfe6e0bad4a3baf48b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c128ebf1dfb06216ea8a48165431fa4"><td class="memItemLeft" align="right" valign="top"><a id="a1c128ebf1dfb06216ea8a48165431fa4"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isProjectileOutOfBounds</b> (const std::unique_ptr&lt; <a class="el" href="classProjectile.html">Projectile</a> &gt; &amp;projectile) const</td></tr>
+<tr class="memitem:a1c128ebf1dfb06216ea8a48165431fa4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#a1c128ebf1dfb06216ea8a48165431fa4">isProjectileOutOfBounds</a> (const std::unique_ptr&lt; <a class="el" href="classProjectile.html">Projectile</a> &gt; &amp;projectile) const</td></tr>
+<tr class="memdesc:a1c128ebf1dfb06216ea8a48165431fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a <a class="el" href="classProjectile.html">Projectile</a> is outside the playable area defined by display dimensions.  <a href="classProjectileManager.html#a1c128ebf1dfb06216ea8a48165431fa4">More...</a><br /></td></tr>
 <tr class="separator:a1c128ebf1dfb06216ea8a48165431fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b3e316dd0412eb6d6cd78aaeefba8a2"><td class="memItemLeft" align="right" valign="top"><a id="a1b3e316dd0412eb6d6cd78aaeefba8a2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>hasProjectileCollided</b> (<a class="el" href="classPlayer.html">Player</a> *playerPtr, std::vector&lt; <a class="el" href="classInvader.html">Invader</a> &gt; *invaders)</td></tr>
+<tr class="memitem:a1b3e316dd0412eb6d6cd78aaeefba8a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#a1b3e316dd0412eb6d6cd78aaeefba8a2">hasProjectileCollided</a> (<a class="el" href="classPlayer.html">Player</a> *playerPtr, std::vector&lt; <a class="el" href="classInvader.html">Invader</a> &gt; *invaders)</td></tr>
+<tr class="memdesc:a1b3e316dd0412eb6d6cd78aaeefba8a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for collisions between projectiles and Invaders or the <a class="el" href="classPlayer.html">Player</a>.  <a href="classProjectileManager.html#a1b3e316dd0412eb6d6cd78aaeefba8a2">More...</a><br /></td></tr>
 <tr class="separator:a1b3e316dd0412eb6d6cd78aaeefba8a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab81134a578a24e2e680f6178f7ff4e0e"><td class="memItemLeft" align="right" valign="top"><a id="ab81134a578a24e2e680f6178f7ff4e0e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawProj</b> (SDL_Renderer *renderer)</td></tr>
+<tr class="memitem:ab81134a578a24e2e680f6178f7ff4e0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#ab81134a578a24e2e680f6178f7ff4e0e">DrawProj</a> (SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:ab81134a578a24e2e680f6178f7ff4e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws all managed Projectiles on the specified renderer.  <a href="classProjectileManager.html#ab81134a578a24e2e680f6178f7ff4e0e">More...</a><br /></td></tr>
 <tr class="separator:ab81134a578a24e2e680f6178f7ff4e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a914f0841e7fd034156beb76154b6e4ba"><td class="memItemLeft" align="right" valign="top"><a id="a914f0841e7fd034156beb76154b6e4ba"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateProj</b> ()</td></tr>
+<tr class="memitem:a914f0841e7fd034156beb76154b6e4ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#a914f0841e7fd034156beb76154b6e4ba">UpdateProj</a> ()</td></tr>
+<tr class="memdesc:a914f0841e7fd034156beb76154b6e4ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the positions of all managed Projectiles.  <a href="classProjectileManager.html#a914f0841e7fd034156beb76154b6e4ba">More...</a><br /></td></tr>
 <tr class="separator:a914f0841e7fd034156beb76154b6e4ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add2e7101f0637cc300ea6dd294a2a25b"><td class="memItemLeft" align="right" valign="top"><a id="add2e7101f0637cc300ea6dd294a2a25b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clearTab</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProjectileManager.html#add2e7101f0637cc300ea6dd294a2a25b">clearTab</a> ()</td></tr>
+<tr class="memdesc:add2e7101f0637cc300ea6dd294a2a25b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the internal vector of projectiles, removing all managed projectiles. <br /></td></tr>
 <tr class="separator:add2e7101f0637cc300ea6dd294a2a25b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae8a2c1b0776e588020fedda227bb4dda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8a2c1b0776e588020fedda227bb4dda">&#9670;&nbsp;</a></span>addProjectile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjectileManager::addProjectile </td>
+          <td>(</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classProjectile.html">Projectile</a> &gt;&#160;</td>
+          <td class="paramname"><em>projectile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a new <a class="el" href="classProjectile.html">Projectile</a> object to the manager. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">projectile</td><td>A unique_ptr owning the <a class="el" href="classProjectile.html">Projectile</a> object to be added. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0f4e1429c6e22ebfe6e0bad4a3baf48b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f4e1429c6e22ebfe6e0bad4a3baf48b">&#9670;&nbsp;</a></span>DamageTakenProjectile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjectileManager::DamageTakenProjectile </td>
+          <td>(</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classProjectile.html">Projectile</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>projectilePtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPlayer.html">Player</a> *&#160;</td>
+          <td class="paramname"><em>playerPtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classInvader.html">Invader</a> *&#160;</td>
+          <td class="paramname"><em>invaderPtr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles potential damage taken by a <a class="el" href="classPlayer.html">Player</a> or <a class="el" href="classInvader.html">Invader</a> from a <a class="el" href="classProjectile.html">Projectile</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">projectilePtr</td><td>Unique_ptr referencing the <a class="el" href="classProjectile.html">Projectile</a> object. </td></tr>
+    <tr><td class="paramname">playerPtr</td><td>Pointer to a <a class="el" href="classPlayer.html">Player</a> object (can be nullptr if not involved in collision). </td></tr>
+    <tr><td class="paramname">invaderPtr</td><td>Pointer to an <a class="el" href="classInvader.html">Invader</a> object (can be nullptr if not involved in collision). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab81134a578a24e2e680f6178f7ff4e0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab81134a578a24e2e680f6178f7ff4e0e">&#9670;&nbsp;</a></span>DrawProj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjectileManager::DrawProj </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws all managed Projectiles on the specified renderer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Reference to an SDL_Renderer object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a712a5c2fbb5128b412c87853cc86e637"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a712a5c2fbb5128b412c87853cc86e637">&#9670;&nbsp;</a></span>GetnbProjectile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ProjectileManager::GetnbProjectile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the current number of projectiles managed by the <a class="el" href="classProjectileManager.html">ProjectileManager</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of projectiles in the internal vector. </dd></dl>
+
+</div>
+</div>
+<a id="a1b3e316dd0412eb6d6cd78aaeefba8a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b3e316dd0412eb6d6cd78aaeefba8a2">&#9670;&nbsp;</a></span>hasProjectileCollided()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjectileManager::hasProjectileCollided </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlayer.html">Player</a> *&#160;</td>
+          <td class="paramname"><em>playerPtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classInvader.html">Invader</a> &gt; *&#160;</td>
+          <td class="paramname"><em>invaders</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks for collisions between projectiles and Invaders or the <a class="el" href="classPlayer.html">Player</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerPtr</td><td>Pointer to a <a class="el" href="classPlayer.html">Player</a> object. </td></tr>
+    <tr><td class="paramname">invaders</td><td>Pointer to a vector containing <a class="el" href="classInvader.html">Invader</a> objects. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1c128ebf1dfb06216ea8a48165431fa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c128ebf1dfb06216ea8a48165431fa4">&#9670;&nbsp;</a></span>isProjectileOutOfBounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ProjectileManager::isProjectileOutOfBounds </td>
+          <td>(</td>
+          <td class="paramtype">const std::unique_ptr&lt; <a class="el" href="classProjectile.html">Projectile</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>projectile</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a <a class="el" href="classProjectile.html">Projectile</a> is outside the playable area defined by display dimensions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">projectile</td><td>A const reference to a unique_ptr holding the <a class="el" href="classProjectile.html">Projectile</a> object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the <a class="el" href="classProjectile.html">Projectile</a> is outside the display area, False otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a6cea21c8fceb6a9e53ad09d2673f86df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cea21c8fceb6a9e53ad09d2673f86df">&#9670;&nbsp;</a></span>removeProjectiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjectileManager::removeProjectiles </td>
+          <td>(</td>
+          <td class="paramtype">const std::unique_ptr&lt; <a class="el" href="classProjectile.html">Projectile</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>projectileToRemove</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes a specific <a class="el" href="classProjectile.html">Projectile</a> object from the manager based on a provided pointer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">projectileToRemove</td><td>A unique_ptr referencing the <a class="el" href="classProjectile.html">Projectile</a> object to be removed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1dc8b1cbe9be17873e8f06acaab65af4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dc8b1cbe9be17873e8f06acaab65af4">&#9670;&nbsp;</a></span>SetnbProjectile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjectileManager::SetnbProjectile </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the maximum number of projectiles that can be managed (not implemented in the provided code). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nb</td><td>The intended maximum number of projectiles. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a914f0841e7fd034156beb76154b6e4ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a914f0841e7fd034156beb76154b6e4ba">&#9670;&nbsp;</a></span>UpdateProj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjectileManager::UpdateProj </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the positions of all managed Projectiles. </p>
+<p>This function iterates through the projectiles, updates their positions, and removes any that are out of bounds. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ProjectileManager_8h_source.html">ProjectileManager.h</a></li>
 <li>src/ProjectileManager.cpp</li>

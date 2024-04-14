@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+
 InvadersManager::InvadersManager() {
     this->nbInvader = 0;
 }
@@ -25,10 +26,10 @@ void InvadersManager::RemoveInvader(size_t index) {
     invaders.erase(invaders.begin() + index);
 }
 
-void InvadersManager::Update(ProjectileManager& tabpro, Player &player, std::vector<int> InvaderQuiTir,int indiceDuPlusADroite) {
+void InvadersManager::Update(ProjectileManager& tabpro, Player &player, std::vector<int> InvaderQuiTir,int indiceDuPlusADroite,ScoreSystem score) {
     Shoot(tabpro, InvaderQuiTir);
     hasInvaderCollided(&player);
-    Move(indiceDuPlusADroite);
+    Move(indiceDuPlusADroite,score);
 }
 
 std::vector<int> InvadersManager::QuiPeutTirer()
@@ -63,7 +64,7 @@ int InvadersManager::LePlusADroite()
     return reference;
 }
 
-void InvadersManager::Move(int indiceDuPlusADroite) {
+void InvadersManager::Move(int indiceDuPlusADroite,ScoreSystem score) {
     float leftMost = invaders[0].getPos().x;
     float rightMost = invaders[indiceDuPlusADroite].getPos().x + invaders[indiceDuPlusADroite].getWidth();
     if (leftMost < 0 || rightMost > 540) {
@@ -78,6 +79,7 @@ void InvadersManager::Move(int indiceDuPlusADroite) {
             invaders[i].setPos(invaders[i].getPos().x + invaders[i].getDirection().x * invaders[i].getSpeed(), invaders[i].getPos().y + invaders[i].getDirection().y * invaders[i].getSpeed());
             if(invaders[i].HPnullInvader()){
                 invaders.erase(invaders.begin()+i);
+                score.incrementScore(10);
                 nbInvader--;
                 i--;
             }

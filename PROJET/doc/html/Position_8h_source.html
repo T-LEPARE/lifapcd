@@ -23,6 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">StarBlitzGame
    </div>
+   <div id="projectbrief">Starblitzgame is a litle shoot em up game developed by Louis ,Tristan and Nathan</div>
   </td>
  </tr>
  </tbody>
@@ -72,21 +73,27 @@ $(function() {
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef POSITION_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define POSITION_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="structPosition.html">    4</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structPosition.html">Position</a></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">float</span> x;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordtype">float</span> y;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <a class="code" href="structPosition.html">Position</a>(<span class="keywordtype">float</span> _x, <span class="keywordtype">float</span> _y);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <a class="code" href="structPosition.html">Position</a>();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;};</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="structPosition.html">    7</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structPosition.html">Position</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structPosition.html#af684446cbf0f6d53386686283da6dcc6">   11</a></span>&#160;  <span class="keywordtype">float</span> <a class="code" href="structPosition.html#af684446cbf0f6d53386686283da6dcc6">x</a>;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <a class="code" href="structPosition.html">Position</a> operator+ (<a class="code" href="structPosition.html">Position</a>, <a class="code" href="structPosition.html">Position</a>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <a class="code" href="structPosition.html">Position</a> operator* (<span class="keywordtype">float</span>, <a class="code" href="structPosition.html">Position</a>);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <a class="code" href="structPosition.html">Position</a> operator* (<a class="code" href="structPosition.html">Position</a>, <span class="keywordtype">float</span>);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="astructPosition_html"><div class="ttname"><a href="structPosition.html">Position</a></div><div class="ttdef"><b>Definition:</b> Position.h:5</div></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structPosition.html#a54a6182b5f7539295b32255808897d3f">   16</a></span>&#160;  <span class="keywordtype">float</span> <a class="code" href="structPosition.html#a54a6182b5f7539295b32255808897d3f">y</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <a class="code" href="structPosition.html#a369a577425f8ba02e8750d04b6a088db">Position</a>(<span class="keywordtype">float</span> _x, <span class="keywordtype">float</span> _y);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="structPosition.html#a369a577425f8ba02e8750d04b6a088db">Position</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<a class="code" href="structPosition.html">Position</a> operator+(<a class="code" href="structPosition.html">Position</a> a, <a class="code" href="structPosition.html">Position</a> b);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<a class="code" href="structPosition.html">Position</a> operator*(<span class="keywordtype">float</span> a, <a class="code" href="structPosition.html">Position</a> b);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<a class="code" href="structPosition.html">Position</a> operator*(<a class="code" href="structPosition.html">Position</a> a, <span class="keywordtype">float</span> b);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="astructPosition_html"><div class="ttname"><a href="structPosition.html">Position</a></div><div class="ttdoc">Structure representing a 2D position with x and y coordinates.</div><div class="ttdef"><b>Definition:</b> Position.h:7</div></div>
+<div class="ttc" id="astructPosition_html_a369a577425f8ba02e8750d04b6a088db"><div class="ttname"><a href="structPosition.html#a369a577425f8ba02e8750d04b6a088db">Position::Position</a></div><div class="ttdeci">Position()</div><div class="ttdoc">Default constructor to initialize a Position object with zero coordinates.</div><div class="ttdef"><b>Definition:</b> Position.cpp:26</div></div>
+<div class="ttc" id="astructPosition_html_a54a6182b5f7539295b32255808897d3f"><div class="ttname"><a href="structPosition.html#a54a6182b5f7539295b32255808897d3f">Position::y</a></div><div class="ttdeci">float y</div><div class="ttdoc">Y-coordinate of the position.</div><div class="ttdef"><b>Definition:</b> Position.h:16</div></div>
+<div class="ttc" id="astructPosition_html_af684446cbf0f6d53386686283da6dcc6"><div class="ttname"><a href="structPosition.html#af684446cbf0f6d53386686283da6dcc6">Position::x</a></div><div class="ttdeci">float x</div><div class="ttdoc">X-coordinate of the position.</div><div class="ttdef"><b>Definition:</b> Position.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

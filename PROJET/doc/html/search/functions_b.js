@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['_7einvader_94',['~Invader',['../classInvader.html#a3a5de7b32f8fc794426a81f7658fd5b9',1,'Invader']]],
-  ['_7einvadersmanager_95',['~InvadersManager',['../classInvadersManager.html#ad4ed2ce6bf1ca6df1a4c02f9b1bfdcb6',1,'InvadersManager']]],
-  ['_7eprojectile_96',['~Projectile',['../classProjectile.html#a94903e021fa2edab60ba3836ca0b937d',1,'Projectile']]]
+  ['rectinvaderinit_193',['RectInvaderInit',['../classInvadersManager.html#a1bb3a1007f6c54b6c05a6c554f70010e',1,'InvadersManager']]],
+  ['rectinvaderupdate_194',['RectInvaderUpdate',['../classInvadersManager.html#a91e8ca7e1571183a2e8893dd359a7862',1,'InvadersManager']]],
+  ['removeinvader_195',['RemoveInvader',['../classInvadersManager.html#a8624eab1ef68d727f93323ef4caa7e5f',1,'InvadersManager']]],
+  ['removeprojectiles_196',['removeProjectiles',['../classProjectileManager.html#a6cea21c8fceb6a9e53ad09d2673f86df',1,'ProjectileManager']]],
+  ['render_197',['render',['../classDisplay.html#aabbc1d489eb84e79fb3d95724b54e835',1,'Display']]],
+  ['resetinvaders_198',['resetInvaders',['../classInvadersManager.html#afc4a44a48fc938d8fe7fa91608ed73ed',1,'InvadersManager']]]
 ];

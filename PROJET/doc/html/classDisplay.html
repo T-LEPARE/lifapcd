@@ -23,6 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">StarBlitzGame
    </div>
+   <div id="projectbrief">Starblitzgame is a litle shoot em up game developed by Louis ,Tristan and Nathan</div>
   </td>
  </tr>
  </tbody>
@@ -64,7 +65,6 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classDisplay-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Display Class Reference</div>  </div>
@@ -73,46 +73,314 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac399676c5373c6f743e3c3740f4b8db7"><td class="memItemLeft" align="right" valign="top"><a id="ac399676c5373c6f743e3c3740f4b8db7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Display</b> (SDL_Renderer *_renderer)</td></tr>
-<tr class="separator:ac399676c5373c6f743e3c3740f4b8db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabbc1d489eb84e79fb3d95724b54e835"><td class="memItemLeft" align="right" valign="top"><a id="aabbc1d489eb84e79fb3d95724b54e835"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> (SDL_Renderer *renderer)</td></tr>
+<tr class="memitem:a64b09edaba3b1d53dbc6ebdc9fca0213"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#a64b09edaba3b1d53dbc6ebdc9fca0213">Display</a> (SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:a64b09edaba3b1d53dbc6ebdc9fca0213"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classDisplay.html">Display</a>. Initializes the display with a background image.  <a href="classDisplay.html#a64b09edaba3b1d53dbc6ebdc9fca0213">More...</a><br /></td></tr>
+<tr class="separator:a64b09edaba3b1d53dbc6ebdc9fca0213"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2607a6bb236c55547a4223d40d85d1f"><td class="memItemLeft" align="right" valign="top"><a id="ac2607a6bb236c55547a4223d40d85d1f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#ac2607a6bb236c55547a4223d40d85d1f">~Display</a> ()</td></tr>
+<tr class="memdesc:ac2607a6bb236c55547a4223d40d85d1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="classDisplay.html">Display</a>. Frees resources (surface and texture). <br /></td></tr>
+<tr class="separator:ac2607a6bb236c55547a4223d40d85d1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabbc1d489eb84e79fb3d95724b54e835"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#aabbc1d489eb84e79fb3d95724b54e835">render</a> (SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:aabbc1d489eb84e79fb3d95724b54e835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders the display background image on the provided renderer.  <a href="classDisplay.html#aabbc1d489eb84e79fb3d95724b54e835">More...</a><br /></td></tr>
 <tr class="separator:aabbc1d489eb84e79fb3d95724b54e835"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8337b1a5c2281aaa8d0b8a70b4daf1d3"><td class="memItemLeft" align="right" valign="top"><a id="a8337b1a5c2281aaa8d0b8a70b4daf1d3"></a>
-SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>getTexture</b> ()</td></tr>
+<tr class="memitem:a8337b1a5c2281aaa8d0b8a70b4daf1d3"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#a8337b1a5c2281aaa8d0b8a70b4daf1d3">getTexture</a> ()</td></tr>
+<tr class="memdesc:a8337b1a5c2281aaa8d0b8a70b4daf1d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the display's texture object.  <a href="classDisplay.html#a8337b1a5c2281aaa8d0b8a70b4daf1d3">More...</a><br /></td></tr>
 <tr class="separator:a8337b1a5c2281aaa8d0b8a70b4daf1d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a031e34fa93dc986ff370460f1ea201da"><td class="memItemLeft" align="right" valign="top"><a id="a031e34fa93dc986ff370460f1ea201da"></a>
-SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>getSurface</b> ()</td></tr>
+<tr class="memitem:a031e34fa93dc986ff370460f1ea201da"><td class="memItemLeft" align="right" valign="top">SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#a031e34fa93dc986ff370460f1ea201da">getSurface</a> ()</td></tr>
+<tr class="memdesc:a031e34fa93dc986ff370460f1ea201da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the display's surface object.  <a href="classDisplay.html#a031e34fa93dc986ff370460f1ea201da">More...</a><br /></td></tr>
 <tr class="separator:a031e34fa93dc986ff370460f1ea201da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9a22288fa039312ce4abec9f171cae5"><td class="memItemLeft" align="right" valign="top"><a id="ac9a22288fa039312ce4abec9f171cae5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTexture</b> (SDL_Texture *_texture)</td></tr>
+<tr class="memitem:ac9a22288fa039312ce4abec9f171cae5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#ac9a22288fa039312ce4abec9f171cae5">setTexture</a> (SDL_Texture *_texture)</td></tr>
+<tr class="memdesc:ac9a22288fa039312ce4abec9f171cae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the display's texture object.  <a href="classDisplay.html#ac9a22288fa039312ce4abec9f171cae5">More...</a><br /></td></tr>
 <tr class="separator:ac9a22288fa039312ce4abec9f171cae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3565b71fb3eea236e9325ea08ba1da3"><td class="memItemLeft" align="right" valign="top"><a id="ab3565b71fb3eea236e9325ea08ba1da3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSurface</b> (SDL_Surface *_surface)</td></tr>
+<tr class="memitem:ab3565b71fb3eea236e9325ea08ba1da3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#ab3565b71fb3eea236e9325ea08ba1da3">setSurface</a> (SDL_Surface *_surface)</td></tr>
+<tr class="memdesc:ab3565b71fb3eea236e9325ea08ba1da3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the display's surface object.  <a href="classDisplay.html#ab3565b71fb3eea236e9325ea08ba1da3">More...</a><br /></td></tr>
 <tr class="separator:ab3565b71fb3eea236e9325ea08ba1da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aef557c489a76ae97fe911612be73daeb"><td class="memItemLeft" align="right" valign="top"><a id="aef557c489a76ae97fe911612be73daeb"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>getDIMW</b> ()</td></tr>
+<tr class="memitem:aef557c489a76ae97fe911612be73daeb"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#aef557c489a76ae97fe911612be73daeb">getDIMW</a> ()</td></tr>
+<tr class="memdesc:aef557c489a76ae97fe911612be73daeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static function to get the display width.  <a href="classDisplay.html#aef557c489a76ae97fe911612be73daeb">More...</a><br /></td></tr>
 <tr class="separator:aef557c489a76ae97fe911612be73daeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8291099dfe54ed9be950fb2fd0935772"><td class="memItemLeft" align="right" valign="top"><a id="a8291099dfe54ed9be950fb2fd0935772"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>getDIMH</b> ()</td></tr>
+<tr class="memitem:a8291099dfe54ed9be950fb2fd0935772"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#a8291099dfe54ed9be950fb2fd0935772">getDIMH</a> ()</td></tr>
+<tr class="memdesc:a8291099dfe54ed9be950fb2fd0935772"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static function to get the display height.  <a href="classDisplay.html#a8291099dfe54ed9be950fb2fd0935772">More...</a><br /></td></tr>
 <tr class="separator:a8291099dfe54ed9be950fb2fd0935772"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23493306931bb3d134125c7734411be7"><td class="memItemLeft" align="right" valign="top"><a id="a23493306931bb3d134125c7734411be7"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>setDIMW</b> (int DIMW)</td></tr>
+<tr class="memitem:a23493306931bb3d134125c7734411be7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#a23493306931bb3d134125c7734411be7">setDIMW</a> (int DIMW)</td></tr>
+<tr class="memdesc:a23493306931bb3d134125c7734411be7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static function to set the display width.  <a href="classDisplay.html#a23493306931bb3d134125c7734411be7">More...</a><br /></td></tr>
 <tr class="separator:a23493306931bb3d134125c7734411be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b33c19455440bf891a26aaf42cbd733"><td class="memItemLeft" align="right" valign="top"><a id="a5b33c19455440bf891a26aaf42cbd733"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>setDIMH</b> (int DIMH)</td></tr>
+<tr class="memitem:a5b33c19455440bf891a26aaf42cbd733"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#a5b33c19455440bf891a26aaf42cbd733">setDIMH</a> (int DIMH)</td></tr>
+<tr class="memdesc:a5b33c19455440bf891a26aaf42cbd733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static function to set the display height.  <a href="classDisplay.html#a5b33c19455440bf891a26aaf42cbd733">More...</a><br /></td></tr>
 <tr class="separator:a5b33c19455440bf891a26aaf42cbd733"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:af8d1616b5a690b33b2c9a7483afab3f8"><td class="memItemLeft" align="right" valign="top"><a id="af8d1616b5a690b33b2c9a7483afab3f8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>shouldRender</b></td></tr>
-<tr class="separator:af8d1616b5a690b33b2c9a7483afab3f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a64b09edaba3b1d53dbc6ebdc9fca0213"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64b09edaba3b1d53dbc6ebdc9fca0213">&#9670;&nbsp;</a></span>Display()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Display::Display </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for <a class="el" href="classDisplay.html">Display</a>. Initializes the display with a background image. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Reference to an SDL_Renderer object used for texture creation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8291099dfe54ed9be950fb2fd0935772"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8291099dfe54ed9be950fb2fd0935772">&#9670;&nbsp;</a></span>getDIMH()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Display::getDIMH </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Static function to get the display height. </p>
+<dl class="section return"><dt>Returns</dt><dd>The display height. </dd></dl>
+
+</div>
+</div>
+<a id="aef557c489a76ae97fe911612be73daeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef557c489a76ae97fe911612be73daeb">&#9670;&nbsp;</a></span>getDIMW()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Display::getDIMW </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Static function to get the display width. </p>
+<dl class="section return"><dt>Returns</dt><dd>The display width. </dd></dl>
+
+</div>
+</div>
+<a id="a031e34fa93dc986ff370460f1ea201da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a031e34fa93dc986ff370460f1ea201da">&#9670;&nbsp;</a></span>getSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Surface * Display::getSurface </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the display's surface object. </p>
+<dl class="section return"><dt>Returns</dt><dd>The display's surface object. </dd></dl>
+
+</div>
+</div>
+<a id="a8337b1a5c2281aaa8d0b8a70b4daf1d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8337b1a5c2281aaa8d0b8a70b4daf1d3">&#9670;&nbsp;</a></span>getTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Texture * Display::getTexture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the display's texture object. </p>
+<dl class="section return"><dt>Returns</dt><dd>The display's texture object. </dd></dl>
+
+</div>
+</div>
+<a id="aabbc1d489eb84e79fb3d95724b54e835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabbc1d489eb84e79fb3d95724b54e835">&#9670;&nbsp;</a></span>render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Display::render </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renders the display background image on the provided renderer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Reference to an SDL_Renderer object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5b33c19455440bf891a26aaf42cbd733"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b33c19455440bf891a26aaf42cbd733">&#9670;&nbsp;</a></span>setDIMH()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Display::setDIMH </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>DIMH</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Static function to set the display height. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">DIMH</td><td>The new display height. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a23493306931bb3d134125c7734411be7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23493306931bb3d134125c7734411be7">&#9670;&nbsp;</a></span>setDIMW()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Display::setDIMW </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>DIMW</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Static function to set the display width. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">DIMW</td><td>The new display width. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab3565b71fb3eea236e9325ea08ba1da3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3565b71fb3eea236e9325ea08ba1da3">&#9670;&nbsp;</a></span>setSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Display::setSurface </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>_surface</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the display's surface object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_surface</td><td>The new surface object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac9a22288fa039312ce4abec9f171cae5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9a22288fa039312ce4abec9f171cae5">&#9670;&nbsp;</a></span>setTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Display::setTexture </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>_texture</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the display's texture object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_texture</td><td>The new texture object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="StarblitzGameDisplay_8h_source.html">StarblitzGameDisplay.h</a></li>
 <li>src/StarblitzGameDisplay.cpp</li>

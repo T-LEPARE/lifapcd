@@ -3,37 +3,174 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classProjectileManager_a1dc8b1cbe9be17873e8f06acaab65af4}\label{classProjectileManager_a1dc8b1cbe9be17873e8f06acaab65af4}} 
-void {\bfseries Setnb\+Projectile} (int nb)
-\item 
-\mbox{\Hypertarget{classProjectileManager_a712a5c2fbb5128b412c87853cc86e637}\label{classProjectileManager_a712a5c2fbb5128b412c87853cc86e637}} 
-int {\bfseries Getnb\+Projectile} ()
-\item 
-\mbox{\Hypertarget{classProjectileManager_ae8a2c1b0776e588020fedda227bb4dda}\label{classProjectileManager_ae8a2c1b0776e588020fedda227bb4dda}} 
-void {\bfseries add\+Projectile} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ projectile)
-\item 
-\mbox{\Hypertarget{classProjectileManager_a6cea21c8fceb6a9e53ad09d2673f86df}\label{classProjectileManager_a6cea21c8fceb6a9e53ad09d2673f86df}} 
-void {\bfseries remove\+Projectiles} (const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ \&projectile\+To\+Remove)
-\item 
-\mbox{\Hypertarget{classProjectileManager_a0f4e1429c6e22ebfe6e0bad4a3baf48b}\label{classProjectileManager_a0f4e1429c6e22ebfe6e0bad4a3baf48b}} 
-void {\bfseries Damage\+Taken\+Projectile} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ \&projectile\+Ptr, \mbox{\hyperlink{classPlayer}{Player}} $\ast$player\+Ptr, \mbox{\hyperlink{classInvader}{Invader}} $\ast$invader\+Ptr)
-\item 
-\mbox{\Hypertarget{classProjectileManager_a1c128ebf1dfb06216ea8a48165431fa4}\label{classProjectileManager_a1c128ebf1dfb06216ea8a48165431fa4}} 
-bool {\bfseries is\+Projectile\+Out\+Of\+Bounds} (const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ \&projectile) const
-\item 
-\mbox{\Hypertarget{classProjectileManager_a1b3e316dd0412eb6d6cd78aaeefba8a2}\label{classProjectileManager_a1b3e316dd0412eb6d6cd78aaeefba8a2}} 
-void {\bfseries has\+Projectile\+Collided} (\mbox{\hyperlink{classPlayer}{Player}} $\ast$player\+Ptr, std\+::vector$<$ \mbox{\hyperlink{classInvader}{Invader}} $>$ $\ast$invaders)
-\item 
-\mbox{\Hypertarget{classProjectileManager_ab81134a578a24e2e680f6178f7ff4e0e}\label{classProjectileManager_ab81134a578a24e2e680f6178f7ff4e0e}} 
-void {\bfseries Draw\+Proj} (SDL\+\_\+\+Renderer $\ast$renderer)
-\item 
-\mbox{\Hypertarget{classProjectileManager_a914f0841e7fd034156beb76154b6e4ba}\label{classProjectileManager_a914f0841e7fd034156beb76154b6e4ba}} 
-void {\bfseries Update\+Proj} ()
-\item 
+\mbox{\Hypertarget{classProjectileManager_aa1f4d3c4eec327b6a6db2b89843508b3}\label{classProjectileManager_aa1f4d3c4eec327b6a6db2b89843508b3}} 
+\mbox{\hyperlink{classProjectileManager_aa1f4d3c4eec327b6a6db2b89843508b3}{Projectile\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}}. Initializes an empty projectile vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classProjectileManager_a17ad5ee7f1bdcc061f8c43ecbb07c224}\label{classProjectileManager_a17ad5ee7f1bdcc061f8c43ecbb07c224}} 
+\mbox{\hyperlink{classProjectileManager_a17ad5ee7f1bdcc061f8c43ecbb07c224}{$\sim$\+Projectile\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}}. Frees resources (projectiles) held in the vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProjectileManager_a1dc8b1cbe9be17873e8f06acaab65af4}{Setnb\+Projectile}} (int nb)
+\begin{DoxyCompactList}\small\item\em Sets the maximum number of projectiles that can be managed (not implemented in the provided code). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProjectileManager_a712a5c2fbb5128b412c87853cc86e637}{Getnb\+Projectile}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current number of projectiles managed by the \mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProjectileManager_ae8a2c1b0776e588020fedda227bb4dda}{add\+Projectile}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ projectile)
+\begin{DoxyCompactList}\small\item\em Adds a new \mbox{\hyperlink{classProjectile}{Projectile}} object to the manager. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProjectileManager_a6cea21c8fceb6a9e53ad09d2673f86df}{remove\+Projectiles}} (const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ \&projectile\+To\+Remove)
+\begin{DoxyCompactList}\small\item\em Removes a specific \mbox{\hyperlink{classProjectile}{Projectile}} object from the manager based on a provided pointer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProjectileManager_a0f4e1429c6e22ebfe6e0bad4a3baf48b}{Damage\+Taken\+Projectile}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ \&projectile\+Ptr, \mbox{\hyperlink{classPlayer}{Player}} $\ast$player\+Ptr, \mbox{\hyperlink{classInvader}{Invader}} $\ast$invader\+Ptr)
+\begin{DoxyCompactList}\small\item\em Handles potential damage taken by a \mbox{\hyperlink{classPlayer}{Player}} or \mbox{\hyperlink{classInvader}{Invader}} from a \mbox{\hyperlink{classProjectile}{Projectile}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classProjectileManager_a1c128ebf1dfb06216ea8a48165431fa4}{is\+Projectile\+Out\+Of\+Bounds}} (const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ \&projectile) const
+\begin{DoxyCompactList}\small\item\em Checks if a \mbox{\hyperlink{classProjectile}{Projectile}} is outside the playable area defined by display dimensions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProjectileManager_a1b3e316dd0412eb6d6cd78aaeefba8a2}{has\+Projectile\+Collided}} (\mbox{\hyperlink{classPlayer}{Player}} $\ast$player\+Ptr, std\+::vector$<$ \mbox{\hyperlink{classInvader}{Invader}} $>$ $\ast$invaders)
+\begin{DoxyCompactList}\small\item\em Checks for collisions between projectiles and Invaders or the \mbox{\hyperlink{classPlayer}{Player}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProjectileManager_ab81134a578a24e2e680f6178f7ff4e0e}{Draw\+Proj}} (SDL\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Draws all managed Projectiles on the specified renderer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProjectileManager_a914f0841e7fd034156beb76154b6e4ba}{Update\+Proj}} ()
+\begin{DoxyCompactList}\small\item\em Updates the positions of all managed Projectiles. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classProjectileManager_add2e7101f0637cc300ea6dd294a2a25b}\label{classProjectileManager_add2e7101f0637cc300ea6dd294a2a25b}} 
-void {\bfseries clear\+Tab} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classProjectileManager_add2e7101f0637cc300ea6dd294a2a25b}{clear\+Tab}} ()
+\begin{DoxyCompactList}\small\item\em Clears the internal vector of projectiles, removing all managed projectiles. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classProjectileManager_ae8a2c1b0776e588020fedda227bb4dda}\label{classProjectileManager_ae8a2c1b0776e588020fedda227bb4dda}} 
+\index{ProjectileManager@{ProjectileManager}!addProjectile@{addProjectile}}
+\index{addProjectile@{addProjectile}!ProjectileManager@{ProjectileManager}}
+\doxysubsubsection{\texorpdfstring{addProjectile()}{addProjectile()}}
+{\footnotesize\ttfamily void Projectile\+Manager\+::add\+Projectile (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$}]{projectile }\end{DoxyParamCaption})}
+
+
+
+Adds a new \mbox{\hyperlink{classProjectile}{Projectile}} object to the manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em projectile} & A unique\+\_\+ptr owning the \mbox{\hyperlink{classProjectile}{Projectile}} object to be added. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classProjectileManager_a0f4e1429c6e22ebfe6e0bad4a3baf48b}\label{classProjectileManager_a0f4e1429c6e22ebfe6e0bad4a3baf48b}} 
+\index{ProjectileManager@{ProjectileManager}!DamageTakenProjectile@{DamageTakenProjectile}}
+\index{DamageTakenProjectile@{DamageTakenProjectile}!ProjectileManager@{ProjectileManager}}
+\doxysubsubsection{\texorpdfstring{DamageTakenProjectile()}{DamageTakenProjectile()}}
+{\footnotesize\ttfamily void Projectile\+Manager\+::\+Damage\+Taken\+Projectile (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ \&}]{projectile\+Ptr,  }\item[{\mbox{\hyperlink{classPlayer}{Player}} $\ast$}]{player\+Ptr,  }\item[{\mbox{\hyperlink{classInvader}{Invader}} $\ast$}]{invader\+Ptr }\end{DoxyParamCaption})}
+
+
+
+Handles potential damage taken by a \mbox{\hyperlink{classPlayer}{Player}} or \mbox{\hyperlink{classInvader}{Invader}} from a \mbox{\hyperlink{classProjectile}{Projectile}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em projectile\+Ptr} & Unique\+\_\+ptr referencing the \mbox{\hyperlink{classProjectile}{Projectile}} object. \\
+\hline
+{\em player\+Ptr} & Pointer to a \mbox{\hyperlink{classPlayer}{Player}} object (can be nullptr if not involved in collision). \\
+\hline
+{\em invader\+Ptr} & Pointer to an \mbox{\hyperlink{classInvader}{Invader}} object (can be nullptr if not involved in collision). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classProjectileManager_ab81134a578a24e2e680f6178f7ff4e0e}\label{classProjectileManager_ab81134a578a24e2e680f6178f7ff4e0e}} 
+\index{ProjectileManager@{ProjectileManager}!DrawProj@{DrawProj}}
+\index{DrawProj@{DrawProj}!ProjectileManager@{ProjectileManager}}
+\doxysubsubsection{\texorpdfstring{DrawProj()}{DrawProj()}}
+{\footnotesize\ttfamily void Projectile\+Manager\+::\+Draw\+Proj (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Draws all managed Projectiles on the specified renderer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & Reference to an SDL\+\_\+\+Renderer object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classProjectileManager_a712a5c2fbb5128b412c87853cc86e637}\label{classProjectileManager_a712a5c2fbb5128b412c87853cc86e637}} 
+\index{ProjectileManager@{ProjectileManager}!GetnbProjectile@{GetnbProjectile}}
+\index{GetnbProjectile@{GetnbProjectile}!ProjectileManager@{ProjectileManager}}
+\doxysubsubsection{\texorpdfstring{GetnbProjectile()}{GetnbProjectile()}}
+{\footnotesize\ttfamily int Projectile\+Manager\+::\+Getnb\+Projectile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current number of projectiles managed by the \mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}}. 
+
+\begin{DoxyReturn}{Returns}
+The number of projectiles in the internal vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classProjectileManager_a1b3e316dd0412eb6d6cd78aaeefba8a2}\label{classProjectileManager_a1b3e316dd0412eb6d6cd78aaeefba8a2}} 
+\index{ProjectileManager@{ProjectileManager}!hasProjectileCollided@{hasProjectileCollided}}
+\index{hasProjectileCollided@{hasProjectileCollided}!ProjectileManager@{ProjectileManager}}
+\doxysubsubsection{\texorpdfstring{hasProjectileCollided()}{hasProjectileCollided()}}
+{\footnotesize\ttfamily void Projectile\+Manager\+::has\+Projectile\+Collided (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} $\ast$}]{player\+Ptr,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classInvader}{Invader}} $>$ $\ast$}]{invaders }\end{DoxyParamCaption})}
+
+
+
+Checks for collisions between projectiles and Invaders or the \mbox{\hyperlink{classPlayer}{Player}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Ptr} & Pointer to a \mbox{\hyperlink{classPlayer}{Player}} object. \\
+\hline
+{\em invaders} & Pointer to a vector containing \mbox{\hyperlink{classInvader}{Invader}} objects. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classProjectileManager_a1c128ebf1dfb06216ea8a48165431fa4}\label{classProjectileManager_a1c128ebf1dfb06216ea8a48165431fa4}} 
+\index{ProjectileManager@{ProjectileManager}!isProjectileOutOfBounds@{isProjectileOutOfBounds}}
+\index{isProjectileOutOfBounds@{isProjectileOutOfBounds}!ProjectileManager@{ProjectileManager}}
+\doxysubsubsection{\texorpdfstring{isProjectileOutOfBounds()}{isProjectileOutOfBounds()}}
+{\footnotesize\ttfamily bool Projectile\+Manager\+::is\+Projectile\+Out\+Of\+Bounds (\begin{DoxyParamCaption}\item[{const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ \&}]{projectile }\end{DoxyParamCaption}) const}
+
+
+
+Checks if a \mbox{\hyperlink{classProjectile}{Projectile}} is outside the playable area defined by display dimensions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em projectile} & A const reference to a unique\+\_\+ptr holding the \mbox{\hyperlink{classProjectile}{Projectile}} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the \mbox{\hyperlink{classProjectile}{Projectile}} is outside the display area, False otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classProjectileManager_a6cea21c8fceb6a9e53ad09d2673f86df}\label{classProjectileManager_a6cea21c8fceb6a9e53ad09d2673f86df}} 
+\index{ProjectileManager@{ProjectileManager}!removeProjectiles@{removeProjectiles}}
+\index{removeProjectiles@{removeProjectiles}!ProjectileManager@{ProjectileManager}}
+\doxysubsubsection{\texorpdfstring{removeProjectiles()}{removeProjectiles()}}
+{\footnotesize\ttfamily void Projectile\+Manager\+::remove\+Projectiles (\begin{DoxyParamCaption}\item[{const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ \&}]{projectile\+To\+Remove }\end{DoxyParamCaption})}
+
+
+
+Removes a specific \mbox{\hyperlink{classProjectile}{Projectile}} object from the manager based on a provided pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em projectile\+To\+Remove} & A unique\+\_\+ptr referencing the \mbox{\hyperlink{classProjectile}{Projectile}} object to be removed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classProjectileManager_a1dc8b1cbe9be17873e8f06acaab65af4}\label{classProjectileManager_a1dc8b1cbe9be17873e8f06acaab65af4}} 
+\index{ProjectileManager@{ProjectileManager}!SetnbProjectile@{SetnbProjectile}}
+\index{SetnbProjectile@{SetnbProjectile}!ProjectileManager@{ProjectileManager}}
+\doxysubsubsection{\texorpdfstring{SetnbProjectile()}{SetnbProjectile()}}
+{\footnotesize\ttfamily void Projectile\+Manager\+::\+Setnb\+Projectile (\begin{DoxyParamCaption}\item[{int}]{nb }\end{DoxyParamCaption})}
+
+
+
+Sets the maximum number of projectiles that can be managed (not implemented in the provided code). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb} & The intended maximum number of projectiles. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classProjectileManager_a914f0841e7fd034156beb76154b6e4ba}\label{classProjectileManager_a914f0841e7fd034156beb76154b6e4ba}} 
+\index{ProjectileManager@{ProjectileManager}!UpdateProj@{UpdateProj}}
+\index{UpdateProj@{UpdateProj}!ProjectileManager@{ProjectileManager}}
+\doxysubsubsection{\texorpdfstring{UpdateProj()}{UpdateProj()}}
+{\footnotesize\ttfamily void Projectile\+Manager\+::\+Update\+Proj (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the positions of all managed Projectiles. 
+
+This function iterates through the projectiles, updates their positions, and removes any that are out of bounds. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

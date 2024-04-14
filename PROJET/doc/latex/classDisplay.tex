@@ -3,45 +3,180 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classDisplay_ac399676c5373c6f743e3c3740f4b8db7}\label{classDisplay_ac399676c5373c6f743e3c3740f4b8db7}} 
-{\bfseries Display} (SDL\+\_\+\+Renderer $\ast$\+\_\+renderer)
-\item 
-\mbox{\Hypertarget{classDisplay_aabbc1d489eb84e79fb3d95724b54e835}\label{classDisplay_aabbc1d489eb84e79fb3d95724b54e835}} 
-void {\bfseries render} (SDL\+\_\+\+Renderer $\ast$renderer)
-\item 
-\mbox{\Hypertarget{classDisplay_a8337b1a5c2281aaa8d0b8a70b4daf1d3}\label{classDisplay_a8337b1a5c2281aaa8d0b8a70b4daf1d3}} 
-SDL\+\_\+\+Texture $\ast$ {\bfseries get\+Texture} ()
-\item 
-\mbox{\Hypertarget{classDisplay_a031e34fa93dc986ff370460f1ea201da}\label{classDisplay_a031e34fa93dc986ff370460f1ea201da}} 
-SDL\+\_\+\+Surface $\ast$ {\bfseries get\+Surface} ()
-\item 
-\mbox{\Hypertarget{classDisplay_ac9a22288fa039312ce4abec9f171cae5}\label{classDisplay_ac9a22288fa039312ce4abec9f171cae5}} 
-void {\bfseries set\+Texture} (SDL\+\_\+\+Texture $\ast$\+\_\+texture)
-\item 
-\mbox{\Hypertarget{classDisplay_ab3565b71fb3eea236e9325ea08ba1da3}\label{classDisplay_ab3565b71fb3eea236e9325ea08ba1da3}} 
-void {\bfseries set\+Surface} (SDL\+\_\+\+Surface $\ast$\+\_\+surface)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classDisplay_a64b09edaba3b1d53dbc6ebdc9fca0213}{Display}} (SDL\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classDisplay}{Display}}. Initializes the display with a background image. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDisplay_ac2607a6bb236c55547a4223d40d85d1f}\label{classDisplay_ac2607a6bb236c55547a4223d40d85d1f}} 
+\mbox{\hyperlink{classDisplay_ac2607a6bb236c55547a4223d40d85d1f}{$\sim$\+Display}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classDisplay}{Display}}. Frees resources (surface and texture). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDisplay_aabbc1d489eb84e79fb3d95724b54e835}{render}} (SDL\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Renders the display background image on the provided renderer. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Texture $\ast$ \mbox{\hyperlink{classDisplay_a8337b1a5c2281aaa8d0b8a70b4daf1d3}{get\+Texture}} ()
+\begin{DoxyCompactList}\small\item\em Gets the display\textquotesingle{}s texture object. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Surface $\ast$ \mbox{\hyperlink{classDisplay_a031e34fa93dc986ff370460f1ea201da}{get\+Surface}} ()
+\begin{DoxyCompactList}\small\item\em Gets the display\textquotesingle{}s surface object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDisplay_ac9a22288fa039312ce4abec9f171cae5}{set\+Texture}} (SDL\+\_\+\+Texture $\ast$\+\_\+texture)
+\begin{DoxyCompactList}\small\item\em Sets the display\textquotesingle{}s texture object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDisplay_ab3565b71fb3eea236e9325ea08ba1da3}{set\+Surface}} (SDL\+\_\+\+Surface $\ast$\+\_\+surface)
+\begin{DoxyCompactList}\small\item\em Sets the display\textquotesingle{}s surface object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classDisplay_aef557c489a76ae97fe911612be73daeb}\label{classDisplay_aef557c489a76ae97fe911612be73daeb}} 
-static int {\bfseries get\+DIMW} ()
-\item 
+static int \mbox{\hyperlink{classDisplay_aef557c489a76ae97fe911612be73daeb}{get\+DIMW}} ()
+\begin{DoxyCompactList}\small\item\em Static function to get the display width. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classDisplay_a8291099dfe54ed9be950fb2fd0935772}{get\+DIMH}} ()
+\begin{DoxyCompactList}\small\item\em Static function to get the display height. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classDisplay_a23493306931bb3d134125c7734411be7}{set\+DIMW}} (int DIMW)
+\begin{DoxyCompactList}\small\item\em Static function to set the display width. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classDisplay_a5b33c19455440bf891a26aaf42cbd733}{set\+DIMH}} (int DIMH)
+\begin{DoxyCompactList}\small\item\em Static function to set the display height. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDisplay_a64b09edaba3b1d53dbc6ebdc9fca0213}\label{classDisplay_a64b09edaba3b1d53dbc6ebdc9fca0213}} 
+\index{Display@{Display}!Display@{Display}}
+\index{Display@{Display}!Display@{Display}}
+\doxysubsubsection{\texorpdfstring{Display()}{Display()}}
+{\footnotesize\ttfamily Display\+::\+Display (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classDisplay}{Display}}. Initializes the display with a background image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & Reference to an SDL\+\_\+\+Renderer object used for texture creation. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classDisplay_a8291099dfe54ed9be950fb2fd0935772}\label{classDisplay_a8291099dfe54ed9be950fb2fd0935772}} 
-static int {\bfseries get\+DIMH} ()
-\item 
-\mbox{\Hypertarget{classDisplay_a23493306931bb3d134125c7734411be7}\label{classDisplay_a23493306931bb3d134125c7734411be7}} 
-static void {\bfseries set\+DIMW} (int DIMW)
-\item 
+\index{Display@{Display}!getDIMH@{getDIMH}}
+\index{getDIMH@{getDIMH}!Display@{Display}}
+\doxysubsubsection{\texorpdfstring{getDIMH()}{getDIMH()}}
+{\footnotesize\ttfamily int Display\+::get\+DIMH (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Static function to get the display height. 
+
+\begin{DoxyReturn}{Returns}
+The display height. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDisplay_aef557c489a76ae97fe911612be73daeb}\label{classDisplay_aef557c489a76ae97fe911612be73daeb}} 
+\index{Display@{Display}!getDIMW@{getDIMW}}
+\index{getDIMW@{getDIMW}!Display@{Display}}
+\doxysubsubsection{\texorpdfstring{getDIMW()}{getDIMW()}}
+{\footnotesize\ttfamily int Display\+::get\+DIMW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Static function to get the display width. 
+
+\begin{DoxyReturn}{Returns}
+The display width. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDisplay_a031e34fa93dc986ff370460f1ea201da}\label{classDisplay_a031e34fa93dc986ff370460f1ea201da}} 
+\index{Display@{Display}!getSurface@{getSurface}}
+\index{getSurface@{getSurface}!Display@{Display}}
+\doxysubsubsection{\texorpdfstring{getSurface()}{getSurface()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Surface $\ast$ Display\+::get\+Surface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the display\textquotesingle{}s surface object. 
+
+\begin{DoxyReturn}{Returns}
+The display\textquotesingle{}s surface object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDisplay_a8337b1a5c2281aaa8d0b8a70b4daf1d3}\label{classDisplay_a8337b1a5c2281aaa8d0b8a70b4daf1d3}} 
+\index{Display@{Display}!getTexture@{getTexture}}
+\index{getTexture@{getTexture}!Display@{Display}}
+\doxysubsubsection{\texorpdfstring{getTexture()}{getTexture()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Texture $\ast$ Display\+::get\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the display\textquotesingle{}s texture object. 
+
+\begin{DoxyReturn}{Returns}
+The display\textquotesingle{}s texture object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDisplay_aabbc1d489eb84e79fb3d95724b54e835}\label{classDisplay_aabbc1d489eb84e79fb3d95724b54e835}} 
+\index{Display@{Display}!render@{render}}
+\index{render@{render}!Display@{Display}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Display\+::render (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Renders the display background image on the provided renderer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & Reference to an SDL\+\_\+\+Renderer object. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classDisplay_a5b33c19455440bf891a26aaf42cbd733}\label{classDisplay_a5b33c19455440bf891a26aaf42cbd733}} 
-static void {\bfseries set\+DIMH} (int DIMH)
-\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classDisplay_af8d1616b5a690b33b2c9a7483afab3f8}\label{classDisplay_af8d1616b5a690b33b2c9a7483afab3f8}} 
-bool {\bfseries should\+Render}
-\end{DoxyCompactItemize}
+\index{Display@{Display}!setDIMH@{setDIMH}}
+\index{setDIMH@{setDIMH}!Display@{Display}}
+\doxysubsubsection{\texorpdfstring{setDIMH()}{setDIMH()}}
+{\footnotesize\ttfamily void Display\+::set\+DIMH (\begin{DoxyParamCaption}\item[{int}]{DIMH }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Static function to set the display height. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em DIMH} & The new display height. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDisplay_a23493306931bb3d134125c7734411be7}\label{classDisplay_a23493306931bb3d134125c7734411be7}} 
+\index{Display@{Display}!setDIMW@{setDIMW}}
+\index{setDIMW@{setDIMW}!Display@{Display}}
+\doxysubsubsection{\texorpdfstring{setDIMW()}{setDIMW()}}
+{\footnotesize\ttfamily void Display\+::set\+DIMW (\begin{DoxyParamCaption}\item[{int}]{DIMW }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Static function to set the display width. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em DIMW} & The new display width. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDisplay_ab3565b71fb3eea236e9325ea08ba1da3}\label{classDisplay_ab3565b71fb3eea236e9325ea08ba1da3}} 
+\index{Display@{Display}!setSurface@{setSurface}}
+\index{setSurface@{setSurface}!Display@{Display}}
+\doxysubsubsection{\texorpdfstring{setSurface()}{setSurface()}}
+{\footnotesize\ttfamily void Display\+::set\+Surface (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Surface $\ast$}]{\+\_\+surface }\end{DoxyParamCaption})}
+
+
+
+Sets the display\textquotesingle{}s surface object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+surface} & The new surface object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDisplay_ac9a22288fa039312ce4abec9f171cae5}\label{classDisplay_ac9a22288fa039312ce4abec9f171cae5}} 
+\index{Display@{Display}!setTexture@{setTexture}}
+\index{setTexture@{setTexture}!Display@{Display}}
+\doxysubsubsection{\texorpdfstring{setTexture()}{setTexture()}}
+{\footnotesize\ttfamily void Display\+::set\+Texture (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Texture $\ast$}]{\+\_\+texture }\end{DoxyParamCaption})}
+
+
+
+Sets the display\textquotesingle{}s texture object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+texture} & The new texture object. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

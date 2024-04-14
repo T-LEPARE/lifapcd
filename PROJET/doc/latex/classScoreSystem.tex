@@ -3,21 +3,56 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classScoreSystem_a00f42e35ee447789aaac42b213143297}\label{classScoreSystem_a00f42e35ee447789aaac42b213143297}} 
+\mbox{\hyperlink{classScoreSystem_a00f42e35ee447789aaac42b213143297}{Score\+System}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classScoreSystem}{Score\+System}}. Initializes the score to zero. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classScoreSystem_ab55183eed7762c7f785916f9122aa040}\label{classScoreSystem_ab55183eed7762c7f785916f9122aa040}} 
+\mbox{\hyperlink{classScoreSystem_ab55183eed7762c7f785916f9122aa040}{$\sim$\+Score\+System}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classScoreSystem}{Score\+System}}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classScoreSystem_a9dc71452f50aaa49ba73e53e4555b426}\label{classScoreSystem_a9dc71452f50aaa49ba73e53e4555b426}} 
-void {\bfseries init} ()
-\item 
+void \mbox{\hyperlink{classScoreSystem_a9dc71452f50aaa49ba73e53e4555b426}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the score system, typically resetting the score to zero. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classScoreSystem_a9cab67f6abb9c7f04f0807e3c84cc04b}\label{classScoreSystem_a9cab67f6abb9c7f04f0807e3c84cc04b}} 
-void {\bfseries update} ()
-\item 
+void \mbox{\hyperlink{classScoreSystem_a9cab67f6abb9c7f04f0807e3c84cc04b}{update}} ()
+\begin{DoxyCompactList}\small\item\em Updates the score based on game logic. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classScoreSystem_a537b368ab879c3e77e4469a8743119af}\label{classScoreSystem_a537b368ab879c3e77e4469a8743119af}} 
-void {\bfseries draw} ()
-\item 
-\mbox{\Hypertarget{classScoreSystem_a591a57ab3c8670450ee964399f047f10}\label{classScoreSystem_a591a57ab3c8670450ee964399f047f10}} 
-void {\bfseries increment\+Score} (int)
-\item 
+void \mbox{\hyperlink{classScoreSystem_a537b368ab879c3e77e4469a8743119af}{draw}} ()
+\begin{DoxyCompactList}\small\item\em Draws the score on the screen using SDL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classScoreSystem_ac89368bf2044be084381866f1bb7ccce}{increment\+Score}} (int bonus)
+\begin{DoxyCompactList}\small\item\em Increases the score by a specified bonus amount. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classScoreSystem_a2d43f57435148d4b1f57cfb4d154456c}{get\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current score value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classScoreSystem_a2d43f57435148d4b1f57cfb4d154456c}\label{classScoreSystem_a2d43f57435148d4b1f57cfb4d154456c}} 
-int {\bfseries get\+Score} ()
-\end{DoxyCompactItemize}
+\index{ScoreSystem@{ScoreSystem}!getScore@{getScore}}
+\index{getScore@{getScore}!ScoreSystem@{ScoreSystem}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily int Score\+System\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current score value. 
+
+\begin{DoxyReturn}{Returns}
+The current score. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScoreSystem_ac89368bf2044be084381866f1bb7ccce}\label{classScoreSystem_ac89368bf2044be084381866f1bb7ccce}} 
+\index{ScoreSystem@{ScoreSystem}!incrementScore@{incrementScore}}
+\index{incrementScore@{incrementScore}!ScoreSystem@{ScoreSystem}}
+\doxysubsubsection{\texorpdfstring{incrementScore()}{incrementScore()}}
+{\footnotesize\ttfamily void Score\+System\+::increment\+Score (\begin{DoxyParamCaption}\item[{int}]{bonus }\end{DoxyParamCaption})}
+
+
+
+Increases the score by a specified bonus amount. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bonus} & The amount of points to add to the score. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -3,12 +3,16 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classPlayer_a04ba6fb55eb23f7dbbc5f2021e88d7d5}\label{classPlayer_a04ba6fb55eb23f7dbbc5f2021e88d7d5}} 
-{\bfseries Player} (float x, float y, int health\+Point, float player\+Speed, float height, float width, \mbox{\hyperlink{structPosition}{Position}} direct)
-\item 
-\mbox{\Hypertarget{classPlayer_a4afa05f636d67e0193178e53fe899673}\label{classPlayer_a4afa05f636d67e0193178e53fe899673}} 
-\mbox{\hyperlink{classPlayer}{Player}} {\bfseries Init\+Player} (float x, float y, int health\+Point, float spd, float height, float width, \mbox{\hyperlink{structPosition}{Position}} direct)
-\item 
+\mbox{\Hypertarget{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}\label{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}} 
+\mbox{\hyperlink{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classPlayer}{Player}}. Initializes with default values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer_a04ba6fb55eb23f7dbbc5f2021e88d7d5}{Player}} (float x, float y, int health\+Point, float player\+Speed, float height, float width, \mbox{\hyperlink{structPosition}{Position}} direct)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classPlayer}{Player}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}\label{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}} 
+\mbox{\hyperlink{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}{$\sim$\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classPlayer}{Player}}. Frees allocated resources (if any). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \mbox{\hyperlink{classPlayer_a4afa05f636d67e0193178e53fe899673}{Init\+Player}} (float x, float y, int health\+Point, float spd, float height, float width, \mbox{\hyperlink{structPosition}{Position}} direct)
+\begin{DoxyCompactList}\small\item\em Initializes the \mbox{\hyperlink{classPlayer}{Player}} object with specified parameters. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classPlayer_ac6bc21572aeb3049fd69bd37b75c73b6}\label{classPlayer_ac6bc21572aeb3049fd69bd37b75c73b6}} 
 void {\bfseries set\+Pos} (float x, float y)
 \item 
@@ -33,17 +37,17 @@ void {\bfseries set\+DirY} (float y)
 \mbox{\Hypertarget{classPlayer_a7eb527c34c55a6826dd3d97ef134e600}\label{classPlayer_a7eb527c34c55a6826dd3d97ef134e600}} 
 void {\bfseries set\+Dir} (\mbox{\hyperlink{structPosition}{Position}} p)
 \item 
-\mbox{\Hypertarget{classPlayer_a89ef5a01a15c3deaf2dd6f40cda3868b}\label{classPlayer_a89ef5a01a15c3deaf2dd6f40cda3868b}} 
-SDL\+\_\+\+Texture $\ast$ {\bfseries get\+Texture} ()
-\item 
-\mbox{\Hypertarget{classPlayer_a33e3ffecb6135665512681e296190e11}\label{classPlayer_a33e3ffecb6135665512681e296190e11}} 
-SDL\+\_\+\+Surface $\ast$ {\bfseries get\+Surface} ()
-\item 
 \mbox{\Hypertarget{classPlayer_abb3dd222f8fd588cbe43eb98a77ad621}\label{classPlayer_abb3dd222f8fd588cbe43eb98a77ad621}} 
 void {\bfseries set\+Texture} (SDL\+\_\+\+Texture $\ast$\+\_\+texture)
 \item 
 \mbox{\Hypertarget{classPlayer_a7e6d1715f18daa0dd08cf8717030332b}\label{classPlayer_a7e6d1715f18daa0dd08cf8717030332b}} 
 void {\bfseries set\+Surface} (SDL\+\_\+\+Surface $\ast$\+\_\+surface)
+\item 
+\mbox{\Hypertarget{classPlayer_a89ef5a01a15c3deaf2dd6f40cda3868b}\label{classPlayer_a89ef5a01a15c3deaf2dd6f40cda3868b}} 
+SDL\+\_\+\+Texture $\ast$ {\bfseries get\+Texture} ()
+\item 
+\mbox{\Hypertarget{classPlayer_a33e3ffecb6135665512681e296190e11}\label{classPlayer_a33e3ffecb6135665512681e296190e11}} 
+SDL\+\_\+\+Surface $\ast$ {\bfseries get\+Surface} ()
 \item 
 \mbox{\Hypertarget{classPlayer_a4fc16476d2b72c39c691c4be24c938f0}\label{classPlayer_a4fc16476d2b72c39c691c4be24c938f0}} 
 \mbox{\hyperlink{structPosition}{Position}} {\bfseries get\+Dir} ()
@@ -63,51 +67,316 @@ float {\bfseries get\+Width} ()
 \mbox{\Hypertarget{classPlayer_a8e777167e38b307136f1fbd4e32f0797}\label{classPlayer_a8e777167e38b307136f1fbd4e32f0797}} 
 float {\bfseries get\+Height} ()
 \item 
-\mbox{\Hypertarget{classPlayer_ad36f6a53eec2e1b7c56671d00b0090dc}\label{classPlayer_ad36f6a53eec2e1b7c56671d00b0090dc}} 
-bool {\bfseries Check\+Collision\+Projectile} (\mbox{\hyperlink{classProjectile}{Projectile}} \mbox{\hyperlink{classProjectile}{Projectile}})
-\item 
-\mbox{\Hypertarget{classPlayer_ab49da10a6152d39a51369f60b849d716}\label{classPlayer_ab49da10a6152d39a51369f60b849d716}} 
-void {\bfseries Damage\+Taken\+Projectile} (bool b, \mbox{\hyperlink{classProjectile}{Projectile}} \mbox{\hyperlink{classProjectile}{Projectile}})
-\item 
-\mbox{\Hypertarget{classPlayer_a3c9b1be4191406fc9f3cca0380a84347}\label{classPlayer_a3c9b1be4191406fc9f3cca0380a84347}} 
-bool {\bfseries Check\+Collision\+Invader} (\mbox{\hyperlink{classInvader}{Invader}} \mbox{\hyperlink{classInvader}{Invader}})
-\item 
-\mbox{\Hypertarget{classPlayer_ac3dd202d5cd47f00124247977873e2e8}\label{classPlayer_ac3dd202d5cd47f00124247977873e2e8}} 
-void {\bfseries Damage\+Taken\+Invader} (bool b, \mbox{\hyperlink{classInvader}{Invader}} \mbox{\hyperlink{classInvader}{Invader}})
-\item 
-\mbox{\Hypertarget{classPlayer_ad0fe5f37e0c680aa01add8fd1049a8ba}\label{classPlayer_ad0fe5f37e0c680aa01add8fd1049a8ba}} 
-void {\bfseries set\+Current\+Weapon} (\mbox{\hyperlink{classWeapon}{Weapon}} weapon)
-\item 
-\mbox{\Hypertarget{classPlayer_ab7beaeae403297cdfb650fa2dfb21bf5}\label{classPlayer_ab7beaeae403297cdfb650fa2dfb21bf5}} 
-bool {\bfseries Temps\+Pour\+Changer} ()
-\item 
-\mbox{\Hypertarget{classPlayer_aac0b1cbccf87db25febe16b06389c47f}\label{classPlayer_aac0b1cbccf87db25febe16b06389c47f}} 
-void {\bfseries change\+Weapon} (\mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&weapon\+Manager, const Uint8 $\ast$keyboard\+State)
-\item 
+bool \mbox{\hyperlink{classPlayer_ad36f6a53eec2e1b7c56671d00b0090dc}{Check\+Collision\+Projectile}} (\mbox{\hyperlink{classProjectile}{Projectile}} \mbox{\hyperlink{classProjectile}{Projectile}})
+\begin{DoxyCompactList}\small\item\em Checks for collision between the \mbox{\hyperlink{classPlayer}{Player}} and a \mbox{\hyperlink{classProjectile}{Projectile}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_ab49da10a6152d39a51369f60b849d716}{Damage\+Taken\+Projectile}} (bool b, \mbox{\hyperlink{classProjectile}{Projectile}} \mbox{\hyperlink{classProjectile}{Projectile}})
+\begin{DoxyCompactList}\small\item\em Handles damage taken by the \mbox{\hyperlink{classPlayer}{Player}} from a \mbox{\hyperlink{classProjectile}{Projectile}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlayer_a3c9b1be4191406fc9f3cca0380a84347}{Check\+Collision\+Invader}} (\mbox{\hyperlink{classInvader}{Invader}} \mbox{\hyperlink{classInvader}{Invader}})
+\begin{DoxyCompactList}\small\item\em Checks for collision between the \mbox{\hyperlink{classPlayer}{Player}} and an \mbox{\hyperlink{classInvader}{Invader}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_ac3dd202d5cd47f00124247977873e2e8}{Damage\+Taken\+Invader}} (bool b, \mbox{\hyperlink{classInvader}{Invader}} \mbox{\hyperlink{classInvader}{Invader}})
+\begin{DoxyCompactList}\small\item\em Handles damage taken by the \mbox{\hyperlink{classPlayer}{Player}} from an \mbox{\hyperlink{classInvader}{Invader}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_ad0fe5f37e0c680aa01add8fd1049a8ba}{set\+Current\+Weapon}} (\mbox{\hyperlink{classWeapon}{Weapon}} weapon)
+\begin{DoxyCompactList}\small\item\em Sets the current weapon of the \mbox{\hyperlink{classPlayer}{Player}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlayer_ab7beaeae403297cdfb650fa2dfb21bf5}{Temps\+Pour\+Changer}} ()
+\begin{DoxyCompactList}\small\item\em Checks if enough time has passed to allow the \mbox{\hyperlink{classPlayer}{Player}} to change weapons. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_aac0b1cbccf87db25febe16b06389c47f}{change\+Weapon}} (\mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&weapon\+Manager, const Uint8 $\ast$keyboard\+State)
+\begin{DoxyCompactList}\small\item\em Attempts to change the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s weapon based on user input and weapon manager availability. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classPlayer_a4a7a277a2a932da7e77ac74221855714}\label{classPlayer_a4a7a277a2a932da7e77ac74221855714}} 
-void {\bfseries Collision\+Window} ()
-\item 
-\mbox{\Hypertarget{classPlayer_ab188f2ba361f36a331960a21f263750d}\label{classPlayer_ab188f2ba361f36a331960a21f263750d}} 
-std\+::string {\bfseries get\+Current\+Weapon\+Name} ()
-\item 
-\mbox{\Hypertarget{classPlayer_a1b8378732e1dae75e19b69b9b8916e42}\label{classPlayer_a1b8378732e1dae75e19b69b9b8916e42}} 
-\mbox{\hyperlink{classWeapon}{Weapon}} {\bfseries get\+Current\+Weapon} ()
-\item 
-\mbox{\Hypertarget{classPlayer_ab145716d6e5cc94757623fab43d7cb55}\label{classPlayer_ab145716d6e5cc94757623fab43d7cb55}} 
-bool {\bfseries peut\+Tirer} ()
-\item 
+void \mbox{\hyperlink{classPlayer_a4a7a277a2a932da7e77ac74221855714}{Collision\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Checks for collisions between the \mbox{\hyperlink{classPlayer}{Player}} and the game window. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classPlayer_ab188f2ba361f36a331960a21f263750d}{get\+Current\+Weapon\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Gets the name of the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s current weapon. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classWeapon}{Weapon}} \mbox{\hyperlink{classPlayer_a1b8378732e1dae75e19b69b9b8916e42}{get\+Current\+Weapon}} ()
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s current weapon object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlayer_ab145716d6e5cc94757623fab43d7cb55}{peut\+Tirer}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classPlayer}{Player}} is able to fire a projectile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_aec06d1ed204c43b5fa58bee2fc31ead7}{fire\+Player}} (\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&projectile\+Manager, \mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&weapon\+Manager, const Uint8 $\ast$keyboard\+State)
+\begin{DoxyCompactList}\small\item\em Fires a projectile from the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s current weapon. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlayer_a2b5b029b323a9fdc02c7ebb9c2e6581c}{HPnull\+Playership}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s health points (HP) are zero or less, indicating death. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_a853576ecda542451d10125fada9b4550}{move\+Ship}} (const Uint8 $\ast$keyboard\+State)
+\begin{DoxyCompactList}\small\item\em Moves the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s position based on user input and movement speed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_a727ff0fac4fc68bc86f5ef31d6aed350}{player\+Death}} (\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&projectile\+Manager)
+\begin{DoxyCompactList}\small\item\em Handles the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s death. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPlayer_a04ba6fb55eb23f7dbbc5f2021e88d7d5}\label{classPlayer_a04ba6fb55eb23f7dbbc5f2021e88d7d5}} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{int}]{health\+Point,  }\item[{float}]{player\+Speed,  }\item[{float}]{height,  }\item[{float}]{width,  }\item[{\mbox{\hyperlink{structPosition}{Position}}}]{direct }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classPlayer}{Player}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Initial x-\/coordinate of the \mbox{\hyperlink{classPlayer}{Player}}. \\
+\hline
+{\em y} & Initial y-\/coordinate of the \mbox{\hyperlink{classPlayer}{Player}}. \\
+\hline
+{\em health\+Point} & Initial health points of the \mbox{\hyperlink{classPlayer}{Player}}. \\
+\hline
+{\em player\+Speed} & Movement speed of the \mbox{\hyperlink{classPlayer}{Player}}. \\
+\hline
+{\em height} & Height of the \mbox{\hyperlink{classPlayer}{Player}} sprite. \\
+\hline
+{\em width} & Width of the \mbox{\hyperlink{classPlayer}{Player}} sprite. \\
+\hline
+{\em direct} & Initial direction of the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s movement. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlayer_aac0b1cbccf87db25febe16b06389c47f}\label{classPlayer_aac0b1cbccf87db25febe16b06389c47f}} 
+\index{Player@{Player}!changeWeapon@{changeWeapon}}
+\index{changeWeapon@{changeWeapon}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{changeWeapon()}{changeWeapon()}}
+{\footnotesize\ttfamily void Player\+::change\+Weapon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&}]{weapon\+Manager,  }\item[{const Uint8 $\ast$}]{keyboard\+State }\end{DoxyParamCaption})}
+
+
+
+Attempts to change the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s weapon based on user input and weapon manager availability. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weapon\+Manager} & Reference to a \mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} object. \\
+\hline
+{\em keyboard\+State} & Pointer to an array of Uint8 representing the current keyboard state. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer_a3c9b1be4191406fc9f3cca0380a84347}\label{classPlayer_a3c9b1be4191406fc9f3cca0380a84347}} 
+\index{Player@{Player}!CheckCollisionInvader@{CheckCollisionInvader}}
+\index{CheckCollisionInvader@{CheckCollisionInvader}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{CheckCollisionInvader()}{CheckCollisionInvader()}}
+{\footnotesize\ttfamily bool Player\+::\+Check\+Collision\+Invader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInvader}{Invader}}}]{Invader }\end{DoxyParamCaption})}
+
+
+
+Checks for collision between the \mbox{\hyperlink{classPlayer}{Player}} and an \mbox{\hyperlink{classInvader}{Invader}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classInvader}{Invader}}} & The \mbox{\hyperlink{classInvader}{Invader}} object to check for collision. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if there is a collision, False otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_ad36f6a53eec2e1b7c56671d00b0090dc}\label{classPlayer_ad36f6a53eec2e1b7c56671d00b0090dc}} 
+\index{Player@{Player}!CheckCollisionProjectile@{CheckCollisionProjectile}}
+\index{CheckCollisionProjectile@{CheckCollisionProjectile}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{CheckCollisionProjectile()}{CheckCollisionProjectile()}}
+{\footnotesize\ttfamily bool Player\+::\+Check\+Collision\+Projectile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProjectile}{Projectile}}}]{Projectile }\end{DoxyParamCaption})}
+
+
+
+Checks for collision between the \mbox{\hyperlink{classPlayer}{Player}} and a \mbox{\hyperlink{classProjectile}{Projectile}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classProjectile}{Projectile}}} & The \mbox{\hyperlink{classProjectile}{Projectile}} object to check for collision. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if there is a collision, False otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_ac3dd202d5cd47f00124247977873e2e8}\label{classPlayer_ac3dd202d5cd47f00124247977873e2e8}} 
+\index{Player@{Player}!DamageTakenInvader@{DamageTakenInvader}}
+\index{DamageTakenInvader@{DamageTakenInvader}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{DamageTakenInvader()}{DamageTakenInvader()}}
+{\footnotesize\ttfamily void Player\+::\+Damage\+Taken\+Invader (\begin{DoxyParamCaption}\item[{bool}]{b,  }\item[{\mbox{\hyperlink{classInvader}{Invader}}}]{Invader }\end{DoxyParamCaption})}
+
+
+
+Handles damage taken by the \mbox{\hyperlink{classPlayer}{Player}} from an \mbox{\hyperlink{classInvader}{Invader}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Flag indicating if damage should be applied (true) or the function should only check for collision (false). \\
+\hline
+{\em \mbox{\hyperlink{classInvader}{Invader}}} & The \mbox{\hyperlink{classInvader}{Invader}} object that inflicted the damage. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer_ab49da10a6152d39a51369f60b849d716}\label{classPlayer_ab49da10a6152d39a51369f60b849d716}} 
+\index{Player@{Player}!DamageTakenProjectile@{DamageTakenProjectile}}
+\index{DamageTakenProjectile@{DamageTakenProjectile}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{DamageTakenProjectile()}{DamageTakenProjectile()}}
+{\footnotesize\ttfamily void Player\+::\+Damage\+Taken\+Projectile (\begin{DoxyParamCaption}\item[{bool}]{b,  }\item[{\mbox{\hyperlink{classProjectile}{Projectile}}}]{Projectile }\end{DoxyParamCaption})}
+
+
+
+Handles damage taken by the \mbox{\hyperlink{classPlayer}{Player}} from a \mbox{\hyperlink{classProjectile}{Projectile}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Flag indicating if damage should be applied (true) or the function should only check for collision (false). \\
+\hline
+{\em \mbox{\hyperlink{classProjectile}{Projectile}}} & The \mbox{\hyperlink{classProjectile}{Projectile}} object that inflicted the damage. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classPlayer_aec06d1ed204c43b5fa58bee2fc31ead7}\label{classPlayer_aec06d1ed204c43b5fa58bee2fc31ead7}} 
-void {\bfseries fire\+Player} (\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&projectile\+Manager, \mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&weapon\+Manager, const Uint8 $\ast$keyboard\+State)
-\item 
+\index{Player@{Player}!firePlayer@{firePlayer}}
+\index{firePlayer@{firePlayer}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{firePlayer()}{firePlayer()}}
+{\footnotesize\ttfamily void Player\+::fire\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&}]{projectile\+Manager,  }\item[{\mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&}]{weapon\+Manager,  }\item[{const Uint8 $\ast$}]{keyboard\+State }\end{DoxyParamCaption})}
+
+
+
+Fires a projectile from the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s current weapon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em projectile\+Manager} & Reference to a \mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} object to manage the fired projectile. \\
+\hline
+{\em weapon\+Manager} & Reference to a \mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} object for weapon handling. \\
+\hline
+{\em keyboard\+State} & Pointer to an array of Uint8 representing the current keyboard state. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer_a1b8378732e1dae75e19b69b9b8916e42}\label{classPlayer_a1b8378732e1dae75e19b69b9b8916e42}} 
+\index{Player@{Player}!getCurrentWeapon@{getCurrentWeapon}}
+\index{getCurrentWeapon@{getCurrentWeapon}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getCurrentWeapon()}{getCurrentWeapon()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWeapon}{Weapon}} Player\+::get\+Current\+Weapon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s current weapon object. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s current \mbox{\hyperlink{classWeapon}{Weapon}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_ab188f2ba361f36a331960a21f263750d}\label{classPlayer_ab188f2ba361f36a331960a21f263750d}} 
+\index{Player@{Player}!getCurrentWeaponName@{getCurrentWeaponName}}
+\index{getCurrentWeaponName@{getCurrentWeaponName}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getCurrentWeaponName()}{getCurrentWeaponName()}}
+{\footnotesize\ttfamily std\+::string Player\+::get\+Current\+Weapon\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the name of the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s current weapon. 
+
+\begin{DoxyReturn}{Returns}
+A string containing the name of the current weapon. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classPlayer_a2b5b029b323a9fdc02c7ebb9c2e6581c}\label{classPlayer_a2b5b029b323a9fdc02c7ebb9c2e6581c}} 
-bool {\bfseries HPnull\+Playership} ()
-\item 
+\index{Player@{Player}!HPnullPlayership@{HPnullPlayership}}
+\index{HPnullPlayership@{HPnullPlayership}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{HPnullPlayership()}{HPnullPlayership()}}
+{\footnotesize\ttfamily bool Player\+::\+HPnull\+Playership (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s health points (HP) are zero or less, indicating death. 
+
+\begin{DoxyReturn}{Returns}
+True if the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s HP is zero or less, False otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_a4afa05f636d67e0193178e53fe899673}\label{classPlayer_a4afa05f636d67e0193178e53fe899673}} 
+\index{Player@{Player}!InitPlayer@{InitPlayer}}
+\index{InitPlayer@{InitPlayer}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{InitPlayer()}{InitPlayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlayer}{Player}} Player\+::\+Init\+Player (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{int}]{health\+Point,  }\item[{float}]{spd,  }\item[{float}]{height,  }\item[{float}]{width,  }\item[{\mbox{\hyperlink{structPosition}{Position}}}]{direct }\end{DoxyParamCaption})}
+
+
+
+Initializes the \mbox{\hyperlink{classPlayer}{Player}} object with specified parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Initial x-\/coordinate of the \mbox{\hyperlink{classPlayer}{Player}}. \\
+\hline
+{\em y} & Initial y-\/coordinate of the \mbox{\hyperlink{classPlayer}{Player}}. \\
+\hline
+{\em health\+Point} & Initial health points of the \mbox{\hyperlink{classPlayer}{Player}}. \\
+\hline
+{\em spd} & Movement speed of the \mbox{\hyperlink{classPlayer}{Player}}. \\
+\hline
+{\em height} & Height of the \mbox{\hyperlink{classPlayer}{Player}} sprite. \\
+\hline
+{\em width} & Width of the \mbox{\hyperlink{classPlayer}{Player}} sprite. \\
+\hline
+{\em direct} & Initial direction of the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s movement. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the initialized \mbox{\hyperlink{classPlayer}{Player}} object. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classPlayer_a853576ecda542451d10125fada9b4550}\label{classPlayer_a853576ecda542451d10125fada9b4550}} 
-void {\bfseries move\+Ship} (const Uint8 $\ast$keyboard\+State)
-\item 
+\index{Player@{Player}!moveShip@{moveShip}}
+\index{moveShip@{moveShip}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{moveShip()}{moveShip()}}
+{\footnotesize\ttfamily void Player\+::move\+Ship (\begin{DoxyParamCaption}\item[{const Uint8 $\ast$}]{keyboard\+State }\end{DoxyParamCaption})}
+
+
+
+Moves the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s position based on user input and movement speed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em keyboard\+State} & Pointer to an array of Uint8 representing the current keyboard state. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer_ab145716d6e5cc94757623fab43d7cb55}\label{classPlayer_ab145716d6e5cc94757623fab43d7cb55}} 
+\index{Player@{Player}!peutTirer@{peutTirer}}
+\index{peutTirer@{peutTirer}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{peutTirer()}{peutTirer()}}
+{\footnotesize\ttfamily bool Player\+::peut\+Tirer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the \mbox{\hyperlink{classPlayer}{Player}} is able to fire a projectile. 
+
+\begin{DoxyReturn}{Returns}
+True if the \mbox{\hyperlink{classPlayer}{Player}} can fire, False otherwise. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classPlayer_a727ff0fac4fc68bc86f5ef31d6aed350}\label{classPlayer_a727ff0fac4fc68bc86f5ef31d6aed350}} 
-void {\bfseries player\+Death} (\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&projectile\+Manager)
-\end{DoxyCompactItemize}
+\index{Player@{Player}!playerDeath@{playerDeath}}
+\index{playerDeath@{playerDeath}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{playerDeath()}{playerDeath()}}
+{\footnotesize\ttfamily void Player\+::player\+Death (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&}]{projectile\+Manager }\end{DoxyParamCaption})}
+
+
+
+Handles the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s death. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em projectile\+Manager} & Reference to a \mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer_ad0fe5f37e0c680aa01add8fd1049a8ba}\label{classPlayer_ad0fe5f37e0c680aa01add8fd1049a8ba}} 
+\index{Player@{Player}!setCurrentWeapon@{setCurrentWeapon}}
+\index{setCurrentWeapon@{setCurrentWeapon}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setCurrentWeapon()}{setCurrentWeapon()}}
+{\footnotesize\ttfamily void Player\+::set\+Current\+Weapon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWeapon}{Weapon}}}]{weapon }\end{DoxyParamCaption})}
+
+
+
+Sets the current weapon of the \mbox{\hyperlink{classPlayer}{Player}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weapon} & The \mbox{\hyperlink{classWeapon}{Weapon}} object to be set as the current weapon. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer_ab7beaeae403297cdfb650fa2dfb21bf5}\label{classPlayer_ab7beaeae403297cdfb650fa2dfb21bf5}} 
+\index{Player@{Player}!TempsPourChanger@{TempsPourChanger}}
+\index{TempsPourChanger@{TempsPourChanger}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{TempsPourChanger()}{TempsPourChanger()}}
+{\footnotesize\ttfamily bool Player\+::\+Temps\+Pour\+Changer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if enough time has passed to allow the \mbox{\hyperlink{classPlayer}{Player}} to change weapons. 
+
+\begin{DoxyReturn}{Returns}
+True if enough time has elapsed since the last weapon change, False otherwise. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

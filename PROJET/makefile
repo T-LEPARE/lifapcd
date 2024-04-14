@@ -1,14 +1,13 @@
 all :./bin/StarblitzGame
 
-./bin/StarblitzGame : ./obj/StarblitzGameDisplay.o ./obj/StarblitzGameLogic.o ./obj/ScoreSystem.o ./obj/Projectile.o ./obj/Position.o ./obj/Playership.o ./obj/Invaders.o ./obj/Partie.o ./obj/InvadersManager.o ./obj/Weapon.o ./obj/ProjectileManager.o ./obj/WeaponManager.o
-			g++ -Wall -g ./obj/StarblitzGameDisplay.o ./obj/StarblitzGameLogic.o ./obj/ScoreSystem.o ./obj/Projectile.o ./obj/Position.o ./obj/Playership.o ./obj/Invaders.o ./obj/Partie.o ./obj/InvadersManager.o ./obj/Weapon.o ./obj/ProjectileManager.o ./obj/WeaponManager.o -o ./bin/StarblitzGame -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
+./bin/StarblitzGame : ./obj/StarblitzGameDisplay.o  ./obj/ScoreSystem.o ./obj/Projectile.o ./obj/Position.o ./obj/Playership.o ./obj/Invaders.o ./obj/Partie.o ./obj/InvadersManager.o ./obj/Weapon.o ./obj/ProjectileManager.o ./obj/WeaponManager.o
+			g++ -Wall -g ./obj/StarblitzGameDisplay.o ./obj/ScoreSystem.o ./obj/Projectile.o ./obj/Position.o ./obj/Playership.o ./obj/Invaders.o ./obj/Partie.o ./obj/InvadersManager.o ./obj/Weapon.o ./obj/ProjectileManager.o ./obj/WeaponManager.o -o ./bin/StarblitzGame -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
 
 ./obj/Partie.o : ./src/Partie.cpp ./src/Playership.h ./src/Position.h ./src/Projectile.h ./src/Invaders.h ./src/StarblitzGameDisplay.h
 			g++ -Wall -c ./src/Partie.cpp -o ./obj/Partie.o -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
-./obj/StarblitzGameLogic.o : ./src/StarblitzGameLogic.cpp ./src/StarblitzGameLogic.h
-			g++ -Wall -c ./src/StarblitzGameLogic.cpp -o ./obj/StarblitzGameLogic.o
+
 
 
 

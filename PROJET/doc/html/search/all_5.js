@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['initinvader_16',['InitInvader',['../classInvader.html#a5cbf60922e28b369866eb4b14e5cfcd3',1,'Invader']]],
-  ['invader_17',['Invader',['../classInvader.html',1,'Invader'],['../classInvader.html#a66554fabc7a2ca91051589b018bca99a',1,'Invader::Invader()'],['../classInvader.html#a1808fc487a4a77f5271fa487625b077b',1,'Invader::Invader(float x, float y)']]],
-  ['invadersmanager_18',['InvadersManager',['../classInvadersManager.html',1,'InvadersManager'],['../classInvadersManager.html#a118cdbf910cdd7d71fae78154ad39e92',1,'InvadersManager::InvadersManager()'],['../classInvadersManager.html#a37da04590a4f2d1d861e7f5723000d5f',1,'InvadersManager::InvadersManager(int nb)']]],
-  ['isalldead_19',['IsAllDead',['../classInvadersManager.html#ad39bdfebe8c13d274fe7e05a4020b766',1,'InvadersManager']]]
+  ['hasinvadercollided_44',['hasInvaderCollided',['../classInvadersManager.html#a23e402ae5b0ab93a336fbb2c2a4e7aae',1,'InvadersManager']]],
+  ['hasprojectilecollided_45',['hasProjectileCollided',['../classProjectileManager.html#a1b3e316dd0412eb6d6cd78aaeefba8a2',1,'ProjectileManager']]],
+  ['hpnullinvader_46',['HPnullInvader',['../classInvader.html#a5caf8e0d809043a2be149c13c248ce70',1,'Invader']]],
+  ['hpnullplayership_47',['HPnullPlayership',['../classPlayer.html#a2b5b029b323a9fdc02c7ebb9c2e6581c',1,'Player']]]
 ];
