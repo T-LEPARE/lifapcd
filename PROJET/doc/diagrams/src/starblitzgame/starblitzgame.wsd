@@ -6,7 +6,6 @@ class Display {
   + texture: SDL_Texture*
   + DIMW: int
   + DIMH: int
-
   + Display(renderer: SDL_Renderer*)
   + getTexture(): SDL_Texture*
   + getDIMW(): int
@@ -20,7 +19,6 @@ class Playership {
   - surface: SDL_Surface*
   - texture: SDL_Texture*
   - HP: int
-
   + Playership()
   + setSurface(surface: SDL_Surface*): void
   + getSurface(): SDL_Surface*
@@ -36,14 +34,11 @@ class Playership {
 class Projectile {
   - position: Position  
   - speed: float
-
   + Projectile(position: Position, speed: float)
-
 }
 
 class ProjectileManager {
   - projectiles: std::vector<Projectile>
-
   + ProjectileManager()
   + UpdateProj(): void
   + DrawProj(renderer: SDL_Renderer*): void
@@ -53,7 +48,6 @@ class ProjectileManager {
 class Weapon {
   - fireRate: int
   - projectileType: string
-
   + Weapon() 
   + canFire(): bool
 }
@@ -61,7 +55,6 @@ class Weapon {
 class WeaponManager {
   - currentWeapon: Weapon*
   - weapons: std::vector<Weapon>
-
   + WeaponManager()
   + changeWeapon(newWeaponIndex: int): void
   + getProjectileType(): string
@@ -70,9 +63,7 @@ class WeaponManager {
 class Invader {
   - position: Position
   - alive: bool
-
   + Invader(position: Position)
-
   + setDead(): void
   + isDead(): bool
 }
@@ -81,9 +72,7 @@ class InvadersManager {
   - invaders: std::vector<Invader*>
   - rows: int
   - cols: int
-
   + InvadersManager(rows: int, cols: int)
-
   + UpdateInvaders(): void
   + DrawInvaders(renderer: SDL_Renderer*): void
   + hasInvaderCollided(player: Playership*): bool
@@ -104,7 +93,6 @@ class Partie {
   - weaponManager: WeaponManager*
   - invadersManager: InvadersManager*
   - gameState: GameState
-
   + MainLoop(): void
   + HandleEvents(): void
   + UpdateGame(): void

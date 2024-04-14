@@ -198,7 +198,7 @@ public:
     bool ArriveEnBas();
 
     /**
-     * @brief 
+     * @brief returns true if invader hp <= 0, else returns false
      * 
      * @return true 
      * @return false 

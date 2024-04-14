@@ -49,7 +49,7 @@ public:
   Player(float x, float y, int healthPoint, float playerSpeed, float height, float width, Position direct);
 
   /**
-   * @brief Destructor for Player. Frees allocated resources (if any).
+   * @brief Destructor for Player.
    */
   ~Player();
 
@@ -167,7 +167,7 @@ public:
     void firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager, const Uint8 *keyboardState, Mix_Chunk* Tirsound);
 
  /**
-   * @brief Checks if the Player's health points (HP) are zero or less, indicating death.
+   * @brief Checks if the Player's HP are zero or less, indicating death.
    * @return True if the Player's HP is zero or less, False otherwise.
    */
   bool HPnullPlayership();

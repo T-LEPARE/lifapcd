@@ -7,7 +7,7 @@
 #include <SDL2/SDL_mixer.h>
 #include "Playership.h"
 #include "Invaders.h"
-#include "StarblitzGameDisplay.h"  // Assuming this provides display dimensions
+#include "StarblitzGameDisplay.h"
 
 class Player;
 class Invader;
@@ -28,8 +28,8 @@ public:
   ~ProjectileManager();
 
   /**
-   * @brief Sets the maximum number of projectiles that can be managed (not implemented in the provided code).
-   * @param nb The intended maximum number of projectiles.
+   * @brief Sets the maximum number of projectiles.
+   * @param nb The number of projectiles.
    */
   void SetnbProjectile(int nb);
 

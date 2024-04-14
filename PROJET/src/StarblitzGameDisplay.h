@@ -49,11 +49,6 @@ public:
   static void setDIMH(int DIMH);
 
   /**
-   * @brief Flag indicating if rendering should occur.
-   */
-  //bool shouldRender;
-
-  /**
    * @brief Renders the display background image on the provided renderer.
    * @param renderer Reference to an SDL_Renderer object.
    */
