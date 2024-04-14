@@ -51,7 +51,7 @@ public:
   /**
    * @brief Flag indicating if rendering should occur.
    */
-  bool shouldRender;
+  //bool shouldRender;
 
   /**
    * @brief Renders the display background image on the provided renderer.

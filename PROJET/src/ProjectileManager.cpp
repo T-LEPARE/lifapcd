@@ -99,7 +99,9 @@ void ProjectileManager::DamageTakenProjectile(std::unique_ptr<Projectile>& proje
 void ProjectileManager::DrawProj(SDL_Renderer* renderer) {
   for (auto it = projectiles.begin(); it != projectiles.end(); ++it) {
     if (*it != nullptr) { // Check for null pointer before using
-      (*it)->drawProjectile(renderer);
+      if((*it)->getProvenaceDuTir())
+        (*it)->drawProjectilePlayer(renderer);
+      else (*it)->drawProjectileInvader(renderer);
     }
   }
 }

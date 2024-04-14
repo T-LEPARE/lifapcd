@@ -127,7 +127,6 @@ if (TTF_Init() != 0) {
     // Boucle principale du jeu
     GameState gameState = GameState::Menu;
     bool running = true;
-    bool audioPlaying = true;
     SDL_Event event;
     const int targetFPS = 60;
     const float targetFrameTime = 1000.0f / targetFPS;  // milliseconds per frame
@@ -211,9 +210,9 @@ if (TTF_Init() != 0) {
             SDL_Surface* menuSurface = IMG_Load("./data/SpaceInvaders_LogoLarge.png");
             SDL_Texture* menuTexture =SDL_CreateTextureFromSurface(renderer, menuSurface);
             SDL_Rect paused = {-45,display.getDIMW()/2,menuSurface->w,menuSurface->h};
-             SDL_Color textColor = {255, 255, 255, 255};
-             SDL_Surface* textSurface = TTF_RenderText_Solid(font, "Press enter to start", textColor);
-             SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+            SDL_Color textColor = {255, 255, 255, 255};
+            SDL_Surface* textSurface = TTF_RenderText_Solid(font, "Press enter to start", textColor);
+            SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
 
             SDL_Rect textRect = {110, 520, textSurface->w, textSurface->h};
             SDL_RenderCopy(renderer,menuTexture,NULL,&paused);

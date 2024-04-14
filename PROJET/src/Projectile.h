@@ -21,6 +21,7 @@ private :
         SDL_Rect projectileRect;
         float height;
         float width;
+        bool ProvenanceDuTir;
 
 public :
 
@@ -59,7 +60,12 @@ public :
         */
          void update();
 
-
+        /**
+         * @brief Get who is shooting
+         * 
+         * @return a bool that design who is shooting 
+         */
+        bool getProvenaceDuTir();
        
         /**
          * @brief Get the Pos object
@@ -133,10 +139,16 @@ public :
        
 
         /**
-         * @brief Draws the Projectile on the specified renderer.
+         * @brief Draws the Player's Projectile on the specified renderer.
          * @param renderer Reference to an SDL_Renderer object.
         */
-        void drawProjectile(SDL_Renderer* renderer);
+        void drawProjectilePlayer(SDL_Renderer* renderer);
+
+        /**
+         * @brief Draws the Invader's Projectile on the specified renderer.
+         * @param renderer Reference to an SDL_Renderer object.
+        */
+        void drawProjectileInvader(SDL_Renderer* renderer);
 };
 
 #endif 

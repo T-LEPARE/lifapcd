@@ -105,19 +105,17 @@
     {
         
     }
-
-
-        SDL_Texture* Invader::getTexture(){
-            return texture;
-        }
-        SDL_Surface* Invader::getSurface(){
-            return surface;
-        }
-        void Invader::setTexture(SDL_Texture* _texture){
-            texture = _texture;
-        }
-        void Invader::setSurface(SDL_Surface* _surface){
-            surface = _surface;
+    SDL_Texture* Invader::getTexture(){
+        return texture;
+    }
+    SDL_Surface* Invader::getSurface(){
+        return surface;
+    }
+    void Invader::setTexture(SDL_Texture* _texture){
+        texture = _texture;
+    }
+    void Invader::setSurface(SDL_Surface* _surface){
+        surface = _surface;
     }
     
     bool Invader::InvaderpeutTirer() {

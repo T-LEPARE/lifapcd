@@ -5,8 +5,8 @@ WeaponManager::WeaponManager(){
     weaponTypes = {
             //nom, projectileSpeed, damage, fireRate, projectileWidth, projectileHeight
             {"mitraillette", {9, 1, 100, 1, 5}},
-            {"railgun", {8, 50, 1000, 5, 100}},
-            {"roquettes", {7, 25, 500, 20,30}},
+            {"railgun", {8, 10, 1000, 5, 100}},
+            {"roquettes", {7, 5, 750, 20,30}},
     };
 }
 

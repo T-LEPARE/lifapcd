@@ -172,6 +172,8 @@ public:
      */
     void setSurface(SDL_Surface* _surface);
 
+    bool IsDead();
+
     bool InvaderpeutTirer();
 
     /**

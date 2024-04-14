@@ -22,6 +22,7 @@ Projectile::Projectile(float x,float y, std::string weaponName, WeaponManager& w
     width = weaponManager.getProjectileWidth(weaponName); // Retrieve projectile width from weaponManager
     height = weaponManager.getProjectileHeight(weaponName); // Retrieve projectile height from weaponManager
     projectileRect = {int(pos.x),int(pos.y),int(width),int(height)};
+    ProvenanceDuTir = 1; //Player's projectile
 }
 
 Projectile::Projectile(const Position& invPos, const int& dmg) {
@@ -30,9 +31,10 @@ Projectile::Projectile(const Position& invPos, const int& dmg) {
     direction = Position(0,1); // les invaders tirent vers le bas
     damage = dmg;
     projectileSpeed = 1; //Les invaders auront tous la meme projectile speed ? Sinon il faut rajouter la projectileSpeed dans invaders
-    width = 1; //Les invaders auront tous la meme projectile width ? Sinon il faut rajouter la projectileWidth dans invaders
-    height = 5; //Les invaders auront tous la meme projectile height ? Sinon il faut rajouter la projectileHeight dans invaders
+    width = 3; //Les invaders auront tous la meme projectile width ? Sinon il faut rajouter la projectileWidth dans invaders
+    height = 7; //Les invaders auront tous la meme projectile height ? Sinon il faut rajouter la projectileHeight dans invaders
     projectileRect = {int(pos.x),int(pos.y),int(width),int(height)};
+    ProvenanceDuTir = 0; //Invader's projectile
 }
 
 
@@ -48,6 +50,11 @@ void Projectile::update() {
 
 Projectile::~Projectile(){
 
+}
+
+bool Projectile::getProvenaceDuTir()
+{
+    return ProvenanceDuTir;
 }
 
 Position Projectile::getPos(){
@@ -96,7 +103,12 @@ void Projectile::setProjectileRect(int x ,int y,int width,int height){
     this->projectileRect = {int(x),int(y),int(width),int(height)};
 }
 
-void Projectile::drawProjectile(SDL_Renderer* renderer){
+void Projectile::drawProjectilePlayer(SDL_Renderer* renderer){
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_RenderFillRect(renderer,&projectileRect);
+}
+
+void Projectile::drawProjectileInvader(SDL_Renderer* renderer){
+    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
     SDL_RenderFillRect(renderer,&projectileRect);
 }
