@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 #include <algorithm>
+#include <SDL2/SDL_mixer.h>
 #include "Playership.h"
 #include "Invaders.h"
 #include "StarblitzGameDisplay.h"  // Assuming this provides display dimensions
@@ -70,7 +71,7 @@ public:
    * @param playerPtr Pointer to a Player object.
    * @param invaders Pointer to a vector containing Invader objects.
    */
-  void hasProjectileCollided(Player* playerPtr, std::vector<Invader>* invaders);
+void hasProjectileCollided(Player* playerPtr, std::vector<Invader>* invaders,  Mix_Chunk* SoundDmg);
 
   /**
    * @brief Draws all managed Projectiles on the specified renderer.

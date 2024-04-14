@@ -6,6 +6,7 @@ class ProjectileManager;  // Forward declaration
 #include <string>
 #include <memory>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_mixer.h>
 #include "Position.h"
 #include "Projectile.h"
 #include "Weapon.h"
@@ -163,7 +164,7 @@ public:
    * @param weaponManager Reference to a WeaponManager object for weapon handling.
    * @param keyboardState Pointer to an array of Uint8 representing the current keyboard state.
    */
-  void firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager,const Uint8 *keyboardState,SDL_AudioDeviceID audioDevice, Uint8* wavBuffer, Uint32 wavLength);
+    void firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager, const Uint8 *keyboardState, Mix_Chunk* Tirsound);
 
  /**
    * @brief Checks if the Player's health points (HP) are zero or less, indicating death.

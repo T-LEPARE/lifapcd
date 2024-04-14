@@ -2,6 +2,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_audio.h>
 #include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
 #include <iostream>
 #include "Playership.h"
 #include "Position.h"
@@ -12,6 +13,7 @@
 #include "WeaponManager.h"
 #include "Weapon.h"
 #include <memory>
+
 
 
 enum class GameState {
@@ -46,35 +48,37 @@ if (TTF_Init() != 0) {
     }
 
 
-    SDL_AudioSpec wavSpecFond;
-    Uint8* wavStartFond;
-    Uint32 wavLengthFond;
-
-    if (SDL_LoadWAV("./data/Space_Invaders.wav", &wavSpecFond, &wavStartFond, &wavLengthFond) == NULL) {
-        SDL_Log("Erreur lors du chargement du fichier audio : %s", SDL_GetError());
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
+        std::cerr << "Erreur lors de l'initialisation de SDL Mixer : " << Mix_GetError() << std::endl;
+        SDL_Quit();
         return 1;
     }
 
-    SDL_AudioDeviceID deviceId = SDL_OpenAudioDevice(NULL, 0, &wavSpecFond, NULL, 0);
-    if (deviceId == 0) {
-        SDL_Log("Impossible d'ouvrir le périphérique audio : %s", SDL_GetError());
-        SDL_FreeWAV(wavStartFond);
+    // Charger les sons
+    Mix_Chunk* tirSound = Mix_LoadWAV("./data/LaserGun.wav");
+    if (tirSound == nullptr) {
+        std::cerr << "Erreur lors du chargement du son : " << Mix_GetError() << std::endl;
+        Mix_Quit();
+        SDL_Quit();
         return 1;
     }
 
-    SDL_AudioSpec wavSpecTir;
-    Uint8* wavStartTir;
-    Uint32 wavLengthTir;
-
-    if (SDL_LoadWAV("./data/LaserGun.wav", &wavSpecTir, &wavStartTir, &wavLengthTir) == NULL) {
-        SDL_Log("Erreur lors du chargement du fichier audio : %s", SDL_GetError());
+    Mix_Chunk* SoundDmg = Mix_LoadWAV("./data/SoundDmgV2.wav");
+    if (tirSound == nullptr) {
+        std::cerr << "Erreur lors du chargement du son : " << Mix_GetError() << std::endl;
+        Mix_Quit();
+        SDL_Quit();
         return 1;
     }
 
-    deviceId = SDL_OpenAudioDevice(NULL, 0, &wavSpecTir, NULL, 0);
-    if (deviceId == 0) {
-        SDL_Log("Impossible d'ouvrir le périphérique audio : %s", SDL_GetError());
-        SDL_FreeWAV(wavStartTir);
+    // Charger la musique de fond
+    Mix_Music* backgroundMusic = Mix_LoadMUS("./data/Space_Invaders.wav");
+    if (backgroundMusic == nullptr) {
+        std::cerr << "Erreur lors du chargement de la musique de fond : " << Mix_GetError() << std::endl;
+        Mix_FreeChunk(tirSound);
+        Mix_FreeChunk(SoundDmg);
+        Mix_Quit();
+        SDL_Quit();
         return 1;
     }
 
@@ -92,7 +96,7 @@ if (TTF_Init() != 0) {
     }
 
     // Création d'une fenêtre
-    SDL_Window* window = SDL_CreateWindow("Space Invaders", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 540, 960, SDL_WINDOW_SHOWN);
+    SDL_Window* window = SDL_CreateWindow("StarBlitz", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 540, 960, SDL_WINDOW_SHOWN);
     if (window == nullptr) {
         SDL_Log("Échec de la création de la fenêtre : %s", SDL_GetError());
         SDL_Quit();
@@ -165,8 +169,7 @@ if (TTF_Init() != 0) {
                 if (event.type == SDL_KEYDOWN) {
                     if (event.key.keysym.sym == SDLK_RETURN) {
                         gameState = GameState::Running;
-                        SDL_QueueAudio(deviceId, wavStartFond, wavLengthFond);
-                        SDL_PauseAudioDevice(deviceId, 0);
+                        Mix_PlayMusic(backgroundMusic, -1);
                         player.setHP(0);
                         itab.resetInvaders();
                         player.playerDeath(Pmanager);
@@ -182,13 +185,13 @@ if (TTF_Init() != 0) {
                 if(event.type == SDL_KEYDOWN){
                     if(event.key.keysym.sym == SDLK_ESCAPE){
                         gameState = GameState::Paused;
-                        SDL_PauseAudioDevice(deviceId, 1);   
+                        Mix_PauseMusic(); 
                     }
                 }
             }else if (gameState == GameState::Paused){
                 if(event.type == SDL_KEYDOWN){
                     if(event.key.keysym.sym == SDLK_RETURN){
-                        SDL_PauseAudioDevice(deviceId, 0);
+                        Mix_PlayMusic(backgroundMusic, -1);
                         gameState = GameState::Running;}
                     else if(event.key.keysym.sym == SDLK_ESCAPE){
                         gameState = GameState::Menu;
@@ -325,7 +328,7 @@ if (TTF_Init() != 0) {
             }
             if(player.HPnullPlayership()){
                 gameState = GameState::loosescreen;
-                SDL_PauseAudioDevice(deviceId, 1);
+                Mix_PauseMusic();
             }
             if(player.getHP()>= 80){
                 vieTexture =  SDL_CreateTextureFromSurface(renderer, vie5Surface);
@@ -358,10 +361,10 @@ if (TTF_Init() != 0) {
             itab.Update(Pmanager,player,ListeDerniereLigne,indiceDuPlusADroite);
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);
-            player.firePlayer(Pmanager, weaponManager,keyboardState, deviceId, wavStartTir,wavLengthTir);
+            player.firePlayer(Pmanager, weaponManager,keyboardState, tirSound);
             player.changeWeapon(weaponManager,keyboardState);
             Pmanager.UpdateProj();
-            Pmanager.hasProjectileCollided(&player,itabPtr);
+            Pmanager.hasProjectileCollided(&player,itabPtr,SoundDmg);
             Pmanager.DrawProj(renderer);
             // Present the rendered frame
             SDL_RenderPresent(renderer);
@@ -384,11 +387,10 @@ if (TTF_Init() != 0) {
     // Libération des ressources
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
-    SDL_CloseAudioDevice(deviceId);
     TTF_CloseFont(font);
-    if (SDL_GetQueuedAudioSize(deviceId) == 0) {
-            SDL_FreeWAV(wavStartFond);
-    }
+    Mix_FreeChunk(tirSound);
+    Mix_FreeMusic(backgroundMusic);
+    Mix_Quit();
     IMG_Quit();
     SDL_Quit();
     TTF_Quit();

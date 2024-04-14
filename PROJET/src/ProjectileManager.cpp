@@ -30,7 +30,7 @@ bool ProjectileManager::isProjectileOutOfBounds(const std::unique_ptr<Projectile
           projectile->getPos().y < 0 || projectile->getPos().y > Display::getDIMH());
 }
 
-void ProjectileManager::hasProjectileCollided(Player* playerPtr, std::vector<Invader>* invaders) {
+void ProjectileManager::hasProjectileCollided(Player* playerPtr, std::vector<Invader>* invaders,  Mix_Chunk* SoundDmg) {
 
   //erase all nullptr from the vector before everything... It fixed a crash
   projectiles.erase(std::remove_if(projectiles.begin(), projectiles.end(),
@@ -65,6 +65,7 @@ void ProjectileManager::hasProjectileCollided(Player* playerPtr, std::vector<Inv
             (projectiles[i]->getPos().x <= Pposition.x + playerPtr->getWidth()) &&
             (projectiles[i]->getPos().y >= Pposition.y) &&
             (projectiles[i]->getPos().y <= Pposition.y + playerPtr->getHeight())) {
+          Mix_PlayChannel(-1, SoundDmg, 0); 
           DamageTakenProjectile(projectiles[i], playerPtr, nullptr);
           collided = true;
         }

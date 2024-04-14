@@ -126,6 +126,9 @@ public:
      */
     float getTaille();
 
+    /**
+     * @return Retourne la direction de l'Invader
+     */
     Position getDirection();
 
     /**
@@ -172,8 +175,9 @@ public:
      */
     void setSurface(SDL_Surface* _surface);
 
-    bool IsDead();
-
+    /**
+     * @return un booléen qui vérifie si l'invader peut tirer (cadence de tir) 
+     */
     bool InvaderpeutTirer();
 
     /**
