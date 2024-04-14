@@ -11,13 +11,13 @@
         width=50;
     }
 
-    Invader::Invader(float x,float y)
+    Invader::Invader(float x,float y,float NvHP, int Nvdmg)
     {
         pos=Position(x,y);
         direction=Position(1,0);
-        HP=10;
+        HP=NvHP;
         speed=2.0f;
-        dmg=5;
+        dmg=Nvdmg;
         height=30;
         width=50;
     }

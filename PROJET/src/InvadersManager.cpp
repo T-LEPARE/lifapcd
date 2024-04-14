@@ -18,6 +18,14 @@ void InvadersManager::SetnbInvader(int nb){
     this->nbInvader = nb ;
 }
 
+void InvadersManager::SetNumVague(int num){
+    this->vague = num ;
+}
+
+int InvadersManager::GetNumVague(){
+    return vague;
+}
+
 void InvadersManager::AddInvader(const Invader& invader) { 
     invaders.push_back(invader);
 }
@@ -141,7 +149,7 @@ void InvadersManager::InitTabInvader(SDL_Renderer* renderer,SDL_Surface* surface
     y=100;
     for(int i = 0;i<nbInvader;i++){
         // Création du Invader
-        Invader invader(x,y);
+        Invader invader(x,y,10*vague,5*vague);
         AddInvader(invader);
         invaders[i].setSurface(surfaceInvader);
         invaders[i].setTexture(SDL_CreateTextureFromSurface(renderer, invaders[i].getSurface()));

@@ -177,7 +177,8 @@ if (TTF_Init() != 0) {
                         player.setHP(0);
                         itab.resetInvaders();
                         player.playerDeath(Pmanager);
-                        itab.SetnbInvader(12);
+                        itab.SetnbInvader(1);
+                        itab.SetNumVague(1);
                         itab.InitTabInvader(renderer,surfaceInvader);
                         itab.RectInvaderInit(renderer); // Commence le jeu si l'utilisateur appuie sur Entrée
                     } else if (event.key.keysym.sym == SDLK_ESCAPE) {
@@ -317,7 +318,8 @@ if (TTF_Init() != 0) {
             player.moveShip(keyboardState);
             if(itab.IsAllDead()){
                 std::cout<<"It's empty !"<<std::endl;
-                itab.SetnbInvader(12);
+                itab.SetnbInvader(1);
+                itab.SetNumVague(itab.GetNumVague()+1);
                 itab.InitTabInvader(renderer,surfaceInvader);
                 itab.RectInvaderInit(renderer);
                 if (itab.IsAllDead()==1) {

@@ -30,8 +30,10 @@ public:
      * 
      * @param x coordonné x
      * @param y coordonné y
+     * @param NvHP Hp de l'invader
+     * @param Nvdmg dmg de l'invader
      */
-    Invader(float x,float y);
+    Invader(float x,float y,float NvHP, int Nvdmg);
 
     /**
      @brief destructeur de Invader

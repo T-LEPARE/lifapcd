@@ -9,6 +9,7 @@
 class InvadersManager: private Invader {
 private:
   int nbInvader;
+  int vague;
   Uint32 Dernier_PerteDeVie;
   std::vector<Invader> invaders;
   std::vector<SDL_Rect> rects;
@@ -105,6 +106,17 @@ public:
    * @param nb The number of Invaders.
    */
   void SetnbInvader(int nb);
+  
+  /**
+   * @brief Sets the wave.
+   * @param num Which wave we at.
+   */
+  void SetNumVague(int num);
+
+  /**
+   * @return Which wave we at
+   */
+  int GetNumVague();
 
   /**
    * @brief Initializes the internal vector of Invaders with specified renderer and surface.
