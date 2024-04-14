@@ -1,0 +1,127 @@
+@startuml StarblitzGame
+
+class Display {
+  + renderer: SDL_Renderer*
+  + surface: SDL_Surface*
+  + texture: SDL_Texture*
+  + DIMW: int
+  + DIMH: int
+
+  + Display(renderer: SDL_Renderer*)
+  + getTexture(): SDL_Texture*
+  + getDIMW(): int
+  + getDIMH(): int
+}
+
+class Playership {
+  - position: Position 
+  - width: int
+  - height: int
+  - surface: SDL_Surface*
+  - texture: SDL_Texture*
+  - HP: int
+
+  + Playership()
+  + setSurface(surface: SDL_Surface*): void
+  + getSurface(): SDL_Surface*
+  + setTexture(texture: SDL_Texture*): void
+  + getTexture(): SDL_Texture*
+  + moveShip(keyboardState: const Uint8*): void
+  + firePlayer(Pmanager: ProjectileManager, weaponManager: WeaponManager, keyboardState: const Uint8*): void
+  + changeWeapon(weaponManager: WeaponManager, keyboardState: const Uint8*): void
+  + setHP(newHP: int): void
+  + HPnullPlayership(): bool
+}
+
+class Projectile {
+  - position: Position  
+  - speed: float
+
+  + Projectile(position: Position, speed: float)
+
+}
+
+class ProjectileManager {
+  - projectiles: std::vector<Projectile>
+
+  + ProjectileManager()
+  + UpdateProj(): void
+  + DrawProj(renderer: SDL_Renderer*): void
+  + hasProjectileCollided(player: Playership*, itabPtr: std::vector<Invader>*): void
+}
+
+class Weapon {
+  - fireRate: int
+  - projectileType: string
+
+  + Weapon() 
+  + canFire(): bool
+}
+
+class WeaponManager {
+  - currentWeapon: Weapon*
+  - weapons: std::vector<Weapon>
+
+  + WeaponManager()
+  + changeWeapon(newWeaponIndex: int): void
+  + getProjectileType(): string
+}
+
+class Invader {
+  - position: Position
+  - alive: bool
+
+  + Invader(position: Position)
+
+  + setDead(): void
+  + isDead(): bool
+}
+
+class InvadersManager {
+  - invaders: std::vector<Invader*>
+  - rows: int
+  - cols: int
+
+  + InvadersManager(rows: int, cols: int)
+
+  + UpdateInvaders(): void
+  + DrawInvaders(renderer: SDL_Renderer*): void
+  + hasInvaderCollided(player: Playership*): bool
+}
+
+enum GameState {
+  Menu,
+  Running,
+  Exiting,
+  Paused,
+  loosescreen
+}
+
+class Partie {
+  - display: Display*
+  - player: Playership*
+  - projectileManager: ProjectileManager*
+  - weaponManager: WeaponManager*
+  - invadersManager: InvadersManager*
+  - gameState: GameState
+
+  + MainLoop(): void
+  + HandleEvents(): void
+  + UpdateGame(): void
+  + RenderGame(): void
+}
+
+Partie o-- Display : Renders on
+Partie o-- Playership : Manages the player
+Partie o-- ProjectileManager : Manages projectiles
+Partie o-- WeaponManager : Manages weapons
+Partie o-- InvadersManager : Manages invaders
+
+Playership -> ProjectileManager : Fires projectiles (through firePlayer)
+WeaponManager -> ProjectileManager : Defines projectile type (through getProjectileType)
+Partie -- GameState : Updates based on game state 
+
+Invader <-> ProjectileManager : Potential collision detection
+Playership <-> InvaderManager : Potential collision detection
+
+@enduml
