@@ -22,6 +22,11 @@
     void ScoreSystem::incrementScore(int bonus){
         score += bonus;
     };
+
+    void ScoreSystem::setScore(int NvScore) {
+        score=NvScore;
+    };
+
     int ScoreSystem::getScore() {
         return score;
     };

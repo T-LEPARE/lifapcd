@@ -40,6 +40,9 @@ public:
    */
   int getScore();
 
+  void setScore(int NvScore);
+
+
 private:
   int score;  // Internal variable to store the score
 };

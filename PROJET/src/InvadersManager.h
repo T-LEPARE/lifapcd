@@ -49,7 +49,7 @@ public:
    * @param InvaderQuiTir Vector containing indices of invaders that can shoot.
    * @param indiceDuPlusADroite Index of the rightmost Invader.
    */
-  void Update(ProjectileManager& tabpro, Player& player, std::vector<int> InvaderQuiTir, int indiceDuPlusADroite,ScoreSystem score);
+  void Update(ProjectileManager& tabpro, Player& player, std::vector<int> InvaderQuiTir, int indiceDuPlusADroite);
 
   /**
    * @brief Finds the index of the rightmost Invader.
@@ -61,7 +61,12 @@ public:
    * @brief Moves all Invaders a certain distance based on the index of the rightmost Invader.
    * @param indiceDuPlusADroite Index of the rightmost Invader.
    */
-  void Move(int indiceDuPlusADroite,ScoreSystem score);
+  void Move(int indiceDuPlusADroite);
+
+  /**
+   * @return If an invader is dead
+   */
+  bool InvaderDead();
 
   /**
    * @brief Checks for collisions between all Invaders and a given Projectile.

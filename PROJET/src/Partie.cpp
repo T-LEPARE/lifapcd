@@ -362,7 +362,9 @@ if (TTF_Init() != 0) {
             std::vector<Invader>* itabPtr = itab.getInvaders();
             std::vector<int> ListeDerniereLigne=itab.QuiPeutTirer();
             int indiceDuPlusADroite=itab.LePlusADroite();
-            itab.Update(Pmanager,player,ListeDerniereLigne,indiceDuPlusADroite,score);
+            if(itab.InvaderDead())
+                score.incrementScore(100);
+            itab.Update(Pmanager,player,ListeDerniereLigne,indiceDuPlusADroite);
             sprintf(scoreTexte, "Score : %d", score.getScore());
             SDL_Color textColor = {255, 255, 255, 255};
             SDL_Surface* textSurface = TTF_RenderText_Solid(font,scoreTexte, textColor);
