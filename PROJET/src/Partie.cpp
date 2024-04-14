@@ -253,13 +253,18 @@ if (TTF_Init() != 0) {
             // Vous pouvez utiliser SDL_Renderer pour dessiner des éléments du menu
             // Exemple :
             vieTexture =  SDL_CreateTextureFromSurface(renderer, vie0Surface);
-            SDL_Rect Vie0Rect = {250, display.getDIMH()/2-50, 100, 50};
+            SDL_Rect Vie0Rect = {0, 0, 100, 50};
             SDL_RenderCopy(renderer, vieTexture, NULL, &Vie0Rect);
             SDL_Color textColor = {255, 255, 255, 255};
-            SDL_Surface* textSurface = TTF_RenderText_Solid(font, "You died muthafacker", textColor);
+            SDL_Surface* textSurface = TTF_RenderText_Solid(font, "You died fucking idiot", textColor);
             SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
-
             SDL_Rect textRect = {110,display.getDIMH()/2, textSurface->w, textSurface->h};
+            sprintf(scoreTexte, "Score : %d", score.getScore());
+            SDL_Color scoreColor = {255, 255, 255, 255};
+            SDL_Surface* scoreSurface = TTF_RenderText_Solid(font,scoreTexte, scoreColor);
+            SDL_Texture* scoreTexture = SDL_CreateTextureFromSurface(renderer, scoreSurface);
+            SDL_Rect scoreRect = {430, 0, 100, 25};
+            SDL_RenderCopy(renderer, scoreTexture, NULL, &scoreRect);
             SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
             SDL_FreeSurface(textSurface);
             SDL_DestroyTexture(textTexture);
@@ -290,6 +295,12 @@ if (TTF_Init() != 0) {
             SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
             SDL_Rect textRect = {110, 520, textSurface->w, textSurface->h};
             SDL_Rect paused = {-45,display.getDIMW()/2,pausedSurface->w,pausedSurface->h};
+            sprintf(scoreTexte, "Score : %d", score.getScore());
+            SDL_Color scoreColor = {255, 255, 255, 255};
+            SDL_Surface* scoreSurface = TTF_RenderText_Solid(font,scoreTexte, scoreColor);
+            SDL_Texture* scoreTexture = SDL_CreateTextureFromSurface(renderer, scoreSurface);
+            SDL_Rect scoreRect = {430, 0, 100, 25};
+            SDL_RenderCopy(renderer, scoreTexture, NULL, &scoreRect);
             SDL_RenderCopy(renderer,pausedTexture,NULL,&paused);
             SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
             SDL_FreeSurface(pausedSurface);
@@ -366,11 +377,11 @@ if (TTF_Init() != 0) {
                 score.incrementScore(100);
             itab.Update(Pmanager,player,ListeDerniereLigne,indiceDuPlusADroite);
             sprintf(scoreTexte, "Score : %d", score.getScore());
-            SDL_Color textColor = {255, 255, 255, 255};
-            SDL_Surface* textSurface = TTF_RenderText_Solid(font,scoreTexte, textColor);
-            SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
-            SDL_Rect textRect = {430, 0, 100, 25};
-            SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
+            SDL_Color scoreColor = {255, 255, 255, 255};
+            SDL_Surface* scoreSurface = TTF_RenderText_Solid(font,scoreTexte, scoreColor);
+            SDL_Texture* scoreTexture = SDL_CreateTextureFromSurface(renderer, scoreSurface);
+            SDL_Rect scoreRect = {430, 0, 100, 25};
+            SDL_RenderCopy(renderer, scoreTexture, NULL, &scoreRect);
             SDL_RenderCopy(renderer, player.getTexture(), NULL, &playerRect);
             itab.DrawInvaders(renderer);
             player.firePlayer(Pmanager, weaponManager,keyboardState, tirSound);
