@@ -1,23 +1,20 @@
 cmake_minimum_required(VERSION 3.0)
 
+# Project name
 project(StarblitzGame)
 
+# Find SDL libraries
 find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED)
+find_package(SDL2_ttf REQUIRED)
+find_package(SDL2_mixer REQUIRED)
 
-target_link_libraries(StarblitzGame PRIVATE SDL2::SDL2 SDL2::SDL2_image)
+# Include directories
+include_directories(${SDL2_INCLUDE_DIRS})
 
-
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
-
-
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set(CMAKE_OBJECT_DIRECTORY ${CMAKE_BINARY_DIR}/obj)
-
-
-add_executable(StarblitzGame
+# Source files
+set(SRC_FILES
   src/StarblitzGameDisplay.cpp
-  src/StarblitzGameLogic.cpp
   src/ScoreSystem.cpp
   src/Projectile.cpp
   src/Position.cpp
@@ -30,14 +27,51 @@ add_executable(StarblitzGame
   src/WeaponManager.cpp
 )
 
+# Object files (generated)
+set(OBJECT_FILES
+  ${CMAKE_CURRENT_BINARY_DIR}/obj/StarblitzGameDisplay.o
+  ${CMAKE_CURRENT_BINARY_DIR}/obj/ScoreSystem.o
+  ${CMAKE_CURRENT_BINARY_DIR}/obj/Projectile.o
+  ${CMAKE_CURRENT_BINARY_DIR}/obj/Position.o
+  ${CMAKE_CURRENT_BINARY_DIR}/obj/Playership.o
+  ${CMAKE_CURRENT_BINARY_DIR}/obj/Invaders.o
+  ${CMAKE_CURRENT_BINARY_DIR}/obj/Partie.o
+  ${CMAKE_CURRENT_BINARY_DIR}/obj/InvadersManager.o
+  ${CMAKE_CURRENT_BINARY_DIR}/obj/Weapon.o
+  ${CMAKE_CURRENT_BINARY_DIR}/obj/ProjectileManager.o
+  ${CMAKE_CURRENT_BINARY_DIR}/obj/WeaponManager.o
+)
 
-target_link_libraries(StarblitzGame PRIVATE SDL2::SDL2 SDL2::SDL2_image)
+# Compile object files with platform-specific flags
+if(WIN32)
+  add_compile_options("/W3")  # Warnings as errors on Windows
+endif()
 
+add_executable(StarblitzGame ${OBJECT_FILES})
 
-add_custom_target(clean
-  COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_SOURCE_DIR}/clean.cmake
-  VERBATIM)
+# Link with SDL libraries
+target_link_libraries(StarblitzGame ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} ${SDL2_TTF_LIBRARIES} ${SDL2_MIXER_LIBRARIES})
 
-add_custom_target(realclean
-  COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_SOURCE_DIR}/realclean.cmake
-  VERBATIM)
+# Create object directory
+add_custom_command(
+  OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/obj
+  COMMAND mkdir ${CMAKE_CURRENT_BINARY_DIR}/obj
+  VERBATIM
+)
+
+# Compile object files
+add_custom_target(Compile ALL
+  FOR_FILES ${SRC_FILES}
+  COMMAND ${CMAKE_COMMAND} -E compile_objects
+    $<FLAGS:COMPILE>
+    $<$<PLATFORM_ID:WIN32>>:/W3  # Warnings as errors on Windows again
+    $<INPUT_FILE>
+    $<OUTPUT_FILE:${CMAKE_CURRENT_BINARY_DIR}/obj/${@base_name}.o>
+)
+
+# Clean target
+add_custom_target(clean COMMAND rm -rf ${CMAKE_CURRENT_BINARY_DIR}/obj)
+add_custom_target(realclean COMMAND rm -rf ${CMAKE_CURRENT_BINARY_DIR}/obj ${CMAKE_CURRENT_BINARY_DIR}/bin)
+
+# Dependencies
+add_dependencies(StarblitzGame Compile)
