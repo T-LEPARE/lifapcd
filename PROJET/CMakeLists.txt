@@ -27,7 +27,7 @@ set(SRC_FILES
   src/WeaponManager.cpp
 )
 
-# Object files (generated)
+# Object files
 set(OBJECT_FILES
   ${CMAKE_CURRENT_BINARY_DIR}/obj/StarblitzGameDisplay.o
   ${CMAKE_CURRENT_BINARY_DIR}/obj/ScoreSystem.o
