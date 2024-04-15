@@ -106,6 +106,13 @@
     "cstring": "cpp",
     "list": "cpp",
     "optional": "cpp",
-    "ctime": "cpp"
+    "ctime": "cpp",
+    "any": "cpp",
+    "strstream": "cpp",
+    "set": "cpp",
+    "fstream": "cpp",
+    "iomanip": "cpp",
+    "sstream": "cpp",
+    "variant": "cpp"
   }
 }

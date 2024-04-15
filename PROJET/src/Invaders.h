@@ -144,11 +144,6 @@ public:
     float getHeight();
 
 
-    /**
-     @brief les déplacements de l'Invader selon un pattern 
-    */
-    void movement();
-
    /**
     * @brief  permet de recuperer la texture des invaders
     * 
@@ -176,11 +171,6 @@ public:
      * @param _surface 
      */
     void setSurface(SDL_Surface* _surface);
-
-    /**
-     * @return un booléen qui vérifie si l'invader peut tirer (cadence de tir) 
-     */
-    bool InvaderpeutTirer();
 
     /**
      * @brief permet au invader de tirer 

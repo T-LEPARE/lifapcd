@@ -103,14 +103,6 @@ bool InvadersManager::InvaderDead()
     return false;
 }
 
-bool InvadersManager::PlayerDelayDmg()
-{
-    Uint32 maintenant = SDL_GetTicks();
-    if (maintenant - Dernier_PerteDeVie > 50)
-        return true;
-    return false;
-}
-
 void InvadersManager::hasInvaderCollided(Player* playerPtr)
 {
     for(int i=0;i<nbInvader;i++)
@@ -123,7 +115,7 @@ void InvadersManager::hasInvaderCollided(Player* playerPtr)
             (Iposition.y + invaders[i].getHeight()> Pposition.y ))
             {
                 Uint32 maintenant = SDL_GetTicks();
-                if (PlayerDelayDmg()) 
+                if (maintenant - Dernier_PerteDeVie > 50)
                 {
                     Dernier_PerteDeVie = maintenant;
                     DamageTakenPlayer(playerPtr,invaders[i]);
@@ -144,15 +136,19 @@ bool InvadersManager::IsAllDead() {
 }
 
 void InvadersManager::InitTabInvader(SDL_Renderer* renderer,SDL_Surface* surfaceInvader){
+    if (surfaceInvader != nullptr) {
+    SDL_Texture* invaderTexture = SDL_CreateTextureFromSurface(renderer, surfaceInvader);
     float x,y;
     x=50;
     y=100;
-    for(int i = 0;i<nbInvader;i++){
-        // Création du Invader
-        Invader invader(x,y,10*vague,5*vague);
+    float NvHP = 10*vague;
+    int Nvdmg = 5*vague;
+    for (int i = 0;i<nbInvader;i++) {
+        // Création de l'invader
+        Invader invader(x,y,NvHP,Nvdmg);
         AddInvader(invader);
         invaders[i].setSurface(surfaceInvader);
-        invaders[i].setTexture(SDL_CreateTextureFromSurface(renderer, invaders[i].getSurface()));
+        invaders[i].setTexture(invaderTexture);
         if (invaders[i].getTexture() == nullptr) {
             SDL_Log("Échec de la création de la texture : %s", SDL_GetError());
             exit(EXIT_FAILURE);
@@ -160,6 +156,7 @@ void InvadersManager::InitTabInvader(SDL_Renderer* renderer,SDL_Surface* surface
         if (x+invaders[i].getWidth()+10>=400)
             {x=-10;y+=invaders[i].getHeight()+10;}
         x+=invaders[i].getWidth()+10;
+    }
     }
 }
 

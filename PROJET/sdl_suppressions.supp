@@ -4,5 +4,6 @@
    obj:*/SDL2/SDL.h
    obj:*/SDL2/SDL_image.h
    obj:*/SDL2/SDL_audio.h
-
+   obj:*/SDL2/SDL_ttf.h
+   obj:*/SDL2//SDL_mixer.h
 }

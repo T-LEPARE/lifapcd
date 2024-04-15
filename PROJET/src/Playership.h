@@ -156,7 +156,7 @@ public:
    * @brief Checks if the Player is able to fire a projectile.
    * @return True if the Player can fire, False otherwise.
    */
-  bool peutTirer();  
+  bool peutTirer(WeaponManager& weaponManager);  
 
   /**
    * @brief Fires a projectile from the Player's current weapon.

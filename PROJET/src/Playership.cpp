@@ -209,17 +209,17 @@ void Player::moveShip(const Uint8 *keyboardState) {
     }
 
 
-    bool Player::peutTirer() {
+    bool Player::peutTirer(WeaponManager& weaponManager) {
     Uint32 maintenant = SDL_GetTicks();
-    WeaponManager wp;
-    if (maintenant - dernier_tir > wp.getfireRate(getCurrentWeaponName()))
+
+    if (maintenant - dernier_tir > weaponManager.getfireRate(getCurrentWeaponName()))
         return true;
     return false;
     }
 
     void Player::firePlayer(ProjectileManager& projectileManager, WeaponManager& weaponManager, const Uint8 *keyboardState, Mix_Chunk* Tirsound) {
         Uint32 maintenant = SDL_GetTicks();
-        if (peutTirer()) {
+        if (peutTirer(weaponManager)) {
             dernier_tir = maintenant;
             float x,y;
             if (getCurrentWeaponName()=="mitraillette")

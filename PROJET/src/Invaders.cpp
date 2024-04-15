@@ -24,7 +24,7 @@
 
     Invader::~Invader()
     {
-    
+        //InvadersManager devrait s'occuper de tout
     }
 
     Invader Invader::InitInvader(float x, float y, int HealthPoint,float spd,int damage)
@@ -101,10 +101,6 @@
         return this->height;
     }
 
-    void Invader::movement()
-    {
-        
-    }
     SDL_Texture* Invader::getTexture(){
         return texture;
     }
@@ -118,18 +114,10 @@
         surface = _surface;
     }
     
-    bool Invader::InvaderpeutTirer() {
-    Uint32 maintenant = SDL_GetTicks();
-    WeaponManager wp;
-    if (maintenant - dernier_tir > 2000)
-        return true;
-    return false;
-    }
-
 
     void Invader::shootInvader(ProjectileManager& projectileManager) {
         Uint32 maintenant = SDL_GetTicks();
-        if (InvaderpeutTirer()) 
+        if (maintenant - dernier_tir > 2000) 
         {
             dernier_tir = maintenant;
             std::unique_ptr<Projectile> p = std::make_unique<Projectile>(

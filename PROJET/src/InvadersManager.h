@@ -77,12 +77,6 @@ public:
   void CheckCollisions(Projectile P);
 
   /**
-   * @brief Checks if the player is currently invulnerable due to taking damage.
-   * @return True if the player is invulnerable, False otherwise.
-   */
-  bool PlayerDelayDmg();
-
-  /**
    * @brief Checks for collision between a specific Invader and the Player.
    * @param playerPtr Pointer to a Player object.
    */

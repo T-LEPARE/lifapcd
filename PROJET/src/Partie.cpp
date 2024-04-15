@@ -65,7 +65,7 @@ if (TTF_Init() != 0) {
     }
 
     Mix_Chunk* SoundDmg = Mix_LoadWAV("./data/SoundDmgV2.wav");
-    if (tirSound == nullptr) {
+    if (SoundDmg == nullptr) {
         std::cerr << "Erreur lors du chargement du son : " << Mix_GetError() << std::endl;
         Mix_Quit();
         SDL_Quit();
@@ -245,6 +245,9 @@ if (TTF_Init() != 0) {
             SDL_DestroyTexture(menuTexture);
             SDL_FreeSurface(textSurface);
             SDL_DestroyTexture(textTexture);
+                SDL_DestroyTexture(vieTexture);
+
+
   
         }else if (gameState == GameState::loosescreen) {
             // Affichage du menu
@@ -273,6 +276,10 @@ if (TTF_Init() != 0) {
             SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
             SDL_FreeSurface(textSurface);
             SDL_DestroyTexture(textTexture);
+            SDL_DestroyTexture(scoreTexture);
+            SDL_DestroyTexture(waveTexture);
+            SDL_FreeSurface(scoreSurface);
+            SDL_FreeSurface(waveSurface);
   
         }  else if (gameState == GameState::Paused) {
             // Affichage du menu
@@ -426,6 +433,13 @@ if (TTF_Init() != 0) {
 
 
     // Libération des ressources
+    SDL_FreeSurface(surfaceInvader);
+    SDL_FreeSurface(vie1Surface);
+    SDL_FreeSurface(vie2Surface);
+    SDL_FreeSurface(vie3Surface);
+    SDL_FreeSurface(vie4Surface);
+    SDL_FreeSurface(vie5Surface);
+    SDL_FreeSurface(vie0Surface);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     TTF_CloseFont(font);
