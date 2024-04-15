@@ -171,9 +171,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a1b8378732e1dae75e19b69b9b8916e42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWeapon.html">Weapon</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a1b8378732e1dae75e19b69b9b8916e42">getCurrentWeapon</a> ()</td></tr>
 <tr class="memdesc:a1b8378732e1dae75e19b69b9b8916e42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the <a class="el" href="classPlayer.html">Player</a>'s current weapon object.  <a href="classPlayer.html#a1b8378732e1dae75e19b69b9b8916e42">More...</a><br /></td></tr>
 <tr class="separator:a1b8378732e1dae75e19b69b9b8916e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab145716d6e5cc94757623fab43d7cb55"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#ab145716d6e5cc94757623fab43d7cb55">peutTirer</a> ()</td></tr>
-<tr class="memdesc:ab145716d6e5cc94757623fab43d7cb55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the <a class="el" href="classPlayer.html">Player</a> is able to fire a projectile.  <a href="classPlayer.html#ab145716d6e5cc94757623fab43d7cb55">More...</a><br /></td></tr>
-<tr class="separator:ab145716d6e5cc94757623fab43d7cb55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a547673dfba2bbffab50c263868e25b2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a547673dfba2bbffab50c263868e25b2c">peutTirer</a> (<a class="el" href="classWeaponManager.html">WeaponManager</a> &amp;weaponManager)</td></tr>
+<tr class="memdesc:a547673dfba2bbffab50c263868e25b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the <a class="el" href="classPlayer.html">Player</a> is able to fire a projectile.  <a href="classPlayer.html#a547673dfba2bbffab50c263868e25b2c">More...</a><br /></td></tr>
+<tr class="separator:a547673dfba2bbffab50c263868e25b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64de6c3697ca058d045277f813cd780b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a64de6c3697ca058d045277f813cd780b">firePlayer</a> (<a class="el" href="classProjectileManager.html">ProjectileManager</a> &amp;projectileManager, <a class="el" href="classWeaponManager.html">WeaponManager</a> &amp;weaponManager, const Uint8 *keyboardState, Mix_Chunk *Tirsound)</td></tr>
 <tr class="memdesc:a64de6c3697ca058d045277f813cd780b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fires a projectile from the <a class="el" href="classPlayer.html">Player</a>'s current weapon.  <a href="classPlayer.html#a64de6c3697ca058d045277f813cd780b">More...</a><br /></td></tr>
 <tr class="separator:a64de6c3697ca058d045277f813cd780b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -635,8 +635,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a id="ab145716d6e5cc94757623fab43d7cb55"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab145716d6e5cc94757623fab43d7cb55">&#9670;&nbsp;</a></span>peutTirer()</h2>
+<a id="a547673dfba2bbffab50c263868e25b2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a547673dfba2bbffab50c263868e25b2c">&#9670;&nbsp;</a></span>peutTirer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -644,7 +644,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
         <tr>
           <td class="memname">bool Player::peutTirer </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classWeaponManager.html">WeaponManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>weaponManager</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

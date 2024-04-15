@@ -7,8 +7,7 @@ var searchData=
   ['inittabinvader_56',['InitTabInvader',['../classInvadersManager.html#a11a841006bd3a6add8573752c4316a6a',1,'InvadersManager']]],
   ['invader_57',['Invader',['../classInvader.html',1,'Invader'],['../classInvader.html#a66554fabc7a2ca91051589b018bca99a',1,'Invader::Invader()'],['../classInvader.html#a77dbf113947c264ee27bb60efa8bba4d',1,'Invader::Invader(float x, float y, float NvHP, int Nvdmg)']]],
   ['invaderdead_58',['InvaderDead',['../classInvadersManager.html#a586087e5d03568378b286a47295d87e9',1,'InvadersManager']]],
-  ['invaderpeuttirer_59',['InvaderpeutTirer',['../classInvader.html#a09e546de91cfec1f69bd551a9e88bf48',1,'Invader']]],
-  ['invadersmanager_60',['InvadersManager',['../classInvadersManager.html',1,'InvadersManager'],['../classInvadersManager.html#a118cdbf910cdd7d71fae78154ad39e92',1,'InvadersManager::InvadersManager()'],['../classInvadersManager.html#a37da04590a4f2d1d861e7f5723000d5f',1,'InvadersManager::InvadersManager(int nb)']]],
-  ['isalldead_61',['IsAllDead',['../classInvadersManager.html#ad39bdfebe8c13d274fe7e05a4020b766',1,'InvadersManager']]],
-  ['isprojectileoutofbounds_62',['isProjectileOutOfBounds',['../classProjectileManager.html#a1c128ebf1dfb06216ea8a48165431fa4',1,'ProjectileManager']]]
+  ['invadersmanager_59',['InvadersManager',['../classInvadersManager.html',1,'InvadersManager'],['../classInvadersManager.html#a118cdbf910cdd7d71fae78154ad39e92',1,'InvadersManager::InvadersManager()'],['../classInvadersManager.html#a37da04590a4f2d1d861e7f5723000d5f',1,'InvadersManager::InvadersManager(int nb)']]],
+  ['isalldead_60',['IsAllDead',['../classInvadersManager.html#ad39bdfebe8c13d274fe7e05a4020b766',1,'InvadersManager']]],
+  ['isprojectileoutofbounds_61',['isProjectileOutOfBounds',['../classProjectileManager.html#a1c128ebf1dfb06216ea8a48165431fa4',1,'ProjectileManager']]]
 ];

@@ -312,6 +312,31 @@ if (TTF_Init() != 0) {
             SDL_Surface* scoreSurface = TTF_RenderText_Solid(font,scoreTexte, scoreColor);
             SDL_Texture* scoreTexture = SDL_CreateTextureFromSurface(renderer, scoreSurface);
             SDL_Rect scoreRect = {430, 0, 100, 25};
+                        if(player.getHP()>= 80){
+                vieTexture =  SDL_CreateTextureFromSurface(renderer, vie5Surface);
+                SDL_Rect Vie5Rect = {0, 0, 100, 50};
+                SDL_RenderCopy(renderer, vieTexture, NULL, &Vie5Rect);
+            }
+            else if (player.getHP() >= 60 && player.getHP()< 80){
+                vieTexture =  SDL_CreateTextureFromSurface(renderer, vie4Surface);
+                SDL_Rect Vie4Rect = {0, 0, 100, 50};
+                SDL_RenderCopy(renderer, vieTexture, NULL, &Vie4Rect);
+            }
+            else if (player.getHP() >= 40 && player.getHP() < 60){
+               SDL_Texture* vieTexture =  SDL_CreateTextureFromSurface(renderer, vie3Surface);
+                SDL_Rect Vie3Rect = {0, 0, 100, 50};
+                SDL_RenderCopy(renderer, vieTexture, NULL, &Vie3Rect);
+            }
+            else if (player.getHP() >= 20 && player.getHP() < 40){
+                vieTexture =  SDL_CreateTextureFromSurface(renderer, vie2Surface);
+                SDL_Rect Vie2Rect = {0, 0, 100, 50};
+                SDL_RenderCopy(renderer, vieTexture, NULL, &Vie2Rect);
+            }
+            else if (player.getHP() >= 1 && player.getHP() < 20){
+                vieTexture =  SDL_CreateTextureFromSurface(renderer, vie1Surface);
+                SDL_Rect Vie1Rect = {0, 0, 100, 50};
+                SDL_RenderCopy(renderer, vieTexture, NULL, &Vie1Rect);
+            }
             sprintf(numvague, "Wave : %d", itab.GetNumVague());
             SDL_Color waveColor = {255, 255, 255, 255};
             SDL_Surface* waveSurface = TTF_RenderText_Solid(font,numvague, waveColor);

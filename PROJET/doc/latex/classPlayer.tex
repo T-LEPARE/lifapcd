@@ -88,7 +88,7 @@ std\+::string \mbox{\hyperlink{classPlayer_ab188f2ba361f36a331960a21f263750d}{ge
 \begin{DoxyCompactList}\small\item\em Gets the name of the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s current weapon. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classWeapon}{Weapon}} \mbox{\hyperlink{classPlayer_a1b8378732e1dae75e19b69b9b8916e42}{get\+Current\+Weapon}} ()
 \begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s current weapon object. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classPlayer_ab145716d6e5cc94757623fab43d7cb55}{peut\+Tirer}} ()
+bool \mbox{\hyperlink{classPlayer_a547673dfba2bbffab50c263868e25b2c}{peut\+Tirer}} (\mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&weapon\+Manager)
 \begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classPlayer}{Player}} is able to fire a projectile. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPlayer_a64de6c3697ca058d045277f813cd780b}{fire\+Player}} (\mbox{\hyperlink{classProjectileManager}{Projectile\+Manager}} \&projectile\+Manager, \mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&weapon\+Manager, const Uint8 $\ast$keyboard\+State, Mix\+\_\+\+Chunk $\ast$Tirsound)
 \begin{DoxyCompactList}\small\item\em Fires a projectile from the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s current weapon. \end{DoxyCompactList}\item 
@@ -321,11 +321,11 @@ Moves the \mbox{\hyperlink{classPlayer}{Player}}\textquotesingle{}s position bas
 {\em keyboard\+State} & Pointer to an array of Uint8 representing the current keyboard state. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classPlayer_ab145716d6e5cc94757623fab43d7cb55}\label{classPlayer_ab145716d6e5cc94757623fab43d7cb55}} 
+\mbox{\Hypertarget{classPlayer_a547673dfba2bbffab50c263868e25b2c}\label{classPlayer_a547673dfba2bbffab50c263868e25b2c}} 
 \index{Player@{Player}!peutTirer@{peutTirer}}
 \index{peutTirer@{peutTirer}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{peutTirer()}{peutTirer()}}
-{\footnotesize\ttfamily bool Player\+::peut\+Tirer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Player\+::peut\+Tirer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWeaponManager}{Weapon\+Manager}} \&}]{weapon\+Manager }\end{DoxyParamCaption})}
 
 
 
