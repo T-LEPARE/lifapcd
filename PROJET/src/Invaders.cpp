@@ -121,7 +121,7 @@
     bool Invader::InvaderpeutTirer() {
     Uint32 maintenant = SDL_GetTicks();
     WeaponManager wp;
-    if (maintenant - dernier_tir > 1000)
+    if (maintenant - dernier_tir > 2000)
         return true;
     return false;
     }

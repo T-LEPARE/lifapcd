@@ -1,6 +1,5 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include <SDL2/SDL_audio.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_mixer.h>
 #include <iostream>
@@ -86,7 +85,6 @@ if (TTF_Init() != 0) {
 
 
 
-  // Démarre la lecture audio
 
     // Attendre que la musique se termine (ou ajouter de la logique pour continuer à jouer)
 
@@ -159,8 +157,6 @@ if (TTF_Init() != 0) {
     const float targetFrameTime = 1000.0f / targetFPS;  // milliseconds per frame
     float elapsed;
     float delay;
-    // SDL_QueueAudio(deviceId, wavStartFond, wavLengthFond);
-    // SDL_PauseAudioDevice(deviceId, 0);
         while (running) {
         Uint64 start = SDL_GetPerformanceCounter();
         while (SDL_PollEvent(&event)) {
@@ -179,7 +175,7 @@ if (TTF_Init() != 0) {
                         player.setHP(0);
                         itab.resetInvaders();
                         player.playerDeath(Pmanager);
-                        itab.SetnbInvader(1);
+                        itab.SetnbInvader(12);
                         itab.SetNumVague(1);
                         itab.InitTabInvader(renderer,surfaceInvader);
                         itab.RectInvaderInit(renderer); // Commence le jeu si l'utilisateur appuie sur Entrée
@@ -332,7 +328,7 @@ if (TTF_Init() != 0) {
             player.moveShip(keyboardState);
             if(itab.IsAllDead()){
                 std::cout<<"It's empty !"<<std::endl;
-                itab.SetnbInvader(1);
+                itab.SetnbInvader(12);
                 itab.SetNumVague(itab.GetNumVague()+1);
                 itab.InitTabInvader(renderer,surfaceInvader);
                 itab.RectInvaderInit(renderer);
