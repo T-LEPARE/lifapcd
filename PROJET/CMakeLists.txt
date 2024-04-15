@@ -9,37 +9,34 @@ find_package(SDL2_image REQUIRED)
 find_package(SDL2_ttf REQUIRED)
 find_package(SDL2_mixer REQUIRED)
 
+# Find gtest library
+find_package(GTest REQUIRED)
+
 # Include directories
-include_directories(${SDL2_INCLUDE_DIRS})
+include_directories(
+    ${SDL2_INCLUDE_DIRS}
+    ${GTEST_INCLUDE_DIRS}
+    ./src
+)
 
 # Source files
 set(SRC_FILES
-  src/StarblitzGameDisplay.cpp
-  src/ScoreSystem.cpp
-  src/Projectile.cpp
-  src/Position.cpp
-  src/Playership.cpp
-  src/Invaders.cpp
-  src/Partie.cpp
-  src/InvadersManager.cpp
-  src/Weapon.cpp
-  src/ProjectileManager.cpp
-  src/WeaponManager.cpp
+    src/StarblitzGameDisplay.cpp
+    src/ScoreSystem.cpp
+    src/Projectile.cpp
+    src/Position.cpp
+    src/Playership.cpp
+    src/Invaders.cpp
+    src/Partie.cpp
+    src/InvadersManager.cpp
+    src/Weapon.cpp
+    src/ProjectileManager.cpp
+    src/WeaponManager.cpp
 )
 
-# Object files
-set(OBJECT_FILES
-  ${CMAKE_CURRENT_BINARY_DIR}/obj/StarblitzGameDisplay.o
-  ${CMAKE_CURRENT_BINARY_DIR}/obj/ScoreSystem.o
-  ${CMAKE_CURRENT_BINARY_DIR}/obj/Projectile.o
-  ${CMAKE_CURRENT_BINARY_DIR}/obj/Position.o
-  ${CMAKE_CURRENT_BINARY_DIR}/obj/Playership.o
-  ${CMAKE_CURRENT_BINARY_DIR}/obj/Invaders.o
-  ${CMAKE_CURRENT_BINARY_DIR}/obj/Partie.o
-  ${CMAKE_CURRENT_BINARY_DIR}/obj/InvadersManager.o
-  ${CMAKE_CURRENT_BINARY_DIR}/obj/Weapon.o
-  ${CMAKE_CURRENT_BINARY_DIR}/obj/ProjectileManager.o
-  ${CMAKE_CURRENT_BINARY_DIR}/obj/WeaponManager.o
+# Test source files
+set(TEST_SRC_FILES
+    src/TestsRegression.cpp
 )
 
 # Compile object files with platform-specific flags
@@ -47,26 +44,24 @@ if(WIN32)
   add_compile_options("/W3")  # Warnings as errors on Windows
 endif()
 
-add_executable(StarblitzGame ${OBJECT_FILES})
+# Add executable
+add_executable(StarblitzGame ${SRC_FILES})
 
 # Link with SDL libraries
-target_link_libraries(StarblitzGame ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} ${SDL2_TTF_LIBRARIES} ${SDL2_MIXER_LIBRARIES})
-
-# Create object directory
-add_custom_command(
-  OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/obj
-  COMMAND mkdir ${CMAKE_CURRENT_BINARY_DIR}/obj
-  VERBATIM
+target_link_libraries(StarblitzGame 
+    ${SDL2_LIBRARIES} 
+    ${SDL2_IMAGE_LIBRARIES} 
+    ${SDL2_TTF_LIBRARIES} 
+    ${SDL2_MIXER_LIBRARIES}
 )
 
-# Compile object files
-add_custom_target(Compile ALL
-  FOR_FILES ${SRC_FILES}
-  COMMAND ${CMAKE_COMMAND} -E compile_objects
-    $<FLAGS:COMPILE>
-    $<$<PLATFORM_ID:WIN32>>:/W3  # Warnings as errors on Windows again
-    $<INPUT_FILE>
-    $<OUTPUT_FILE:${CMAKE_CURRENT_BINARY_DIR}/obj/${@base_name}.o>
+# Add test executable
+add_executable(TestsRegression ${TEST_SRC_FILES})
+
+# Link with gtest library
+target_link_libraries(TestsRegression 
+    ${GTEST_BOTH_LIBRARIES}
+    pthread
 )
 
 # Clean target
