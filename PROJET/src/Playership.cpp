@@ -147,21 +147,6 @@ void Player::moveShip(const Uint8 *keyboardState) {
   }
 }
 
-    void Player::DamageTakenProjectile(bool b,Projectile P)
-    {
-        int dmg=P.getDamage();
-        if (b)
-            HP-=dmg;
-    }
-
-
-    void Player::DamageTakenInvader(bool b,Invader I)
-    {
-        int dmg=I.getDamage();
-        if (b)
-            HP-=dmg;
-    }
-
     void Player::setCurrentWeapon(Weapon weapon) {
         currentWeapon = weapon;
     }

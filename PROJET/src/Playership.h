@@ -88,33 +88,6 @@ public:
   float getWidth();
   float getHeight();
 
-  /**
-   * @brief Checks for collision between the Player and a Projectile.
-   * @param Projectile The Projectile object to check for collision.
-   * @return True if there is a collision, False otherwise.
-   */
-  bool CheckCollisionProjectile(Projectile Projectile);
-
-  /**
-   * @brief Handles damage taken by the Player from a Projectile.
-   * @param b Flag indicating if damage should be applied (true) or the function should only check for collision (false).
-   * @param Projectile The Projectile object that inflicted the damage.
-   */
-  void DamageTakenProjectile(bool b, Projectile Projectile);
-
-  /**
-   * @brief Checks for collision between the Player and an Invader.
-   * @param Invader The Invader object to check for collision.
-   * @return True if there is a collision, False otherwise.
-   */
-  bool CheckCollisionInvader(Invader Invader);
-
-  /**
-   * @brief Handles damage taken by the Player from an Invader.
-   * @param b Flag indicating if damage should be applied (true) or the function should only check for collision (false).
-   * @param Invader The Invader object that inflicted the damage.
-   */
-  void DamageTakenInvader(bool b, Invader Invader);
 
 /**
    * @brief Sets the current weapon of the Player.

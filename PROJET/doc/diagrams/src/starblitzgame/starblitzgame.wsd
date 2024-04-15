@@ -1,81 +1,161 @@
 @startuml StarblitzGame
+scale 0.5
 
 class Display {
-  + renderer: SDL_Renderer*
-  + surface: SDL_Surface*
-  + texture: SDL_Texture*
-  + DIMW: int
-  + DIMH: int
-  + Display(renderer: SDL_Renderer*)
-  + getTexture(): SDL_Texture*
-  + getDIMW(): int
-  + getDIMH(): int
+  - DIMW: static int   
+  - DIMH: static int   
+  - surface: SDL_Surface*  
+  - texture: SDL_Texture* 
+  - shouldRender: bool 
+  + Display(SDL_Renderer* renderer)
+  + ~Display()
+  + render(SDL_Renderer* renderer): void
 }
 
 class Playership {
-  - position: Position 
-  - width: int
-  - height: int
-  - surface: SDL_Surface*
-  - texture: SDL_Texture*
   - HP: int
-  + Playership()
-  + setSurface(surface: SDL_Surface*): void
-  + getSurface(): SDL_Surface*
-  + setTexture(texture: SDL_Texture*): void
-  + getTexture(): SDL_Texture*
+  - speed: float
+  - height: int
+  - width: int
+  - pos: Position
+  - direction: Position
+  - currentWeapon: Weapon
+  - currentWeaponName: string
+  - texture: SDL_Texture*
+  - surface: SDL_Surface*
+  - dernier_tir: Uint32
+  - dernier_changement: Uint32
+  + Player()
+  + InitPlayer(x: float, y: float, healthPoint: int, spd: float, height: float, width: float, direct: Position): Player
+  + setCurrentWeapon(weapon: Weapon): void
+  + TempsPourChanger(): bool
+  + CollisionWindow(): void
+  + getCurrentWeaponName(): string
+  + getCurrentWeapon(): Weapon
+  + peutTirer(weaponManager: WeaponManager&): bool 
   + moveShip(keyboardState: const Uint8*): void
-  + firePlayer(Pmanager: ProjectileManager, weaponManager: WeaponManager, keyboardState: const Uint8*): void
+  + firePlayer(projectileManager: ProjectileManager&,weaponManager: WeaponManager&,*keyboardState: const Uint8, Tirsound: Mix_Chunk*): void
   + changeWeapon(weaponManager: WeaponManager, keyboardState: const Uint8*): void
-  + setHP(newHP: int): void
   + HPnullPlayership(): bool
+  + playerDeath(projectileManager: ProjectileManager&): void
 }
 
 class Projectile {
-  - position: Position  
-  - speed: float
-  + Projectile(position: Position, speed: float)
+  - pos: Position
+  - direction: Position
+  - damage: int
+  - projectileSpeed: float
+  - projectileRect: SDL_Rect
+  - height: float
+  - width: float
+  - ProvenanceDuTir: bool
+  + Projectile()
+  + Projectile(x: float, y: float, weaponName: string, weaponManager: WeaponManager&)
+  + Projectile(invPos: const Position&, dmg: const int&)
+  + ~Projectile()
+  + update(): void
+  + getProvenaceDuTir(): bool
+  + drawProjectilePlayer(renderer: SDL_Renderer*): void
+  + drawProjectileInvader(renderer: SDL_Renderer*): void
 }
 
 class ProjectileManager {
-  - projectiles: std::vector<Projectile>
+  - projectiles: vector<unique_ptr<Projectile>>
   + ProjectileManager()
+  + ~ProjectileManager()
+  + addProjectile(projectile: unique_ptr<Projectile>): void
+  + removeProjectiles(projectileToRemove: const unique_ptr<Projectile>&): void
+  + DamageTakenProjectile(projectilePtr: unique_ptr<Projectile>&,playerPtr: Player*,invaderPtr: Invader*): void
+  + isProjectileOutOfBounds(projectile: const unique_ptr<Projectile>& projectile)const : bool
+  + hasProjectileCollided(playerPtr: Player*,invaders: vector<Invader>*,SoundDmg: Mix_Chunk*): void
   + UpdateProj(): void
   + DrawProj(renderer: SDL_Renderer*): void
-  + hasProjectileCollided(player: Playership*, itabPtr: std::vector<Invader>*): void
+  + clearTab(): void
 }
 
 class Weapon {
-  - fireRate: int
-  - projectileType: string
-  + Weapon() 
-  + canFire(): bool
+  - name: string
+  - weapon: WeaponManager::weaponType
+  + Weapon()
+  + Weapon(weaponName: string, weaponManager: WeaponManager&)
+  + ~Weapon()
 }
 
 class WeaponManager {
-  - currentWeapon: Weapon*
-  - weapons: std::vector<Weapon>
+  - weaponTypes: map<std::string, weaponType>
   + WeaponManager()
-  + changeWeapon(newWeaponIndex: int): void
-  + getProjectileType(): string
+  + ~WeaponManager()
+  + struct weaponType {projectileSpeed: float, damage: int, firerate: float, projectileWidth: float, projectileHeight: float}
 }
 
 class Invader {
-  - position: Position
-  - alive: bool
-  + Invader(position: Position)
-  + setDead(): void
-  + isDead(): bool
+  - pos: Position
+  - direction: Position
+  - speed: float
+  - HP: float
+  - dmg: int
+  - width: float
+  - height: float
+  - surface: SDL_Surface*
+  - texture: SDL_Texture*
+  - dernier_tir: Uint32
+  + Invader()
+  + Invader(x: float, y: float, NvHP:float, Nvdmg: int)
+  + ~Invader()
+  + InitInvader(x: float, y: float,HP: int,spd: float, damage: int): Invader
+  + shootInvader(ProjectileManager& tabpro): void
+  + ArriveEnBas(): bool
+  + HPnullInvader(): bool
 }
 
 class InvadersManager {
-  - invaders: std::vector<Invader*>
-  - rows: int
-  - cols: int
-  + InvadersManager(rows: int, cols: int)
-  + UpdateInvaders(): void
-  + DrawInvaders(renderer: SDL_Renderer*): void
-  + hasInvaderCollided(player: Playership*): bool
+  - nbInvader: int
+  - vague: int
+  - Dernier_PerteDeVie: Uint32
+  - invaders: vector<Invader>
+  - rects: vector<SDL_Rect>
+  + InvadersManager()
+  + InvadersManager(nb: int)
+  + ~InvadersManager()
+  + AddInvader(invader: const Invader&): void
+  + RemoveInvader(index: size_t): void
+  + Update(tabpro: ProjectileManager&, player: Player&, InvaderQuiTir: vector<int>,indiceDuPlusADroite: int): void
+  + LePlusADroite(): int
+  + Move(indiceDuPlusADroite: int): void
+  + InvaderDead(): bool
+  + CheckCollisions(P: Projectile): void
+  + hasInvaderCollided(playerPtr: Player*): void
+  + DamageTakenPlayer(playerPtr: Player*,invader: Invader): void
+  + IsAllDead(): bool
+  + InitTabInvader(renderer: SDL_Renderer*,surfaceInvader: SDL_Surface*): void
+  + RectInvaderInit(SDL_Renderer* renderer): void
+  + RectInvaderUpdate(): void
+  + DrawInvaders(SDL_Renderer* renderer): void
+  + QuiPeutTirer(): vector<int> 
+  + Shoot(ProjectileManager& tabpro, std::vector<int> InvaderQuiTir): void
+  + ArriveEnBas(): bool
+  + resetInvaders(): void
+}
+
+struct Position{
+  + x: float
+  + y: float
+  + Position()
+  + Position(x: float, y: float)
+  + operator+(a: Position, b: Position): Position
+  + operator*(a: float, b: Position): Position
+  + operator*(a: Position, b: float): Position
+}
+
+class ScoreSystem {
+  - score: int
+  + ScoreSystem()
+  + ~ScoreSystem()
+  + init(): void
+  + update(): void
+  + draw(): void
+  + incrementScore(bonus: int): void
+  
 }
 
 enum GameState {
@@ -86,30 +166,36 @@ enum GameState {
   loosescreen
 }
 
-class Partie {
-  - display: Display*
-  - player: Playership*
-  - projectileManager: ProjectileManager*
-  - weaponManager: WeaponManager*
-  - invadersManager: InvadersManager*
-  - gameState: GameState
-  + MainLoop(): void
-  + HandleEvents(): void
-  + UpdateGame(): void
-  + RenderGame(): void
+Interface Partie {
+  player: Player
+  itab: InvadersManager
+  Pmanager: ProjectileManager
+  weaponManager: WeaponManager 
+  score: ScoreSystem
+  scoreTexte[20]: char
+  numvague[20]: char
+  main(void): int
 }
+
+
 
 Partie o-- Display : Renders on
 Partie o-- Playership : Manages the player
 Partie o-- ProjectileManager : Manages projectiles
 Partie o-- WeaponManager : Manages weapons
 Partie o-- InvadersManager : Manages invaders
+Partie o-- ScoreSystem : Manages score
 
-Playership -> ProjectileManager : Fires projectiles (through firePlayer)
 WeaponManager -> ProjectileManager : Defines projectile type (through getProjectileType)
-Partie -- GameState : Updates based on game state 
+WeaponManager -> Weapon : Manages Weapon
+ProjectileManager -> Projectile : Manages Projectiles
+InvadersManager -> Invader : Manages Invaders
+Invader <-> ProjectileManager : Collision detection
+Playership <-> ProjectileManager : Collision detection / Fires projectiles
+Playership <-> InvadersManager : Collision detection
+Playership -> Position
+Invader -> Position
+Projectile -> Position
 
-Invader <-> ProjectileManager : Potential collision detection
-Playership <-> InvaderManager : Potential collision detection
 
 @enduml
